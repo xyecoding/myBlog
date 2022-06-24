@@ -216,8 +216,7 @@ AlphaGo 使用了快速走子，策略网络，估值网络和蒙特卡洛搜索
 #### 策略网络(Policy Network)
 
 直接看一个例子，学习的目标是，左右用力使得木棍不倒地
-，[Policy_Network.py](https://github.com/xyegithub/myBlog/blob/main/2021/12/03/First-Step-to-RL/policy_network.py)
-[Policy_Network.py](policy_network.py)
+[Policy_Network.py](https://github.com/xyegithub/myBlog/blob/main/posts/1e331e4a/policy_network.py)
 
 关键代码
 
@@ -307,7 +306,7 @@ action，再在这个相对好的 action 的基础上，在探索探索出更好
 Q-Learing 用神经网络实现，得到的模型就是估值网络。
 
 也看一个例子
-，[Value_Network.py](https://github.com/xyegithub/myBlog/blob/main/2021/12/03/First-Step-to-RL/policy_network.py)
+，[Value_Network.py](https://github.com/xyegithub/myBlog/blob/main/posts/1e331e4a/q_learning.py)
 
 学习每个 Action 所对应的 reward 的期望。
 
