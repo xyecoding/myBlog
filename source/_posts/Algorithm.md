@@ -1031,6 +1031,49 @@ class Solution:
 
 # Other
 
+## Random Pick with Weight <font color=magenta>[2022-06-26]</font>
+
+[Medium](https://leetcode.cn/problems/random-pick-with-weight/)
+
+```python
+class Solution:
+
+    def __init__(self, w: List[int]):
+        self.array = []
+        res = 0
+        for i in w:
+            res += i
+            self.array.append(res)
+        self.sum = res
+
+    def pickIndex(self) -> int:
+        import numpy as np
+        import bisect
+        num = np.random.uniform(0, self.sum, 1)
+        return bisect.bisect_left/right(self.array, num)
+```
+
+## Intersections of Two Arrays II <font color=magenta>[2022-06-25]</font>
+
+[Simple](https://leetcode.cn/problems/intersection-of-two-arrays-ii/)
+
+```python
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        ans = []
+        res1 = defaultdict(lambda : 0)
+        res2 = defaultdict(lambda : 0)
+        for i in nums1:
+            res1[i] += 1
+        for i in nums2:
+            res2[i] += 1
+        for key in res1:
+            if key in res2:
+                num = min(res1[key], res2[key])
+                ans += [key] * num
+        return ans
+```
+
 ## Check if There is a Valid Path in a Grid <font color=magenta>[2022-06-21]</font>
 
 [medium](https://leetcode.cn/problems/check-if-there-is-a-valid-path-in-a-grid/)
