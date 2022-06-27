@@ -231,6 +231,35 @@ class Solution:
 
 # Dynamic Programming
 
+## Minimum One Bit Operations to Make Integers Zero <font color=magenta>[2022-06-27]</font>
+
+[Really Hard](https://leetcode.cn/problems/minimum-one-bit-operations-to-make-integers-zero/)
+
+```python
+class Solution:
+    def minimumOneBitOperations(self, n):
+        dp1 = [0 for _ in range(32)]
+    #dp1[i] 表示 仅第 i 位 为 1 时 将 第 i 位变为 0 的最小修改次数
+        res = 0
+        dp1[0] = 1
+        for i  in range(1,32):
+            dp1[i] = dp1[i - 1] + 1 + dp1[i - 1]
+        f = True
+        # 1. 0 变位仅i位为1的过程中，其后每一位都需要经历若干次从0到1,再从1到0的变化
+        # 2. 其后位中若原本就为1,则不会经历第一次从0到1的变化，因为它本身就是1
+        # 所以若把第i位从1变为0,记为dp[i]，是多记录了，因为其后有1
+        # 所以如果其后遇到1的要减去。但是减去的话又多减了，因为其后还有1,所以又加上
+        for i in range(31, -1, -1):
+            if n >> i & 1:
+                if f:
+                    res += dp1[i]
+                    f = False
+                else:
+                    res -= dp1[i]
+                    f = True
+        return res
+```
+
 ## The number of palindromes
 
 Given a string return the number of the palindromes. The substrings are regarded
