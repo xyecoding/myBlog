@@ -18,7 +18,22 @@ summary:
 
 # Transfer Learning
 
-## [2018, Balanced Distribution Adaptation for Transfer Learning](https://github.com/xyegithub/myBlog/blob/hexo/source/_posts/Tips-in-Papers/TransferLearning/2018BalancedDistributionAdaptationforTransferLearning.pdf)
+## [2018, Balanced Distribution Adaptation for Transfer Learning](https://github.com/xyegithub/myBlog/blob/hexo/source/_posts/Tips-in-Papers/paper_pdfs/TransferLearning/2018BalancedDistributionAdaptationforTransferLearning.pdf)
+
+TL methods minimize the distribution divergence between domains, such as margin
+distribution and conditional distribution or both.
+
+Two problems
+
+1. Existing TL methods treat margin distribution and conditional distribution
+   equally.
+2. Existing TL assume the dataset is balanced which can not cope with the
+   imbalance dataset.
+
+Two methods
+
+1. BDA cope with problem 1
+1. W-BDA cope with problem 2
 
 # Attention
 
