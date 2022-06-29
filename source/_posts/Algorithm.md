@@ -601,6 +601,28 @@ class Solution:
 
 # Sort
 
+## Relative Rank <font color=magenta>[2022-06-28]</font>
+
+[Simple](https://leetcode.cn/problems/relative-ranks/)
+
+```python
+class Solution:
+    def findRelativeRanks(self, score: List[int]) -> List[str]:
+        n = len(score)
+        dic = {
+            0 : 'Gold Medal',
+            1 : 'Silver Medal',
+            2 : 'Bronze Medal',
+            }
+        res = sorted(range(n), key = lambda x : score[x], reverse = True)
+        for i in range(n):
+            if i in dic:
+                score[res[i]] = dic[i]
+            else:
+                score[res[i]] = str(i + 1)
+        return score
+```
+
 ## Sort Integers by the Number of 1 Bits <font color=magenta>[2022-06-16]</font>
 
 [here](https://leetcode.cn/problems/sort-integers-by-the-number-of-1-bits/)
@@ -1059,6 +1081,28 @@ class Solution:
 ```
 
 # Other
+
+## Minimum Cost to Set Cooking Time <font color=magenta>[2022-06-29]</font>
+
+[Medium](https://leetcode.cn/problems/minimum-cost-to-set-cooking-time/)
+
+```python
+class Solution:
+    def minCostSetTime(self, startAt: int, moveCost: int, pushCost: int, targetSeconds: int) -> int:
+        # 给定输入的最小花费
+        def cost(m: int, s: int) -> int:
+            if not (0 <= m <= 99 and 0 <= s <= 99):
+                # 输入不合法
+                return float("INF")
+            digits = [m // 10, m % 10, s // 10, s % 10]
+            # 寻找起始位
+…                    res += moveCost
+                res += pushCost
+            return res
+
+        mm, ss = targetSeconds // 60, targetSeconds % 60
+        return min(cost(mm, ss), cost(mm - 1, ss + 60))   # 两种可能方案的较小值
+```
 
 ## Random Pick with Weight <font color=magenta>[2022-06-26]</font>
 
