@@ -18,7 +18,7 @@ summary:
 
 # Transfer Learning
 
-## [2018, Balanced Distribution Adaptation for Transfer Learning]()
+## [2018, Balanced Distribution Adaptation for Transfer Learning](https://github.com/xyegithub/myBlog/blob/hexo/source/_posts/Tips-in-Papers/TransferLearning/2018%2CBalancedDistributionAdaptationforTransferLearning.pdf)
 
 # Attention
 
