@@ -18,7 +18,7 @@ summary:
 
 # Transfer Learning
 
-## [2018, Balanced Distribution Adaptation for Transfer Learning](https://github.com/xyegithub/myBlog/blob/hexo/source/_posts/Tips-in-Papers/paper_pdfs/TransferLearning/2018BalancedDistributionAdaptationforTransferLearning.pdf)
+## [2018, Balanced Distribution Adaptation for Transfer Learning](https://github.com/xyegithub/myBlog/blob/main/posts/c94b2364/paper_pdfs/TransferLearning/2018BalancedDistributionAdaptationforTransferLearning.pdf)
 
 TL methods minimize the distribution divergence between domains, such as margin
 distribution and conditional distribution or both.

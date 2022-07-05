@@ -80,7 +80,89 @@ class Solution:
         return backtrack(0)
 ```
 
+# Wide First Search
+
+## Count Complete Tree Nodes <font color=magenta>[2022-07-01]</font>
+
+[Medium](https://leetcode.cn/problems/count-complete-tree-nodes/)
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def countNodes(self, root: TreeNode) -> int:
+        res = [1, 0]
+
+        def wide_first_search(cur_nodes):
+            res[0] += 1
+            nex_nodes = []
+            flag = True
+
+            for i in cur_nodes:
+                if i.left and i.right:
+                    nex_nodes.append(i.left)
+                    nex_nodes.append(i.right)
+                else:
+                    flag = False
+                    res[1] = len(nex_nodes)
+                    if i.left or i.right:
+                        res[1] += 1
+                    break
+            if flag:
+                wide_first_search(nex_nodes)
+
+        if  not root:
+            return 0
+        wide_first_search([root])
+        return 2 ** (res[0] - 1) -1 + res[1]
+```
+
 # Depth First Search
+
+## Closest Dessert Cost <font color=magenta>[2022-06-30]</font>
+
+[Medium](https://leetcode.cn/problems/closest-dessert-cost/)
+
+```python
+class Solution:
+    def closestCost(self, baseCosts: List[int], toppingCosts: List[int], target: int) -> int:
+        baseCosts.sort()
+        toppingCosts.sort()
+        res = []
+        cost = 0
+        def check_cost(cost):
+            if not res:
+                min_distance = float('inf')
+            else:
+                min_distance = abs(target - res[-1])
+            distance = abs(target - cost)
+            if distance < min_distance:
+                res.clear()
+                res.append(cost)
+            if distance == min_distance:
+                res.append(cost)
+        def choose_cur(j, cost):
+            if j == len(toppingCosts):
+                return
+            price = toppingCosts[j]
+            choose_cur(j + 1, cost)
+
+            check_cost(cost + price)
+            choose_cur(j + 1, cost + price)
+
+            check_cost(cost + 2 * price)
+            choose_cur(j + 1, cost + 2 * price)
+
+        for i in baseCosts:
+            cost = i
+            check_cost(cost)
+            choose_cur(0, cost)
+        return min(res)
+```
 
 ## Find All Possible Recipes from Given Supplies <font color=magenta>[2022-06-24]</font>
 
@@ -947,6 +1029,28 @@ class Solution(object):
 ```
 
 # Brute Force Search
+
+## Longest Nice Substring <font color=magenta>[2022-07-05]</font>
+
+[Simple](https://leetcode.cn/problems/longest-nice-substring/)
+
+```python
+class Solution:
+    def longestNiceSubstring(self, s: str) -> str:
+        n = len(s)
+        maxPos, maxLen = 0, 0
+        for i in range(n):
+            lower, upper = 0, 0
+            for j in range(i, n):
+                if s[j].islower():
+                    lower |= 1 << (ord(s[j]) - ord('a'))
+                else:
+                    upper |= 1 << (ord(s[j]) - ord('A'))
+                if lower == upper and j - i + 1 > maxLen:
+                    maxPos = i
+                    maxLen = j - i + 1
+        return s[maxPos: maxPos + maxLen]
+```
 
 ## Number of String That Appear as Substrings in Word <font color=magenta>[2022-06-17]</font>
 
