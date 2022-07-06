@@ -1296,6 +1296,48 @@ class Solution:
         return reach(cur1) or reach(cur2)
 ```
 
+## Find K-th Smallest Pair distance <font color=magenta>[2022-07-06]</font>
+
+[Hard](https://leetcode.cn/problems/find-k-th-smallest-pair-distance/)
+
+```python
+
+class Solution:
+    def smallestDistancePair(self, nums: List[int], k: int) -> int:
+        def count(mid: int) -> int:
+            # count the pairs whose distance smaller and equil to mid
+            cnt = 0
+            for j, num in enumerate(nums):
+                # when num is the larger one in the pair
+                # the number in some position could be the
+                # smaller one, it must larger than num - mid
+                i = bisect_left(nums, num - mid, 0, j)
+                cnt += j - i
+            return cnt
+
+        nums.sort()
+
+        # The answer must be in range(0, nums[-1] - nums[0])
+        # when pick a number in the range, we count the pair of numbers
+        # whose distance is smaller or equal than it.
+
+        # for example, if number 5, 6, 7, 8 have count k - 1, k, k, k +1
+        # the answer will be 6, 5 has k - 1 pairs smaller or equal
+        # 6 has k, thus will have pairs distance euqal to 6, and it is
+        # the top-k smallest distance.
+        # there are no pair whose distance is 7
+
+        # if  number 5, 6, 7 have count k - 10, k + 10, k + 20
+        # the answer is 6, there is 20 pairs whose distace is 6, and
+        # and the top-k smallest distance is in them.
+
+        # if the number nums[-1] - nums[0] - 1  has n counts and k > n
+        # then k will be nums[-1] - nums[0]
+        # thus, we need to use bisect_left and do not need to exame
+        # nums[-1] - nums[0]
+        return bisect_left(range(nums[-1] - nums[0]), k, key=count)
+```
+
 ## Maximum Number of Visible Points <font color=magenta>[2022-06-19]</font>
 
 [hard](https://leetcode.cn/problems/maximum-number-of-visible-points/)
