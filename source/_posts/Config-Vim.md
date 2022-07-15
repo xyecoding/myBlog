@@ -638,6 +638,13 @@ download it manually. And change the url of the parsers.
 The `{language}.so` files are in
 `~/.local/share/lunarvim/site/pack/packer/start/nvim-treesitter.git/parser`.
 
+#### An Error May Occur When using `aerial`
+
+When using aerial, and open a markdown file a error may be occur
+`Error executing vim.schedule lua callback: ...c/.local/share/nvim/runtime/lua/vim/treesitter/query.lua:172 : query: invalid field at position 122`.
+
+This is solved by remove the parser of markdown in the parser folder.
+
 <!-- #### Notice -->
 
 <!-- treestter may not always perform a good highlight, e.g., for markdown or tex -->

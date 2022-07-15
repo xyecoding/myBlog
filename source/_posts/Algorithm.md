@@ -313,6 +313,49 @@ class Solution:
 
 # Dynamic Programming
 
+## Find Two Non-overlapping Sub-arrays Each With Target Sum <font color=magenta>[2022-07-07]</font>
+
+[Medium](https://leetcode.cn/problems/find-two-non-overlapping-sub-arrays-each-with-target-sum/)
+
+```python
+class Solution:
+    def minSumOfLengths(self, arr: List[int], target: int) -> int:
+        n = len(arr)
+        res = n + 1
+
+        pre = {}
+
+        # make sure the sub array start from 0 can be visited
+        pre[0] = -1
+        dp = [float('inf')] * n
+
+        p = 0
+        for i, a in enumerate(arr):
+            # p is the sum from idex 0 to i
+            p += a
+            dp[i] = dp[i - 1]
+
+            # if p - target in pre then target = p - pre which is a sub array
+            # the sum eqaul to target
+            if (p - target) in pre:
+                cur = i - pre[p - target]
+                # dp[pre[p - target]] != float if and only if there are sub
+                # array whose sum eqauls to the target, and it can not connect
+                # with cur sub array because current sub array is from index
+                # pre[p - target]
+                # Note that: this can find all the possible pairs of sub
+                # arrays
+                if pre[p - target] >= 0 and dp[pre[p - target]] != float('inf'):
+                    res = min(res, cur + dp[pre[p - target]])
+                # dp does not equal to inf anymore, only if there are sub
+                # array whose sum equals to the target
+                dp[i] = min(i - pre[p - target], dp[i - 1])
+
+            # the sum from index 0 to i is p
+            pre[p] = i
+        return -1 if res == n + 1 else res
+```
+
 ## Minimum One Bit Operations to Make Integers Zero <font color=magenta>[2022-06-27]</font>
 
 [Really Hard](https://leetcode.cn/problems/minimum-one-bit-operations-to-make-integers-zero/)
@@ -403,6 +446,39 @@ class Solution(object):
 ```
 
 # Linked List
+
+## Partition List LCCI <font color=magenta>[2022-07-15]</font>
+
+[Medium](https://leetcode.cn/problems/partition-list-lcci/)
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def partition(self, head: ListNode, x: int) -> ListNode:
+        small_head = ListNode(None)
+        large_head = ListNode(None)
+        small_cur = small_head
+        large_cur = large_head
+
+        while head:
+            if head.val < x:
+                small_cur.next = head
+                small_cur = head
+            else:
+                large_cur.next = head
+                large_cur = head
+
+            head = head.next
+
+        large_cur.next = None
+        small_cur.next = large_head.next
+        return small_head.next
+```
 
 ## Find The Minimum and Maximum Number of Nodes Between Critical Points <font color=magenta>[2022-06-18]</font>
 
@@ -987,6 +1063,49 @@ class Solution:
 
 # Greedy
 
+## Time Needed To Buy Tickets <font color=magenta>[2022-07-10]</font>
+
+[Simple](https://leetcode.cn/problems/time-needed-to-buy-tickets/)
+
+```python
+class Solution:
+    def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
+        res = 0
+        target = tickets[k]
+        n = len(tickets)
+        for i in range(n):
+            if i <= k:
+                res += min(tickets[i], target)
+            else:
+                res += min(tickets[i], target - 1)
+        return res
+```
+
+## Form Array by Concatenating Sub-arrays in Another Array <font color=magenta>[2022-07-09]</font>
+
+[Medium](https://leetcode.cn/problems/form-array-by-concatenating-subarrays-of-another-array/)
+
+```python
+class Solution:
+    def canChoose(self, groups: List[List[int]], nums: List[int]) -> bool:
+        num_row = len(groups)
+        n = len(nums)
+
+        idx = 0
+        def if_find(cur_r, idx):
+            num_column = len(groups[cur_r])
+            for i in range(idx, n - num_column + 1):
+                if groups[cur_r] == nums[i: i + num_column]:
+                    return i + num_column
+            return -1
+
+        for i in range(num_row):
+            idx = if_find(i, idx)
+            if idx == -1:
+                return False
+        return True
+```
+
 ## Longest Chunked Palindrome Decomposition <font color=magenta>[2022-06-19]</font>
 
 [hard](https://leetcode.cn/problems/longest-chunked-palindrome-decomposition/)
@@ -1029,6 +1148,34 @@ class Solution(object):
 ```
 
 # Brute Force Search
+
+## Non-overlapping Intervals <font color=magenta>[2022-07-08]</font>
+
+[Medium](https://leetcode.cn/problems/non-overlapping-intervals/)
+
+```python
+class Solution:
+    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
+        if not intervals:
+            return 0
+        # sort by the end position
+        intervals.sort(key=lambda x: x[1])
+        n = len(intervals)
+        right = intervals[0][1]
+        ans = 1
+
+        for i in range(1, n):
+            # do not overlap the previse interval add it
+            # this is equal to reomve the interval when it is overlap with
+            # the previse one
+            # it is the right way, because when overlap, the interval must be
+            # removed or remove at least one of added intervals and the right
+            # will get larger when remove the added intervals.
+            if intervals[i][0] >= right:
+                ans += 1
+                right = intervals[i][1]
+        return n - ans
+```
 
 ## Longest Nice Substring <font color=magenta>[2022-07-05]</font>
 
@@ -1185,6 +1332,29 @@ class Solution:
 ```
 
 # Other
+
+## Display Table of Food Orders in a Restaurant <font color=magenta>[2022-07-11]</font>
+
+[Medium](https://leetcode.cn/problems/display-table-of-food-orders-in-a-restaurant/)
+
+```python
+class Solution:
+    def displayTable(self, orders: List[List[str]]) -> List[List[str]]:
+    # use dict to quickly find the food
+        tables = defaultdict(lambda: defaultdict(int))
+        food_set = set()
+        for _, table, food in orders:
+            food_set.add(food)
+            tables[table][food] += 1
+
+        res = []
+        # sort the food
+        food_list = sorted(food_set)
+        res.append(['Table']+food_list)
+        for table in sorted(tables.keys(),key=int):
+            res.append([table] + [str(tables[table][item]) for item in food_list])
+        return res
+```
 
 ## Minimum Cost to Set Cooking Time <font color=magenta>[2022-06-29]</font>
 
