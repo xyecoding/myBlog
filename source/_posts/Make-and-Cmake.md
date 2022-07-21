@@ -18,4 +18,14 @@ summary:
 
 # Make
 
+## Some Symbols
+
+`$@` means the target file
+
+`$^` means all the dependences
+
+`$<` means the first dependence
+
+`$?` means the dependences newer than the target file
+
 # Cmake

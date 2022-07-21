@@ -313,6 +313,36 @@ class Solution:
 
 # Dynamic Programming
 
+## Unique Paths II <font color=magenta>[2022-07-20]</font>
+
+[Medium](https://leetcode.cn/problems/unique-paths-ii/)
+
+```python
+class Solution:
+    def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
+        m = len(obstacleGrid)
+        n = len(obstacleGrid[0])
+        res = [[0 for _ in range(n)] for _ in range(m)]
+
+        for i in range(n):
+            if obstacleGrid[0][i] == 0:
+                res[0][i] = 1
+            else:
+                break
+
+        for i in range(m):
+            if obstacleGrid[i][0] == 0:
+                res[i][0] = 1
+            else:
+                break
+
+        for i in range(1, m):
+            for j in range(1, n):
+                if obstacleGrid[i][j] == 0:
+                    res[i][j] = res[i][j - 1] + res[i - 1][j]
+        return res[-1][-1]
+```
+
 ## Find Two Non-overlapping Sub-arrays Each With Target Sum <font color=magenta>[2022-07-07]</font>
 
 [Medium](https://leetcode.cn/problems/find-two-non-overlapping-sub-arrays-each-with-target-sum/)
@@ -1332,6 +1362,36 @@ class Solution:
 ```
 
 # Other
+
+## Buddy Strings <font color=magenta>[2022-07-21]</font>
+
+[Simple](https://leetcode.cn/problems/buddy-strings/)
+
+```python
+class Solution:
+    def buddyStrings(self, s: str, goal: str) -> bool:
+        res = []
+        n = len(s)
+        ex = set()
+        two = False
+
+        if n != len(goal):
+            return False
+
+        for i in range(n):
+            if s[i] in ex:
+                two = True
+            else:
+                ex.add(s[i])
+
+            if s[i] != goal[i]:
+                res.append(i)
+        if not res and two:
+            return True
+        if len(res) == 2 and s[res[0]] == goal[res[1]] and s[res[1]] == goal[res[0]]:
+            return True
+        return False
+```
 
 ## Display Table of Food Orders in a Restaurant <font color=magenta>[2022-07-11]</font>
 
