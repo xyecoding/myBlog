@@ -18,6 +18,8 @@ summary:
 
 [A good Tutorial for Installing it!](https://archlinuxstudio.github.io/ArchLinuxTutorial/#/)
 
+[A good Tutorial for Installing it!](https://arch.icekylin.online/)
+
 # What is Verify Signature
 
 Signature is used for protecting data from undetected changes by including a

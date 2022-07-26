@@ -4,7 +4,7 @@ top: false
 cover: false
 toc: true
 mathjax: true
-description: 遇到过精巧的算法设计
+description: Algorithms
 categories:
   - Programming
   - Algorithm
@@ -16,6 +16,38 @@ date: 2021-12-17 16:26:10
 password:
 summary:
 ---
+
+# Sliding Window
+
+## Grumpy Bookstore Owner <font color=magenta>[2022-07-26]</font>
+
+[Medium](https://leetcode.cn/problems/grumpy-bookstore-owner/)
+
+```python
+class Solution:
+    def maxSatisfied(self, customers: List[int], grumpy: List[int], minutes: int) -> int:
+        n = len(customers)
+        res = 0
+        for i in range(n):
+            if not grumpy[i]:
+                res += customers[i]
+
+
+        ans = 0
+        for i in range(minutes):
+            if grumpy[i]:
+                ans += customers[i]
+
+        res_m = ans
+        for i in range(minutes, n):
+            if grumpy[i - minutes]:
+                ans -= customers[i - minutes]
+            if grumpy[i]:
+                ans += customers[i]
+
+            res_m = max(res_m, ans)
+        return res + res_m
+```
 
 # Backtrack
 
@@ -122,6 +154,37 @@ class Solution:
 ```
 
 # Depth First Search
+
+## Distribute Coins in Binary Tree <font color=magenta>[2022-07-22]</font>
+
+[Medium](https://leetcode.cn/problems/distribute-coins-in-binary-tree/)
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def distributeCoins(self, root):
+        self.ans = 0
+
+        def dfs(node):
+            if not node: return 0
+            # the number of coins needed for the right node and
+            # the left node to set them into 1
+            L, R = dfs(node.left), dfs(node.right)
+
+            # remove the abs(L) and abs(R) from this node to the left
+            # node and right node then they are 1
+            self.ans += abs(L) + abs(R)
+            # the number of coins needed for this node
+            return node.val + L + R - 1
+
+        dfs(root)
+        return self.ans
+```
 
 ## Closest Dessert Cost <font color=magenta>[2022-06-30]</font>
 
