@@ -155,6 +155,124 @@ class Solution:
 
 # Depth First Search
 
+## Binary Tree Tilt <font color=magenta>[2022-07-31]</font>
+
+[Simple](https://leetcode.cn/problems/binary-tree-tilt/)
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def __init__(self):
+        self.ans = 0
+
+    def findTilt(self, root: TreeNode) -> int:
+        self.dfs(root)
+        return self.ans
+
+    def dfs(self, node):
+        if not node:
+            return 0
+        # left sum
+        sum_left = self.dfs(node.left)
+        # right sum
+        sum_right = self.dfs(node.right)
+        # for every node the distance is the left sum - right sum
+        self.ans += abs(sum_left - sum_right)
+        # calculate the sum
+        return sum_left + sum_right + node.val
+```
+
+## Chasing Game <font color=magenta>[2022-07-29]</font>
+
+[Hard](https://leetcode.cn/problems/Za25hA/)
+
+1. If StartA can reach startB by one step, then the answer is 1
+2. if there is a circle large than 3 nodes, and B can reach it earlier than A,
+   the answer is -1. Which means that if there is any node that B can reach
+   earlier than A.
+3. If B can reach a node 2 or more steps earlier than A. A can only catch B in
+   the end. Thus choose the max step that A will take between these nodes.
+
+```python
+class Solution:
+    def chaseGame(self, edges: List[List[int]], startA: int, startB: int) -> int:
+        # the number of paths and the number of nodes
+        n=len(edges)
+        # the node a can reach d[a] by one step
+        d=defaultdict(list)
+        for a,b in edges:
+            d[a].append(b)
+            d[b].append(a)
+
+        def calcDist(node):
+            que=[node]
+            dist,step={},0
+            while que:
+                tmp=[]
+                for q in que:
+                    if q in dist:
+                        continue
+                    # node needs dist[q] step to reach q
+                    dist[q]=step
+                    for nxt in d[q]:
+                        tmp.append(nxt)
+                que=tmp
+                step+=1
+            return dist
+
+        circleNodes,depthdict=set(),{}
+
+        def findCircle(parent,node,depth):
+            # if already know the depth of node
+            # return it
+            if node in depthdict:
+                return depthdict[node]
+
+            # 1 can reach a by depthdict[a] steps
+            depthdict[node]=depth
+            for nxt in d[node]:
+                # a's parent be in d[a]
+                # and it must be searched
+                if nxt==parent:
+                    continue
+
+                # find the step of nxt by node
+                mindepth=findCircle(node,nxt,depth+1)
+                # if mindepth != depth + 1, the nxt can be reached
+                # by another way both  from one start, thus node can be
+                # reached by another way too, there must
+                # be a circle, and node and nxt are in the circle
+                # regard the circle as one node and both node and nxt
+                # have  the same depth, the minstep that can reach the
+                # circle
+                if mindepth != depth + 1:
+                    depthdict[node]= min(mindepth, depth)
+                    circleNodes.add(node)
+            return depthdict[node]
+
+        findCircle(-1,1,0)
+        distA,distB=calcDist(startA),calcDist(startB)
+        # startA  reaches startB by 1 step
+        if distA[startB]==1:
+            return 1
+        if len(circleNodes)>3:
+            for node in circleNodes:
+                # if the circle is larger than 3
+                # and there are one node in the circle that B reach first
+                # then A can never catch B
+                if distB[node]<distA[node]:
+                    return -1
+        # B reach node earlyer than 2 steps before A
+        # if only 1 step earler it should be catched before
+        return max(distA[node] for node in range(1,n+1) if distA[node]-distB[node]>1)
+```
+
 ## Distribute Coins in Binary Tree <font color=magenta>[2022-07-22]</font>
 
 [Medium](https://leetcode.cn/problems/distribute-coins-in-binary-tree/)
@@ -375,6 +493,35 @@ class Solution:
 ```
 
 # Dynamic Programming
+
+## Minimum Cost to Cut a Stick <font color=magenta>[2022-07-30]</font>
+
+[Hard](https://leetcode.cn/problems/minimum-cost-to-cut-a-stick/)
+
+```python
+class Solution:
+    def minCost(self, n: int, cuts: List[int]) -> int:
+        # the number of cuts
+        m = len(cuts)
+        cuts = [0] + sorted(cuts) + [n]
+
+        f = [[0] * (m + 2) for _ in range(m + 2)]
+        # f[i][j] means the minimal cost of [i-1, j+1]
+        # thus f[1][m] is the answer
+        # f[i][i] is the minimal cost of [i -1, i + 1]
+        # which is cut[i+1] - cut[i -1]
+        # when j > i, f[i][j] = cut[j + 1] - cut[i - 1] + min(xxxx)
+        for i in range(m, 0, -1):
+            for j in range(i, m + 1):
+                if i == j:
+                    f[i][j] = 0
+                else:
+                    f[i][j] =  min(f[i][k - 1] + f[k + 1][j] for k in range(i, j + 1))
+
+                f[i][j] += cuts[j + 1] - cuts[i - 1]
+
+        return f[1][m]
+```
 
 ## Unique Paths II <font color=magenta>[2022-07-20]</font>
 
@@ -1156,6 +1303,37 @@ class Solution:
 
 # Greedy
 
+## Lemonade Change <font color=magenta>[2022-08-04]</font>
+
+[Simple](https://leetcode.cn/problems/lemonade-change/)
+
+```python
+class Solution:
+    def lemonadeChange(self, bills: List[int]) -> bool:
+        num_5 = 0
+        num_10 = 0
+        for i in bills:
+            if i == 5:
+                num_5 += 1
+
+            if i == 10:
+                num_10 += 1
+                if num_5 == 0:
+                    return False
+                else:
+                    num_5 -= 1
+
+            if i == 20:
+                if num_10 > 0 and num_5 > 0:
+                    num_10 -= 1
+                    num_5 -= 1
+                elif num_5 > 2:
+                    num_5 -= 3
+                else:
+                    return False
+        return True
+```
+
 ## Time Needed To Buy Tickets <font color=magenta>[2022-07-10]</font>
 
 [Simple](https://leetcode.cn/problems/time-needed-to-buy-tickets/)
@@ -1425,6 +1603,37 @@ class Solution:
 ```
 
 # Other
+
+## Rearrange Characters to Make Target String <font color=magenta>[2022-07-27]</font>
+
+[Simple](https://leetcode.cn/problems/rearrange-characters-to-make-target-string/)
+
+```python
+class Solution:
+    def rearrangeCharacters(self, s: str, target: str) -> int:
+        res = {}
+        for i in target:
+            if i in res:
+                res[i] += 1
+            else:
+                res[i] = 1
+        ans = {}
+        for i in s:
+            if i in res:
+                if i in ans:
+                    ans[i] += 1
+                else:
+                    ans[i] = 1
+
+        out = float('inf')
+        for i in res:
+            if not i in ans:
+                out = 0
+                break
+            else:
+                out = min(out, ans[i] // res[i])
+        return out
+```
 
 ## Buddy Strings <font color=magenta>[2022-07-21]</font>
 
