@@ -16,6 +16,72 @@ password:
 summary:
 ---
 
+# Image Classification
+
+## Surveys
+
+### [A Survey of Image Classification Based Techniques](https://github.com/xyegithub/myBlog/blob/main/posts/c94b2364/paper_pdfs/ImageClassification/2007,ASurveyofImageClassificationBasedTechniques.pdf) <font color=magenta>[2022-08-05]</font>
+
+It is mainly focused on remote sensing image segmentation, despite its name is
+image classification.
+
+Algorithms:
+
+1. Support Vector Machine (SVM)
+   - It is a supervised non-parametric statistical learning technique made on
+     the underlying data distribution.
+   - In its original formulation, the method is presented with a set of labeled
+     data instances and the SVM training algorithm aims to find a hyper plane
+     that separates the dataset into a discrete predefined number of classes in
+     a fashion consistent with the training examples.
+   - The term optimal separation hyper plane is used to refer to the decision
+     boundary that minimizes misclassifications, acquired in the training phase.
+   - Learning means to the iterative process of finding a classifier with
+     optimal decision boundary to separate the training patterns (in potentially
+     high-dimensional space) and then to separate simulation data under the same
+     configuration (dimensions).
+2. Artificial Intelligence (AI), e.g., Swarm Intelligence (SI)
+
+   - Swarm intelligence is actually a complex multi-agents systems, consisting
+     of numerous simple individual, which exhibit their swarm intelligence
+     through cooperation and competition among the individual.
+   - Although there is typically no centralized control dictating the behavior
+     of the individual, the accumulation of local interactions in time often
+     gives rise to global pattern.
+
+3. Neural Network
+4. Fuzzy Set
+5. Genetic Algorithm
+
+### [A Survey on Image Classification Approaches and Techniques](https://github.com/xyegithub/myBlog/blob/main/posts/c94b2364/paper_pdfs/ImageClassification/2013,ASurveyonImageClassificationApproachesandTechniques.pdf) <font color=magenta>[2022-08-05]</font>
+
+Image classification refers to the labelling of images into one of a number of
+predefined categories.
+
+Taxonomy
+
+1. On the basis of Characteristic Used
+   1. Shape-based. It makes use of the objects' 2D spatial information.
+   2. Motion-based. It use temporal features of objects for the classification.
+2. On the Basis of Training Sample Used
+   1. Supervised Classification. The process of using samples of known
+      informational classes (training sets) to classify pixels of unknown
+      identity.
+   2. Unsupervised Classification. It examines a large number of unknown pixels
+      and divides it into number of classes based on natural groupings present
+      in the image values. Computer determines spectrally separable class and
+      then defines their information value. No extensive prior knowledge is
+      required.
+3. On the Basis of Assumption of Parameter on data
+   1. Parameter Classifiers. The parameters like mean vector and covariance
+      matrix are used. There is a assumption of Gaussian distribution. Examples,
+      maximum likelihood, linear discriminant analysis.
+   2. Non Parameter Classifiers. There is no assumption about data. Non
+      parametric classifier do not make use of statictical parameters to
+      calculate class separation. Examples, artificial neural networks, support
+      vector machine, decision tree classifier, and expert system.
+4. On the Basis of Pixel Information Used
+
 # Transfer Learning
 
 ## [2018, Balanced Distribution Adaptation for Transfer Learning](https://github.com/xyegithub/myBlog/blob/main/posts/c94b2364/paper_pdfs/TransferLearning/2018BalancedDistributionAdaptationforTransferLearning.pdf)
@@ -87,7 +153,7 @@ path derivative estimator。
 
 #### 文章提出了 Hard Attention 与双阶段目标检测算法的相似性。他们都是截取图像块作为输入，然后进行分类。不同的是，目标检测算法对于目标的位置是有标签的，而 Hard Attention 是无标签的。
 
-> Altough our aim in this work is to perform classification with only
+> Although our aim in this work is to perform classification with only
 > image-level class labels, out approach bears some resembalance to two-stage
 > object detection models.
 
@@ -271,7 +337,7 @@ glimplese 的时候，它的性能应该会受到影响的。但是不是。
 > regions worth processing in higher resolution. The process is repeated
 > recursively (here to 2 additional levels). Features from all levels are
 > combined (arrows on the right) to create the final image representation used
-> for classificaiton (blue cube).
+> for classification (blue cube).
 
 先粗后细的粗粒不同尺度的图像，这篇文章使用和实现了 Saccader
 
