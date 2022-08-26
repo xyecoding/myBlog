@@ -44,6 +44,17 @@ back address of local host, the port `10808` which is defined in your windows
 proxy app, and `socks` is the protocol which also defined in your windows proxy
 app.
 
+Sometimes there is an error
+`curl: (6) SOCKS4 connection to 2404:6800:4003:c0f::65 not supported`. It is the
+error of `socks`. Use `socks5`,
+
+```fish
+if test $(grep Microsoft /proc/version)
+  set -x http_proxy socks5://127.0.0.1:10808
+  set -x https_proxy socks5://127.0.0.1:10808
+end
+```
+
 # X server
 
 ## On the Windows side: Xming
