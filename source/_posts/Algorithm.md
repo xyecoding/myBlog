@@ -17,6 +17,50 @@ password:
 summary:
 ---
 
+# Prefix Sum
+
+## Maximum Sub-array
+
+[Medium](https://leetcode.cn/problems/maximum-subarray/)
+
+```python
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        n = len(nums)
+        res = [None for _ in range(n)]
+        res[0] = nums[0]
+        for i in range(1, n):
+            res[i] = res[i - 1] + nums[i]
+
+        min_ = [None for _ in range(n)]
+        min_[0] = 0
+        for i in range(1, n):
+            min_[i] = min(min_[i - 1], res[i - 1])
+        ans = float('-inf')
+        for i in range(n):
+            ans = max(ans, res[i] - min_[i])
+        return  ans
+```
+
+```python
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n == 0:
+            return 0
+        if n == 1:
+            return nums[0]
+        result = [0] * n
+        result[0] = nums[0]
+        ans = nums[0]
+        for i in range(1, n):
+          # Automaticlly drop the prefix when it become a negative number
+          # result[i] stores the maximum sum of subarrays when they are end with i
+            result[i] = max(result[i - 1] + nums[i], nums[i])
+            ans = max(ans, result[i])
+        return ans
+```
+
 # Sliding Window
 
 ## Grumpy Bookstore Owner <font color=magenta>[2022-07-26]</font>
@@ -154,6 +198,51 @@ class Solution:
 ```
 
 # Depth First Search
+
+## Keys and Rooms <font color=magenta>[2022-08-11]</font>
+
+[Medium](https://leetcode.cn/problems/keys-and-rooms/)
+
+```python
+class Solution:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        num_rooms = len(rooms)
+        keys = set()
+        keys.add(0)
+        visited = set()
+        cur = [0]
+
+        # depth first
+        while cur:
+            nex = []
+            for i in cur:
+                visited.add(i)
+                for j in rooms[i]:
+                    keys.add(j)
+                    if not j in visited:
+                        nex.append(j)
+            cur = nex
+        return len(keys) == num_rooms
+```
+
+```python
+class Solution:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        num_rooms = len(rooms)
+        visited = set()
+        cur = [0]
+
+        # depth first
+        while cur:
+            nex = []
+            for i in cur:
+                visited.add(i)
+                for j in rooms[i]:
+                    if not j in visited:
+                        nex.append(j)
+            cur = nex
+        return len(visited) == num_rooms
+```
 
 ## Binary Tree Tilt <font color=magenta>[2022-07-31]</font>
 
@@ -493,6 +582,36 @@ class Solution:
 ```
 
 # Dynamic Programming
+
+## Palindrome Partitioning II <font color=magenta>[2022-08-12]</font>
+
+[Hard](https://leetcode.cn/problems/palindrome-partitioning-ii/)
+
+```python
+class Solution:
+    def minCut(self, s: str) -> int:
+        n = len(s)
+        g = [[True] * n for _ in range(n)]
+
+        # Calculate if s[i:j + 1] is a palindrome
+        for i in range(n - 1, -1, -1):
+            for j in range(i + 1, n):
+                # if s[i + 1 : j] is a palindrome
+                # and s[i] == s[j] then s[i:j + 1]
+                # is a palindrome
+                g[i][j] = (s[i] == s[j]) and g[i + 1][j - 1]
+
+        f = [float("inf")] * n
+        # f[i] is the min cuts for s[0: i+1]
+        for i in range(n):
+            if g[0][i]:
+                f[i] = 0
+            else:
+                for j in range(i):
+                    if g[j + 1][i]:
+                        f[i] = min(f[i], f[j] + 1)
+        return f[n - 1]
+```
 
 ## Minimum Cost to Cut a Stick <font color=magenta>[2022-07-30]</font>
 

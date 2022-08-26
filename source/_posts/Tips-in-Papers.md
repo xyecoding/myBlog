@@ -81,6 +81,26 @@ Taxonomy
       calculate class separation. Examples, artificial neural networks, support
       vector machine, decision tree classifier, and expert system.
 4. On the Basis of Pixel Information Used
+   1. Per pixel classifier
+   2. sub-pixel classifier
+   3. per field classifier
+   4. object-oriented Classifier
+5. On the number of outputs for each spatial element
+   1. Hard classification
+   2. Soft classification also known as fuzzy classification
+6. On the Basis of Spatial Information
+   1. Spectral Classifier
+   2. Contextual Classifier
+   3. Spectral-contextual Classifier
+7. Multiple classifiers approach
+
+#### Decision Tree
+
+DT calculates class membership by repeatedly partitioning a dataset into uniform
+subsets. Hierarchical classifier permits the acceptations and rejection of class
+labels at each intermediary stage. This method consists of 3 parts: partitioning
+the nodes, find the terminal nodes and allocation of class label to terminal
+nodes.
 
 # Transfer Learning
 
