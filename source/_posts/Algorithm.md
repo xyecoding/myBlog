@@ -1056,6 +1056,23 @@ class Solution:
 
 # String
 
+## Group Anagrams <font color=magenta>[2022-08-28]</font>
+
+[Medium](https://leetcode.cn/problems/group-anagrams/)
+
+```python
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        res = defaultdict(list)
+        for i in strs:
+            res[''.join(sorted(i))].append(i)
+
+        ans = []
+        for key in res:
+            ans.append(res[key])
+        return ans
+```
+
 ## Strong Password Checker II <font color=magenta>[2022-06-22]</font>
 
 [Simple](https://leetcode.cn/problems/strong-password-checker-ii/)
