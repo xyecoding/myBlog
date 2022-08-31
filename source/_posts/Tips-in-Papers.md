@@ -20,7 +20,7 @@ summary:
 
 ## Surveys
 
-### [A Survey of Image Classification Based Techniques](https://github.com/xyegithub/myBlog/blob/main/posts/c94b2364/paper_pdfs/ImageClassification/2007,ASurveyofImageClassificationBasedTechniques.pdf) <font color=magenta>[2022-08-05]</font>
+### [2007, A Survey of Image Classification Based Techniques](https://github.com/xyegithub/myBlog/blob/main/posts/c94b2364/paper_pdfs/ImageClassification/2007,ASurveyofImageClassificationBasedTechniques.pdf) <font color=magenta>[2022-08-05]</font>
 
 It is mainly focused on remote sensing image segmentation, despite its name is
 image classification.
@@ -53,7 +53,7 @@ Algorithms:
 4. Fuzzy Set
 5. Genetic Algorithm
 
-### [A Survey on Image Classification Approaches and Techniques](https://github.com/xyegithub/myBlog/blob/main/posts/c94b2364/paper_pdfs/ImageClassification/2013,ASurveyonImageClassificationApproachesandTechniques.pdf) <font color=magenta>[2022-08-05]</font>
+### [2013, A Survey on Image Classification Approaches and Techniques](https://github.com/xyegithub/myBlog/blob/main/posts/c94b2364/paper_pdfs/ImageClassification/2013,ASurveyonImageClassificationApproachesandTechniques.pdf) <font color=magenta>[2022-08-05]</font>
 
 Image classification refers to the labelling of images into one of a number of
 predefined categories.

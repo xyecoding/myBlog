@@ -1419,6 +1419,75 @@ class Solution:
 
 # Dichotomy
 
+## 二位二分 <font color=magenta>[2022-08-31]</font>
+
+[Medium](https://www.nowcoder.com/practice/abc3fe2ce8e146608e868a70efebf62e?tpId=295&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26tab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295)
+
+### 线性搜索
+
+```python
+class Solution:
+    def Find(self , target: int, array: List[List[int]]) -> bool:
+        # write code here
+        n = len(array)
+        m = len(array[0])
+        idx = [n - 1, 0]
+        while 0 <= idx[0] < n and 0 <= idx[1] < m:
+            if array[idx[0]][idx[1]] < target:
+                idx[1] += 1
+            elif array[idx[0]][idx[1]] > target:
+                idx[0] -= 1
+            else:
+                return True
+        return False
+```
+
+### 每行二分
+
+```python
+class Solution:
+    def Find(self , target: int, array: List[List[int]]) -> bool:
+        # write code here
+        def find_mid(ma, target):
+        #  return the idx, whose left is all smaller than
+        # target and right is larger or equal to the target
+            left = 0
+            right = len(ma) - 1
+            while left < right:
+                mid = (left + right) // 2
+                if ma[mid] < target:
+                    left = mid + 1
+                else: # ma[mid] => target
+                    right = mid
+            return right
+        for i in array:
+            idx = find_mid(i, target)
+            if 0 <= idx < len(i) and i[idx] == target:
+                return True
+        return False
+```
+
+## 二分查找-I <font color=magenta>[2022-08-29]</font>
+
+[Simple](https://www.nowcoder.com/practice/d3df40bd23594118b57554129cadf47b?tpId=295&tqId=1499549&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26tab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295)
+
+```python
+class Solution:
+    def search(self , nums: List[int], target: int) -> int:
+        # write code here
+        left = 0
+        right = len(nums) - 1
+        while left <= right:
+            mid = (left + right) // 2
+            if nums[mid] < target:
+                left = mid + 1
+            if nums[mid] > target:
+                right = mid - 1
+            if nums[mid] == target:
+                return mid
+        return -1
+```
+
 ## Minimum Garden Perimeter to Collect Enough Apples <font color=magenta>[2022-06-22]</font>
 
 [Medium](https://leetcode.cn/problems/minimum-garden-perimeter-to-collect-enough-apples/)
