@@ -1,33 +1,40 @@
 ---
-title: Shorcut on Linux
+title: Small Things for Linux
 top: false
 cover: false
 toc: true
-mathjax: true
-description: Describe the shortcuts of linux and how to set them
+description: Small Things for Linux
 categories:
-  - Programming
-  - Tools
   - Linux
 tags:
   - Linux
-abbrlink: 6d8ab470
-date: 2022-02-10 09:22:15
+abbrlink: d1aa5902
+date: 2022-10-03 21:35:07
 password:
 summary:
 ---
 
-_Root in: I want to find out where the "kill shortcut", ctrl C, defined. I use
-`bind -P` to check the shortcuts. However, do not find ctrl C. Thus, I learned
-something about the shortcuts on linux. ctrl C is a shortcut of stty. However,
-`bind -P` lists the shortcuts of readline._
+# Proxy for apt
+
+`/etc/apt` is the host directory for apt.
+
+`/etc/apt/apt.conf.d/proxy.conf` defines the proxy for only for apt.
+
+If one want to define the proxy globally, `export http(s)_proxy` should be used.
+
+# Shortcuts
+
+I want to find out where the "kill shortcut", ctrl C, defined. I use `bind -P`
+to check the shortcuts. However, do not find ctrl C. Thus, I learned something
+about the shortcuts on linux. ctrl C is a shortcut of stty. However, `bind -P`
+lists the shortcuts of readline.\_
 
 There may be two kinds of shortcuts, in practice,
 
 - stty shortcuts
 - readline shortcuts
 
-# stty (set tty, set teletypewriter)
+## stty (set tty, set teletypewriter)
 
 The difference between shell, terminal and tty
 
@@ -44,9 +51,9 @@ They are related to terminal.
 
 The input of terminal or tty will used by readline, but not always readline.
 
-# gun readline - get a line from a user with editing
+## gun readline - get a line from a user with editing
 
-## Synopsis
+### Synopsis
 
 ```c
 #include <stdio.h>
@@ -58,7 +65,7 @@ readline (const char *prompt)
 
 ```
 
-## Description
+### Description
 
 **readline will read a line from the terminal and return it, using _prompt_ as a
 prompt.**
@@ -67,14 +74,14 @@ If prompt is NULL or the empty string, no prompt is issued. The line returned is
 allocated with `malloc`; the caller must free it when finished. The line
 returned has the final newline removed, so only the text of the line remains.
 
-## Return Value
+### Return Value
 
 readline returns the text of the line read. A black line returns the empty
 string. If EOF is encountered while reading a line, and the line is empty, NULL
 is returned. If an EOF is read with a non-empty line, it is treated as a
 newline.
 
-## Initialization file
+### Initialization file
 
 Readline is customized by putting commands in an initialization file (the
 `inputrc` file). The name of this file is taken from the value of the INPUTRC
