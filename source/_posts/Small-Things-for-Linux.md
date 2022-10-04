@@ -20,16 +20,16 @@ summary:
 
 `/etc/apt` is the host directory for apt.
 
-`/etc/apt/apt.conf.d/proxy.conf` defines the proxy for only for apt.
+`/etc/apt/apt.conf.d/proxy.conf` defines the proxy only for apt.
 
-If one want to define the proxy globally, `export http(s)_proxy` should be used.
+If one wants to define proxy globally, `export http(s)_proxy` should be used.
 
 # Shortcuts
 
-I want to find out where the "kill shortcut", ctrl C, defined. I use `bind -P`
+I want to find out where the "kill" shortcut, ctrl C, defined. I use `bind -P`
 to check the shortcuts. However, do not find ctrl C. Thus, I learned something
 about the shortcuts on linux. ctrl C is a shortcut of stty. However, `bind -P`
-lists the shortcuts of readline.\_
+lists the shortcuts of readline.
 
 There may be two kinds of shortcuts, in practice,
 
