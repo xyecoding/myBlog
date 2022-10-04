@@ -5,6 +5,8 @@ cover: false
 toc: true
 description: Small Things for Linux
 categories:
+  - Programming
+  - Tools
   - Linux
 tags:
   - Linux
