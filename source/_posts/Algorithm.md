@@ -1135,6 +1135,57 @@ class Solution:
 
 # Sort
 
+## Sort Color <font color=magenta>[2022-10-12]</font>
+
+[Medium](https://leetcode.cn/problems/sort-colors/)
+
+```python
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        idx_f = 0
+        idx_e = len(nums) - 1
+        while idx_f < idx_e:
+            while idx_f < idx_e and nums[idx_f] == 0:
+                idx_f += 1
+            while idx_f < idx_e and nums[idx_e] != 0:
+                idx_e -= 1
+            nums[idx_e], nums[idx_f] = nums[idx_f], nums[idx_e]
+        if nums[idx_f] == 0:
+            idx_f += 1
+        idx_e = len(nums) - 1
+        while idx_f < idx_e:
+            while idx_f < idx_e and nums[idx_f] == 1:
+                idx_f += 1
+            while idx_f < idx_e and nums[idx_e] != 1:
+                idx_e -= 1
+            nums[idx_e], nums[idx_f] = nums[idx_f], nums[idx_e]
+```
+
+```python
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n = len(nums)
+        idx_0 = 0
+        idx_2 = n - 1
+        i = 0
+        while i <= idx_2:
+            while i <= idx_2 and nums[idx_2] == 2:
+                idx_2 -= 1
+            if i <= idx_2 and nums[i] == 2:
+                nums[i], nums[idx_2] = nums[idx_2], nums[i]
+                idx_2 -= 1
+            if nums[i] == 0:
+                nums[i], nums[idx_0] = nums[idx_0], nums[i]
+                idx_0 += 1
+            i += 1
+```
+
 ## Relative Rank <font color=magenta>[2022-06-28]</font>
 
 [Simple](https://leetcode.cn/problems/relative-ranks/)
@@ -1808,6 +1859,27 @@ class Solution:
 ```
 
 # Other
+
+## Find All Numbers Disappeared in an Array <font color=magenta>[2022-10-12]</font>
+
+[Simple](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array/)
+
+```python
+class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        for i in nums:
+            x = i  % n
+            nums[x] += n
+        res = []
+        for i in range(n):
+            if nums[i] <= n:
+                if i == 0:
+                    res.append(n)
+                else:
+                    res.append(i)
+        return res
+```
 
 ## Rearrange Characters to Make Target String <font color=magenta>[2022-07-27]</font>
 
