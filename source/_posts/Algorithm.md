@@ -806,6 +806,71 @@ class Solution(object):
 
 # Linked List
 
+## Combine Two Chain Link <font color=magenta>[2022-10-13]</font>
+
+[Simple](https://www.nowcoder.com/practice/d8b6b4358f774294a89de2a6ac4d9337?tpId=295&tqId=23267&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj)
+
+```python
+class Solution:
+    def Merge(self , pHead1: ListNode, pHead2: ListNode) -> ListNode:
+        # write code here
+        dump_head = ListNode(0)
+        cur = dump_head
+        while pHead1 and pHead2:
+            if pHead1.val > pHead2.val:
+                cur.next = pHead2
+                cur = cur.next
+                pHead2 = pHead2.next
+            elif pHead1.val < pHead2.val:
+                cur.next = pHead1
+                cur = cur.next
+                pHead1 = pHead1.next
+            else:
+                # Be careful the order
+                cur.next = pHead1
+                cur = cur.next
+                pHead1 = pHead1.next
+
+                cur.next = pHead2
+                cur = cur.next
+                pHead2 = pHead2.next
+        if not pHead1 and not pHead2:
+            return dump_head.next
+        if not pHead1:
+            cur.next = pHead2
+            return dump_head.next
+        if not pHead2:
+            cur.next = pHead1
+            return dump_head.next
+```
+
+## Combine K Chain Link <font color=magenta>[2022-10-13]</font>
+
+[Hard](https://www.nowcoder.com/practice/65cfde9e5b9b4cf2b6bafa5f3ef33fa6?tpId=295&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=%2Fexam%2Foj)
+
+```python
+import heapq
+
+class Solution:
+    def mergeKLists(self , lists ):
+        # write code here
+        dummy = ListNode(0)
+        p = dummy
+        head = []
+        for i in range(len(lists)):
+            if lists[i] :
+                heapq.heappush(head, (lists[i].val, i))
+                lists[i] = lists[i].next
+        while head:
+            val, idx = heapq.heappop(head)
+            p.next = ListNode(val)
+            p = p.next
+            if lists[idx]:
+                heapq.heappush(head, (lists[idx].val, idx))
+                lists[idx] = lists[idx].next
+        return dummy.next
+```
+
 ## Partition List LCCI <font color=magenta>[2022-07-15]</font>
 
 [Medium](https://leetcode.cn/problems/partition-list-lcci/)
