@@ -1242,6 +1242,26 @@ class Solution:
 
 # Sort
 
+## 旋转数组的最小数字 <font color=magenta>[2022-10-17]</font>
+
+[Simple](https://www.nowcoder.com/practice/9f3231a991af4f55b95579b44b7a01ba?tpId=295&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=%2Fexam%2Foj)
+
+```python
+class Solution:
+    def minNumberInRotateArray(self , rotateArray: List[int]) -> int:
+        # write code here
+        n = len(rotateArray)
+        left = 0
+        right = n - 1
+        while left < right:
+            mid = (left + right) // 2
+            if rotateArray[mid] > rotateArray[right]:
+                left = mid + 1
+            else:
+                right -= 1
+        return rotateArray[left]
+```
+
 ## 数组中的逆序对 <font color=magenta>[2022-10-17]</font>
 
 [Medium](https://www.nowcoder.com/practice/96bd6684e04a44eb80e6a68efc0ec6c5?tpId=295&tqId=23260&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj)
