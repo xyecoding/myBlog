@@ -806,7 +806,7 @@ class Solution(object):
 
 # Linked List
 
-## Combine Two Chain Link <font color=magenta>[2022-10-13]</font>
+## Combine Two Linked List <font color=magenta>[2022-10-13]</font>
 
 [Simple](https://www.nowcoder.com/practice/d8b6b4358f774294a89de2a6ac4d9337?tpId=295&tqId=23267&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj)
 
@@ -844,7 +844,49 @@ class Solution:
             return dump_head.next
 ```
 
-## Combine K Chain Link <font color=magenta>[2022-10-13]</font>
+## The sum of two Linked List <font color=magenta>[2022-10-13]</font>
+
+[Medium](https://www.nowcoder.com/practice/c56f6c70fb3f4849bc56e33ff2a50b6b?tpId=295&tqId=1008772&ru=%2Fpractice%2F75e878df47f24fdc9dc3e400ec6058ca&qru=%2Fta%2Fformat-top101%2Fquestion-ranking&sourceUrl=%2Fexam%2Foj)
+
+```python
+class Solution:
+    def addInList(self , head1: ListNode, head2: ListNode) -> ListNode:
+        # write code here
+        def reverse(h):
+            if not h or not h.next:
+                return h
+            head = h
+            h = h.next
+            head.next = None
+            while h:
+                cur = h
+                h = h.next
+                cur.next = head
+                head = cur
+            return head
+        head1 = reverse(head1)
+        head2 = reverse(head2)
+        add = 0
+        ans = None
+        while head1 or head2 or add:
+            a = 0
+            b = 0
+            if head1:
+                a = head1.val
+                head1 = head1.next
+            if head2:
+                b = head2.val
+                head2 = head2.next
+            s = a + b + add
+            add = s // 10
+            cur = ListNode(s % 10)
+            if ans:
+                cur.next = ans
+            ans = cur
+        return ans
+```
+
+## Combine K Linked List <font color=magenta>[2022-10-13]</font>
 
 [Hard](https://www.nowcoder.com/practice/65cfde9e5b9b4cf2b6bafa5f3ef33fa6?tpId=295&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=%2Fexam%2Foj)
 
@@ -1199,6 +1241,49 @@ class Solution:
 ```
 
 # Sort
+
+## 数组中的逆序对 <font color=magenta>[2022-10-17]</font>
+
+[Medium](https://www.nowcoder.com/practice/96bd6684e04a44eb80e6a68efc0ec6c5?tpId=295&tqId=23260&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj)
+
+```python
+class Solution:
+    def InversePairs(self , data: List[int]) -> int:
+        # write code here
+        res = data
+        n = len(res)
+        ans = [0]
+        def divide(left, right):
+            if left >= right:
+                return
+            mid = (left + right) // 2
+            divide(left, mid)
+            divide(mid + 1, right)
+            merge(left, mid, right)
+        def merge(left, mid, right):
+            l = left
+            r = mid + 1
+            tmp = []
+            while l <= mid and r <= right:
+                if res[l] > res[r]:
+                    tmp.append(res[r])
+                    r += 1
+                    ans[0] += mid -l + 1
+                    ans[0] %= 1000000007
+                else:
+                    tmp.append(res[l])
+                    l += 1
+            while l <= mid:
+                tmp.append(res[l])
+                l += 1
+            while r <= right:
+                tmp.append(res[r])
+                r += 1
+            for i in range(left, right + 1):
+                res[i] = tmp.pop(0)
+        divide(0, n -1)
+        return ans[0]
+```
 
 ## Sort Color <font color=magenta>[2022-10-12]</font>
 
