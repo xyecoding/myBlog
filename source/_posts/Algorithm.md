@@ -93,6 +93,111 @@ class Solution:
         return res + res_m
 ```
 
+# Binary Tree
+
+## 镜像的二叉树 <font color=magenta>[2022-10-19]</font>
+
+[Sample](https://www.nowcoder.com/practice/a9d0ecbacef9410ca97463e4a5c83be7?tpId=295&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=%2Fexam%2Foj)
+
+```python
+class Solution:
+    def Mirror(self , pRoot: TreeNode) -> TreeNode:
+        # write code here
+        def dfs(root):
+            if not root:
+                return
+            root.right, root.left = root.left, root.right
+            dfs(root.right)
+            dfs(root.left)
+        dfs(pRoot)
+        return pRoot
+```
+
+## 合并二叉树 <font color=magenta>[2022-10-19]</font>
+
+[Simple](https://www.nowcoder.com/practice/7298353c24cc42e3bd5f0e0bd3d1d759?tpId=295&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=%2Fexam%2Foj)
+
+```python
+class Solution:
+    def mergeTrees(self , t1: TreeNode, t2: TreeNode) -> TreeNode:
+        # write code here
+        def dfs(root1, root2):
+            root1.val += root2.val
+            if root1.right:
+                if root2.right:
+                    dfs(root1.right, root2.right)
+            else:
+                root1.right = root2.right
+            if root1.left:
+                if root2.left:
+                    dfs(root1.left, root2.left)
+            else:
+                root1.left = root2.left
+        dfs(t1, t2)
+        return t1
+```
+
+## 对称的二叉树 <font color=magenta>[2022-10-19]</font>
+
+[Simple](https://www.nowcoder.com/practice/ff05d44dfdb04e1d83bdbdab320efbcb?tpId=295&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=%2Fexam%2Foj)
+
+```python
+class Solution:
+    def recursion(self, root1: TreeNode, root2: TreeNode):
+        # 可以两个都为空
+        if not root1 and not root2:
+            return True
+        # 只有一个为空或者节点值不同，必定不对称
+        if not root1 or not root2 or root1.val != root2.val:
+            return False
+        # 每层对应的节点进入递归
+        return self.recursion(root1.left, root2.right) and self.recursion(root1.right, root2.left)
+
+    def isSymmetrical(self , pRoot: TreeNode) -> bool:
+        return self.recursion(pRoot, pRoot)
+```
+
+```python
+class Solution:
+    def isSymmetrical(self , pRoot: TreeNode) -> bool:
+        # write code here
+        ans = [True]
+        def wfs(cur_nodes):
+            if not cur_nodes:
+                return
+            res = []
+            nex = []
+            flag = False
+            for i in cur_nodes:
+                if not i:
+                    nex.append(None)
+                    nex.append(None)
+                    res.append(None)
+                    res.append(None)
+                    continue
+                if i.left:
+                    nex.append(i.left)
+                    res.append(i.left.val)
+                    flag = True
+                else:
+                    nex.append(None)
+                    res.append(None)
+                if i.right:
+                    flag = True
+                    nex.append(i.right)
+                    res.append(i.right.val)
+                else:
+                    nex.append(None)
+                    res.append(None)
+            if res != res[::-1]:
+                ans[0] = False
+                return
+            if flag:
+                wfs(nex)
+        wfs([pRoot])
+        return ans[0]
+```
+
 # Backtrack
 
 We can cope with only simple tasks. But there is only a complex task.
