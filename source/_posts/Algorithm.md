@@ -95,6 +95,38 @@ class Solution:
 
 # Binary Tree
 
+## 在二叉树中找到两个节点的最近公共节点 <font color=magenta>[2022-10-19]</font>
+
+[Medium](https://www.nowcoder.com/practice/e0cc33a83afe4530bcec46eba3325116?tpId=295&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=%2Fexam%2Foj)
+
+```python
+class Solution:
+    def lowestCommonAncestor(self , root: TreeNode, o1: int, o2: int) -> int:
+        # write code here
+        self.ans = None
+        def dfs(root):
+            if not root:
+                return False, False
+            find1_left, find2_left = dfs(root.left)
+            find1_right, find2_right = dfs(root.right)
+
+            find1 = find1_left or find1_right
+            find2 = find2_left or find2_right
+            if root.val == o1:
+                if find2:
+                    self.ans = root
+                return True, find2
+            if root.val == o2:
+                if find1:
+                    self.ans = root
+                return find1, True
+            if (find1_left or find2_left) and (find1_right or find2_right):
+                self.ans = root
+            return find1, find2
+        dfs(root)
+        return self.ans.val
+```
+
 ## 镜像的二叉树 <font color=magenta>[2022-10-19]</font>
 
 [Sample](https://www.nowcoder.com/practice/a9d0ecbacef9410ca97463e4a5c83be7?tpId=295&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=%2Fexam%2Foj)
