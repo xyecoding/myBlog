@@ -93,6 +93,41 @@ class Solution:
         return res + res_m
 ```
 
+# Stack and Deque
+
+## 滑动窗口的最大值 <font color=magenta>[2022-10-20]</font>
+
+[Hard](https://www.nowcoder.com/practice/1624bc35a45c42c0bc17d17fa0cba788?tpId=295&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=%2Fexam%2Foj)
+
+```python
+class Solution:
+    def maxInWindows(self , num: List[int], size: int) -> List[int]:
+        res = []
+         #窗口大于数组长度的时候，返回空
+        if size <= len(num) and size != 0:
+            from collections import deque
+            #双向队列
+            dq = deque()
+            #先遍历一个窗口
+            for i in range(size):
+                #去掉比自己先进队列的小于自己的值
+                while len(dq) != 0 and num[dq[-1]] < num[i]:
+                     dq.pop()
+                dq.append(i)
+            #遍历后续数组元素
+            for i in range(size, len(num)):
+                res.append(num[dq[0]])
+                while len(dq) != 0 and dq[0] < (i - size + 1):
+                    #弹出窗口移走后的值
+                    dq.popleft()
+                #加入新的值前，去掉比自己先进队列的小于自己的值
+                while len(dq) != 0 and num[dq[-1]] < num[i]:
+                    dq.pop()
+                dq.append(i)
+            res.append(num[dq[0]])
+        return res
+```
+
 # Binary Tree
 
 ## 在二叉树中找到两个节点的最近公共节点 <font color=magenta>[2022-10-19]</font>
