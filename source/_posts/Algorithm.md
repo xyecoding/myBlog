@@ -2202,6 +2202,31 @@ class Solution:
 
 # Other
 
+## 缺失的第一个正整数 <font color=magenta>[2022-10-28]</font>
+
+[Medium](https://www.nowcoder.com/practice/50ec6a5b0e4e45348544348278cdcee5?tpId=295&tags=&title=&difficulty=0&judgeStatus=0&rp=0&sourceUrl=%2Fexam%2Foj)
+
+```python
+class Solution:
+    def minNumberDisappeared(self , nums: List[int]) -> int:
+        n = len(nums)
+        #遍历数组
+        for i in range(n):
+            #数全部记为n+1
+            if nums[i] <= 0:
+                nums[i] = n + 1
+        for i in range(n):
+            #对于1-n中的数字
+            if abs(nums[i]) <= n:
+                #这个数字的下标标记为负数
+                nums[abs(nums[i]) - 1] = -1 * abs(nums[abs(nums[i]) - 1])
+        for i in range(n):
+            #找到第一个元素不为负数的下标
+            if nums[i] > 0:
+                return i + 1
+        return n + 1
+```
+
 ## Find All Numbers Disappeared in an Array <font color=magenta>[2022-10-12]</font>
 
 [Simple](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array/)
