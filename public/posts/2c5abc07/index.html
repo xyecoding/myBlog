@@ -29,7 +29,7 @@
 <meta property="og:description" content="Some Configuration on Windows">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-10T10:31:06.000Z">
-<meta property="article:modified_time" content="2022-08-26T02:03:14.228Z">
+<meta property="article:modified_time" content="2022-11-09T12:02:10.132Z">
 <meta property="article:author" content="Xiang Ye">
 <meta property="article:tag" content="Windows">
 <meta name="twitter:card" content="summary">
@@ -120,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#proxy"><span class="nav-text">1.  Proxy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#in-wsl"><span class="nav-text">1.1.  In WSL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#use-the-windows-proxy-in-wsl1"><span class="nav-text">1.1.1.  Use the Windows proxy in WSL1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#x-server"><span class="nav-text">2.  X server</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#on-the-windows-side-xming"><span class="nav-text">2.1.  On the Windows side: Xming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#on-the-linux-side-display"><span class="nav-text">2.2.  On the linux side: $DISPLAY</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#proxy"><span class="nav-text">1.  Proxy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#in-wsl"><span class="nav-text">1.1.  In WSL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#use-the-windows-proxy-in-wsl1"><span class="nav-text">1.1.1.  Use the Windows proxy in WSL1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#x-server"><span class="nav-text">2.  X server</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#on-the-windows-side-xming"><span class="nav-text">2.1.  On the Windows side: Xming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#on-the-linux-side-display"><span class="nav-text">2.2.  On the linux side: $DISPLAY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-remote-linux"><span class="nav-text">2.3.  For Remote Linux</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -224,7 +224,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-26 10:03:14" itemprop="dateModified" datetime="2022-08-26T10:03:14+08:00">2022-08-26</time>
+      <time title="Modified: 2022-11-09 20:02:10" itemprop="dateModified" datetime="2022-11-09T20:02:10+08:00">2022-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -284,6 +284,11 @@ error of <code>socks</code>. Use <code>socks5</code>,</p>
 <code>set -x DISPLAY :0.0</code> in your fish configuration file.</p>
 <p>Then you can run a gui program on your linux and get the window on the Windows
 side.</p>
+<h2 id="for-remote-linux"><span class="post-title-index">2.3. </span><a class="markdownIt-Anchor" href="#for-remote-linux"></a> For Remote Linux</h2>
+<p>Add the following lines in your bashrc.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> DISPLAY=<span class="built_in">local</span> ip:0.0</span><br><span class="line"><span class="built_in">export</span> $(dbus-launch)</span><br></pre></td></tr></tbody></table></figure>
+<p>Be careful, when you start your Xming, pick <code>No Access Control</code>. When you use
+local wsl, <code>No Access Control</code> makes no sense.</p>
 </body></html>
     </div>
 

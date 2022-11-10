@@ -74,3 +74,15 @@ The DISPLAY variable should be set as `:0.0`. For bash shell, write
 
 Then you can run a gui program on your linux and get the window on the Windows
 side.
+
+## For Remote Linux
+
+Add the following lines in your bashrc.
+
+```bash
+export DISPLAY=local ip:0.0
+export $(dbus-launch)
+```
+
+Be careful, when you start your Xming, pick `No Access Control`. When you use
+local wsl, `No Access Control` makes no sense.
