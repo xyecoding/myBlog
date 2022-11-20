@@ -17,6 +17,27 @@ password:
 summary:
 ---
 
+# Gumbel function
+
+## The probability density function（概率密度函数）
+
+The probability density function (PDF) of gumbel distribution is,
+
+$$f(x,\mu, \beta) = e^{-z-e^{-z}}, z = \frac{x - \mu}{\beta},$$
+
+where $\mu$ is the position index and the mode （众数）and $\beta$ is the scale
+index. The variance of gumbel distribution is $\frac{\pi^2}{6}{\beta}^2$.
+
+## The Cumulative density function （累计密度函数）
+
+The cumulative density function (CDF) of gumbel distribution is,
+
+$$F(x, \mu, \beta) = e^{-e^{-(x-\mu)/\beta}}$$
+
+CDF's inverse function is,
+
+$$F^{-1}(y, \mu, \beta) = \mu - \beta \ln(-\ln(y))$$
+
 # KL (Kullback-Leibler) Divergence
 
 ## Some Concepts
