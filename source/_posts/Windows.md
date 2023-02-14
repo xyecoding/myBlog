@@ -55,6 +55,20 @@ if test $(grep Microsoft /proc/version)
 end
 ```
 
+### Use the Windows proxy in WSL2
+
+`cat /etc/resolv.conf` to obtain the target ip.
+
+```fish
+if test $(grep Microsoft /proc/version)
+  set -x http_proxy socks://target ip:10808
+  set -x https_proxy socks://target ip:10808
+end
+```
+
+For the windows side, open `allow the connection from local area network` in your 
+agent software.
+
 # X server
 
 ## On the Windows side: Xming
