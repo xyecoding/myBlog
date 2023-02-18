@@ -1,2 +1,2 @@
 *.deploy_git/
-db.json
+*.json
