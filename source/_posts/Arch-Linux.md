@@ -260,6 +260,10 @@ enable.
 
 ## startx
 
+## libxft-bgra-git
+
+`libxft-bgra-git` is discarded by `yay` and use ` ttf-symbola` instead.
+
 ### NVIDIA
 
 `startx` provides a command line startup of Linux. However, it will cause a
@@ -293,6 +297,8 @@ translate fast for picking words.
 
 ## Goldendict
 
+`Goldendict-webengine-git` is better than `Goldendict-git`.
+
 Goldendict is a more power translator. Install `translate-shell`. `edit` >
 `dictionaries` > `programs` > `add`, `type`: `Plain text`; `Command Line`:
 `trans -e google -s en -t zh -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages n -show-original-dictionary n -show-dictionary n -show-alternatives n "%GDWORD%"`
@@ -310,8 +316,8 @@ When install `tmux`, some error maybe occur.
 `/usr/share/fish/functions/fish_prompt.fish (line 6): hostname|cut -d . -f 1`
 can be solved by `pacman -S inetutils`.
 
-`shell command \`tmux\`throws\`can't use /dev/tty\` error`can be solved by`exec
-</dev/tty; exec <&1; TMUX= tmux`.
+`shell command tmux throws can't use /dev/tty` error can be solved
+by`exec </dev/tty; exec <&1; TMUX= tmux`.
 
 ## Clipboard of nvim
 
