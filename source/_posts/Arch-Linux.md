@@ -182,6 +182,13 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## Block nouveau
+
+Add 
+`GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5 nowatchdog modprobe.blacklist=nouveau"`
+to the `/etc/default/grub`.
+Then `grub-mkconfig -o /boot/grub/grub.cfg`.
+
 ## Default applications
 
 To set the default applications, one needs to modify the file
