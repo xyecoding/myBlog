@@ -182,12 +182,17 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## Hardware time
+
+The hardware time sometimes is not correct.
+
+Use `sudo timedatectl set-ntp true` to solve it.
+
 ## Block nouveau
 
-Add 
+Add
 `GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5 nowatchdog modprobe.blacklist=nouveau"`
-to the `/etc/default/grub`.
-Then `grub-mkconfig -o /boot/grub/grub.cfg`.
+to the `/etc/default/grub`. Then `grub-mkconfig -o /boot/grub/grub.cfg`.
 
 ## Default applications
 
