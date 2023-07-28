@@ -244,6 +244,17 @@ gpupdate /force in elevated CMD Prompt and reboot
 
 [For More Information](https://stackoverflow.com/questions/33719489/how-to-enable-usb-redirection-in-windows-10/46628854)
 
+## Slstatus
+
+`slstatus` can show the information of battery. Add the following snippets in
+the `config.h` file. The name of the battery can be found by running
+`sudo tlp-stat -b`.
+
+```c
+    {battery_perc, "󰁿 %s%%", "BAT0"},
+    {battery_state, "%s | ", "BAT0"},
+```
+
 ## Touch Pad
 
 When `dwm` is started, tapping the touchpad does not work. To let it work create
