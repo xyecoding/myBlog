@@ -270,6 +270,15 @@ EndSection
 
 Notice that there is no indents in the file, otherwise it will not work.
 
+## Xorg
+
+The scale of the screen can be changed by
+`xrandr --output eDP-1 --scale 0.6x0.6`.
+
+## Cursor
+
+The cursor can be hind by `yay -S unclutter`.
+
 ## Network
 
 Connect a network with `NetworkManager`. For example,
