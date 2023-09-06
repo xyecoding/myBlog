@@ -188,6 +188,10 @@ The hardware time sometimes is not correct.
 
 Use `sudo timedatectl set-ntp true` to solve it.
 
+## Use Nvidia for X Server
+
+By [this](https://wiki.archlinux.org/title/NVIDIA_Optimus)
+
 ## Block nouveau
 
 Add
