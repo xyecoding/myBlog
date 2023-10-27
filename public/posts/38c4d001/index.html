@@ -30,7 +30,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://xyegithub.github.io/myBlog/posts/38c4d001/init.png">
 <meta property="article:published_time" content="2022-05-15T12:40:03.000Z">
-<meta property="article:modified_time" content="2023-09-06T08:54:29.295Z">
+<meta property="article:modified_time" content="2023-10-27T11:06:20.834Z">
 <meta property="article:author" content="Xiang Ye">
 <meta property="article:tag" content="Arch Linux">
 <meta name="twitter:card" content="summary">
@@ -226,7 +226,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-06 16:54:29" itemprop="dateModified" datetime="2023-09-06T16:54:29+08:00">2023-09-06</time>
+      <time title="Modified: 2023-10-27 19:06:20" itemprop="dateModified" datetime="2023-10-27T19:06:20+08:00">2023-10-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -283,6 +283,8 @@ modules will be loaded later on by <code>udev</code>, during the init process.</
 designed to ease the burden of mounting and unmounting file systems to a
 machine. It is a set of rules used to control how different file systems are
 treated each time they are introduced to a system.</p>
+<p>Make partitions mount at startup. Add the following snippets to <code>/etc/fstab</code>.</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/swapfile none swap defaults 0 0</span><br><span class="line">/dev/sdb7   /home/Eric/Downloads  ext4  defaults 0 0</span><br><span class="line">/dev/sdb5   /home/Eric/temp_try  ext4  defaults 0 0</span><br><span class="line">/dev/sdb6   /home/Eric/expand  ext4  defaults 0 0</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <h1 id="what-is-grub"><span class="post-title-index">5. </span><a class="markdownIt-Anchor" href="#what-is-grub"></a> What is grub</h1>
 <p><code>grub</code> is a boot loader. It is the software that loads the Linux kernel (It has
 other uses as well). It is the first software that starts at a system boot.</p>

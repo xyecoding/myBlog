@@ -56,6 +56,16 @@ designed to ease the burden of mounting and unmounting file systems to a
 machine. It is a set of rules used to control how different file systems are
 treated each time they are introduced to a system.
 
+Make partitions mount at startup. Add the following snippets to `/etc/fstab`.
+
+```
+/swapfile none swap defaults 0 0
+/dev/sdb7   /home/Eric/Downloads  ext4  defaults 0 0
+/dev/sdb5   /home/Eric/temp_try  ext4  defaults 0 0
+/dev/sdb6   /home/Eric/expand  ext4  defaults 0 0
+
+```
+
 # What is grub
 
 `grub` is a boot loader. It is the software that loads the Linux kernel (It has
