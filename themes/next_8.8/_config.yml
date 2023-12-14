@@ -138,8 +138,8 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  GitHub: https://github.com/xyegithub || fab fa-github
-  E-Mail: mailto:xye@bupt.edu.cn || fa fa-envelope
+  GitHub: https://github.com/xyecoding || fab fa-github
+  E-Mail: mailto:xye@bupt.cn || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
@@ -604,11 +604,11 @@ livere_uid: # <your_uid>
 # For more information: https://gitalk.github.io
 gitalk:
   enable: true
-  github_id: xyegithub # GitHub repo owner
+  github_id: xyecoding # GitHub repo owner
   repo: myBlog # Repository name to store issues
   client_id: 04c4cf6b2c4c1b1762e9 # GitHub Application Client ID
   client_secret: 799875cdf35ced5325ab3b57c96f98b6d64b73b2 # GitHub Application Client Secret
-  admin_user: xyegithub # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
+  admin_user: xyecoding # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
   distraction_free_mode: false # Facebook-like distraction free mode
   # When the official proxy is not available, you can change it to your own proxy address
   proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token # This is official proxy address

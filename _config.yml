@@ -13,7 +13,7 @@ timezone: ""
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://xyegithub.github.io/myBlog/
+url: https://xyecoding.github.io/myBlog/
 root: /myBlog/
 # url: https://www.yexiang.ml
 # root: /
@@ -115,7 +115,7 @@ deploy:
   type:
     git
     #repository: https://github.com/xyegithub/myBlog.git
-  repository: git@github.com:xyegithub/myBlog.git
+  repository: git@github.com:xyecoding/myBlog.git
   branch:
     main
     #sitemap:
