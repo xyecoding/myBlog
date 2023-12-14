@@ -606,8 +606,9 @@ gitalk:
   enable: true
   github_id: xyecoding # GitHub repo owner
   repo: myBlog # Repository name to store issues
-  client_id: 04c4cf6b2c4c1b1762e9 # GitHub Application Client ID
-  client_secret: 799875cdf35ced5325ab3b57c96f98b6d64b73b2 # GitHub Application Client Secret
+  # client_id: 04c4cf6b2c4c1b1762e9 # GitHub Application Client ID
+  client_id: caf47b5090fb9fdaadbe
+  client_secret: 97ba359034d6c5a49f04cd4cb6973006c594ab57
   admin_user: xyecoding # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
   distraction_free_mode: false # Facebook-like distraction free mode
   # When the official proxy is not available, you can change it to your own proxy address
