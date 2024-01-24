@@ -86,7 +86,7 @@ pull.
 
 Usually `.git/objects/pack` folder is contain three files.
 
-1. '.pack' file which contain all the commit information.
+1. `.pack` file which contain all the commit information.
 2. `.idx` file is the index of the history in `.pack` file.
 3. `.rev` file is related to the reverse index information.
 
