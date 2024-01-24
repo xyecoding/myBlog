@@ -81,3 +81,32 @@ However, it may cause some trouble when `git push` is used for your own repos.
 Use ssh will work fine for it only replace `https://github.com` and ssh uses
 `git@github`. The `url` in `.gitconfig` file have no effect on ssh push/clone or
 pull.
+
+# `.git` folder is too big
+
+Usually `.git/objects/pack` folder is contain three files.
+
+1. '.pack' file which contain all the commit information.
+2. `.idx` file is the index of the history in `.pack` file.
+3. `.rev` file is related to the reverse index information.
+
+Use the following snippets to shrink the `.git` folder:
+
+```bash
+# list the biggest 10 files.
+git verify-pack -v .git/objects/pack/*.idx \
+| sort -k 3 -n \
+| tail -10
+# to see what each file is, run this:
+git rev-list --objects --all | grep [first few chars of the sha1 from previous output]
+# if the biggest file is a pdf file then clean it by:
+git filter-branch --index-filter 'git rm --cached --ignore-unmatch *.pdf' -- --all
+rm -Rf .git/refs/original
+rm -Rf .git/logs/
+git gc --aggressive --prune=now
+
+# verify
+git count-objects -v
+# then push
+git push -f
+```
