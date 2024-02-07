@@ -284,6 +284,13 @@ EndSection
 
 Notice that there is no indents in the file, otherwise it will not work.
 
+## Auto login
+
+The only thing needed to do is create the 'autologin.conf' file.
+[Here](https://wiki.archlinux.org/title/getty#Virtual_console).
+
+Then, change `username` to the username you want to auto login.
+
 ## Xorg
 
 The scale of the screen can be changed by

@@ -28,6 +28,22 @@ In fish `bind -M normal` can not work for normal mode of vi input method.
 However, `bind -M default` works fine for the normal mode of the vi input
 method.
 
+## Shortcut to copy contents selected in visual model to the clipboard.
+
+`bind --mode visual --sets-mode default Y 'fish_clipboard_copy; commandline -f repaint-mode; commandline -f end-selection'`
+
+`--sets-mode default` go back to the normal mode after `fish_clipboard_copy`.
+
+`commandline -f repaint-mode` can refresh the mode then show `N` (normal mode),
+otherwise it will show `V`, even though it has already gone back to normal mode
+by `--set-mode default`.
+
+`commandline -f end-selection` can stop selection, otherwise it will still
+highlight the contents which are selected before.
+
+`commandline -f function` is useful. The detail of the functions can be used see
+'man bind'.
+
 # Set the default editor in fish
 
 [fzf](https://github.com/jethrokuan/fzf) allows fish to use fuzzy search. `\co`

@@ -29,7 +29,7 @@
 <meta property="og:description" content="everyday fish shell">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-04T01:43:16.000Z">
-<meta property="article:modified_time" content="2022-06-13T07:38:40.684Z">
+<meta property="article:modified_time" content="2024-02-07T00:27:28.508Z">
 <meta property="article:author" content="Xiang Ye">
 <meta property="article:tag" content="Fish">
 <meta name="twitter:card" content="summary">
@@ -120,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#configuration-of-shortcuts-for-fish"><span class="nav-text">1.  Configuration of shortcuts for fish</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set-the-default-editor-in-fish"><span class="nav-text">2.  Set the default editor in fish</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#configuration-of-shortcuts-for-fish"><span class="nav-text">1.  Configuration of shortcuts for fish</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#shortcut-to-copy-contents-selected-in-visual-model-to-the-clipboard"><span class="nav-text">1.1.  Shortcut to copy contents selected in visual model to the clipboard.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set-the-default-editor-in-fish"><span class="nav-text">2.  Set the default editor in fish</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -224,7 +224,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-13 15:38:40" itemprop="dateModified" datetime="2022-06-13T15:38:40+08:00">2022-06-13</time>
+      <time title="Modified: 2024-02-07 08:27:28" itemprop="dateModified" datetime="2024-02-07T08:27:28+08:00">2024-02-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,6 +264,16 @@ the current autosuggestion. For more special function see
 <p>In fish <code>bind -M normal</code> can not work for normal mode of vi input method.
 However, <code>bind -M default</code> works fine for the normal mode of the vi input
 method.</p>
+<h2 id="shortcut-to-copy-contents-selected-in-visual-model-to-the-clipboard"><span class="post-title-index">1.1. </span><a class="markdownIt-Anchor" href="#shortcut-to-copy-contents-selected-in-visual-model-to-the-clipboard"></a> Shortcut to copy contents selected in visual model to the clipboard.</h2>
+<p><code>bind --mode visual --sets-mode default Y 'fish_clipboard_copy; commandline -f repaint-mode; commandline -f end-selection'</code></p>
+<p><code>--sets-mode default</code> go back to the normal mode after <code>fish_clipboard_copy</code>.</p>
+<p><code>commandline -f repaint-mode</code> can refresh the mode then show <code>N</code> (normal mode),
+otherwise it will show <code>V</code>, even though it has already gone back to normal mode
+by <code>--set-mode default</code>.</p>
+<p><code>commandline -f end-selection</code> can stop selection, otherwise it will still
+highlight the contents which are selected before.</p>
+<p><code>commandline -f function</code> is useful. The detail of the functions can be used see
+‘man bind’.</p>
 <h1 id="set-the-default-editor-in-fish"><span class="post-title-index">2. </span><a class="markdownIt-Anchor" href="#set-the-default-editor-in-fish"></a> Set the default editor in fish</h1>
 <p><a target="_blank" rel="noopener" href="https://github.com/jethrokuan/fzf">fzf</a> allows fish to use fuzzy search. <code>\co</code>
 is a shortcut of fzf-fish to open a file by fuzzy search with default editor.
