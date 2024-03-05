@@ -284,6 +284,55 @@ EndSection
 
 Notice that there is no indents in the file, otherwise it will not work.
 
+## Systemd service
+
+### Manage user-specific systemd units
+
+1. Create a service file in `~/.config/systemd/user/`.
+
+Notice that not to use `~` to denote the home directory.
+
+For `x0vncserver.service`:
+
+```
+[Unit]
+Description=Remote desktop service (VNC)
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5s
+ExecStartPre=/bin/sh -c 'while ! pgrep -U "$USER" Xorg; do sleep 2; done'
+ExecStart=x0vncserver -rfbauth /home/Eric/.vnc/passwd  -SecurityTypes VncAuth
+
+[Install]
+WantedBy=default.target
+```
+
+For `frpc.service`:
+
+```
+[Unit]
+Description=Frp Client Service
+Wants = network.target
+After = network.target syslog.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5s
+ExecStart=/home/Eric/frp/frpc -c /home/Eric/frp/frpc.toml
+
+[Install]
+WantedBy=default.target
+```
+
+2. Reload systemd manager configuration using `systemctl --user daemon-reload`.
+3. Enable and start the service using
+   `systemctl --user enable ExampleService.service ` and
+   `systemctl --user start ExampleService.service`.
+
 ## Auto login
 
 The only thing needed to do is create the 'autologin.conf' file.
