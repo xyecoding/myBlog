@@ -192,6 +192,26 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## Bluetooth
+
+```bash
+sudo pacman -S bluez bluez-utils
+sudo systemctl start bluetooth
+sudo systemctl enable bluetooth
+bluetoothctl
+```
+
+The `br-connection-profile-unavailable` error will occur. As mentioned in
+[this wiki](https://bbs.archlinux.org/viewtopic.php?id=288398), install
+`pipewire-pulse` then restart `pipewire` will solve the problem.
+
+```bash
+sudo pacman -S pipewire-pulse
+systemctl --user restart pipewire
+```
+
+Then you can connect your devices by bluetooth.
+
 ## Hardware time
 
 The hardware time sometimes is not correct.
