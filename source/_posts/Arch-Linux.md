@@ -197,7 +197,9 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 WPP cannot display bold text properly.
 
 Download and install the old version of freetype.
-[freetype2-2.13.0-1-x86_64.pkg.tar.zst]()
+[freetype2-2.13.0-1-x86_64.pkg.tar.zst](https://archive.archlinux.org/packages/f/freetype2/freetype2-2.13.0-1-x86_64.pkg.tar.zst)
+
+[Here](https://zhuanlan.zhihu.com/p/657532417)
 
 ## Bluetooth
 
