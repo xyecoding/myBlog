@@ -29,7 +29,7 @@
 <meta property="og:description" content="Make and Cmake">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-11T01:27:25.000Z">
-<meta property="article:modified_time" content="2022-07-21T02:38:10.007Z">
+<meta property="article:modified_time" content="2024-07-15T09:55:53.347Z">
 <meta property="article:author" content="Xiang Ye">
 <meta property="article:tag" content="Compile">
 <meta name="twitter:card" content="summary">
@@ -120,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#make"><span class="nav-text">1.  Make</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#some-symbols"><span class="nav-text">1.1.  Some Symbols</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cmake"><span class="nav-text">2.  Cmake</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#make"><span class="nav-text">1.  Make</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#some-symbols"><span class="nav-text">1.1.  Some Symbols</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cmake"><span class="nav-text">2.  Cmake</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#libtorch"><span class="nav-text">2.1.  Libtorch</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -224,7 +224,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-21 10:38:10" itemprop="dateModified" datetime="2022-07-21T10:38:10+08:00">2022-07-21</time>
+      <time title="Modified: 2024-07-15 17:55:53" itemprop="dateModified" datetime="2024-07-15T17:55:53+08:00">2024-07-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -262,6 +262,18 @@
 <p><code>$&lt;</code> means the first dependence</p>
 <p><code>$?</code> means the dependences newer than the target file</p>
 <h1 id="cmake"><span class="post-title-index">2. </span><a class="markdownIt-Anchor" href="#cmake"></a> Cmake</h1>
+<h2 id="libtorch"><span class="post-title-index">2.1. </span><a class="markdownIt-Anchor" href="#libtorch"></a> Libtorch</h2>
+<p>The <code>CmakeLists.txt</code> is as follow.</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.10 FATAL_ERROR)</span><br><span class="line">project(custom_ops)</span><br><span class="line"></span><br><span class="line">set(CMAKE_CUDA_COMPILER /opt/cuda/bin/nvcc)</span><br><span class="line">find_package(Torch REQUIRED)</span><br><span class="line"></span><br><span class="line">add_executable(example-app example-app.cpp)</span><br><span class="line">target_link_libraries(example-app "${TORCH_LIBRARIES}")</span><br><span class="line">set_property(TARGET example-app PROPERTY CXX_STANDARD 17)</span><br></pre></td></tr></tbody></table></figure>
+<p>It will use <code>/usr/bin/gcc</code> and <code>/usr/bin/g++</code> to compile the source files. When
+I add</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set(CMAKE_C_COMPILER /usr/bin/gcc-13)</span><br><span class="line">set(CMAKE_CXX_COMPILER /usr/bin/g++-13)</span><br></pre></td></tr></tbody></table></figure>
+<p>into the <code>CmakeLists.txt</code>, it reports
+<code>The C compiler identification is GNU 13.3.0</code>. However, it also use
+<code>/usr/bin/gcc</code> and <code>/usr/bin/g++</code> to compile the source files. Only if i
+<code>rm /usr/bin/g++</code>, and <code>ln -s /usr/bin/g++-13 /usr/bin/g++</code>, it will use g++13.</p>
+<p>The path of standard include directory for g++ is embeded in the binary file of
+g++, and it has nothing with <code>CmakeLists.txt</code>.</p>
 </body></html>
     </div>
 
