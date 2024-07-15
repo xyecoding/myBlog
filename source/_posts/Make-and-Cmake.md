@@ -29,3 +29,35 @@ summary:
 `$?` means the dependences newer than the target file
 
 # Cmake
+
+## Libtorch
+
+The `CmakeLists.txt` is as follow.
+
+```
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+project(custom_ops)
+
+set(CMAKE_CUDA_COMPILER /opt/cuda/bin/nvcc)
+find_package(Torch REQUIRED)
+
+add_executable(example-app example-app.cpp)
+target_link_libraries(example-app "${TORCH_LIBRARIES}")
+set_property(TARGET example-app PROPERTY CXX_STANDARD 17)
+```
+
+It will use `/usr/bin/gcc` and `/usr/bin/g++` to compile the source files. When
+I add
+
+```
+set(CMAKE_C_COMPILER /usr/bin/gcc-13)
+set(CMAKE_CXX_COMPILER /usr/bin/g++-13)
+```
+
+into the `CmakeLists.txt`, it reports
+`The C compiler identification is GNU 13.3.0`. However, it also use
+`/usr/bin/gcc` and `/usr/bin/g++` to compile the source files. Only if i
+`rm /usr/bin/g++`, and `ln -s /usr/bin/g++-13 /usr/bin/g++`, it will use g++13.
+
+The path of standard include directory for g++ is embeded in the binary file of
+g++, and it has nothing with `CmakeLists.txt`.
