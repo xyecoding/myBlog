@@ -29,7 +29,7 @@
 <meta property="og:description" content="Small Things for Linux">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-03T13:35:07.000Z">
-<meta property="article:modified_time" content="2024-07-16T01:22:55.979Z">
+<meta property="article:modified_time" content="2024-07-16T01:49:22.730Z">
 <meta property="article:author" content="Xiang Ye">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -224,7 +224,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-07-16 09:22:55" itemprop="dateModified" datetime="2024-07-16T09:22:55+08:00">2024-07-16</time>
+      <time title="Modified: 2024-07-16 09:49:22" itemprop="dateModified" datetime="2024-07-16T09:49:22+08:00">2024-07-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -263,6 +263,8 @@ manage them.</p>
 <code>/etc/alternatives/gcc</code>. <code>/etc/alternatives/gcc</code> is linked to <code>/usr/bin/gcc-13</code>
 or <code>/usr/bin/gcc-14</code>. Use <code>sudo update-alternatives --config gcc</code> can change
 <code>/etc/alternatives/gcc</code> is linked to <code>/usr/bin/gcc-13</code> or <code>/usr/bin/gcc-14</code>.</p>
+<p>Let <code>g++</code> change with <code>gcc</code>,</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /bin/gcc gcc /usr/bin/gcc-13 100 --slave /bin/g++ g++ /usr/bin/g++-13</span><br><span class="line">sudo update-alternatives --install /bin/gcc gcc /usr/bin/gcc-14 200 --slave /bin/g++ g++ /usr/bin/g++-14</span><br></pre></td></tr></tbody></table></figure>
 <h1 id="sudo-apt-update-error-release-file-is-not-yet-valid-in-wsl"><span class="post-title-index">2. </span><a class="markdownIt-Anchor" href="#sudo-apt-update-error-release-file-is-not-yet-valid-in-wsl"></a> sudo apt update error: “Release file is not yet valid” in WSL.</h1>
 <p>Run <code>sudo hwclock --hctosys</code>. This command gets the latest time from your
 Windows machine’s RTC and sets the system time to that.</p>
