@@ -31,6 +31,13 @@ The command will create a link `/bin/gcc` which is linked to
 or `/usr/bin/gcc-14`. Use `sudo update-alternatives --config gcc` can change
 `/etc/alternatives/gcc` is linked to `/usr/bin/gcc-13` or `/usr/bin/gcc-14`.
 
+Let `g++` change with `gcc`,
+
+```
+sudo update-alternatives --install /bin/gcc gcc /usr/bin/gcc-13 100 --slave /bin/g++ g++ /usr/bin/g++-13
+sudo update-alternatives --install /bin/gcc gcc /usr/bin/gcc-14 200 --slave /bin/g++ g++ /usr/bin/g++-14
+```
+
 # sudo apt update error: "Release file is not yet valid" in WSL.
 
 Run `sudo hwclock --hctosys`. This command gets the latest time from your
