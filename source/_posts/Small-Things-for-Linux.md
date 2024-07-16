@@ -16,6 +16,21 @@ password:
 summary:
 ---
 
+# `alternatives` manage multi-version softwares
+
+I have a `gcc-13` and a `gcc-14` in `/usr/bin`. Here I use `alternatives` to
+manage them.
+
+```
+sudo update-alternatives --install /bin/gcc gcc /usr/bin/gcc-13 100
+sudo update-alternatives --install /bin/gcc gcc /usr/bin/gcc-14 200
+```
+
+The command will create a link `/bin/gcc` which is linked to
+`/etc/alternatives/gcc`. `/etc/alternatives/gcc` is linked to `/usr/bin/gcc-13`
+or `/usr/bin/gcc-14`. Use `sudo update-alternatives --config gcc` can change
+`/etc/alternatives/gcc` is linked to `/usr/bin/gcc-13` or `/usr/bin/gcc-14`.
+
 # sudo apt update error: "Release file is not yet valid" in WSL.
 
 Run `sudo hwclock --hctosys`. This command gets the latest time from your
