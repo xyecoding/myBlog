@@ -29,7 +29,7 @@
 <meta property="og:description" content="Small Things for Linux">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-03T13:35:07.000Z">
-<meta property="article:modified_time" content="2023-02-16T01:33:38.270Z">
+<meta property="article:modified_time" content="2024-07-16T01:22:55.979Z">
 <meta property="article:author" content="Xiang Ye">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -120,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sudo-apt-update-error-release-file-is-not-yet-valid-in-wsl"><span class="nav-text">1.  sudo apt update error: “Release file is not yet valid” in WSL.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#proxy-for-apt"><span class="nav-text">2.  Proxy for apt</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shortcuts"><span class="nav-text">3.  Shortcuts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#stty-set-tty-set-teletypewriter"><span class="nav-text">3.1.  stty (set tty, set teletypewriter)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gun-readline-get-a-line-from-a-user-with-editing"><span class="nav-text">3.2.  gun readline - get a line from a user with editing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#synopsis"><span class="nav-text">3.2.1.  Synopsis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#description"><span class="nav-text">3.2.2.  Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#return-value"><span class="nav-text">3.2.3.  Return Value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#initialization-file"><span class="nav-text">3.2.4.  Initialization file</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#the-difference-of-help-and-man-on-linux"><span class="nav-text">4.  The difference of help and man on linux</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#alternatives-manage-multi-version-softwares"><span class="nav-text">1.  alternatives manage multi-version softwares</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sudo-apt-update-error-release-file-is-not-yet-valid-in-wsl"><span class="nav-text">2.  sudo apt update error: “Release file is not yet valid” in WSL.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#proxy-for-apt"><span class="nav-text">3.  Proxy for apt</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shortcuts"><span class="nav-text">4.  Shortcuts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#stty-set-tty-set-teletypewriter"><span class="nav-text">4.1.  stty (set tty, set teletypewriter)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gun-readline-get-a-line-from-a-user-with-editing"><span class="nav-text">4.2.  gun readline - get a line from a user with editing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#synopsis"><span class="nav-text">4.2.1.  Synopsis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#description"><span class="nav-text">4.2.2.  Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#return-value"><span class="nav-text">4.2.3.  Return Value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#initialization-file"><span class="nav-text">4.2.4.  Initialization file</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#the-difference-of-help-and-man-on-linux"><span class="nav-text">5.  The difference of help and man on linux</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -224,7 +224,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-16 09:33:38" itemprop="dateModified" datetime="2023-02-16T09:33:38+08:00">2023-02-16</time>
+      <time title="Modified: 2024-07-16 09:22:55" itemprop="dateModified" datetime="2024-07-16T09:22:55+08:00">2024-07-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -255,14 +255,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <html><head></head><body><h1 id="sudo-apt-update-error-release-file-is-not-yet-valid-in-wsl"><span class="post-title-index">1. </span><a class="markdownIt-Anchor" href="#sudo-apt-update-error-release-file-is-not-yet-valid-in-wsl"></a> sudo apt update error: “Release file is not yet valid” in WSL.</h1>
+        <html><head></head><body><h1 id="alternatives-manage-multi-version-softwares"><span class="post-title-index">1. </span><a class="markdownIt-Anchor" href="#alternatives-manage-multi-version-softwares"></a> <code>alternatives</code> manage multi-version softwares</h1>
+<p>I have a <code>gcc-13</code> and a <code>gcc-14</code> in <code>/usr/bin</code>. Here I use <code>alternatives</code> to
+manage them.</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /bin/gcc gcc /usr/bin/gcc-13 100</span><br><span class="line">sudo update-alternatives --install /bin/gcc gcc /usr/bin/gcc-14 200</span><br></pre></td></tr></tbody></table></figure>
+<p>The command will create a link <code>/bin/gcc</code> which is linked to
+<code>/etc/alternatives/gcc</code>. <code>/etc/alternatives/gcc</code> is linked to <code>/usr/bin/gcc-13</code>
+or <code>/usr/bin/gcc-14</code>. Use <code>sudo update-alternatives --config gcc</code> can change
+<code>/etc/alternatives/gcc</code> is linked to <code>/usr/bin/gcc-13</code> or <code>/usr/bin/gcc-14</code>.</p>
+<h1 id="sudo-apt-update-error-release-file-is-not-yet-valid-in-wsl"><span class="post-title-index">2. </span><a class="markdownIt-Anchor" href="#sudo-apt-update-error-release-file-is-not-yet-valid-in-wsl"></a> sudo apt update error: “Release file is not yet valid” in WSL.</h1>
 <p>Run <code>sudo hwclock --hctosys</code>. This command gets the latest time from your
 Windows machine’s RTC and sets the system time to that.</p>
-<h1 id="proxy-for-apt"><span class="post-title-index">2. </span><a class="markdownIt-Anchor" href="#proxy-for-apt"></a> Proxy for apt</h1>
+<h1 id="proxy-for-apt"><span class="post-title-index">3. </span><a class="markdownIt-Anchor" href="#proxy-for-apt"></a> Proxy for apt</h1>
 <p><code>/etc/apt</code> is the host directory for apt.</p>
 <p><code>/etc/apt/apt.conf.d/proxy.conf</code> defines the proxy only for apt.</p>
 <p>If one wants to define proxy globally, <code>export http(s)_proxy</code> should be used.</p>
-<h1 id="shortcuts"><span class="post-title-index">3. </span><a class="markdownIt-Anchor" href="#shortcuts"></a> Shortcuts</h1>
+<h1 id="shortcuts"><span class="post-title-index">4. </span><a class="markdownIt-Anchor" href="#shortcuts"></a> Shortcuts</h1>
 <p>I want to find out where the “kill” shortcut, ctrl C, defined. I use <code>bind -P</code>
 to check the shortcuts. However, do not find ctrl C. Thus, I learned something
 about the shortcuts on linux. ctrl C is a shortcut of stty. However, <code>bind -P</code>
@@ -272,7 +280,7 @@ lists the shortcuts of readline.</p>
 <li>stty shortcuts</li>
 <li>readline shortcuts</li>
 </ul>
-<h2 id="stty-set-tty-set-teletypewriter"><span class="post-title-index">3.1. </span><a class="markdownIt-Anchor" href="#stty-set-tty-set-teletypewriter"></a> stty (set tty, set teletypewriter)</h2>
+<h2 id="stty-set-tty-set-teletypewriter"><span class="post-title-index">4.1. </span><a class="markdownIt-Anchor" href="#stty-set-tty-set-teletypewriter"></a> stty (set tty, set teletypewriter)</h2>
 <p>The difference between shell, terminal and tty</p>
 <p>tty: Print the file name of the terminal connected to standard input.</p>
 <p>stty: change or print terminal characteristics, change and print terminal line
@@ -284,21 +292,21 @@ settings.</p>
 <li>shell = command line interpreter</li>
 </ul>
 <p>The input of terminal or tty will used by readline, but not always readline.</p>
-<h2 id="gun-readline-get-a-line-from-a-user-with-editing"><span class="post-title-index">3.2. </span><a class="markdownIt-Anchor" href="#gun-readline-get-a-line-from-a-user-with-editing"></a> gun readline - get a line from a user with editing</h2>
-<h3 id="synopsis"><span class="post-title-index">3.2.1. </span><a class="markdownIt-Anchor" href="#synopsis"></a> Synopsis</h3>
+<h2 id="gun-readline-get-a-line-from-a-user-with-editing"><span class="post-title-index">4.2. </span><a class="markdownIt-Anchor" href="#gun-readline-get-a-line-from-a-user-with-editing"></a> gun readline - get a line from a user with editing</h2>
+<h3 id="synopsis"><span class="post-title-index">4.2.1. </span><a class="markdownIt-Anchor" href="#synopsis"></a> Synopsis</h3>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;readline/readline.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;readline/history.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span> *</span></span><br><span class="line"><span class="function"><span class="title">readline</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *prompt)</span></span></span><br><span class="line"><span class="function"></span></span><br></pre></td></tr></tbody></table></figure>
-<h3 id="description"><span class="post-title-index">3.2.2. </span><a class="markdownIt-Anchor" href="#description"></a> Description</h3>
+<h3 id="description"><span class="post-title-index">4.2.2. </span><a class="markdownIt-Anchor" href="#description"></a> Description</h3>
 <p><strong>readline will read a line from the terminal and return it, using <em>prompt</em> as a
 prompt.</strong></p>
 <p>If prompt is NULL or the empty string, no prompt is issued. The line returned is
 allocated with <code>malloc</code>; the caller must free it when finished. The line
 returned has the final newline removed, so only the text of the line remains.</p>
-<h3 id="return-value"><span class="post-title-index">3.2.3. </span><a class="markdownIt-Anchor" href="#return-value"></a> Return Value</h3>
+<h3 id="return-value"><span class="post-title-index">4.2.3. </span><a class="markdownIt-Anchor" href="#return-value"></a> Return Value</h3>
 <p>readline returns the text of the line read. A black line returns the empty
 string. If EOF is encountered while reading a line, and the line is empty, NULL
 is returned. If an EOF is read with a non-empty line, it is treated as a
 newline.</p>
-<h3 id="initialization-file"><span class="post-title-index">3.2.4. </span><a class="markdownIt-Anchor" href="#initialization-file"></a> Initialization file</h3>
+<h3 id="initialization-file"><span class="post-title-index">4.2.4. </span><a class="markdownIt-Anchor" href="#initialization-file"></a> Initialization file</h3>
 <p>Readline is customized by putting commands in an initialization file (the
 <code>inputrc</code> file). The name of this file is taken from the value of the INPUTRC
 environment variable. If that variable is unset, the default is <code>~/.inputrc</code>. If
@@ -318,7 +326,7 @@ and the key bindings and variables are set.</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">M-Control-u: universal-argment</span><br></pre></td></tr></tbody></table></figure>
 <p>into the <code>inputrc</code> would make <code>M-C-u</code> execute the readline command
 <code>universal-argument</code>.</p>
-<h1 id="the-difference-of-help-and-man-on-linux"><span class="post-title-index">4. </span><a class="markdownIt-Anchor" href="#the-difference-of-help-and-man-on-linux"></a> The difference of <code>help</code> and <code>man</code> on linux</h1>
+<h1 id="the-difference-of-help-and-man-on-linux"><span class="post-title-index">5. </span><a class="markdownIt-Anchor" href="#the-difference-of-help-and-man-on-linux"></a> The difference of <code>help</code> and <code>man</code> on linux</h1>
 <p><code>help</code> displays information about builtin shell commands.</p>
 <p><code>man</code> is s system-wide documentation system that provides short reference
 manuals for individual commands, API functions, concepts, configuration file
