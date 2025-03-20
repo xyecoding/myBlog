@@ -16,6 +16,24 @@ password:
 summary:
 ---
 
+# Powershell
+
+## Copy directory exclude specific type of file
+
+```bash
+robocopy C:\MyFiles D:\Backup /E /XF *.tif *.npz /V
+```
+
+C:\SourceFolder：源文件夹路径。
+
+C:\DestinationFolder：目标文件夹路径。
+
+/E：包括子文件夹（包括空文件夹）。
+
+/XF _.tif _.npz：排除 .tif 和 .npz 文件。
+
+/V 参数会显示每个文件的详细信息。
+
 # Proxy
 
 ## In WSL
@@ -66,8 +84,8 @@ if test $(grep Microsoft /proc/version)
 end
 ```
 
-For the windows side, open `allow the connection from local area network` in your 
-agent software.
+For the windows side, open `allow the connection from local area network` in
+your agent software.
 
 # X server
 
