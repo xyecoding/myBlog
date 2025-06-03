@@ -207,8 +207,13 @@ Then `import matplotlib` will create a new version of
 The following codes will enable `plt` to use font `SimSun`.
 
 ```
-plt.rcParams["font.sans-serif"] = ["SimSun"]
 plt.rcParams["axes.unicode_minus"] = False  # 解决负号显示问题
+plt.rcParams["font.sans-serif"] = ["SimSun"]
+# 或者直接指定字体文件路径作为全局字体
+# plt.rcParams["font.sans-serif"] = [
+#     FontProperties(fname="/usr/share/fonts/TTF/simsun.ttc").get_name()
+# ]
+
 ```
 
 ## WPS
