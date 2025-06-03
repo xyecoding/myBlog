@@ -192,6 +192,25 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## Install MS Windows fonts, Configure `matplotlib`
+
+```
+yay -S ttf-ms-win11-auto
+yay -S ttf-ms-win11-auto-zh_cn
+fc-list :lang=zh | grep "sim"
+rm ~/.cache/matplotlib/fontlist-v390.json
+```
+
+Then `import matplotlib` will create a new version of
+`~/.cache/matplotlib/fontlist-v390.json` which contains fonts like `simsun`.
+
+The following codes will enable `plt` to use font `SimSun`.
+
+```
+plt.rcParams["font.sans-serif"] = ["SimSun"]
+plt.rcParams["axes.unicode_minus"] = False  # 解决负号显示问题
+```
+
 ## WPS
 
 WPP cannot display bold text properly.
