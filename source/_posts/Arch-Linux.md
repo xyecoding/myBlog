@@ -192,6 +192,22 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## Virtualbox conflicts with KVM
+
+Both KVM (Kernel-based Virtual Machine) and VirtualBox are hypervisors, and they
+both want to use VMX root mode. This leads to a conflict when they try to run
+simultaneously.
+
+1. Run `lsmod | grep kvm` to see if the `kvm_intel` (for Intel) or `kvm_amd`
+   (for AMD) modules are loaded.
+2. If they are loaded, unload them using `sudo modprobe -r kvm_intel` or
+   `sudo modprobe -r kvm_amd`. This is a temporary fix, as the KVM module will
+   be reloaded on reboot.
+3. To disable KVM permanently, create a file named `kvm-blacklist.conf` in
+   `/etc/modprobe.d/`.
+4. Add the appropriate line to the file: For Intel: `blacklist kvm_intel` For
+   AMD: `blacklist kvm_amd`.
+
 ## Install MS Windows fonts, Configure `matplotlib`
 
 ```
