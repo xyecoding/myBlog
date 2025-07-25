@@ -192,6 +192,30 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## Change the resolution of screen
+
+`xrandr` can display the available screen resolution and the current
+resolution(marked by star).
+
+Add `xrandr --output VGA-1 --mode 1920x1080` to `.xinitrc` can change the
+resolution of the screen permanently.
+
+After change the resolution, the font might be unsuitable.
+
+```cpp
+static const char *fonts[] = {"Hack NF:size=16",
+                              "JoyPixels:size=14:antialias=true:autohint=true"};
+```
+
+in the`config.def.h` of the `dwm` package can change the font size of the top
+bar.
+
+```cpp
+static char *font = "Hack Nerd Font:lixelsize=40:antialias=true:autohint=true";
+```
+
+in the `config.default.h` of the `st` package can change the font size of `st`.
+
 ## Virtualbox conflicts with KVM
 
 Both KVM (Kernel-based Virtual Machine) and VirtualBox are hypervisors, and they
