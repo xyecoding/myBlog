@@ -192,6 +192,13 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## Baidunetdisk
+
+`yay -S baidunetdisk-bin`
+
+If it is failed to start when run`baidunetdisk` and reports
+`gpu process isn't usable. goodbye`, run `baidunetdisk --no-sandbox`.
+
 ## Change the resolution of screen
 
 `xrandr` can display the available screen resolution and the current
