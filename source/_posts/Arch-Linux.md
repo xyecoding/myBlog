@@ -192,6 +192,18 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## fish prompt
+
+Some times `fish`get slow when going to `git` directories.
+
+```
+# ~/.local/share/omf/themes/ays/fish_prompt.fish
+set -g fish_git_prompt_show_informative_status 0   # 关掉状态字符（* + …）
+set -g fish_git_prompt_showdirtystate 0            # 不检查工作区
+set -g fish_git_prompt_showstashstate 0
+set -g fish_git_prompt_showupstream 0
+```
+
 ## Baidunetdisk
 
 `yay -S baidunetdisk-bin`

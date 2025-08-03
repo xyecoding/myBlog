@@ -30,7 +30,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://xyecoding.github.io/myBlog/posts/38c4d001/init.png">
 <meta property="article:published_time" content="2022-05-15T12:40:03.000Z">
-<meta property="article:modified_time" content="2025-07-28T02:00:42.143Z">
+<meta property="article:modified_time" content="2025-08-03T04:04:49.474Z">
 <meta property="article:author" content="Xiang Ye">
 <meta property="article:tag" content="Arch Linux">
 <meta name="twitter:card" content="summary">
@@ -122,7 +122,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-verify-signature"><span class="nav-text">1.  What is Verify Signature</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-kernel-module"><span class="nav-text">2.  What is Kernel Module</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nouveau"><span class="nav-text">2.1.  Nouveau</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#initramfs"><span class="nav-text">3.  initramfs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-fstab"><span class="nav-text">4.  What is fstab</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-grub"><span class="nav-text">5.  What is grub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#firmware-types"><span class="nav-text">6.  Firmware Types</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-uefi"><span class="nav-text">7.  What is UEFI</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bios"><span class="nav-text">7.1.  BIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uefi"><span class="nav-text">7.2.  UEFI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-usage-of-uefi"><span class="nav-text">7.2.1.  The Usage of UEFI</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#system-initialization"><span class="nav-text">8.  System Initialization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#under-bios"><span class="nav-text">8.1.  Under BIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#under-uefi"><span class="nav-text">8.2.  Under UEFI</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dual-boot-with-windows"><span class="nav-text">9.  Dual Boot with Windows</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#windows-before-linux"><span class="nav-text">9.1.  Windows Before Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bios-systems"><span class="nav-text">9.1.1.  BIOS Systems</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#using-a-linux-boot-loader"><span class="nav-text">9.1.1.1.  Using a Linux Boot Loader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#using-windows-boot-loader"><span class="nav-text">9.1.1.2.  Using Windows Boot Loader</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#configuration"><span class="nav-text">10.  Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#baidunetdisk"><span class="nav-text">10.1.  Baidunetdisk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#change-the-resolution-of-screen"><span class="nav-text">10.2.  Change the resolution of screen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virtualbox-conflicts-with-kvm"><span class="nav-text">10.3.  Virtualbox conflicts with KVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#install-ms-windows-fonts-configure-matplotlib"><span class="nav-text">10.4.  Install MS Windows fonts, Configure matplotlib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wps"><span class="nav-text">10.5.  WPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bluetooth"><span class="nav-text">10.6.  Bluetooth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hardware-time"><span class="nav-text">10.7.  Hardware time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#use-nvidia-for-x-server"><span class="nav-text">10.8.  Use Nvidia for X Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#block-nouveau"><span class="nav-text">10.9.  Block nouveau</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#default-applications"><span class="nav-text">10.10.  Default applications</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#thunderbird"><span class="nav-text">10.11.  Thunderbird</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#remote-desktop"><span class="nav-text">10.12.  Remote Desktop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slstatus"><span class="nav-text">10.13.  Slstatus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#touch-pad"><span class="nav-text">10.14.  Touch Pad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#systemd-service"><span class="nav-text">10.15.  Systemd service</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#manage-user-specific-systemd-units"><span class="nav-text">10.15.1.  Manage user-specific systemd units</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#auto-login"><span class="nav-text">10.16.  Auto login</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xorg"><span class="nav-text">10.17.  Xorg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cursor"><span class="nav-text">10.18.  Cursor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#network"><span class="nav-text">10.19.  Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#startx"><span class="nav-text">10.20.  startx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#libxft-bgra-git"><span class="nav-text">10.21.  libxft-bgra-git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nvidia"><span class="nav-text">10.21.1.  NVIDIA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#auto-start"><span class="nav-text">10.21.2.  Auto Start</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#screen-translator"><span class="nav-text">10.22.  Screen Translator</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#youdao"><span class="nav-text">10.22.1.  youdao</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goldendict"><span class="nav-text">10.23.  Goldendict</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tmux"><span class="nav-text">10.24.  Tmux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clipboard-of-nvim"><span class="nav-text">10.25.  Clipboard of nvim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try-to-run-exe-files"><span class="nav-text">10.26.  Try to run exe files</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#wine"><span class="nav-text">10.26.1.  Wine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bottles"><span class="nav-text">10.26.2.  Bottles</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pygobject"><span class="nav-text">10.26.2.1.  PyGObject</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#a-way-to-install-pygobject"><span class="nav-text">10.26.2.1.1.  A way to install PyGObject</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#install-successfully"><span class="nav-text">10.26.2.1.2.  Install successfully</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#locale"><span class="nav-text">11.  Locale</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-verify-signature"><span class="nav-text">1.  What is Verify Signature</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-kernel-module"><span class="nav-text">2.  What is Kernel Module</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nouveau"><span class="nav-text">2.1.  Nouveau</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#initramfs"><span class="nav-text">3.  initramfs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-fstab"><span class="nav-text">4.  What is fstab</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-grub"><span class="nav-text">5.  What is grub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#firmware-types"><span class="nav-text">6.  Firmware Types</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-uefi"><span class="nav-text">7.  What is UEFI</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bios"><span class="nav-text">7.1.  BIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uefi"><span class="nav-text">7.2.  UEFI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-usage-of-uefi"><span class="nav-text">7.2.1.  The Usage of UEFI</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#system-initialization"><span class="nav-text">8.  System Initialization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#under-bios"><span class="nav-text">8.1.  Under BIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#under-uefi"><span class="nav-text">8.2.  Under UEFI</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dual-boot-with-windows"><span class="nav-text">9.  Dual Boot with Windows</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#windows-before-linux"><span class="nav-text">9.1.  Windows Before Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bios-systems"><span class="nav-text">9.1.1.  BIOS Systems</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#using-a-linux-boot-loader"><span class="nav-text">9.1.1.1.  Using a Linux Boot Loader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#using-windows-boot-loader"><span class="nav-text">9.1.1.2.  Using Windows Boot Loader</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#configuration"><span class="nav-text">10.  Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fish-prompt"><span class="nav-text">10.1.  fish prompt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#baidunetdisk"><span class="nav-text">10.2.  Baidunetdisk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#change-the-resolution-of-screen"><span class="nav-text">10.3.  Change the resolution of screen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virtualbox-conflicts-with-kvm"><span class="nav-text">10.4.  Virtualbox conflicts with KVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#install-ms-windows-fonts-configure-matplotlib"><span class="nav-text">10.5.  Install MS Windows fonts, Configure matplotlib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wps"><span class="nav-text">10.6.  WPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bluetooth"><span class="nav-text">10.7.  Bluetooth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hardware-time"><span class="nav-text">10.8.  Hardware time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#use-nvidia-for-x-server"><span class="nav-text">10.9.  Use Nvidia for X Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#block-nouveau"><span class="nav-text">10.10.  Block nouveau</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#default-applications"><span class="nav-text">10.11.  Default applications</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#thunderbird"><span class="nav-text">10.12.  Thunderbird</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#remote-desktop"><span class="nav-text">10.13.  Remote Desktop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slstatus"><span class="nav-text">10.14.  Slstatus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#touch-pad"><span class="nav-text">10.15.  Touch Pad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#systemd-service"><span class="nav-text">10.16.  Systemd service</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#manage-user-specific-systemd-units"><span class="nav-text">10.16.1.  Manage user-specific systemd units</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#auto-login"><span class="nav-text">10.17.  Auto login</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xorg"><span class="nav-text">10.18.  Xorg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cursor"><span class="nav-text">10.19.  Cursor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#network"><span class="nav-text">10.20.  Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#startx"><span class="nav-text">10.21.  startx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#libxft-bgra-git"><span class="nav-text">10.22.  libxft-bgra-git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nvidia"><span class="nav-text">10.22.1.  NVIDIA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#auto-start"><span class="nav-text">10.22.2.  Auto Start</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#screen-translator"><span class="nav-text">10.23.  Screen Translator</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#youdao"><span class="nav-text">10.23.1.  youdao</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goldendict"><span class="nav-text">10.24.  Goldendict</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tmux"><span class="nav-text">10.25.  Tmux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clipboard-of-nvim"><span class="nav-text">10.26.  Clipboard of nvim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try-to-run-exe-files"><span class="nav-text">10.27.  Try to run exe files</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#wine"><span class="nav-text">10.27.1.  Wine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bottles"><span class="nav-text">10.27.2.  Bottles</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pygobject"><span class="nav-text">10.27.2.1.  PyGObject</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#a-way-to-install-pygobject"><span class="nav-text">10.27.2.1.1.  A way to install PyGObject</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#install-successfully"><span class="nav-text">10.27.2.1.2.  Install successfully</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#locale"><span class="nav-text">11.  Locale</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -226,7 +226,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-07-28 10:00:42" itemprop="dateModified" datetime="2025-07-28T10:00:42+08:00">2025-07-28</time>
+      <time title="Modified: 2025-08-03 12:04:49" itemprop="dateModified" datetime="2025-08-03T12:04:49+08:00">2025-08-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -398,11 +398,14 @@ boot loader, which load the operating system.</p>
 <li>Use Windows bootloader to start said copy of the Linux bootloader</li>
 </ol>
 <h1 id="configuration"><span class="post-title-index">10. </span><a class="markdownIt-Anchor" href="#configuration"></a> Configuration</h1>
-<h2 id="baidunetdisk"><span class="post-title-index">10.1. </span><a class="markdownIt-Anchor" href="#baidunetdisk"></a> Baidunetdisk</h2>
+<h2 id="fish-prompt"><span class="post-title-index">10.1. </span><a class="markdownIt-Anchor" href="#fish-prompt"></a> fish prompt</h2>
+<p>Some times <code>fish</code>get slow when going to <code>git</code> directories.</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># ~/.local/share/omf/themes/ays/fish_prompt.fish</span><br><span class="line">set -g fish_git_prompt_show_informative_status 0   # 关掉状态字符（* + …）</span><br><span class="line">set -g fish_git_prompt_showdirtystate 0            # 不检查工作区</span><br><span class="line">set -g fish_git_prompt_showstashstate 0</span><br><span class="line">set -g fish_git_prompt_showupstream 0</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="baidunetdisk"><span class="post-title-index">10.2. </span><a class="markdownIt-Anchor" href="#baidunetdisk"></a> Baidunetdisk</h2>
 <p><code>yay -S baidunetdisk-bin</code></p>
 <p>If it is failed to start when run<code>baidunetdisk</code> and reports
 <code>gpu process isn't usable. goodbye</code>, run <code>baidunetdisk --no-sandbox</code>.</p>
-<h2 id="change-the-resolution-of-screen"><span class="post-title-index">10.2. </span><a class="markdownIt-Anchor" href="#change-the-resolution-of-screen"></a> Change the resolution of screen</h2>
+<h2 id="change-the-resolution-of-screen"><span class="post-title-index">10.3. </span><a class="markdownIt-Anchor" href="#change-the-resolution-of-screen"></a> Change the resolution of screen</h2>
 <p><code>xrandr</code> can display the available screen resolution and the current
 resolution(marked by star).</p>
 <p>Add <code>xrandr --output VGA-1 --mode 1920x1080</code> to <code>.xinitrc</code> can change the
@@ -413,7 +416,7 @@ resolution of the screen permanently.</p>
 bar.</p>
 <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> *font = <span class="string">"Hack Nerd Font:lixelsize=40:antialias=true:autohint=true"</span>;</span><br></pre></td></tr></tbody></table></figure>
 <p>in the <code>config.default.h</code> of the <code>st</code> package can change the font size of <code>st</code>.</p>
-<h2 id="virtualbox-conflicts-with-kvm"><span class="post-title-index">10.3. </span><a class="markdownIt-Anchor" href="#virtualbox-conflicts-with-kvm"></a> Virtualbox conflicts with KVM</h2>
+<h2 id="virtualbox-conflicts-with-kvm"><span class="post-title-index">10.4. </span><a class="markdownIt-Anchor" href="#virtualbox-conflicts-with-kvm"></a> Virtualbox conflicts with KVM</h2>
 <p>Both KVM (Kernel-based Virtual Machine) and VirtualBox are hypervisors, and they
 both want to use VMX root mode. This leads to a conflict when they try to run
 simultaneously.</p>
@@ -428,42 +431,42 @@ be reloaded on reboot.</li>
 <li>Add the appropriate line to the file: For Intel: <code>blacklist kvm_intel</code> For
 AMD: <code>blacklist kvm_amd</code>.</li>
 </ol>
-<h2 id="install-ms-windows-fonts-configure-matplotlib"><span class="post-title-index">10.4. </span><a class="markdownIt-Anchor" href="#install-ms-windows-fonts-configure-matplotlib"></a> Install MS Windows fonts, Configure <code>matplotlib</code></h2>
+<h2 id="install-ms-windows-fonts-configure-matplotlib"><span class="post-title-index">10.5. </span><a class="markdownIt-Anchor" href="#install-ms-windows-fonts-configure-matplotlib"></a> Install MS Windows fonts, Configure <code>matplotlib</code></h2>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yay -S ttf-ms-win11-auto</span><br><span class="line">yay -S ttf-ms-win11-auto-zh_cn</span><br><span class="line">fc-list :lang=zh | grep "sim"</span><br><span class="line">rm ~/.cache/matplotlib/fontlist-v390.json</span><br></pre></td></tr></tbody></table></figure>
 <p>Then <code>import matplotlib</code> will create a new version of
 <code>~/.cache/matplotlib/fontlist-v390.json</code> which contains fonts like <code>simsun</code>.</p>
 <p>The following codes will enable <code>plt</code> to use font <code>SimSun</code>.</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams["axes.unicode_minus"] = False  # 解决负号显示问题</span><br><span class="line">plt.rcParams["font.sans-serif"] = ["SimSun"]</span><br><span class="line"># 或者直接指定字体文件路径作为全局字体</span><br><span class="line"># plt.rcParams["font.sans-serif"] = [</span><br><span class="line">#     FontProperties(fname="/usr/share/fonts/TTF/simsun.ttc").get_name()</span><br><span class="line"># ]</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h2 id="wps"><span class="post-title-index">10.5. </span><a class="markdownIt-Anchor" href="#wps"></a> WPS</h2>
+<h2 id="wps"><span class="post-title-index">10.6. </span><a class="markdownIt-Anchor" href="#wps"></a> WPS</h2>
 <p>WPP cannot display bold text properly.</p>
 <p>Download and install the old version of freetype.
 <a target="_blank" rel="noopener" href="https://archive.archlinux.org/packages/f/freetype2/freetype2-2.13.0-1-x86_64.pkg.tar.zst">freetype2-2.13.0-1-x86_64.pkg.tar.zst</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/657532417">Here</a></p>
-<h2 id="bluetooth"><span class="post-title-index">10.6. </span><a class="markdownIt-Anchor" href="#bluetooth"></a> Bluetooth</h2>
+<h2 id="bluetooth"><span class="post-title-index">10.7. </span><a class="markdownIt-Anchor" href="#bluetooth"></a> Bluetooth</h2>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S bluez bluez-utils</span><br><span class="line">sudo systemctl start bluetooth</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> bluetooth</span><br><span class="line">bluetoothctl</span><br></pre></td></tr></tbody></table></figure>
 <p>The <code>br-connection-profile-unavailable</code> error will occur. As mentioned in
 <a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?id=288398">this wiki</a>, install
 <code>pipewire-pulse</code> then restart <code>pipewire</code> will solve the problem.</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S pipewire-pulse</span><br><span class="line">systemctl --user restart pipewire</span><br></pre></td></tr></tbody></table></figure>
 <p>Then you can connect your devices by bluetooth.</p>
-<h2 id="hardware-time"><span class="post-title-index">10.7. </span><a class="markdownIt-Anchor" href="#hardware-time"></a> Hardware time</h2>
+<h2 id="hardware-time"><span class="post-title-index">10.8. </span><a class="markdownIt-Anchor" href="#hardware-time"></a> Hardware time</h2>
 <p>The hardware time sometimes is not correct.</p>
 <p>Use <code>sudo timedatectl set-ntp true</code> to solve it.</p>
-<h2 id="use-nvidia-for-x-server"><span class="post-title-index">10.8. </span><a class="markdownIt-Anchor" href="#use-nvidia-for-x-server"></a> Use Nvidia for X Server</h2>
+<h2 id="use-nvidia-for-x-server"><span class="post-title-index">10.9. </span><a class="markdownIt-Anchor" href="#use-nvidia-for-x-server"></a> Use Nvidia for X Server</h2>
 <p>By <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/NVIDIA_Optimus">this</a></p>
-<h2 id="block-nouveau"><span class="post-title-index">10.9. </span><a class="markdownIt-Anchor" href="#block-nouveau"></a> Block nouveau</h2>
+<h2 id="block-nouveau"><span class="post-title-index">10.10. </span><a class="markdownIt-Anchor" href="#block-nouveau"></a> Block nouveau</h2>
 <p>Add
 <code>GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5 nowatchdog modprobe.blacklist=nouveau"</code>
 to the <code>/etc/default/grub</code>. Then <code>grub-mkconfig -o /boot/grub/grub.cfg</code>.</p>
-<h2 id="default-applications"><span class="post-title-index">10.10. </span><a class="markdownIt-Anchor" href="#default-applications"></a> Default applications</h2>
+<h2 id="default-applications"><span class="post-title-index">10.11. </span><a class="markdownIt-Anchor" href="#default-applications"></a> Default applications</h2>
 <p>To set the default applications, one needs to modify the file
 <code>~/.config/mimeapps.list</code>. In the right side of <code>=</code> can be the file name in
 <code>/usr/share/applications/</code>.</p>
-<h2 id="thunderbird"><span class="post-title-index">10.11. </span><a class="markdownIt-Anchor" href="#thunderbird"></a> Thunderbird</h2>
+<h2 id="thunderbird"><span class="post-title-index">10.12. </span><a class="markdownIt-Anchor" href="#thunderbird"></a> Thunderbird</h2>
 <p>Thunderbird is used as the email app. However, it can not be stored on the tray.
 <code>birdtray</code> can help. Install it with <code>yay -S birdtray</code> and run <code>birdtray</code> then
 Configure it with thunderbird.</p>
-<h2 id="remote-desktop"><span class="post-title-index">10.12. </span><a class="markdownIt-Anchor" href="#remote-desktop"></a> Remote Desktop</h2>
+<h2 id="remote-desktop"><span class="post-title-index">10.13. </span><a class="markdownIt-Anchor" href="#remote-desktop"></a> Remote Desktop</h2>
 <p>To use the local camera, this command is needed.</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo xfreerdp /f /u:Account Name /p:Password /v:IP:Port /video /usb:id,dev:1bcf:28b</span><br><span class="line">0  /sound /microphone:sys:alsa</span><br></pre></td></tr></tbody></table></figure>
 <p>The usb id is obtained by command <code>lsusb</code>.</p>
@@ -483,18 +486,18 @@ and set this item to Disabled.</li>
 reboot target VM.</li>
 </ol>
 <p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/33719489/how-to-enable-usb-redirection-in-windows-10/46628854">For More Information</a></p>
-<h2 id="slstatus"><span class="post-title-index">10.13. </span><a class="markdownIt-Anchor" href="#slstatus"></a> Slstatus</h2>
+<h2 id="slstatus"><span class="post-title-index">10.14. </span><a class="markdownIt-Anchor" href="#slstatus"></a> Slstatus</h2>
 <p><code>slstatus</code> can show the information of battery. Add the following snippets in
 the <code>config.h</code> file. The name of the battery can be found by running
 <code>sudo tlp-stat -b</code>.</p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">{battery_perc, <span class="string">"󰁿 %s%%"</span>, <span class="string">"BAT0"</span>},</span><br><span class="line">{battery_state, <span class="string">"%s | "</span>, <span class="string">"BAT0"</span>},</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="touch-pad"><span class="post-title-index">10.14. </span><a class="markdownIt-Anchor" href="#touch-pad"></a> Touch Pad</h2>
+<h2 id="touch-pad"><span class="post-title-index">10.15. </span><a class="markdownIt-Anchor" href="#touch-pad"></a> Touch Pad</h2>
 <p>When <code>dwm</code> is started, tapping the touchpad does not work. To let it work create
 <code>/etc/X11/xorg.conf.d/30-touchpad.conf</code>, which contains</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Section "InputClass"</span><br><span class="line">Identifier "touchpad catchall"</span><br><span class="line">Driver "libinput"</span><br><span class="line">Option "Tapping" "on"</span><br><span class="line">EndSection</span><br></pre></td></tr></tbody></table></figure>
 <p>Notice that there is no indents in the file, otherwise it will not work.</p>
-<h2 id="systemd-service"><span class="post-title-index">10.15. </span><a class="markdownIt-Anchor" href="#systemd-service"></a> Systemd service</h2>
-<h3 id="manage-user-specific-systemd-units"><span class="post-title-index">10.15.1. </span><a class="markdownIt-Anchor" href="#manage-user-specific-systemd-units"></a> Manage user-specific systemd units</h3>
+<h2 id="systemd-service"><span class="post-title-index">10.16. </span><a class="markdownIt-Anchor" href="#systemd-service"></a> Systemd service</h2>
+<h3 id="manage-user-specific-systemd-units"><span class="post-title-index">10.16.1. </span><a class="markdownIt-Anchor" href="#manage-user-specific-systemd-units"></a> Manage user-specific systemd units</h3>
 <ol>
 <li>Create a service file in <code>~/.config/systemd/user/</code>.</li>
 </ol>
@@ -509,16 +512,16 @@ the <code>config.h</code> file. The name of the battery can be found by running
 <code>systemctl --user enable ExampleService.service</code> and
 <code>systemctl --user start ExampleService.service</code>.</li>
 </ol>
-<h2 id="auto-login"><span class="post-title-index">10.16. </span><a class="markdownIt-Anchor" href="#auto-login"></a> Auto login</h2>
+<h2 id="auto-login"><span class="post-title-index">10.17. </span><a class="markdownIt-Anchor" href="#auto-login"></a> Auto login</h2>
 <p>The only thing needed to do is create the ‘autologin.conf’ file.
 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/getty#Virtual_console">Here</a>.</p>
 <p>Then, change <code>username</code> to the username you want to auto login.</p>
-<h2 id="xorg"><span class="post-title-index">10.17. </span><a class="markdownIt-Anchor" href="#xorg"></a> Xorg</h2>
+<h2 id="xorg"><span class="post-title-index">10.18. </span><a class="markdownIt-Anchor" href="#xorg"></a> Xorg</h2>
 <p>The scale of the screen can be changed by
 <code>xrandr --output eDP-1 --scale 0.6x0.6</code>.</p>
-<h2 id="cursor"><span class="post-title-index">10.18. </span><a class="markdownIt-Anchor" href="#cursor"></a> Cursor</h2>
+<h2 id="cursor"><span class="post-title-index">10.19. </span><a class="markdownIt-Anchor" href="#cursor"></a> Cursor</h2>
 <p>The cursor can be hind by <code>yay -S unclutter</code>.</p>
-<h2 id="network"><span class="post-title-index">10.19. </span><a class="markdownIt-Anchor" href="#network"></a> Network</h2>
+<h2 id="network"><span class="post-title-index">10.20. </span><a class="markdownIt-Anchor" href="#network"></a> Network</h2>
 <p>Connect a network with <code>NetworkManager</code>. For example,
 <code>nmcli connection add type wifi con-name BUPT-mobile ifname wlan0 ssid BUPT-mobile -- wifi-sec.key-mgmt wpa-eap 802-1x.eap ttls 802-1x.phase2-auth mschapv2 802-1x.identity USERNAME</code>
 Then <code>BUPT-mobile</code> can be connected with <code>nmcli --ask connection up BUPT-mobile</code>
@@ -526,24 +529,24 @@ or <code>nmtui</code>. The <code>nmtui</code> does not support add network of <c
 one can add and connect the network by only <code>nmtui</code>.</p>
 <p>Use <code>space</code> to enable or disable <code>automatically connect</code> in <code>nmtui</code>. <code>X</code> denotes
 enable.</p>
-<h2 id="startx"><span class="post-title-index">10.20. </span><a class="markdownIt-Anchor" href="#startx"></a> startx</h2>
-<h2 id="libxft-bgra-git"><span class="post-title-index">10.21. </span><a class="markdownIt-Anchor" href="#libxft-bgra-git"></a> libxft-bgra-git</h2>
+<h2 id="startx"><span class="post-title-index">10.21. </span><a class="markdownIt-Anchor" href="#startx"></a> startx</h2>
+<h2 id="libxft-bgra-git"><span class="post-title-index">10.22. </span><a class="markdownIt-Anchor" href="#libxft-bgra-git"></a> libxft-bgra-git</h2>
 <p><code>libxft-bgra-git</code> is discarded by <code>yay</code> and use <code>ttf-symbola</code> instead.</p>
-<h3 id="nvidia"><span class="post-title-index">10.21.1. </span><a class="markdownIt-Anchor" href="#nvidia"></a> NVIDIA</h3>
+<h3 id="nvidia"><span class="post-title-index">10.22.1. </span><a class="markdownIt-Anchor" href="#nvidia"></a> NVIDIA</h3>
 <p><code>startx</code> provides a command line startup of Linux. However, it will cause a
 black screen problem with NVIDIA. To avoid it, add</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xrandr --setprovideroutputsource modesetting NVIDIA-0</span><br><span class="line">xrandr --auto</span><br></pre></td></tr></tbody></table></figure>
 <p>to the <code>.xinitrc</code>.</p>
-<h3 id="auto-start"><span class="post-title-index">10.21.2. </span><a class="markdownIt-Anchor" href="#auto-start"></a> Auto Start</h3>
+<h3 id="auto-start"><span class="post-title-index">10.22.2. </span><a class="markdownIt-Anchor" href="#auto-start"></a> Auto Start</h3>
 <p>Add the following snippets to <code>~/.bash_profile</code>.</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -z <span class="string">"<span class="variable">${DISPLAY}</span>"</span> ] &amp;&amp; [ <span class="string">"<span class="variable">${XDG_VTNR}</span>"</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">exec</span> startx</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></tbody></table></figure>
-<h2 id="screen-translator"><span class="post-title-index">10.22. </span><a class="markdownIt-Anchor" href="#screen-translator"></a> Screen Translator</h2>
-<h3 id="youdao"><span class="post-title-index">10.22.1. </span><a class="markdownIt-Anchor" href="#youdao"></a> youdao</h3>
+<h2 id="screen-translator"><span class="post-title-index">10.23. </span><a class="markdownIt-Anchor" href="#screen-translator"></a> Screen Translator</h2>
+<h3 id="youdao"><span class="post-title-index">10.23.1. </span><a class="markdownIt-Anchor" href="#youdao"></a> youdao</h3>
 <p><code>youdao</code> can be installed by <code>yay -S youdao-dict</code>. However, it is very slow to
 show the result when words are picked. This is because of the vpn. I use
 <code>51game</code>. However, when I set the <code>system client</code> into <code>mainland white list</code>, it
 translate fast for picking words.</p>
-<h2 id="goldendict"><span class="post-title-index">10.23. </span><a class="markdownIt-Anchor" href="#goldendict"></a> Goldendict</h2>
+<h2 id="goldendict"><span class="post-title-index">10.24. </span><a class="markdownIt-Anchor" href="#goldendict"></a> Goldendict</h2>
 <p><code>Goldendict-webengine-git</code> is better than <code>Goldendict-git</code>.</p>
 <p>Goldendict is a more power translator. Install <code>translate-shell</code>. <code>edit</code> &gt;
 <code>dictionaries</code> &gt; <code>programs</code> &gt; <code>add</code>, <code>type</code>: <code>Plain text</code>; <code>Command Line</code>:
@@ -553,29 +556,29 @@ when copy. Especially when copy a web link.</p>
 <p>To enable run <code>goldendict</code> in background, pick <code>Enable system try icon</code> and
 <code>Start to system try</code>. Otherwise, the gui of <code>goldendict</code> will open even if it
 is executed by <code>goldendict &amp;</code>.</p>
-<h2 id="tmux"><span class="post-title-index">10.24. </span><a class="markdownIt-Anchor" href="#tmux"></a> Tmux</h2>
+<h2 id="tmux"><span class="post-title-index">10.25. </span><a class="markdownIt-Anchor" href="#tmux"></a> Tmux</h2>
 <p>When install <code>tmux</code>, some error maybe occur.
 <code>/usr/share/fish/functions/fish_prompt.fish (line 6): hostname|cut -d . -f 1</code>
 can be solved by <code>pacman -S inetutils</code>.</p>
 <p><code>shell command tmux throws can't use /dev/tty</code> error can be solved
 by<code>exec &lt;/dev/tty; exec &lt;&amp;1; TMUX= tmux</code>.</p>
-<h2 id="clipboard-of-nvim"><span class="post-title-index">10.25. </span><a class="markdownIt-Anchor" href="#clipboard-of-nvim"></a> Clipboard of nvim</h2>
+<h2 id="clipboard-of-nvim"><span class="post-title-index">10.26. </span><a class="markdownIt-Anchor" href="#clipboard-of-nvim"></a> Clipboard of nvim</h2>
 <p>To enable the clipboard of nvim share by the system, run <code>sudo pacman -S xsel</code></p>
-<h2 id="try-to-run-exe-files"><span class="post-title-index">10.26. </span><a class="markdownIt-Anchor" href="#try-to-run-exe-files"></a> Try to run <code>exe</code> files</h2>
-<h3 id="wine"><span class="post-title-index">10.26.1. </span><a class="markdownIt-Anchor" href="#wine"></a> Wine</h3>
+<h2 id="try-to-run-exe-files"><span class="post-title-index">10.27. </span><a class="markdownIt-Anchor" href="#try-to-run-exe-files"></a> Try to run <code>exe</code> files</h2>
+<h3 id="wine"><span class="post-title-index">10.27.1. </span><a class="markdownIt-Anchor" href="#wine"></a> Wine</h3>
 <p>I successfully installed wechat with wine. However, it can not use the camera.</p>
-<h3 id="bottles"><span class="post-title-index">10.26.2. </span><a class="markdownIt-Anchor" href="#bottles"></a> Bottles</h3>
-<h4 id="pygobject"><span class="post-title-index">10.26.2.1. </span><a class="markdownIt-Anchor" href="#pygobject"></a> PyGObject</h4>
+<h3 id="bottles"><span class="post-title-index">10.27.2. </span><a class="markdownIt-Anchor" href="#bottles"></a> Bottles</h3>
+<h4 id="pygobject"><span class="post-title-index">10.27.2.1. </span><a class="markdownIt-Anchor" href="#pygobject"></a> PyGObject</h4>
 <p>Bottles depends on <code>PyGObject</code>, it is a python package. However, it is difficult
 to install it by <code>pip</code>. It can be easily installed by conda.</p>
-<h5 id="a-way-to-install-pygobject"><span class="post-title-index">10.26.2.1.1. </span><a class="markdownIt-Anchor" href="#a-way-to-install-pygobject"></a> A way to install PyGObject</h5>
+<h5 id="a-way-to-install-pygobject"><span class="post-title-index">10.27.2.1.1. </span><a class="markdownIt-Anchor" href="#a-way-to-install-pygobject"></a> A way to install PyGObject</h5>
 <p><code>pip install PyGObject</code> default to install its dependences like <code>pycairo</code>.
 However, the latest version of <code>pycairo</code> can not be successfully ran on my
 system. Thus I can install <code>pycairo</code> manually by <code>pip</code> or <code>conda</code> and run
 <code>pip install --no-build-isolation pygobject</code> to install <code>pygobject</code> and in this
 way <code>pygobject</code> will not install its dependences automatically and will find the
 dependences locally.</p>
-<h5 id="install-successfully"><span class="post-title-index">10.26.2.1.2. </span><a class="markdownIt-Anchor" href="#install-successfully"></a> Install successfully</h5>
+<h5 id="install-successfully"><span class="post-title-index">10.27.2.1.2. </span><a class="markdownIt-Anchor" href="#install-successfully"></a> Install successfully</h5>
 <p><code>bottles</code> is installed successfully by using <code>flatpak</code>, by
 <code>sudo pacman -S flatpak</code>. However, it also can not use the camera.</p>
 <h1 id="locale"><span class="post-title-index">11. </span><a class="markdownIt-Anchor" href="#locale"></a> Locale</h1>
