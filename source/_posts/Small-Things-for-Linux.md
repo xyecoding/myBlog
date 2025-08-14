@@ -16,6 +16,29 @@ password:
 summary:
 ---
 
+# Install `baidunetdisk` on Ubuntu
+
+```bash
+~ sudo dpkg -i baidunetdisk_4.17.7_amd64.deb                         fish-2 | 0 [09:53:38]
+(正在读取数据库 ... 系统当前共安装有 213842 个文件和目录。)
+准备解压 baidunetdisk_4.17.7_amd64.deb  ...
+正在解压 baidunetdisk (4.17.7) 并覆盖 (4.17.7) ...
+opt/baidunetdisk
+
+start kill baidunetdisk
+baidunetdisk kill finished
+正在设置 baidunetdisk (4.17.7) ...
+正在处理用于 hicolor-icon-theme (0.17-2) 的触发器 ...
+正在处理用于 bamfdaemon (0.5.3+18.04.20180207.2-0ubuntu2) 的触发器 ...
+Rebuilding /usr/share/applications/bamf-2.index...
+正在处理用于 gnome-menus (3.36.0-1ubuntu1) 的触发器 ...
+正在处理用于 desktop-file-utils (0.24-1ubuntu3) 的触发器 ...
+正在处理用于 mime-support (3.64ubuntu1) 的触发器 ...
+```
+
+However `baidunetdisk` can not be fund in `/bin` or `/usr/bin`. It is installed
+in `/opt/baidunetdisk`.
+
 # `alternatives` manage multi-version softwares
 
 I have a `gcc-13` and a `gcc-14` in `/usr/bin`. Here I use `alternatives` to
