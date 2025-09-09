@@ -192,6 +192,11 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## `Wake on Lan`
+
+Sometimes use `wol mac_address` can not wake the server. Use
+`wol -i ip_address mac_address` can wake the server.
+
 ## fish prompt
 
 Some times `fish`get slow when going to `git` directories.
