@@ -30,6 +30,12 @@ summary:
 
 # Cmake
 
+## The difference between `LD_LIBRARY_PATH` and `LIBRARY_PATH`
+
+`LD_LIBRARY_PATH` enables the system to locate dynamic libraries during runtime.
+`LIBRARY_PATH` directs the compiler to locate dynamic libraries during
+compilation.
+
 ## Libtorch
 
 The `CmakeLists.txt` is as follow.
