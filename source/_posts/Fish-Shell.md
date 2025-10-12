@@ -16,6 +16,21 @@ password:
 summary:
 ---
 
+# Add or Remove `PATH` in fish
+
+To permanently add the path /opt/cuda/bin to your PATH variable, use the command
+`fish_add_path /opt/cuda/bin`. This will ensure the path remains in your
+environment even after restarting the terminal, without needing to include the
+command in config.fish.
+
+`set --erase --universal fish_user_paths[4]` can erase the 4th path universally
+so it persists in new sessions.
+
+I prefer to use a global fish_user_paths. This is not save automatically, I need
+to add this to `config.fish`, if I want it to stay:
+
+`fish_add_path -g /opt/cuda/bin`
+
 # Lazy-Loading Conda for Faster Shell Startup
 
 In machine learning, we often use conda to manage our python environments, and
