@@ -16,6 +16,38 @@ password:
 summary:
 ---
 
+# Lazy-Loading Conda for Faster Shell Startup
+
+In machine learning, we often use conda to manage our python environments, and
+have several conda installations (on network drives, in $HOME, etc…). It can be
+a pain to manage them. Worse still, since conda loads on shell startup, it can
+noticeably slow you down when opening terminals – especially when loading it off
+a slow network.
+
+Here’s a simple trick for your shell config to alleviate the pain:
+
+```fish
+set -x CONDA_PATH /opt/miniconda3/bin/conda $HOME/miniconda3/bin/conda
+
+function conda
+    echo "Lazy loading conda upon first invocation..."
+    functions --erase conda
+    for conda_path in $CONDA_PATH
+        if test -f $conda_path
+            echo "Using Conda installation found in $conda_path"
+            eval $conda_path "shell.fish" "hook" | source
+            conda $argv
+            return
+        end
+    end
+    echo "No conda installation found in $CONDA_PATH"
+end
+```
+
+This snippet is for the fish shell and goes in your `config.fish`. It replaces
+the block that conda auto-generates when you run `conda init fish` (the one that
+begins with `# !! Contents within this block are managed by 'conda init' !!`).
+
 # Configuration of shortcuts for fish
 
 Use bind to configure the shortcuts, e.g.,
