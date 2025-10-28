@@ -16,19 +16,14 @@ password:
 summary:
 ---
 
-# Make
+# `cmake`
 
-## Some Symbols
+## Find CUDA
 
-`$@` means the target file
+find_package(CUDAToolkit [<version>] [QUIET] [REQUIRED] [EXACT] [...])
 
-`$^` means all the dependences
-
-`$<` means the first dependence
-
-`$?` means the dependences newer than the target file
-
-# Cmake
+Some default environment variable will be searched, such as `CUDAToolkit_ROOT`.
+[More information](https://cmake.org/cmake/help/latest/module/FindCUDAToolkit.html)
 
 ## The difference between `LD_LIBRARY_PATH` and `LIBRARY_PATH`
 
@@ -67,3 +62,15 @@ into the `CmakeLists.txt`, it reports
 
 The path of standard include directory for g++ is embeded in the binary file of
 g++, and it has nothing with `CmakeLists.txt`.
+
+# `make`
+
+## Some Symbols
+
+`$@` means the target file
+
+`$^` means all the dependences
+
+`$<` means the first dependence
+
+`$?` means the dependences newer than the target file

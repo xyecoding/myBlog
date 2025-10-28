@@ -21,23 +21,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"xyecoding.github.io","root":"/myBlog/","images":"/myBlog/images","scheme":"Gemini","darkmode":true,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myBlog/js/config.js"></script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ye, Xiang&#39;s Blog">
-<meta property="og:url" content="https://xyecoding.github.io/myBlog/categories/Programming/Tools/Hexo/index.html">
+<meta name="description" content="Deep Learning Tools">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep Learning Tools">
+<meta property="og:url" content="https://xyecoding.github.io/myBlog/posts/9eb3b355/index.html">
 <meta property="og:site_name" content="Ye, Xiang&#39;s Blog">
+<meta property="og:description" content="Deep Learning Tools">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-10-28T07:59:52.000Z">
+<meta property="article:modified_time" content="2025-10-28T08:53:48.026Z">
 <meta property="article:author" content="Xiang Ye">
+<meta property="article:tag" content="Deep Learning Tools">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://xyecoding.github.io/myBlog/categories/Programming/Tools/Hexo/">
+<link rel="canonical" href="https://xyecoding.github.io/myBlog/posts/9eb3b355/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"categories/Programming/Tools/Hexo/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://xyecoding.github.io/myBlog/posts/9eb3b355/","path":"posts/9eb3b355/","title":"Deep Learning Tools"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Category: Hexo | Ye, Xiang's Blog</title>
+<title>Deep Learning Tools | Ye, Xiang's Blog</title>
   
 
 
@@ -102,7 +107,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -115,6 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cudnn"><span class="nav-text">1.  CUDNN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#c-api"><span class="nav-text">1.1.  C++ API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-api"><span class="nav-text">1.2.  Python API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#use-cudnn-in-pytorch"><span class="nav-text">1.2.1.  Use CUDNN in pytorch</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#torchbackendscudnnbenchmark"><span class="nav-text">1.2.1.1.  torch.backends.cudnn.benchmark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torchbackendscudnnenabled"><span class="nav-text">1.2.1.2.  torch.backends.cudnn.enabled</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torchbackendscudnnis_available"><span class="nav-text">1.2.1.3.  torch.backends.cudnn.is_available()</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cuda"><span class="nav-text">2.  CUDA</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -176,51 +182,127 @@
 </noscript>
 
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">Hexo
-          <small>Category</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xyecoding.github.io/myBlog/posts/9eb3b355/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myBlog/images/avatar_100.jpg">
+      <meta itemprop="name" content="Xiang Ye">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ye, Xiang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Deep Learning Tools
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+
+      <time title="Created: 2025-10-28 15:59:52 / Modified: 16:53:48" itemprop="dateCreated datePublished" datetime="2025-10-28T15:59:52+08:00">2025-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Programming/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Deep Learning Tools</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <html><head></head><body><h1 id="cudnn"><span class="post-title-index">1. </span><a class="markdownIt-Anchor" href="#cudnn"></a> CUDNN</h1>
+<h2 id="c-api"><span class="post-title-index">1.1. </span><a class="markdownIt-Anchor" href="#c-api"></a> C++ API</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/NVIDIA/cudnn-frontend.git">cudnn_frontend</a>
+provides a c++ wrapper for
+the cudnn backend API and samples on how to use it.</p>
+<h2 id="python-api"><span class="post-title-index">1.2. </span><a class="markdownIt-Anchor" href="#python-api"></a> Python API</h2>
+<h3 id="use-cudnn-in-pytorch"><span class="post-title-index">1.2.1. </span><a class="markdownIt-Anchor" href="#use-cudnn-in-pytorch"></a> Use CUDNN in pytorch</h3>
+<h4 id="torchbackendscudnnbenchmark"><span class="post-title-index">1.2.1.1. </span><a class="markdownIt-Anchor" href="#torchbackendscudnnbenchmark"></a> torch.backends.cudnn.benchmark</h4>
+<p>A bool that, if True, causes cuDNN to benchmark multiple
+convolution algorithms and select the fastest.</p>
+<p>This flag allows you to enable the inbuilt
+cudnn auto-tuner to find the best algorithm to use for your hardware.
+Benchmark mode is good whenever your input sizes
+for your network do not vary.
+This way, cudnn will look for the optimal set of algorithms
+for that particular configuration (which takes some time).
+This usually leads to faster runtime.
+But if your input sizes changes at each iteration,
+then cudnn will benchmark every time a new size appears,
+possibly leading to worse runtime performances.</p>
+<h4 id="torchbackendscudnnenabled"><span class="post-title-index">1.2.1.2. </span><a class="markdownIt-Anchor" href="#torchbackendscudnnenabled"></a> torch.backends.cudnn.enabled</h4>
+<p>A bool that controls whether cuDNN is enabled.</p>
+<h4 id="torchbackendscudnnis_available"><span class="post-title-index">1.2.1.3. </span><a class="markdownIt-Anchor" href="#torchbackendscudnnis_available"></a> torch.backends.cudnn.is_available()</h4>
+<p>Return a bool indicating if CUDNN is currently available.</p>
+<h1 id="cuda"><span class="post-title-index">2. </span><a class="markdownIt-Anchor" href="#cuda"></a> CUDA</h1>
+</body></html>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-06-12T16:53:47+08:00"
-              content="2022-06-12">
-          06-12
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/myBlog/posts/b132932/" itemprop="url">
-            <span itemprop="name">Hexo</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/myBlog/tags/Deep-Learning-Tools/" rel="tag"># Deep Learning Tools</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/myBlog/posts/a378bd8e/" rel="prev" title="Python">
+                  <i class="fa fa-chevron-left"></i> Python
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
 
+
+
+
+
+    <div class="comments gitalk-container"></div>
 </div>
   </main>
 
@@ -300,7 +382,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"xyecoding","repo":"myBlog","client_id":"caf47b5090fb9fdaadbe","client_secret":"97ba359034d6c5a49f04cd4cb6973006c594ab57","admin_user":"xyecoding","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"3497536d9b910689a755e72a68acc5cd"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"xyecoding","repo":"myBlog","client_id":"caf47b5090fb9fdaadbe","client_secret":"97ba359034d6c5a49f04cd4cb6973006c594ab57","admin_user":"xyecoding","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"215540e22006202b6ba63f092f46970d"}</script>
 <script src="/myBlog/js/third-party/comments/gitalk.js"></script>
 
 </body>

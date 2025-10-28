@@ -29,7 +29,7 @@
 <meta property="og:description" content="Make and Cmake">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-11T01:27:25.000Z">
-<meta property="article:modified_time" content="2025-09-23T03:34:11.104Z">
+<meta property="article:modified_time" content="2025-10-28T08:55:44.449Z">
 <meta property="article:author" content="Xiang Ye">
 <meta property="article:tag" content="Compile">
 <meta name="twitter:card" content="summary">
@@ -120,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#make"><span class="nav-text">1.  Make</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#some-symbols"><span class="nav-text">1.1.  Some Symbols</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cmake"><span class="nav-text">2.  Cmake</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#the-difference-between-ld_library_path-and-library_path"><span class="nav-text">2.1.  The difference between LD_LIBRARY_PATH and LIBRARY_PATH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#libtorch"><span class="nav-text">2.2.  Libtorch</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cmake"><span class="nav-text">1.  cmake</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#find-cuda"><span class="nav-text">1.1.  Find CUDA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-difference-between-ld_library_path-and-library_path"><span class="nav-text">1.2.  The difference between LD_LIBRARY_PATH and LIBRARY_PATH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#libtorch"><span class="nav-text">1.3.  Libtorch</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#make"><span class="nav-text">2.  make</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#some-symbols"><span class="nav-text">2.1.  Some Symbols</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -135,7 +135,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/myBlog/archives/">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -146,7 +146,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/myBlog/tags/">
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -224,7 +224,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-09-23 11:34:11" itemprop="dateModified" datetime="2025-09-23T11:34:11+08:00">2025-09-23</time>
+      <time title="Modified: 2025-10-28 16:55:44" itemprop="dateModified" datetime="2025-10-28T16:55:44+08:00">2025-10-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -255,18 +255,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <html><head></head><body><h1 id="make"><span class="post-title-index">1. </span><a class="markdownIt-Anchor" href="#make"></a> Make</h1>
-<h2 id="some-symbols"><span class="post-title-index">1.1. </span><a class="markdownIt-Anchor" href="#some-symbols"></a> Some Symbols</h2>
-<p><code>$@</code> means the target file</p>
-<p><code>$^</code> means all the dependences</p>
-<p><code>$&lt;</code> means the first dependence</p>
-<p><code>$?</code> means the dependences newer than the target file</p>
-<h1 id="cmake"><span class="post-title-index">2. </span><a class="markdownIt-Anchor" href="#cmake"></a> Cmake</h1>
-<h2 id="the-difference-between-ld_library_path-and-library_path"><span class="post-title-index">2.1. </span><a class="markdownIt-Anchor" href="#the-difference-between-ld_library_path-and-library_path"></a> The difference between <code>LD_LIBRARY_PATH</code> and <code>LIBRARY_PATH</code></h2>
+        <html><head></head><body><h1 id="cmake"><span class="post-title-index">1. </span><a class="markdownIt-Anchor" href="#cmake"></a> <code>cmake</code></h1>
+<h2 id="find-cuda"><span class="post-title-index">1.1. </span><a class="markdownIt-Anchor" href="#find-cuda"></a> Find CUDA</h2>
+<p>find_package(CUDAToolkit [<version>] [QUIET] [REQUIRED] [EXACT] […])</version></p>
+<p>Some default environment variable will be searched, such as <code>CUDAToolkit_ROOT</code>.
+<a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/latest/module/FindCUDAToolkit.html">More information</a></p>
+<h2 id="the-difference-between-ld_library_path-and-library_path"><span class="post-title-index">1.2. </span><a class="markdownIt-Anchor" href="#the-difference-between-ld_library_path-and-library_path"></a> The difference between <code>LD_LIBRARY_PATH</code> and <code>LIBRARY_PATH</code></h2>
 <p><code>LD_LIBRARY_PATH</code> enables the system to locate dynamic libraries during runtime.
 <code>LIBRARY_PATH</code> directs the compiler to locate dynamic libraries during
 compilation.</p>
-<h2 id="libtorch"><span class="post-title-index">2.2. </span><a class="markdownIt-Anchor" href="#libtorch"></a> Libtorch</h2>
+<h2 id="libtorch"><span class="post-title-index">1.3. </span><a class="markdownIt-Anchor" href="#libtorch"></a> Libtorch</h2>
 <p>The <code>CmakeLists.txt</code> is as follow.</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.10 FATAL_ERROR)</span><br><span class="line">project(custom_ops)</span><br><span class="line"></span><br><span class="line">set(CMAKE_CUDA_COMPILER /opt/cuda/bin/nvcc)</span><br><span class="line">find_package(Torch REQUIRED)</span><br><span class="line"></span><br><span class="line">add_executable(example-app example-app.cpp)</span><br><span class="line">target_link_libraries(example-app "${TORCH_LIBRARIES}")</span><br><span class="line">set_property(TARGET example-app PROPERTY CXX_STANDARD 17)</span><br></pre></td></tr></tbody></table></figure>
 <p>It will use <code>/usr/bin/gcc</code> and <code>/usr/bin/g++</code> to compile the source files. When
@@ -278,6 +276,12 @@ I add</p>
 <code>rm /usr/bin/g++</code>, and <code>ln -s /usr/bin/g++-13 /usr/bin/g++</code>, it will use g++13.</p>
 <p>The path of standard include directory for g++ is embeded in the binary file of
 g++, and it has nothing with <code>CmakeLists.txt</code>.</p>
+<h1 id="make"><span class="post-title-index">2. </span><a class="markdownIt-Anchor" href="#make"></a> <code>make</code></h1>
+<h2 id="some-symbols"><span class="post-title-index">2.1. </span><a class="markdownIt-Anchor" href="#some-symbols"></a> Some Symbols</h2>
+<p><code>$@</code> means the target file</p>
+<p><code>$^</code> means all the dependences</p>
+<p><code>$&lt;</code> means the first dependence</p>
+<p><code>$?</code> means the dependences newer than the target file</p>
 </body></html>
     </div>
 
