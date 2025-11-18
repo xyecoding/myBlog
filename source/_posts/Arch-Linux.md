@@ -192,6 +192,10 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## `yay -S` + `tab` does not show all the package
+
+`rm -rf ~/.cache/yay` can solve this problem.
+
 ## `Wake on Lan`
 
 Sometimes use `wol mac_address` can not wake the server. Use
