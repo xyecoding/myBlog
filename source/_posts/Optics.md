@@ -8,7 +8,7 @@ categories:
   - Optics
 tags:
   - Optics
-abbrlink: '92992653'
+abbrlink: "92992653"
 date: 2025-12-10 14:20:15
 password:
 summary:
@@ -25,6 +25,10 @@ summary:
 因此可以测量。
 
 # 时间频率和空间频率
+
+沿任意方向传播的平面波电场：
+$$\mathbf{E}(\mathbf{r},t) = \mathbf{E}_0 e^{i(\mathbf{k}\cdot\mathbf{r} - \omega t)}$$
+，其相位是时间和空间的函数，所以有时间频率和空间频率。
 
 时间频率（光频）： 描述光波随时间振荡的快慢，对于单色光，时间频率是常数。
 
