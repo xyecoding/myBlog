@@ -42,6 +42,10 @@ $$\mathbf{E}(\mathbf{r},t) = \mathbf{E}_0 e^{i(\mathbf{k}\cdot\mathbf{r} - \omeg
 - $\mathbf{r} = (x,y,z)$ 是位置矢量
 - $\mathbf{k} = (k_x, k_y, k_z)$ 是波矢（常矢量）
 
+波矢的模长和光的波长有关，为$2 \pi/\lambda$，是相位在空间上的变化快慢。
+
+波矢方向垂直于等相位面（波前），波矢的方向就是光的传播方向。
+
 ---
 
 ### **相位函数**
