@@ -139,7 +139,8 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   GitHub: https://github.com/xyecoding || fab fa-github
-  E-Mail: mailto:xye@bupt.cn || fa fa-envelope
+  Gitee: https://gitee.com/xyegitee || fab fa-github-alt
+  E-Mail: mailto:xyecaep@163.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
@@ -162,8 +163,8 @@ links_settings:
   layout: block
 
 # links:
-  # My Github: https://github.com/xyegithub
-  #Title: https://example.com
+# My Github: https://github.com/xyegithub
+#Title: https://example.com
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).
@@ -566,9 +567,8 @@ comments:
     #  text: Load Disqus
     #  order: -1
     gitalk:
-     order: -1
+      order: -1
 # valine: https://cdn.jsdelivr.net/npm/valine@1.4.18/dist/Valine.min.js
-
 
 # Disqus
 # For more information: https://disqus.com

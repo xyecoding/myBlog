@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/c94b2364/</loc>
+    <lastmod>2025-12-16</lastmod>
+  </url>
+  <url>
     <loc>https://xyecoding.github.io/myBlog/myBlog/posts/92992653/</loc>
     <lastmod>2025-12-15</lastmod>
   </url>
@@ -33,71 +37,59 @@
     <lastmod>2025-03-20</lastmod>
   </url>
   <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/c90de73c/</loc>
-    <lastmod>2024-01-24</lastmod>
-  </url>
-  <url>
     <loc>https://xyecoding.github.io/myBlog/myBlog/posts/d13cd4ec/</loc>
-    <lastmod>2024-01-24</lastmod>
-  </url>
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/6e9b1d38/</loc>
-    <lastmod>2022-11-20</lastmod>
-  </url>
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/17f44e1a/</loc>
-    <lastmod>2022-10-28</lastmod>
-  </url>
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/80a89333/</loc>
-    <lastmod>2022-09-29</lastmod>
-  </url>
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/c94b2364/</loc>
-    <lastmod>2022-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/85027f36/</loc>
-    <lastmod>2022-07-21</lastmod>
-  </url>
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/730c940e/</loc>
-    <lastmod>2022-07-11</lastmod>
-  </url>
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/1e331e4a/</loc>
-    <lastmod>2022-06-24</lastmod>
-  </url>
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/b132932/</loc>
-    <lastmod>2022-06-13</lastmod>
-  </url>
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/bf6e579a/</loc>
-    <lastmod>2022-06-13</lastmod>
-  </url>
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/83c5d7ce/</loc>
-    <lastmod>2022-06-13</lastmod>
-  </url>
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/b34f5ff8/</loc>
-    <lastmod>2022-06-13</lastmod>
-  </url>
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/5f500d1b/</loc>
-    <lastmod>2022-06-13</lastmod>
-  </url>
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/617f6293/</loc>
-    <lastmod>2022-06-13</lastmod>
-  </url>
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/b8eefd24/</loc>
-    <lastmod>2022-06-13</lastmod>
+    <lastmod>2025-03-20</lastmod>
   </url>
   <url>
     <loc>https://xyecoding.github.io/myBlog/myBlog/posts/1e372de2/</loc>
-    <lastmod>2022-06-13</lastmod>
+    <lastmod>2025-03-20</lastmod>
+  </url>
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/85027f36/</loc>
+    <lastmod>2025-03-20</lastmod>
+  </url>
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/80a89333/</loc>
+    <lastmod>2025-03-20</lastmod>
+  </url>
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/730c940e/</loc>
+    <lastmod>2025-03-20</lastmod>
+  </url>
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/1e331e4a/</loc>
+    <lastmod>2025-03-20</lastmod>
+  </url>
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/617f6293/</loc>
+    <lastmod>2025-03-20</lastmod>
+  </url>
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/b132932/</loc>
+    <lastmod>2025-03-20</lastmod>
+  </url>
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/17f44e1a/</loc>
+    <lastmod>2025-03-20</lastmod>
+  </url>
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/6e9b1d38/</loc>
+    <lastmod>2025-03-20</lastmod>
+  </url>
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/83c5d7ce/</loc>
+    <lastmod>2025-03-20</lastmod>
+  </url>
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/b34f5ff8/</loc>
+    <lastmod>2025-03-20</lastmod>
+  </url>
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/c90de73c/</loc>
+    <lastmod>2025-03-20</lastmod>
+  </url>
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/myBlog/posts/5f500d1b/</loc>
+    <lastmod>2025-03-20</lastmod>
   </url>
 </urlset> 

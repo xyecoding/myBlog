@@ -22,7 +22,7 @@ root: /myBlog/
 # permalink: :year/:month:abbrlink.html
 permalink: posts/:abbrlink/
 
-abbrlink: 
+abbrlink:
   alg: crc32 #算法选项：crc16丨crc32
   rep: hex #输出进制：dec为十进制，hex为十六进制
 permalink_defaults:
@@ -100,9 +100,9 @@ pagination_dir: page
 
 # Include / Exclude file(s)
 ## include:/exclude: options only apply to the 'source/' folder
-include:
-exclude:
-ignore:
+# include:
+# exclude:
+# ignore:
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
@@ -128,7 +128,7 @@ encrypt: # hexo-blog-encrypt
     这是一篇加密文章，需要密码才能继续阅读。
     # message: 当前文章暂不对外可见，请输入密码后查看！
   tags:
-    - { name: private, password: yexiang520! }
+    - {name: private, password: yexiang520!}
       #wrong_pass_message: 抱歉，您输入的密码错误，请检查后重新输入。
       #wrong_hash_message: 抱歉, 当前文章不能被校验, 不过您还是可以看看解密后的内容。
 
