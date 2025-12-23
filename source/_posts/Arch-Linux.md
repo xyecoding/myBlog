@@ -192,6 +192,12 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## Keep the screen alive all the time
+
+Disable `dpms` (Display Power Management Signaling，显示电源管理信号，是 Xorg 提供的一套标准化接口，用来告诉显卡驱动："显示器空闲多久后，该进入哪种省电模式) can keep the screen alive all the time.
+
+Use `xset -dpms` to disable it. `xset q` can check the status of `dpms`.
+
 ## `yay -S` + `tab` does not show all the package
 
 `rm -rf ~/.cache/yay` can solve this problem.
