@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/posts/b132932/</loc>
-    
-    <lastmod>2025-12-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://xyecoding.github.io/myBlog/posts/92992653/</loc>
     
     <lastmod>2025-12-25</lastmod>
@@ -280,13 +271,6 @@
   </url>
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/tags/Hexo/</loc>
-    <lastmod>2025-12-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xyecoding.github.io/myBlog/tags/Deep-Learning-Tools/</loc>
     <lastmod>2025-12-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -309,13 +293,6 @@
   
   <url>
     <loc>https://xyecoding.github.io/myBlog/tags/Fish/</loc>
-    <lastmod>2025-12-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/tags/Blog/</loc>
     <lastmod>2025-12-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -549,13 +526,6 @@
   
   <url>
     <loc>https://xyecoding.github.io/myBlog/categories/Machine-Learning/Methods/</loc>
-    <lastmod>2025-12-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/categories/Programming/Tools/Hexo/</loc>
     <lastmod>2025-12-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
