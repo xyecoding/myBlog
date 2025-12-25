@@ -2691,6 +2691,21 @@ ul.breadcrumb li:last-child {
     width: auto;
   }
 }
+@media (min-width: 768px) and (max-width: 991px) {
+  .header,
+  .container,
+  .main-inner {
+    width: auto !important;
+  }
+  .content-wrap {
+    width: auto !important;
+    float: none !important;
+  }
+  .sidebar {
+    width: auto !important;
+    float: none !important;
+  }
+}
 .site-brand-container {
   background: var(--theme-color);
 }
