@@ -2692,19 +2692,18 @@ ul.breadcrumb li:last-child {
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  .header {
-    width: auto;
-  }
-  .container .main-inner {
-    width: auto;
+  .header,
+  .container,
+  .main-inner {
+    width: auto !important;
   }
   .content-wrap {
-    width: auto;
-    float: none;
+    width: auto !important;
+    float: none !important;
   }
   .sidebar {
-    width: auto;
-    float: none;
+    width: auto !important;
+    float: none !important;
   }
 }
 .site-brand-container {
