@@ -2692,18 +2692,19 @@ ul.breadcrumb li:last-child {
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  .header,
-  .container,
-  .main-inner {
-    width: auto !important;
+  .header {
+    width: auto;
+  }
+  .container .main-inner {
+    width: auto;
   }
   .content-wrap {
-    width: auto !important;
-    float: none !important;
+    width: auto;
+    float: none;
   }
   .sidebar {
-    width: auto !important;
-    float: none !important;
+    width: auto;
+    float: none;
   }
 }
 .site-brand-container {
@@ -2957,21 +2958,5 @@ ul.breadcrumb li:last-child {
   }
   .comments {
     padding: 10px 12px;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .header,
-  .container {
-    width: auto !important;
-  }
-  .main-inner {
-    width: auto !important;
-  }
-  .content-wrap {
-    width: auto !important;
-    float: none !important;
-  }
-  .sidebar {
-    display: none;
   }
 }
