@@ -24,10 +24,12 @@ $$\mathbf{E}(\mathbf{r},t) = \mathbf{E}_0 e^{i(\phi(\mathbf{r}) - \omega t)}$$
 
 其中
 
-- $\phi(\mathbf{r}) = \mathbf{k}\cdot\mathbf{r} + \phi_0(\mathbf{r})$
+- $\phi(\mathbf{r})$可以分解为$\phi(\mathbf{r}) = \mathbf{k}\cdot\mathbf{r} + \phi_0(\mathbf{r})$，
+  这里忽略了常数部分
 - $\mathbf{k}\cdot\mathbf{r}$ 是平面波基准项（理想传播相位），即相位的线性部分
 - $\phi_0(\mathbf{r})$ 是像差/畸变引入的附加相位
 
+即
 $$\mathbf{E}(\mathbf{r},t) = \mathbf{E}_0 e^{i(\mathbf{k}\cdot\mathbf{r} + \phi_0(\mathbf{r}) - \omega t)}$$
 
 对于存在像差的实际波前，
@@ -85,7 +87,7 @@ $||\mathbf{k}(\mathbf{r})||_2 = 2\pi / \lambda$。（根据程函方程，均匀
 
 **<font color=red>
 光波的局部传播方向由相位梯度的方向决定。
-因此可以通过测量波前斜率（即光线偏转角）来测量传播方向，再通过传播方向来反推相位梯度，
+因此可以通过测量波前斜率（即光线偏转角）来测量光的实际传播方向，从而反推相位梯度，
 再利用积分重建算法恢复波前相位分布。这是哈特曼测量相位的基本原理。
 </font>**
 
@@ -102,16 +104,16 @@ $\mathbf{k}(\mathbf{r})$和$\mathbf{S}$都代表光的传播方向，
 只是一个是从波矢的角度，一个是实际物理测量的结果。他俩方向一致，
 只有模长的区别。
 
-因此,
+因此，归一化后,
 
 $$
 \left(\frac{\partial \phi/\partial x}{\partial \phi/\partial z},\frac{\partial \phi/\partial y}{\partial \phi/\partial z} , 1 \right)=
 \left( \Delta x/f,\Delta y/f, 1\right)
 $$
 
-由于$||\mathbf{k}(\mathbf{r})||_2 = 2\pi / \lambda$，
-在**近轴近似**下，$\partial\phi/\partial z$占主导，
-$\partial\phi/\partial x$和$\partial\phi/\partial y$可忽略，
+由于波矢模长恒定$||\mathbf{k}(\mathbf{r})||_2 = 2\pi / \lambda$，
+在**近轴近似**下，z方向分量$\partial\phi/\partial z$占主导，
+x和y方向的分量$\partial\phi/\partial x$和$\partial\phi/\partial y$可忽略，
 则
 $\partial\phi/\partial z = \frac{2\pi}{\lambda}$ 为常数，因此：
 
@@ -130,7 +132,7 @@ $\partial\Phi = \partial\phi \cdot \frac{\lambda}{2\pi}$可以看成
 $\frac{\partial\Phi}{\partial x}$和
 $\frac{\partial\Phi}{\partial y}$
 的单位为长度/长度（无量纲），表征长度相位在x和y方向上的空间变化率，即长度相位的梯度。
-（专业点说是：光程差。长度相位的说法并不专业，但是我理解起来好一些）
+（专业点说是：光程差。长度相位的说法并不专业，但是我理解起来好一些）。
 
 $$\frac{\partial\Phi}{\partial x} =\frac{\Delta x}{f}$$
 $$\frac{\partial\Phi}{\partial y} = \frac{\Delta y}{f}$$
@@ -147,7 +149,7 @@ $$\frac{\partial\Phi}{\partial y} = \frac{\Delta y}{f}$$
 
 - **斜率计算**：
   $$\frac{\Delta x}{f} = \frac{\bar{x}_{i,j} - x_{0,i,j}}{f}, \quad \frac{\Delta y}{f} = \frac{\bar{y}_{i,j} - y_{0,i,j}}{f}$$
-  其中 $f$ 为微透镜焦距，$(x_{0,i,j}, y_{0,i,j})$ 为参考光斑位置。
+  其中 $f$ 为微透镜焦距，$(x_{0,i,j}, y_{0,i,j})$ 为参考光斑位置，即理想的与z轴平行的平面波光斑位置。
 
 ### 波前重建阶段，离散化表示 $\frac{\partial\Phi}{\partial x}$和 $\frac{\partial\Phi}{\partial y}$
 
