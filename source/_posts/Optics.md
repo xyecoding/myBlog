@@ -14,6 +14,181 @@ password:
 summary:
 ---
 
+# 哈特曼利用斜率测量相位的原理
+
+## 光波相位的数学表达与分解
+
+光波是空间和时间的函数，光波在四维空间中的表达式为：
+
+$$\mathbf{E}(\mathbf{r},t) = \mathbf{E}_0 e^{i(\phi(\mathbf{r}) - \omega t)}$$
+
+其中
+
+- $\phi(\mathbf{r}) = \mathbf{k}\cdot\mathbf{r} + \phi_0(\mathbf{r})$
+- $\mathbf{k}\cdot\mathbf{r}$ 是平面波基准项（理想传播相位），即相位的线性部分
+- $\phi_0(\mathbf{r})$ 是像差/畸变引入的附加相位
+
+$$\mathbf{E}(\mathbf{r},t) = \mathbf{E}_0 e^{i(\mathbf{k}\cdot\mathbf{r} + \phi_0(\mathbf{r}) - \omega t)}$$
+
+对于存在像差的实际波前，
+$\phi_0(\mathbf{r})$ 是$\mathbf{r}$的
+非线性畸变函数，常用Zernike多项式展开，像散、离焦等。
+（一次或线性部分都可包含在$\mathbf{k}\cdot\mathbf{r}$中）。
+
+**常数项（Piston）**
+
+- **数学**：$\phi_{\text{piston}} = C$
+- **物理**：整个波前相位整体平移一个常数
+- **成像影响**：**完全不影响**
+  - 所有光线相位改变量相同
+  - 干涉/衍射图样不变
+  - 人眼/探测器无法感知绝对相位
+
+**一次项（Tip-tilt）**
+
+- **数学**：$\phi_{\text{tilt}} = a_x x + a_y y$
+- **物理**：波前整体倾斜，光线方向偏转
+- **成像影响**：**影响像的位置，但不影响像的质量**
+  - **像整体平移**：光斑质心位移 $\Delta x = f \cdot \theta$
+  - **分辨率不变**：点扩散函数（PSF）形状不变
+  - **应用**：精跟踪系统专门校正此项
+
+**二次及以上项（真正影响成像质量）**
+
+- **二次项**：离焦、像散 → **模糊、离焦**
+- **三次项**：彗差 → **不对称拖尾**
+- **四次项**：球差 → **中心亮环**
+
+这些项会**改变PSF形状**，导致：
+
+- 分辨率下降
+- 对比度降低
+- 细节丢失
+
+- **常数项**：无法测量（所有子孔径光斑同步移动）
+- **一次项**：表现为**所有子孔径斜率整体偏移**
+  - 测量：$\langle S_x \rangle, \langle S_y \rangle$ 不为零
+  - 校正：由倾斜镜（Tip-tilt Mirror）快速补偿
+- **高阶项**：各子孔径斜率**差异** → 需要变形镜（DM）校正
+
+## **光线方向与相位梯度的关系**
+
+$$\mathbf{E}(\mathbf{r},t) = \mathbf{E}_0 e^{i(\phi(\mathbf{r}) - \omega t)}$$
+
+根据 **程函方程（Eikonal Equation）** ，光线传播方向由**相位的空间梯度**决定：
+$$\mathbf{k}(\mathbf{r}) = \nabla \phi(\mathbf{r}) = \left( \frac{\partial \phi}{\partial x}, \frac{\partial \phi}{\partial y}, \frac{\partial \phi}{\partial z} \right)$$
+
+**物理意义**：光线始终**垂直于等相位面**（波前）传播，且
+$||\mathbf{k}(\mathbf{r})||_2 = 2\pi / \lambda$。（根据程函方程，均匀介质中，
+相差只改变传播的方向，即波矢的方向随空间位置变化，但其模长恒定。
+**相差的本质是波矢的横向调制。**）
+
+**<font color=red>
+光波的局部传播方向由相位梯度的方向决定。
+因此可以通过测量波前斜率（即光线偏转角）来测量传播方向，再通过传播方向来反推相位梯度，
+再利用积分重建算法恢复波前相位分布。这是哈特曼测量相位的基本原理。
+</font>**
+
+## **哈特曼传感器中的二维简化**
+
+根据 **程函方程（Eikonal Equation）** ，光线传播方向由**相位的空间梯度**决定：
+$$\mathbf{k}(\mathbf{r}) = \nabla \phi(\mathbf{r}) = \left( \frac{\partial \phi}{\partial x}, \frac{\partial \phi}{\partial y}, \frac{\partial \phi}{\partial z} \right)$$
+
+在实际哈特曼探测器的每一个子孔径内，光的传播方向为:
+$$\mathbf{S}=  \left( \Delta x,\Delta y,f \right)$$
+其中$\Delta x, \Delta y$分别为哈特曼子孔径质心的偏移量，$f$为子孔径透镜的焦距。
+
+$\mathbf{k}(\mathbf{r})$和$\mathbf{S}$都代表光的传播方向，
+只是一个是从波矢的角度，一个是实际物理测量的结果。他俩方向一致，
+只有模长的区别。
+
+因此,
+
+$$
+\left(\frac{\partial \phi/\partial x}{\partial \phi/\partial z},\frac{\partial \phi/\partial y}{\partial \phi/\partial z} , 1 \right)=
+\left( \Delta x/f,\Delta y/f, 1\right)
+$$
+
+由于$||\mathbf{k}(\mathbf{r})||_2 = 2\pi / \lambda$，
+在**近轴近似**下，$\partial\phi/\partial z$占主导，
+$\partial\phi/\partial x$和$\partial\phi/\partial y$可忽略，
+则
+$\partial\phi/\partial z = \frac{2\pi}{\lambda}$ 为常数，因此：
+
+$$\frac{\partial \phi/\partial x}{\partial \phi/\partial z} = \frac{\partial\phi}{\partial x}  \cdot \frac{\lambda}{2\pi} = \frac{\Delta x}{f}$$
+$$\frac{\partial \phi/\partial y}{\partial \phi/\partial z} = \frac{\partial\phi}{\partial y}  \cdot \frac{\lambda}{2\pi} = \frac{\Delta y}{f}$$
+
+$\frac{\partial\phi}{\partial x}$和$\frac{\partial\phi}{\partial y}$的
+单位为弧度/米，表征波前相位角在x和y方向的空间变化率。
+
+设
+$$\frac{\partial\Phi}{\partial x} = \frac{\partial\phi}{\partial x}  \cdot \frac{\lambda}{2\pi}$$
+$$\frac{\partial\Phi}{\partial y} = \frac{\partial\phi}{\partial y}  \cdot \frac{\lambda}{2\pi}$$
+其中
+$\partial\Phi = \partial\phi \cdot \frac{\lambda}{2\pi}$可以看成
+相位从弧度单位到长度单位的转化，因此，
+$\frac{\partial\Phi}{\partial x}$和
+$\frac{\partial\Phi}{\partial y}$
+的单位为长度/长度（无量纲），表征长度相位在x和y方向上的空间变化率，即长度相位的梯度。
+（专业点说是：光程差。长度相位的说法并不专业，但是我理解起来好一些）
+
+$$\frac{\partial\Phi}{\partial x} =\frac{\Delta x}{f}$$
+$$\frac{\partial\Phi}{\partial y} = \frac{\Delta y}{f}$$
+因此，斜率$\frac{\Delta x}{f}$和$\frac{\Delta y}{f}$波前在x和y方向的局部倾斜，
+表征长度相位在x和y方向上的空间变化率，即长度相位的梯度。
+
+### **斜率测量阶段，离散化计算$\frac{\Delta x}{f}$和$\frac{\Delta y}{f}$**
+
+对每个子孔径 $(i,j)$：
+
+- **光斑质心定位**：采用高阶矩算法
+  $$\bar{x}_{i,j} = \frac{\sum_{m,n} x_{nm} I_{nm}^\alpha}{\sum_{m,n} I_{nm}^\alpha}$$
+  计算精度达**0.1像素**，可计算对应波前测量精度**RMS**。
+
+- **斜率计算**：
+  $$\frac{\Delta x}{f} = \frac{\bar{x}_{i,j} - x_{0,i,j}}{f}, \quad \frac{\Delta y}{f} = \frac{\bar{y}_{i,j} - y_{0,i,j}}{f}$$
+  其中 $f$ 为微透镜焦距，$(x_{0,i,j}, y_{0,i,j})$ 为参考光斑位置。
+
+### 波前重建阶段，离散化表示 $\frac{\partial\Phi}{\partial x}$和 $\frac{\partial\Phi}{\partial y}$
+
+利用 **Hudgin离散模型** 构建线性方程组：
+$$\frac{\partial\Phi}{\partial x} = \frac{\Phi_{i+1,j} - \Phi_{i,j}}{d} = \frac{\Delta x}{f}$$
+$$\frac{\partial\Phi}{\partial y} = \frac{\Phi_{i,j+1} - \Phi_{i,j}}{d} = \frac{\Delta y}{f}$$
+
+其中$d$为子孔径间距，单位一般为$\mu m$。也正是由于
+$\frac{\partial\Phi}{\partial x} = \frac{\Phi_{i+1,j} - \Phi_{i,j}}{d} = \frac{\Delta x}{f}$和
+$\frac{\partial\Phi}{\partial y} = \frac{\Phi_{i,j+1} - \Phi_{i,j}}{d} = \frac{\Delta y}{f}$
+的单位为长度/长度（无量纲）。
+而$d$的单位为$\mu m$，因此，一般哈特曼测量出来$\Phi_{i,j}$的单位为$\mu m$。
+
+- **矩阵形式**：$\mathbf{A}\boldsymbol{\Phi} = \mathbf{S}$
+
+  - $\boldsymbol{\Phi}$：待求的长度相位向量（在光瞳圆内部，个数为哈特曼子孔径数目，对于$14\times14$的哈特曼，其个数为196）
+  - $\mathbf{S}$：测量斜率向量（由$\frac{\Delta x}{f}$和$\frac{\Delta y}{f}$确定，每个有效子孔径测量x、y两个方向斜率，对于$14\times14$的哈特曼，共296个方程，即148个有效子孔径$\times 2$方向）
+  - $\mathbf{A}$：稀疏差分矩阵（元素为 $\pm 1/d$，）
+
+- **求解方法**：采用**最小二乘法**或**奇异值分解(SVD)** 求解超定方程组，
+  得到各子孔径中心处的相对相位。
+
+### **像差分析阶段：Zernike多项式分解**
+
+将重建的长度相位 $\Phi(x,y)$ 投影到**Zernike多项式**基底：
+$$\Phi(\rho,\theta) = \sum_{n=0}^{N} \sum_{m=-n}^{n} a_{nm} Z_n^m(\rho,\theta)$$
+
+- **系数 $a_{nm}$**：直接对应经典像差（如 $a_{20}$ 为离焦，$a_{22}$ 为像散，$a_{11}$、$a_{1,-1}$ 为倾斜）
+- **去除平移与倾斜**：常数项（piston）和一次项（tip-tilt）不影响成像质量，可剥离
+- **高阶像差校正**：将Zernike系数反馈至**变形镜（DM）**，驱动镜面形变实现波前补偿
+
+### **哈特曼测量原理的核心总结**
+
+**从波矢到长度相位的完整转换链条**：
+
+1. **物理测量**：光斑位移 $(\Delta x, \Delta y, f)$ 反映局部传播方向
+2. **斜率计算**：$\frac{\Delta x}{f} = \frac{\partial\Phi}{\partial x}$ 建立测量与理论的桥梁
+3. **离散建模**：Hudgin差分方程将连续梯度转化为线性方程组
+4. **数值求解**：通过矩阵反演重建长度相位分布 $\boldsymbol{\Phi}$
+5. **像差提取**：Zernike分解得到可校正的像差系数
+
 # 振幅和强度
 
 振幅指复振幅（Complex Amplitude），
@@ -366,6 +541,16 @@ $$
 - $x$：瞳面空间坐标
 - $w(x)$：振幅（孔径内为1，孔径外为0）
 - $\phi(x)$：波前相位误差（孔径外振幅为0，相位无意义）
+- $P(x)$：复振幅，无量纲
+- $w(x)$：振幅传输函数，无量纲
+- $\phi(x)$：波前相位，**无量纲**，单位为**波长数（waves）**
+
+**相位项的物理意义**：
+
+- 在光学中，相位 = $2\pi \times$（光程差 / 波长）
+- 当光程差 = 1个波长时，相位 = $2\pi$ 弧度，对应一个完整周期
+
+因此，$\phi(x)$ 必须是无量纲的"波长数"，才能正确产生 $2\pi i \phi(x)$ 的相位因子。
 
 哈特曼探测器就是在测量瞳函数的相位梯度
 
@@ -373,6 +558,18 @@ $$
 | :----------------------- | :--------------------------------------- |
 | **瞳函数振幅 $w(x)$**    | 子孔径总光强（积分）                     |
 | **瞳函数相位 $\phi(x)$** | 局部斜率（梯度）→ 积分重建，间接测量相位 |
+
+### **5. 论文依据：公式验证**
+
+让我们对照论文Phase-diversity wave-front sensor for imaging systems，验证每个公式的单位：
+
+| 公式编号 | 表达式                                       | $\phi(x)$单位 | 验证                                |
+| -------- | -------------------------------------------- | ------------- | ----------------------------------- |
+| (1)      | $P(x)=w(x)e^{2\pi i\phi(x)}$                 | **无量纲**    | 指数必须为无量纲，故$\phi(x)$无量纲 |
+| (3)      | $h(\xi)=\| \int P(x)e^{-2\pi i\xi x}dx \|^2$ | -             | $P(x)$无量纲，积分结果无量纲        |
+| (12)     | $M_4 = \frac{A_o^2 - A_d^2}{A_o^2 + A_d^2}$  | -             | 所有量均为功率谱，无量纲            |
+
+**结论**：整个算法链中，**波前值必须是无量纲的波长数**，否则指数项将具有**物理错误**的单位。
 
 ## 点扩散函数（Point Spread Function, PSF）（实数域，强度）
 
@@ -406,8 +603,8 @@ $$
 
 > **正弦输入 → 同频正弦输出，仅幅度/相位改变**
 
-1. **输入**：一个**正弦光栅**（条纹强度按正弦规律变化）  
-   数学形式：$I_{\text{in}}(x) = I_0 [1 + \cos(2\pi\xi_0 x)]$  
+1. **输入**：一个**正弦光栅**（条纹强度按正弦规律变化）
+   数学形式：$I_{\text{in}}(x) = I_0 [1 + \cos(2\pi\xi_0 x)]$
    $\xi_0$ 就是其**空间频率**
 
 2. **系统响应**：该光栅经过光学系统后
@@ -428,17 +625,17 @@ $$
 
 #### **点扩散函数的作用**
 
-1. **PSF** 是系统的**脉冲响应**：点光源 $\delta(x)$ 的成像结果  
+1. **PSF** 是系统的**脉冲响应**：点光源 $\delta(x)$ 的成像结果
    $$h(x) = \text{系统}\{\delta(x)\}$$
 
-2. **卷积定理**：任意输入 $I_{\text{in}}(x)$ 的输出是  
-   $$I_{\text{out}}(x) = I_{\text{in}}(x) * h(x)$$  
+2. **卷积定理**：任意输入 $I_{\text{in}}(x)$ 的输出是
+   $$I_{\text{out}}(x) = I_{\text{in}}(x) * h(x)$$
    （$*$ 表示**卷积**）
 
-3. **频域关系**：对两边做傅里叶变换  
+3. **频域关系**：对两边做傅里叶变换
    $$\mathcal{F}\{I_{\text{out}}\} = \mathcal{F}\{I_{\text{in}}\} \cdot \mathcal{F}\{h\}$$
 
-4. **定义OTF**：  
+4. **定义OTF**：
    $$H(\xi) = \mathcal{F}\{h(x)\}$$
 
 **点扩散函数是系统在空域的脉冲响应，其傅里叶变换OTF就是系统在频域的频率响应函数，直接给出每个空间频率正弦条纹的对比度衰减和相位偏移量，因此完整表征了系统的传递能力。**
@@ -456,3 +653,6 @@ $$
 
 相位梯度正比于局部空间频率（或波前倾斜角），
 因此哈特曼探测器通过测量子孔径的角度信息直接获得相位梯度，进而积分重建瞳函数的相位分布。
+
+$$
+$$
