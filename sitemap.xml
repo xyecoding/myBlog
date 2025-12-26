@@ -92,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/tags/index.html</loc>
+    <loc>https://xyecoding.github.io/myBlog/categories/index.html</loc>
     
     <lastmod>2025-03-20</lastmod>
     
@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/categories/index.html</loc>
+    <loc>https://xyecoding.github.io/myBlog/tags/index.html</loc>
     
     <lastmod>2025-03-20</lastmod>
     
@@ -155,15 +155,6 @@
   </url>
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/posts/1e331e4a/</loc>
-    
-    <lastmod>2025-03-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://xyecoding.github.io/myBlog/posts/617f6293/</loc>
     
     <lastmod>2025-03-20</lastmod>
@@ -183,6 +174,15 @@
   
   <url>
     <loc>https://xyecoding.github.io/myBlog/posts/6e9b1d38/</loc>
+    
+    <lastmod>2025-03-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/posts/1e331e4a/</loc>
     
     <lastmod>2025-03-20</lastmod>
     
@@ -292,14 +292,14 @@
   </url>
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/tags/Reinforcement-Learning/</loc>
+    <loc>https://xyecoding.github.io/myBlog/tags/Topological-Data-Analysis/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/tags/Topological-Data-Analysis/</loc>
+    <loc>https://xyecoding.github.io/myBlog/tags/Compile/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -320,14 +320,14 @@
   </url>
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/tags/Compile/</loc>
+    <loc>https://xyecoding.github.io/myBlog/tags/Optimization/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/tags/Optimization/</loc>
+    <loc>https://xyecoding.github.io/myBlog/tags/Reinforcement-Learning/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -362,13 +362,6 @@
   </url>
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/tags/Scientific-Writing/</loc>
-    <lastmod>2025-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xyecoding.github.io/myBlog/tags/Linux/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -376,14 +369,7 @@
   </url>
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/tags/Optics/</loc>
-    <lastmod>2025-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/tags/Paper-Reading/</loc>
+    <loc>https://xyecoding.github.io/myBlog/tags/Scientific-Writing/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -397,7 +383,21 @@
   </url>
   
   <url>
+    <loc>https://xyecoding.github.io/myBlog/tags/Paper-Reading/</loc>
+    <lastmod>2025-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xyecoding.github.io/myBlog/tags/Windows/</loc>
+    <lastmod>2025-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/tags/Optics/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -441,6 +441,13 @@
   </url>
   
   <url>
+    <loc>https://xyecoding.github.io/myBlog/categories/Programming/Utile/</loc>
+    <lastmod>2025-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xyecoding.github.io/myBlog/categories/Programming/Algorithm/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -449,13 +456,6 @@
   
   <url>
     <loc>https://xyecoding.github.io/myBlog/categories/Programming/Tools/Git/</loc>
-    <lastmod>2025-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/categories/Programming/Utile/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -476,6 +476,13 @@
   </url>
   
   <url>
+    <loc>https://xyecoding.github.io/myBlog/categories/Programming/Tools/Linux/</loc>
+    <lastmod>2025-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xyecoding.github.io/myBlog/categories/Scientific-Writing/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -490,7 +497,7 @@
   </url>
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/categories/Programming/Tools/Linux/</loc>
+    <loc>https://xyecoding.github.io/myBlog/categories/Programming/Tools/Windows/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -505,13 +512,6 @@
   
   <url>
     <loc>https://xyecoding.github.io/myBlog/categories/Machine-Learning/Applications/</loc>
-    <lastmod>2025-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/categories/Programming/Tools/Windows/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -553,13 +553,6 @@
   </url>
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/categories/Machine-Learning/Methods/Reinforcement-Learning/</loc>
-    <lastmod>2025-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xyecoding.github.io/myBlog/categories/Machine-Learning/Methods/Topological-Data-Analysis/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -568,6 +561,13 @@
   
   <url>
     <loc>https://xyecoding.github.io/myBlog/categories/Machine-Learning/Methods/Optimization/</loc>
+    <lastmod>2025-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/categories/Machine-Learning/Methods/Reinforcement-Learning/</loc>
     <lastmod>2025-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
