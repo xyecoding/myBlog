@@ -1,0 +1,21 @@
+.main-inner {
+  overflow-x: hidden;
+}
+.container,
+.main-inner,
+.content-wrap {
+  width: 100% !important;
+  max-width: 100vw !important;
+}
+.post-body pre,
+.post-body .highlight,
+.post-body table,
+.post-body img {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  display: block;
+}
+.post-body p,
+.post-body li {
+  word-break: break-word;
+}

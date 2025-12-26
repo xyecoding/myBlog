@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang }}">
+
 <head>
   {{ partial('_partials/head/head.njk', {}, {cache: theme.cache.enable}) }}
   {%- include '_partials/head/head-unique.njk' -%}
   <title>{% block title %}{% endblock %}</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
   {{ partial('_third-party/analytics/index.njk', {}, {cache: theme.cache.enable}) }}
   {{- next_inject('head') }}
   <noscript>
     <link rel="stylesheet" href="{{ url_for(theme.css) }}/noscript.css">
   </noscript>
+  <link rel="stylesheet" href="{{ url_for('/css/style.css') }}">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage"{% if theme.motion.enable %} class="use-motion"{% endif %}>
+
+<body itemscope itemtype="http://schema.org/WebPage" {% if theme.motion.enable %} class="use-motion" {% endif %}>
   <div class="headband"></div>
 
   <main class="main">
@@ -20,7 +24,7 @@
         {%- include '_partials/header/index.njk' -%}
       </div>
       {%- if theme.sidebar.display !== 'remove' %}
-        {% block sidebar %}{% endblock %}
+      {% block sidebar %}{% endblock %}
       {%- endif %}
     </header>
 
@@ -49,4 +53,5 @@
 
   {{- next_inject('bodyEnd') }}
 </body>
+
 </html>

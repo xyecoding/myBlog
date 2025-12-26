@@ -14,7 +14,7 @@ password:
 summary:
 ---
 
-# 哈特曼利用斜率测量相位的原理
+# 哈特曼利用斜率测量相位的原理以及从Zernike系数到成像的仿真过程
 
 ## 光波相位的数学表达与分解
 
@@ -91,7 +91,9 @@ $||\mathbf{k}(\mathbf{r})||_2 = 2\pi / \lambda$。（根据程函方程，均匀
 再利用积分重建算法恢复波前相位分布。这是哈特曼测量相位的基本原理。
 </font>**
 
-## **哈特曼传感器中的二维简化**
+## **哈特曼传感器的测量过程**
+
+### 利用光的实际传播方向（可测量）与光矢方向构建相位梯度（待求）的方程组
 
 根据 **程函方程（Eikonal Equation）** ，光线传播方向由**相位的空间梯度**决定：
 $$\mathbf{k}(\mathbf{r}) = \nabla \phi(\mathbf{r}) = \left( \frac{\partial \phi}{\partial x}, \frac{\partial \phi}{\partial y}, \frac{\partial \phi}{\partial z} \right)$$
@@ -157,11 +159,7 @@ $$\frac{\partial\Phi}{\partial y} = \frac{\Delta y}{f}$$
 $$\frac{\partial\Phi}{\partial x} = \frac{\Phi_{i+1,j} - \Phi_{i,j}}{d} = \frac{\Delta x}{f}$$
 $$\frac{\partial\Phi}{\partial y} = \frac{\Phi_{i,j+1} - \Phi_{i,j}}{d} = \frac{\Delta y}{f}$$
 
-其中$d$为子孔径间距，单位一般为$\mu m$。也正是由于
-$\frac{\partial\Phi}{\partial x} = \frac{\Phi_{i+1,j} - \Phi_{i,j}}{d} = \frac{\Delta x}{f}$和
-$\frac{\partial\Phi}{\partial y} = \frac{\Phi_{i,j+1} - \Phi_{i,j}}{d} = \frac{\Delta y}{f}$
-的单位为长度/长度（无量纲）。
-而$d$的单位为$\mu m$，因此，一般哈特曼测量出来$\Phi_{i,j}$的单位为$\mu m$。
+<font color=red>其中$d$为子孔径间距，单位一般为$\mu m$。也正是由于$\frac{\partial\Phi}{\partial x} = \frac{\Phi_{i+1,j} - \Phi_{i,j}}{d} = \frac{\Delta x}{f}$和$\frac{\partial\Phi}{\partial y} = \frac{\Phi_{i,j+1} - \Phi_{i,j}}{d} = \frac{\Delta y}{f}$的单位为长度/长度（无量纲）。而$d$的单位为$\mu m$，因此，一般哈特曼测量出来的长度相位$\Phi_{i,j}$的单位为$\mu m$，与波长$\lambda$无关。</font>
 
 - **矩阵形式**：$\mathbf{A}\boldsymbol{\Phi} = \mathbf{S}$
 
@@ -170,7 +168,7 @@ $\frac{\partial\Phi}{\partial y} = \frac{\Phi_{i,j+1} - \Phi_{i,j}}{d} = \frac{\
   - $\mathbf{A}$：稀疏差分矩阵（元素为 $\pm 1/d$，）
 
 - **求解方法**：采用**最小二乘法**或**奇异值分解(SVD)** 求解超定方程组，
-  得到各子孔径中心处的相对相位。
+  得到各子孔径中心处的相对长度相位。
 
 ### **像差分析阶段：Zernike多项式分解**
 
@@ -190,6 +188,212 @@ $$\Phi(\rho,\theta) = \sum_{n=0}^{N} \sum_{m=-n}^{n} a_{nm} Z_n^m(\rho,\theta)$$
 3. **离散建模**：Hudgin差分方程将连续梯度转化为线性方程组
 4. **数值求解**：通过矩阵反演重建长度相位分布 $\boldsymbol{\Phi}$
 5. **像差提取**：Zernike分解得到可校正的像差系数
+
+## <font color=red> Zernike系数到成像的仿真过程</font>
+
+### 对于给定光学系统，离焦相机离焦量的表示方法
+
+根据论文Phase-diversity wave-front sensor for imaging systems，
+当离焦相机的离焦量用波长做单位时，
+
+$$\Delta z = 8a\lambda(f/\#)^2$$
+
+其中：
+
+- $\Delta z$：离焦相机的离焦距离，即最佳焦平面与离焦焦平面之间的物理位移量，单位为毫米（mm）或微米（μm）
+- $a$：归一化Zernike离焦系数（无量纲），表示以波长$\lambda$为单位的离焦波前误差
+- $\lambda$：光学系统的工作波长，单位为微米（μm）或纳米（nm）
+- $f/\#$：光学系统的f数（光圈数），定义为有效焦距与孔径直径之比，无量纲
+
+对于确定的光学系统，物理离焦距离 $\Delta z$ 与 $f/\#$ 均为固定值，因此根据公式可得
+$$a\lambda = \frac{\Delta z}{8(f/\#)^2}$$
+**<font color=red>绝对离焦量 $a\lambda$ 是系统常量，不随波长变化，而a不是系统常量。</font>**
+
+<div style="color: red;">
+
+**若程序设计中以$a\lambda$作为离焦量（错把a作为系统常量）会导致错误。$a$ 设为固定值（如 $a=0.5$）**，则当光学系统工作波长改变时，$a\lambda$ 会随之线性变化。这直接违背了上述物理规律（对于给定的光学系统$a\lambda$为常数），导致计算出的离焦波面与实际光学系统不匹配。
+
+由于$a\lambda$才是系统常量，
+**正确的实现方式应固定 $a\lambda$ 值**，即以长度作为离焦量的单位。
+当以长度作为离焦量的单位时，例如设置离焦相机离焦量为$d = 0.2 \mu m$。
+对于给定光学系统，$d$是系统常量。当代码迁移到别的系统时，
+只需确定新系统的离焦量$d$，无论波长如何变化，都不会出错。
+
+</div>
+
+### Zernike系数到点扩散函数
+
+哈特曼测量的相位为长度相位（光程差），
+以65项Zernike系数为例，单位为$\mu m$，其中前两项为倾斜项（相位的线性部分，不影响成像质量）。
+
+**输入**：65项Zernike系数向量 $\mathbf{a} = [a_1, a_2, ..., a_{65}]$（单位：μm）。
+
+基于**菲涅耳-基尔霍夫衍射理论**，点扩散函数（PSF）是**瞳函数**的傅里叶变换模平方：
+
+$$\text{PSF}(x,y) = |\mathcal{F}\{P(u,v) \cdot e^{i\frac{2\pi}{\lambda}\Phi(u,v)}\}|^2$$
+
+其中：
+
+- $P(u,v)$：光瞳函数（圆形孔径，内部为1，外部为0），实际上是瞳函数的振幅部分，代表振幅透射率。在理想光学系统仿真中假设光瞳内透射率均匀，无能量损失。
+- $\Phi(u,v)$：光程差（OPD），即"长度相位" $\Phi(\rho,\theta)$
+- $\lambda$：工作波长
+- $\mathcal{F}$：傅里叶变换
+
+<font color=red>To Be Continue</font>
+
+<!-- --- -->
+
+<!-- #### **2. 由Zernike系数重建波前OPD** -->
+
+<!-- **步骤**： -->
+
+<!-- ```python -->
+<!-- # 在极坐标网格上计算OPD -->
+<!-- import numpy as np -->
+<!-- from scipy.special import binom -->
+
+<!-- # 构建归一化极坐标网格 -->
+<!-- rho = np.sqrt(U**2 + V**2) / R_pupil  # 归一化半径（光瞳内0~1） -->
+<!-- theta = np.arctan2(V, U)              # 角度 -->
+
+<!-- # 计算Zernike多项式基底（第1-65项） -->
+<!-- def zernike_nm(n, m, rho, theta): -->
+<!--     """计算归一化Zernike多项式 Z_n^m(rho, theta)""" -->
+<!--     if m >= 0: -->
+<!--         Z = np.sqrt(2*(n+1)) * zernike_radial(n, m, rho) * np.cos(m*theta) -->
+<!--     else: -->
+<!--         Z = np.sqrt(2*(n+1)) * zernike_radial(n, -m, rho) * np.sin(-m*theta) -->
+<!--     return Z -->
+
+<!-- def zernike_radial(n, m, rho): -->
+<!--     """径向多项式""" -->
+<!--     R = np.zeros_like(rho) -->
+<!--     for k in range(0, (n-m)//2 + 1): -->
+<!--         coeff = (-1)**k * binom(n-k, k) * binom(n-2*k, (n-m)//2 - k) -->
+<!--         R += coeff * rho**(n - 2*k) -->
+<!--     return R -->
+
+<!-- # 重建OPD分布 -->
+<!-- W = np.zeros_like(rho) -->
+<!-- for idx, a_nm in enumerate(coefficients): -->
+<!--     n, m = zernike_index_to_nm(idx)  # 将索引转换为(n,m) -->
+<!--     W += a_nm * zernike_nm(n, m, rho, theta) -->
+<!-- ``` -->
+
+<!-- **关键处理**： -->
+
+<!-- - **去除前两项**：$a_1$（piston）和 $a_2, a_3$（tip-tilt）已包含在参考波面中，设为零 -->
+<!-- - **归一化**：Zernike多项式在圆域内正交归一，系数直接反映OPD幅值 -->
+
+<!-- --- -->
+
+<!-- #### **3. 构建瞳函数并计算PSF** -->
+
+<!-- ```python -->
+<!-- # 光瞳函数（14×14子孔径对应圆形光瞳） -->
+<!-- P = (rho <= 1.0).astype(float) -->
+
+<!-- # 加OPD的相位因子 -->
+<!-- complex_pupil = P * np.exp(1j * 2*np.pi/λ * W) -->
+
+<!-- # 傅里叶变换得到振幅点扩散函数（PSF） -->
+<!-- psf_amplitude = np.fft.fftshift(np.fft.fft2(complex_pupil)) -->
+<!-- psf_intensity = np.abs(psf_amplitude)**2 -->
+
+<!-- # 归一化与坐标缩放 -->
+<!-- psf_intensity /= psf_intensity.sum() -->
+<!-- pixel_scale = λ * f / D_pupil  # f为系统焦距，D_pupil为光瞳直径 -->
+<!-- ``` -->
+
+<!-- --- -->
+
+<!-- #### **4. 成像仿真流程** -->
+
+<!-- **完整流程**： -->
+
+<!-- ```python -->
+<!-- def simulate_psf_from_zernike(coeffs, λ=800e-9, D=4.2e-3, f=14.6e-3, N=256): -->
+<!--     """ -->
+<!--     仿真步骤: -->
+<!--     1. 构建光瞳网格 -->
+<!--     2. 重建OPD分布 -->
+<!--     3. 计算瞳函数 -->
+<!--     4. 傅里叶变换得PSF -->
+<!--     5. 计算成像质量指标 -->
+<!--     """ -->
+<!--     # 1. 坐标网格 -->
+<!--     x = np.linspace(-D/2, D/2, N) -->
+<!--     u, v = np.meshgrid(x, x) -->
+
+<!--     # 2. 重建OPD（光程差） -->
+<!--     W = reconstruct_opd_from_zernike(coeffs, u, v, D) -->
+
+<!--     # 3. 瞳函数与相位 -->
+<!--     P = (np.sqrt(u**2 + v**2) <= D/2).astype(float) -->
+<!--     pupil = P * np.exp(1j * 2*np.pi/λ * W) -->
+
+<!--     # 4. 傅里叶光学计算PSF -->
+<!--     psf = np.fft.fftshift(np.fft.fft2(pupil, s=(2*N, 2*N))) -->
+<!--     psf_intensity = np.abs(psf)**2 -->
+<!--     psf_intensity /= psf_intensity.max()  # 归一化到峰值 -->
+
+<!--     # 5. 计算成像质量 -->
+<!--     strehl_ratio = np.exp(-(2*np.pi/λ * np.std(W[P==1]))**2)  # 斯特列尔比 -->
+<!--     fwhm = calculate_fwhm(psf_intensity)  # 半高全宽 -->
+
+<!--     return psf_intensity, strehl_ratio, fwhm -->
+<!-- ``` -->
+
+<!-- --- -->
+
+<!-- #### **5. 关键成像质量指标** -->
+
+<!-- **斯特列尔比（Strehl Ratio）**： -->
+<!-- $$SR = \frac{\text{PSF}_{\text{实际}}(\text{峰值})}{\text{PSF}_{\text{理想}}(\text{峰值})} \approx \exp\left[-\left(\frac{2\pi}{\lambda}\sigma_W\right)^2\right]$$ -->
+
+<!-- 其中 $\sigma_W$ 是光瞳内OPD的标准差（单位：μm）。当 $\sigma_W < λ/14$时，$SR > 0.8$（衍射极限）。 -->
+
+<!-- **半高全宽（FWHM）**： -->
+
+<!-- - 理想衍射极限：$\theta_{\text{DL}} = 1.22\lambda/D = 0.23$ μrad（对应7.5 μrad系统） -->
+<!-- - 像差展宽：$\Delta\theta \propto \sqrt{\sum_{n>3} a_{nm}^2}$ -->
+
+<!-- --- -->
+
+<!-- #### **6. 仿真验证示例** -->
+
+<!-- **典型像差PSF仿真**： -->
+
+<!-- | Zernike系数配置                | PSF形态                | Strehl比 | -->
+<!-- | ------------------------------ | ---------------------- | -------- | -->
+<!-- | $a_4=0.5\,\mu\text{m}$（离焦） | 同心圆环，中心能量扩散 | ~0.3     | -->
+<!-- | $a_5=0.3\,\mu\text{m}$（像散） | 十字形拖尾             | ~0.5     | -->
+<!-- | $a_8=0.2\,\mu\text{m}$（彗差） | 不对称彗尾             | ~0.6     | -->
+<!-- | 复合湍流（a₄-a₁₅随机）         | 复杂弥散斑             | <0.2     | -->
+
+<!-- **代码实现**： -->
+
+<!-- ```python -->
+<!-- # 典型仿真案例 -->
+<!-- coeffs = np.zeros(65) -->
+<!-- coeffs[3] = 0.5  # 离焦 0.5 μm -->
+<!-- psf, sr, fwhm = simulate_psf_from_zernike(coeffs) -->
+<!-- print(f"Strehl比: {sr:.3f}, FWHM: {fwhm*1e6:.1f} μrad") -->
+<!-- ``` -->
+
+<!-- --- -->
+
+<!-- #### **7. 与哈特曼测量的闭环验证** -->
+
+<!-- **仿真-测量闭环**： -->
+
+<!-- 1. **设定输入**：给定Zernike系数生成模拟波前 $W_{\text{true}}$ -->
+<!-- 2. **哈特曼仿真**：计算每个子孔径斜率 $S_{\text{sim}} = \nabla W_{\text{true}}$ -->
+<!-- 3. **添加噪声**：模拟0.1像素质心误差 -->
+<!-- 4. **重建验证**：用SVD求解得到 $W_{\text{rec}}$，计算残差 $\|W_{\text{true}} - W_{\text{rec}}\|$ -->
+<!-- 5. **PSF对比**：分别计算 $W_{\text{true}}$ 和 $W_{\text{rec}}$ 的PSF，验证校正效果 -->
+
+<!-- **精度要求**：重建残差RMS < 25 nm才能保证Strehl比损失<5%。 -->
 
 # 振幅和强度
 
