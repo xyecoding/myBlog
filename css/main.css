@@ -2691,17 +2691,6 @@ ul.breadcrumb li:last-child {
     width: auto;
   }
 }
-@media (max-width: 991px) {
-  .container,
-  .main-inner,
-  .content-wrap {
-    width: 100% !important;
-    max-width: 100% !important;
-    float: none !important;
-    margin: 0 !important;
-    padding: 10px !important;
-  }
-}
 .site-brand-container {
   background: var(--theme-color);
 }
