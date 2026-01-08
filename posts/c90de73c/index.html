@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myBlog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/myBlog/images/ye_32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/myBlog/images/ye_16.ico">
+  <link rel="mask-icon" href="/myBlog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/myBlog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xyecoding.github.io","root":"/myBlog/","images":"/myBlog/images","scheme":"Gemini","darkmode":true,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myBlog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xyecoding.github.io","root":"/myBlog/","images":"/myBlog/images","scheme":"Gemini","darkmode":true,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myBlog/js/config.js"></script>
+<!-- 强制加载 Mermaid -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.2.3/dist/mermaid.min.js"></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ startOnLoad: true });
+    console.log('Mermaid forced initialization');
+  } else {
+    console.error('Mermaid failed to load');
+  }
+</script>
+
+<meta name="description" content="Scientific Writing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scientific Writing">
+<meta property="og:url" content="https://xyecoding.github.io/myBlog/posts/c90de73c/index.html">
+<meta property="og:site_name" content="Ye, Xiang&#39;s Blog">
+<meta property="og:description" content="Scientific Writing">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-01-18T09:19:56.000Z">
+<meta property="article:modified_time" content="2026-01-08T04:00:06.399Z">
+<meta property="article:author" content="Xiang Ye">
+<meta property="article:tag" content="Scientific Writing">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://xyecoding.github.io/myBlog/posts/c90de73c/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://xyecoding.github.io/myBlog/posts/c90de73c/","path":"posts/c90de73c/","title":"Scientific Writing"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Scientific Writing | Ye, Xiang's Blog</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/myBlog/css/noscript.css">
+  </noscript>
+  <link rel="stylesheet" href="/myBlog/css/style.css">
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage"  class="use-motion" >
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/myBlog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ye, Xiang's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/myBlog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/myBlog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/myBlog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/myBlog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+      
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E9%87%91%E5%86%99%E4%BD%9C"><span class="nav-text">1.  基金写作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E9%83%A8%E5%88%86"><span class="nav-text">1.1.  几个部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A1%E7%A8%BF%E4%BA%BA%E9%98%85%E8%AF%BB%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="nav-text">1.2.  审稿人阅读的顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%A1%8C%E6%80%A7%E5%88%86%E4%B8%BA%E7%90%86%E8%AE%BA%E5%8F%AF%E8%A1%8C%E6%80%A7%E5%92%8C%E6%8A%80%E6%9C%AF%E5%8F%AF%E8%A1%8C%E6%80%A7"><span class="nav-text">1.3.  可行性分为理论可行性和技术可行性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E6%9C%9F%E5%B7%A5%E4%BD%9C"><span class="nav-text">1.4.  前期工作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="nav-text">2.  科学研究的步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E7%82%BC%E7%A7%91%E5%AD%A6%E9%97%AE%E9%A2%98"><span class="nav-text">2.1.  提炼科学问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E7%9B%AE%E6%A0%87"><span class="nav-text">2.2.  研究目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%91%E5%AD%A6%E5%81%87%E8%AE%BE"><span class="nav-text">2.3.  科学假设</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E5%86%85%E5%AE%B9"><span class="nav-text">2.4.  研究内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E6%96%B9%E6%A1%88"><span class="nav-text">2.5.  研究方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95"><span class="nav-text">2.5.1.  研究方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF"><span class="nav-text">2.5.2.  技术路线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF"><span class="nav-text">2.5.3.  关键技术</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90"><span class="nav-text">3.  一个例子。</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiang Ye"
+      src="/myBlog/images/avatar_100.jpg">
+  <p class="site-author-name" itemprop="name">Xiang Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/myBlog/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/myBlog/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/myBlog/tags/">
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xyecoding" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xyecoding" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/xyegitee" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;xyegitee" rel="noopener" target="_blank"><i class="fab fa-github-alt fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xyecaep@163.com" title="E-Mail → mailto:xyecaep@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xyecoding.github.io/myBlog/posts/c90de73c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myBlog/images/avatar_100.jpg">
+      <meta itemprop="name" content="Xiang Ye">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ye, Xiang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Scientific Writing
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-01-18 17:19:56" itemprop="dateCreated datePublished" datetime="2024-01-18T17:19:56+08:00">2024-01-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-01-08 12:00:06" itemprop="dateModified" datetime="2026-01-08T12:00:06+08:00">2026-01-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Scientific-Writing/" itemprop="url" rel="index"><span itemprop="name">Scientific Writing</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Scientific Writing</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <html><head></head><body><h1 id="基金写作"><span class="post-title-index">1. </span><a class="markdownIt-Anchor" href="#基金写作"></a> 基金写作</h1>
+<h2 id="几个部分"><span class="post-title-index">1.1. </span><a class="markdownIt-Anchor" href="#几个部分"></a> 几个部分</h2>
+<ol>
+<li>要做什么：题目，摘要</li>
+<li>为什么要做：立项依据</li>
+<li>怎么做：研究目标，研究内容，拟解决的科学问题，研究方案等。</li>
+<li>为什么你来做：研究基础</li>
+</ol>
+<h2 id="审稿人阅读的顺序"><span class="post-title-index">1.2. </span><a class="markdownIt-Anchor" href="#审稿人阅读的顺序"></a> 审稿人阅读的顺序</h2>
+<p>姓名 -&gt; 题目-&gt; 摘要 -&gt; 研究基础/简历 -&gt; 正文</p>
+<h2 id="可行性分为理论可行性和技术可行性"><span class="post-title-index">1.3. </span><a class="markdownIt-Anchor" href="#可行性分为理论可行性和技术可行性"></a> 可行性分为理论可行性和技术可行性</h2>
+<h2 id="前期工作"><span class="post-title-index">1.4. </span><a class="markdownIt-Anchor" href="#前期工作"></a> 前期工作</h2>
+<p>如果完成目标是 100%，那么前期工作最好完成 30% - 50%。太多不好，太少也不好。</p>
+<h1 id="科学研究的步骤"><span class="post-title-index">2. </span><a class="markdownIt-Anchor" href="#科学研究的步骤"></a> <a target="_blank" rel="noopener" href="http://news.sohu.com/a/524497635_121252874">科学研究的步骤</a></h1>
+<ol>
+<li>提出科学问题</li>
+<li>大胆科学假设</li>
+<li>研究目标</li>
+<li>研究内容</li>
+<li>研究方案（包括研究方法、技术路线、实验手段、关键技术等方面）</li>
+</ol>
+<h2 id="提炼科学问题"><span class="post-title-index">2.1. </span><a class="markdownIt-Anchor" href="#提炼科学问题"></a> 提炼科学问题</h2>
+<p>根据选择的课题，提炼出具体的几个科学问题。科学问题要具体，科学问题之间也是有逻辑
+关系的。他们综合在一起要能够支撑和解决课题。</p>
+<h2 id="研究目标"><span class="post-title-index">2.2. </span><a class="markdownIt-Anchor" href="#研究目标"></a> 研究目标</h2>
+<p>研究目标应该围绕拟解决的科学问题，预期想要达到什么样的结果。</p>
+<h2 id="科学假设"><span class="post-title-index">2.3. </span><a class="markdownIt-Anchor" href="#科学假设"></a> 科学假设</h2>
+<p>根据研究目标，提出可以实现研究目标的一系列科学假设。其实就是我们常说的 idea，因
+为还没有验证过其有效性所以叫假设。假设的证明或者验证过程就是研究内容。</p>
+<h2 id="研究内容"><span class="post-title-index">2.4. </span><a class="markdownIt-Anchor" href="#研究内容"></a> 研究内容</h2>
+<p>研究内容需要呼应研究目标（根据研究目标确定研究内容），层次性和逻辑感很重要。相对
+于研究目标，研究内容要更加具体、明确。一个研究目标可能要通过几方面的研究内容来实
+现，可能是 1 对多的关系。（研究内容的大标题可以就是研究目标）。仅仅围绕科学假说
+而组织设计的“粗线条”研究框架。研究内容要层次分明。</p>
+<p>每条简述每一个科学假设的立论依据和主要研究内容（浓缩版）。</p>
+<p>研究内容部分不用写具体的实验方法、只写框架（有逻辑层次）。有些人，再研究内容部分
+，具体写清楚实验方法，检测的具体蛋白，非常详尽。其实就是把研究内容当成研究方案来
+写了。</p>
+<h2 id="研究方案"><span class="post-title-index">2.5. </span><a class="markdownIt-Anchor" href="#研究方案"></a> 研究方案</h2>
+<p>研究方案是研究内容的实施计划。包括了研究方法、技术路线、实验手段、关键技术等方面
+。</p>
+<p>具体如何开展研究和实验，与研究内容相比，研究方案更加细化比较详细的实验方法描述和
+实验步骤。</p>
+<p>针对研究内容，提出研究方法和技术路线合理可行，能够到达研究目标，对在研究中拟采用
+的关键技术做好详细的说明。</p>
+<h3 id="研究方法"><span class="post-title-index">2.5.1. </span><a class="markdownIt-Anchor" href="#研究方法"></a> 研究方法</h3>
+<p>对研究对象采取以的策略和行为。包括实验方法、数学模型、统计分析、问卷调查等</p>
+<h3 id="技术路线"><span class="post-title-index">2.5.2. </span><a class="markdownIt-Anchor" href="#技术路线"></a> 技术路线</h3>
+<p>技术路线是一个具有拓扑结构的图。它将研究内容、研究方法、研究步骤有机的结合起来。
+需要表明只要按照技术路线一步一步实施（先干什么，再干什么），那么研究目标就是可达
+的。</p>
+<h3 id="关键技术"><span class="post-title-index">2.5.3. </span><a class="markdownIt-Anchor" href="#关键技术"></a> 关键技术</h3>
+<p>关键技术是指在一个系统或者一个环节或一项技术领域中起到重要作用且不可或缺的环节或
+技术，可以是技术点，也可以是对某个领域起到至关重要作用的知识。</p>
+<p>解决关键问题采用的技术，实现某一功能模块或某一技术要求要攻破的关键点。以“石墨烯
+材料的关键制备技术研究开发及产业化”项目为题，研究内容包括</p>
+<ol>
+<li>表面功能化技术</li>
+<li>伽马射线辐射技术</li>
+<li>自组装技术</li>
+<li>模板合成技术</li>
+<li>3D 打印技术</li>
+<li>粉末冶金技术</li>
+</ol>
+<p>其中 1-3 是关键技术。研究内容比关键技术多。</p>
+<h1 id="一个例子"><span class="post-title-index">3. </span><a class="markdownIt-Anchor" href="#一个例子"></a> 一个例子。</h1>
+<p><strong>国自然项目名称：2023 年要回老家陪父母过个好年</strong></p>
+<p><strong>（一）凝练拟解决科学问题：</strong></p>
+<ol>
+<li>
+<p>怎么筛选合适的交通工具回家，是第一个科学问题；</p>
+</li>
+<li>
+<p>怎么找个女朋友带回家，是第二个科学问题；</p>
+</li>
+<li>
+<p>怎么才能提前完成主任安排的标书任务，这是第三个科学问题；</p>
+</li>
+</ol>
+<p><strong>（二）研究目标：</strong></p>
+<ol>
+<li>
+<p>筛选到合适的回家时间和性价比合适的交通工具；</p>
+</li>
+<li>
+<p>找个女朋友先；</p>
+</li>
+<li>
+<p>国自然标书要提前写好，免得春节还得写；</p>
+</li>
+</ol>
+<p><strong>（三）研究内容</strong></p>
+<ol>
+<li>
+<p>需要对比高铁票、汽车票、飞机票以及拼车的价格、时长、出行时间，以及疫情影响等
+；</p>
+</li>
+<li>
+<p>科室妹子、身边朋友，广泛发动资源，寻找情投意合的女朋友；</p>
+</li>
+<li>
+<p>我有一些文章基础，跟主任确定一下申报方向，然后借鉴一下别人的经验，自己写写。</p>
+</li>
+</ol>
+<p><strong>（四）研究方案</strong></p>
+<p>注意看下面的例子，每一点的研究方案都是有逻辑结构的。汽车这条路为什么走不通。飞机
+的优缺点，最后选择什么，为什么，还有哪些困难，解决的方法是什么。这实际上已经形成
+了一个技术路线，它是具有拓扑结构的。</p>
+<ol>
+<li>
+<p>汽车太慢，累死了。飞机快，但是太贵，而高铁票比飞机票便宜，也不慢，到家时间正
+好。所以选高铁票，但我自己一个人抢高铁票的话，万一抢不到就麻烦了，需要多一些
+人手来帮我抢票，而且日期和班次要恰当，所以我要联系 2-3 个黄牛帮我。另外是否主
+任会同意我不值班，如果不同意我请假怎么办？2022 年疫情发展趋势是什么。</p>
+</li>
+<li>
+<p>科室妹子知根知底，但是兔子要吃窝边草吗？还是让朋友介绍相亲吧，条件就是“肤白貌
+美大长腿，上得厅堂下得厨房”，而且要每个月至少相亲 4 个，直到找到女朋友为止。
+如果 2022 年过半还没找到，那我就降低我对女朋友的预期，改变一下策略。</p>
+</li>
+<li>
+<p>我有 3 篇 SCI，其中有一篇中科院 2 区的文章，以其为申请文章来寻找思路。**主任
+跟我分析一下申报利弊，虽然我的文章分数很高，但是咱们科室不是你那个方向，你不
+要用以前的文章了，改疾病吧。**然后我要去网站搜罗一批国自然申报视频来看，向中
+标的同学来讨教一下，而且一定要在 10 月完成假说、11 月完成标书、12 月找专家提
+意见、1 月确定标书终稿。以免春节主任还让改标书。</p>
+</li>
+</ol>
+</body></html>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/myBlog/tags/Scientific-Writing/" rel="tag"># Scientific Writing</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/myBlog/posts/d1aa5902/" rel="prev" title="Small Things for Linux">
+                  <i class="fa fa-chevron-left"></i> Small Things for Linux
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/myBlog/posts/a378bd8e/" rel="next" title="Python">
+                  Python <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiang Ye</span>
+</div>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2021, 11, 20, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+<span id="sitetime"></span>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/myBlog/js/comments.js"></script><script src="/myBlog/js/utils.js"></script><script src="/myBlog/js/motion.js"></script><script src="/myBlog/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc=" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"xyecoding","repo":"myBlog","client_id":"caf47b5090fb9fdaadbe","client_secret":"97ba359034d6c5a49f04cd4cb6973006c594ab57","admin_user":"xyecoding","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"dbe73b536ee3b0b1b817117f2d2a7a19"}</script>
+<script src="/myBlog/js/third-party/comments/gitalk.js"></script>
+
+</body>
+
+</html>

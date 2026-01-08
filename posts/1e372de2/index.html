@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myBlog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/myBlog/images/ye_32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/myBlog/images/ye_16.ico">
+  <link rel="mask-icon" href="/myBlog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/myBlog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xyecoding.github.io","root":"/myBlog/","images":"/myBlog/images","scheme":"Gemini","darkmode":true,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myBlog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xyecoding.github.io","root":"/myBlog/","images":"/myBlog/images","scheme":"Gemini","darkmode":true,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myBlog/js/config.js"></script>
+<!-- 强制加载 Mermaid -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.2.3/dist/mermaid.min.js"></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ startOnLoad: true });
+    console.log('Mermaid forced initialization');
+  } else {
+    console.error('Mermaid failed to load');
+  }
+</script>
+
+<meta name="description" content="Bash Shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bash">
+<meta property="og:url" content="https://xyecoding.github.io/myBlog/posts/1e372de2/index.html">
+<meta property="og:site_name" content="Ye, Xiang&#39;s Blog">
+<meta property="og:description" content="Bash Shell">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-12T03:28:51.000Z">
+<meta property="article:modified_time" content="2026-01-08T04:00:06.396Z">
+<meta property="article:author" content="Xiang Ye">
+<meta property="article:tag" content="Bash">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://xyecoding.github.io/myBlog/posts/1e372de2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://xyecoding.github.io/myBlog/posts/1e372de2/","path":"posts/1e372de2/","title":"Bash"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Bash | Ye, Xiang's Blog</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/myBlog/css/noscript.css">
+  </noscript>
+  <link rel="stylesheet" href="/myBlog/css/style.css">
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage"  class="use-motion" >
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/myBlog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ye, Xiang's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/myBlog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/myBlog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/myBlog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/myBlog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+      
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#arguments"><span class="nav-text">1.  Arguments</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#some-scripts"><span class="nav-text">2.  Some Scripts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#modify-the-brightness-of-arch-linux"><span class="nav-text">2.1.  Modify the brightness of Arch Linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#run-tmux-only-open-a-terminal"><span class="nav-text">2.2.  run tmux only open a terminal</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiang Ye"
+      src="/myBlog/images/avatar_100.jpg">
+  <p class="site-author-name" itemprop="name">Xiang Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/myBlog/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/myBlog/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/myBlog/tags/">
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xyecoding" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xyecoding" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/xyegitee" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;xyegitee" rel="noopener" target="_blank"><i class="fab fa-github-alt fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xyecaep@163.com" title="E-Mail → mailto:xyecaep@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xyecoding.github.io/myBlog/posts/1e372de2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myBlog/images/avatar_100.jpg">
+      <meta itemprop="name" content="Xiang Ye">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ye, Xiang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Bash
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-05-12 11:28:51" itemprop="dateCreated datePublished" datetime="2022-05-12T11:28:51+08:00">2022-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-01-08 12:00:06" itemprop="dateModified" datetime="2026-01-08T12:00:06+08:00">2026-01-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Programming/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Programming/Tools/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Bash Shell</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <html><head></head><body><h1 id="arguments"><span class="post-title-index">1. </span><a class="markdownIt-Anchor" href="#arguments"></a> Arguments</h1>
+<h1 id="some-scripts"><span class="post-title-index">2. </span><a class="markdownIt-Anchor" href="#some-scripts"></a> Some Scripts</h1>
+<h2 id="modify-the-brightness-of-arch-linux"><span class="post-title-index">2.1. </span><a class="markdownIt-Anchor" href="#modify-the-brightness-of-arch-linux"></a> Modify the brightness of Arch Linux</h2>
+<p>Put a number into <code>/sys/class/backlight/intel_backlight/brightness</code> represent
+the brightness. The max number of brightness is denoted in file
+<code>/sys/class/backlight/intel_backlight/max_brightness</code>.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">flag=<span class="literal">true</span></span><br><span class="line">max_light=$(cat /sys/class/backlight/intel_backlight/max_brightness)</span><br><span class="line"></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"please input a number in range (0, <span class="variable">$max_light</span>):"</span> num</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="variable">$flag</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  <span class="comment"># &gt;name, means 1&gt;name -- redirect stdout to the file name</span></span><br><span class="line">  <span class="comment"># &amp;&gt;name, is like 1&gt;name 2&gt;name -- redirect stdout and stderr to the file name (however, name is only opened once; if you actually wrote 1&gt;name 2&gt;name, it'd try to open name twice and perhaps malfunction.)</span></span><br><span class="line">  <span class="comment"># expr performs the arithmetic operations</span></span><br><span class="line">  <span class="comment"># if the input num is not a number then an error will produce</span></span><br><span class="line">  <span class="comment"># $? can capture the error, if expr is executed correctly, $? == 0, else it is the number represent the error type.</span></span><br><span class="line"></span><br><span class="line">         expr <span class="variable">$num</span> + 0 &amp;&gt;/dev/null</span><br><span class="line">         <span class="comment"># $ false || echo "Oops, fail"</span></span><br><span class="line">         <span class="comment"># Oops, fail</span></span><br><span class="line"></span><br><span class="line">          <span class="comment"># $ true || echo "Will not be printed"</span></span><br><span class="line">          <span class="comment"># $</span></span><br><span class="line"></span><br><span class="line">          <span class="comment"># $ true &amp;&amp; echo "Things went well"</span></span><br><span class="line">          <span class="comment"># Things went well</span></span><br><span class="line"></span><br><span class="line">          <span class="comment"># $ false &amp;&amp; echo "Will not be printed"</span></span><br><span class="line">          <span class="comment"># $</span></span><br><span class="line">          <span class="comment"># for &amp;&amp; the right command will be executed, only the left command is true</span></span><br><span class="line">          <span class="comment"># for || the left command will be executed, only the left command is false</span></span><br><span class="line">          <span class="comment"># thus when [xxx] is true flag=true will be executed and the last command will</span></span><br><span class="line">          <span class="comment"># not be executed.</span></span><br><span class="line">          <span class="comment"># when [xxx] is false, flag=false will never be executed and the last command</span></span><br><span class="line">          <span class="comment"># will be executed.</span></span><br><span class="line">         [[ $? -eq 0 &amp;&amp; <span class="variable">$num</span> -ge 0 &amp;&amp; <span class="variable">$num</span> -le <span class="variable">$max_light</span> ]] &amp;&amp; flag=<span class="literal">false</span> || <span class="built_in">read</span> -p <span class="string">"please input a number in range (0, <span class="variable">$max_light</span>):"</span> num</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$num</span> &gt; /sys/class/backlight/intel_backlight/brightness</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="run-tmux-only-open-a-terminal"><span class="post-title-index">2.2. </span><a class="markdownIt-Anchor" href="#run-tmux-only-open-a-terminal"></a> run tmux only open a terminal</h2>
+<p>Add this to the <code>.bashrc</code>.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  Note: the spaces after the [ and before the ] are necessary.</span></span><br><span class="line"><span class="comment"># tmux will be executed only if it is opened by st</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$TERM</span>"</span> = <span class="string">"st-256color"</span> ]; <span class="keyword">then</span></span><br><span class="line">	tmux</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></tbody></table></figure>
+</body></html>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/myBlog/tags/Bash/" rel="tag"># Bash</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/myBlog/posts/5fb5d34d/" rel="prev" title="Fish Shell">
+                  <i class="fa fa-chevron-left"></i> Fish Shell
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/myBlog/posts/5f500d1b/" rel="next" title="The First Step to GAN">
+                  The First Step to GAN <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiang Ye</span>
+</div>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2021, 11, 20, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+<span id="sitetime"></span>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/myBlog/js/comments.js"></script><script src="/myBlog/js/utils.js"></script><script src="/myBlog/js/motion.js"></script><script src="/myBlog/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc=" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"xyecoding","repo":"myBlog","client_id":"caf47b5090fb9fdaadbe","client_secret":"97ba359034d6c5a49f04cd4cb6973006c594ab57","admin_user":"xyecoding","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"fa5ccc07ba592db712bb765f53875a6c"}</script>
+<script src="/myBlog/js/third-party/comments/gitalk.js"></script>
+
+</body>
+
+</html>

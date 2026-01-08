@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myBlog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/myBlog/images/ye_32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/myBlog/images/ye_16.ico">
+  <link rel="mask-icon" href="/myBlog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/myBlog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xyecoding.github.io","root":"/myBlog/","images":"/myBlog/images","scheme":"Gemini","darkmode":true,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myBlog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xyecoding.github.io","root":"/myBlog/","images":"/myBlog/images","scheme":"Gemini","darkmode":true,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myBlog/js/config.js"></script>
+<!-- 强制加载 Mermaid -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.2.3/dist/mermaid.min.js"></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ startOnLoad: true });
+    console.log('Mermaid forced initialization');
+  } else {
+    console.error('Mermaid failed to load');
+  }
+</script>
+
+<meta name="description" content="An introduction to Reinforcement Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="First Step to Reinforcement Learning">
+<meta property="og:url" content="https://xyecoding.github.io/myBlog/posts/1e331e4a/index.html">
+<meta property="og:site_name" content="Ye, Xiang&#39;s Blog">
+<meta property="og:description" content="An introduction to Reinforcement Learning">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-03T08:48:41.000Z">
+<meta property="article:modified_time" content="2026-01-08T04:00:06.396Z">
+<meta property="article:author" content="Xiang Ye">
+<meta property="article:tag" content="Reinforcement Learning">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://xyecoding.github.io/myBlog/posts/1e331e4a/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://xyecoding.github.io/myBlog/posts/1e331e4a/","path":"posts/1e331e4a/","title":"First Step to Reinforcement Learning"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>First Step to Reinforcement Learning | Ye, Xiang's Blog</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/myBlog/css/noscript.css">
+  </noscript>
+  <link rel="stylesheet" href="/myBlog/css/style.css">
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage"  class="use-motion" >
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/myBlog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ye, Xiang's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/myBlog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/myBlog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/myBlog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/myBlog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+      
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%85%B3%E4%BA%8E%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%87%A0%E7%82%B9%E7%96%91%E9%97%AE"><span class="nav-text">.1.  什么是强化学习，关于强化学习的几点疑问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%9C%AC%E8%B4%A8%E7%89%B9%E7%82%B9%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">.1.1.  区别于深度学习，强化学习的本质特点是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%94%A8%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BC%98%E5%8C%96%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%97%A0%E6%B3%95%E6%B1%82%E5%AF%BC%E7%94%9A%E8%87%B3%E8%BF%9E%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E9%83%BD%E6%98%AF%E6%A8%A1%E7%B3%8A%E7%9A%84%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="nav-text">.1.2.  深度学习用梯度下降的算法实现模型的优化，强化学习无法求导，甚至连学习目标都是模糊的如何优化模型参数？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%B1%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-text">.1.3.  强化学习与弱监督学习？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%98%AF%E6%AD%BB%E7%9A%84%E6%B2%A1%E6%9C%89%E6%99%BA%E8%83%BD%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%98%AF%E6%B4%BB%E7%9A%84%E6%9C%89%E6%99%BA%E8%83%BD%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95"><span class="nav-text">.1.4.  深度学习是死的，没有智能的机器学习算法，强化学习是“活的”，有智能的机器学习算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%BF%9E%E7%BB%AD%E5%8F%AF%E5%AF%BC%E6%80%A7%E5%92%8C%E7%A6%BB%E6%95%A3%E4%B8%8D%E5%8F%AF%E5%AF%BC%E6%80%A7%E7%9A%84%E8%AE%A8%E8%AE%BA"><span class="nav-text">.1.5.  关于深度学习，强化学习，连续可导性和离散不可导性的讨论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BC%98%E5%8C%96%E5%92%8C%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%BC%98%E5%8C%96%E7%9A%84%E6%84%9F%E6%80%A7%E7%90%86%E8%A7%A3"><span class="nav-text">.1.6.  深度学习优化和强化学习优化的感性理解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%96%E7%95%A5%E7%BD%91%E7%BB%9Cpolicy-network%E5%92%8C%E4%BC%B0%E5%80%BC%E7%BD%91%E7%BB%9Cvalue-network"><span class="nav-text">.2.  策略网络(Policy Network)和估值网络(Value Network)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AD%96%E7%95%A5%E7%BD%91%E7%BB%9Cpolicy-network"><span class="nav-text">.2.1.  策略网络(Policy Network)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E5%92%8C%E6%A8%A1%E5%9E%8B%E6%97%A0%E5%85%B3%E4%B8%8D%E9%9A%8F%E7%9D%80%E6%A8%A1%E5%9E%8B%E5%8F%98%E5%8C%96"><span class="nav-text">.2.1.1.  数据集是否可以和模型无关（不随着模型变化）？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%B0%E5%80%BC%E7%BD%91%E7%BB%9Cvalue-networkq-learning"><span class="nav-text">.2.2.  估值网络(Value Network，Q-learning)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AD%96%E7%95%A5%E7%BD%91%E7%BB%9C%E5%92%8C%E4%BC%B0%E5%80%BC%E7%BD%91%E7%BB%9C%E7%9A%84%E4%B8%8D%E5%90%8C"><span class="nav-text">.2.3.  策略网络和估值网络的不同</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E9%A1%BE"><span class="nav-text">.3.  回顾</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiang Ye"
+      src="/myBlog/images/avatar_100.jpg">
+  <p class="site-author-name" itemprop="name">Xiang Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/myBlog/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/myBlog/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/myBlog/tags/">
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xyecoding" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xyecoding" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/xyegitee" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;xyegitee" rel="noopener" target="_blank"><i class="fab fa-github-alt fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xyecaep@163.com" title="E-Mail → mailto:xyecaep@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xyecoding.github.io/myBlog/posts/1e331e4a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myBlog/images/avatar_100.jpg">
+      <meta itemprop="name" content="Xiang Ye">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ye, Xiang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          First Step to Reinforcement Learning
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-12-03 16:48:41" itemprop="dateCreated datePublished" datetime="2021-12-03T16:48:41+08:00">2021-12-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-01-08 12:00:06" itemprop="dateModified" datetime="2026-01-08T12:00:06+08:00">2026-01-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Machine-Learning/Methods/" itemprop="url" rel="index"><span itemprop="name">Methods</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Machine-Learning/Methods/Reinforcement-Learning/" itemprop="url" rel="index"><span itemprop="name">Reinforcement Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">An introduction to Reinforcement Learning</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <html><head></head><body><h3 id="什么是强化学习关于强化学习的几点疑问"><span class="post-title-index">.1. </span><a class="markdownIt-Anchor" href="#什么是强化学习关于强化学习的几点疑问"></a> 什么是强化学习，关于强化学习的几点疑问</h3>
+<p><font color="green" size="3">强化学习三要素：环境状态，行动，奖励</font></p>
+<p><font color="green" size="3">目标：尽量多的获得奖励</font></p>
+<p><font color="green" size="3">本质：连续决策</font></p>
+<p>基本的强化学习模型包括：</p>
+<ul>
+<li>环境状态的集合 S</li>
+<li>动作的集合 A</li>
+<li>状态之间的转换规则（是环境的一部分）</li>
+<li>规定转换后“即时奖励”的规则（是环境的一部分）</li>
+<li>描述主体（智能体）能够观察到什么的规则（是环境的一部分）</li>
+<li>能够做出决策/动作的主体（智能体）</li>
+</ul>
+<h4 id="区别于深度学习强化学习的本质特点是什么"><span class="post-title-index">.1.1. </span><a class="markdownIt-Anchor" href="#区别于深度学习强化学习的本质特点是什么"></a> 区别于深度学习，强化学习的本质特点是什么？</h4>
+<p><strong>两个定义</strong></p>
+<p>1，强化学习是机器学习的一个重要分支，主要用来解决连续决策问题。</p>
+<p>2，强化学习又称 再励学习，评价学习或增强学习，是机器学习的范式和方法论之一，用于
+描述和解决智能体（agent）在于环境交互过程中通过学习策略以达成回报最大或实现特定
+目标的问题。</p>
+<p>强化学习的本质是<font color="deeppink"> 描述和解决智能体（agent）在于环境交互过程
+中通过学习策略以达成回报最大或实现特定目标的问题。</font>它本质是这样一种场景，
+在这种场景中它为了达到某种目的，做出连续的决策。这样符合这种场景，那就是强化学习
+。</p>
+<p>强化学习和深度学习这两个名词的维度是不一样的。深度学习描述的是算法本身的特点，深
+度够不够，是不是连接主义的模型。深度学习可以用来做无监督，也可以用来做半监督，也
+可以用来做弱监督，甚至可以用来作为强化学习算法的一部分。深度学习这个名词，不管应
+用场景只管模型本身是不是满足深度学习的特点。</p>
+<p>而强化学习描述的是应用场景的特点，只要能提供智能体决策的算法，管它是什么模型，什
+么结构，那就是强化学习的算法。从这个角度上讲，我现在认为强化学习和监督学习，无监
+督学习，弱监督学习，是并列的，是对应用场景的描述。和深度学习不是同一维度的。</p>
+<p><font color="deeppink">强化学习的本质在于目标给定的形式，不像无监督学习那样完全没
+有学习目标，也不像监督学习那样有非常明确的目标（label），强化学习的目标一般是变
+化的，不明确的，甚至可能不存在绝对正确的目标。，强化学习的问题都可以抽象成，环境
+状态，行动和奖励。应该说只要能抽象为这三个要素，目标是获得最大奖励的模型，就是强
+化学习的模型。</font></p>
+<p>强化学习的最大的特点是“试错”，是尝试各种可能，而强化结果好的可能。（策略网络的特
+点，估值网络的特点是修正和预测获益）</p>
+<p>由于强化学习是一种决策学习，这个问题的特点就是离散型。但是离散并不就是强化学习（
+连续的决策才是，目标的模糊和不确定性是决策问题的特点）。深度学习本质是函数的拟合
+，所以连续可微是它的特点。并不能说连续可微的问题就是深度学习，离散的问题就是强化
+学习。</p>
+<h4 id="深度学习用梯度下降的算法实现模型的优化强化学习无法求导甚至连学习目标都是模糊的如何优化模型参数"><span class="post-title-index">.1.2. </span><a class="markdownIt-Anchor" href="#深度学习用梯度下降的算法实现模型的优化强化学习无法求导甚至连学习目标都是模糊的如何优化模型参数"></a> 深度学习用梯度下降的算法实现模型的优化，强化学习无法求导，甚至连学习目标都是模糊的如何优化模型参数？</h4>
+<p>这个问题要了解下一节，具体的强化学习方法。</p>
+<h4 id="强化学习与弱监督学习"><span class="post-title-index">.1.3. </span><a class="markdownIt-Anchor" href="#强化学习与弱监督学习"></a> 强化学习与弱监督学习？</h4>
+<p>弱监督是属于有监督学习，只是它学习的目标不是被给予的标签，而是比被给予标签更强的
+标签（强弱是指标签做含有的信息量），也就是说弱监督是根据少量信息的标签，推测出更
+多的信息。</p>
+<p>强化学习的本质是连续决策。连续决策的特点是目标的模糊和不确定性。</p>
+<p>所以，虽然弱监督和强化学习都没有给出最终准确的目标，但是他们任然很不同的</p>
+<h4 id="深度学习是死的没有智能的机器学习算法强化学习是活的有智能的机器学习算法"><span class="post-title-index">.1.4. </span><a class="markdownIt-Anchor" href="#深度学习是死的没有智能的机器学习算法强化学习是活的有智能的机器学习算法"></a> 深度学习是死的，没有智能的机器学习算法，强化学习是“活的”，有智能的机器学习算法</h4>
+<p>深度学习大部分我们用作有监督的学习算法。其实说深度学习是死的，不如说有监督学习是
+死的。</p>
+<p>有监督学习其实是完全的复刻标签里面含有的知识，它的本质就是一个函数拟合的问题，它
+无法摆脱对绝对的标签的依赖，无法超越标签。</p>
+<p>而强化学习，正由于它的目标是模糊和不确定的。使得算法在设计上必须具有随机性和探索
+性，它能够探索出人类从来没有到过的领域。就像在围棋上，下出人类完全无法理解的棋，
+人从来没有想过的一些下法。这就是强化学习算法探索出来的知识。所以我觉得它是活着的
+，拥有智能的算法。</p>
+<p><font color="green">从感性的层面，强化学习算法很接近人脑的行为：感知环境，探索环境
+，强化有益行为</font></p>
+<h4 id="关于深度学习强化学习连续可导性和离散不可导性的讨论"><span class="post-title-index">.1.5. </span><a class="markdownIt-Anchor" href="#关于深度学习强化学习连续可导性和离散不可导性的讨论"></a> 关于深度学习，强化学习，连续可导性和离散不可导性的讨论</h4>
+<ol>
+<li>
+<p>从函数的角度，深度学习和强化学习都需要学习一个函数映射。深度学习是从输入到
+target 的映射。强化学习是学从环境状态到 Action 的映射。这两个映射可以看成性
+质一样的，因为深度学习可以作为强化学习的智能体。所以从函数的角度，他们没有连
+续和离散的区别。（PS. 深度学习模型和强化学习的智能体都是连续可导的函数
+。target 和 Action 都可以是离散的或者连续的。）</p>
+</li>
+<li>
+<p>深度学习作为用梯度下降算法优化的模型，无法优化对 loss 不可导的参数。如在深度
+学习中，设计一个分支来决定模型是否应该包含某个模块，这个分支的参数是不可优化
+的。因为包含和不包含是离散的，对 loss 不可导。</p>
+</li>
+</ol>
+<p>不过假设，如果包含与不包含是连续的。也就是说，可以以 0.1 的权重包含。那么，这些
+参数是可以优化的。从这点来看，离散就是导致模型参数不可优化的原因。</p>
+<ol start="3">
+<li>
+<p>强化学习在离散的情况下解决 2 中的问题。由此，我得到了一个概念，强化学习解决
+离散的问题。</p>
+</li>
+<li>
+<p>下面我们来分析一下这个场景。首先，决定一个模块该不该被使用，这个场景是一次
+Action 的场景，不是连续决策的场景。也就是说 Action 一次，我就能知道最终
+reward 多少了，只有单步的 reward。</p>
+</li>
+</ol>
+<p>限于这个单次决策的场景来看，如果 Action 相对于 reward 是连续可导的，那么深度学习
+就能解决这个问题。如果 Action 相对于 reward 是离散的，那么仅仅深度学习无法解决这
+个问题，要靠强化学习。</p>
+<p><font color="green">这里单次 Action 就知道 reward，实际上这个问题就退化为了有监督
+学习，因为这个单步的 reward 就可以看成我的标签了。所以深度学习解决这个问题是很自
+然的。</font></p>
+<ol start="5">
+<li>多次决策的问题，无论是连续的还是离散的都只能用强化学习的方法。因为多次决策，
+这个问题就不可以退化为监督学习的问题了。它是一个真正的强化学习的问题。</li>
+</ol>
+<p>综上所诉，强化学习解决深度学习解决不了的离散问题，那只是在单次决策的时候，这个问
+题退化为了有监督学习。强化学习的方法，恰好可以提供离散变量的学习。</p>
+<p>强化学习方法解决深度学习中的离散问题，仅仅是强化学习附带的一个小福利。</p>
+<p><strong><font color="green">因为它能把经验转化为可导的目标，就拿策略网络来说，从梯度的角
+度，它只管增加当前随机 Action 的概率，而加入 advatage 之后，自动就优化除了想要的
+大 reward 的行为。</font></strong></p>
+<h4 id="深度学习优化和强化学习优化的感性理解"><span class="post-title-index">.1.6. </span><a class="markdownIt-Anchor" href="#深度学习优化和强化学习优化的感性理解"></a> 深度学习优化和强化学习优化的感性理解</h4>
+<p>前面说了深度学习优化可导的参数，强化学习可以优化不可导的参数。这里说一下对深度学
+习优化方法和强化学习优化方法的感性理解。</p>
+<p>还是说前面包不会包含某模块的例子，由于连续可导，对于每一个参数值，深度学习模型其
+实都同时参与了两种 Action（包含和不包含）。score = 0.1 包含，其实其中包含了含有
+的成分，也包含了不含有的成分。所以我们可以连续的变动 score，看看包含多好，还是不
+好含多好。这其实就是梯度下降算法的方式。得益于每一个参数，其实我都对包含和不包含
+的情况都有了解，我当然知道哪个更好，就往那边移动（优化）。</p>
+<p>然而，对于离散的情况，要么只能包含，要么只能不包含。当选择包含的时候，模型对不包
+含的情况完全是无知的。可能更好，也可能差。当不包含的时候，也是一样的。无论哪种情
+况，我都没有办法优化，两种情况是完全隔离开的，信息不沟通的，是离散的。所以梯度下
+降算法无法优化它。</p>
+<p>强化学习用随机探索的方法让两者信息又沟通起来。包含一下试一下，然后，不包含也试一
+下。尝试的结果是哪种 reward 多，就增大哪种的概率。</p>
+<p><strong><font color="green">所以，无论哪种优化方法，信息的沟通都是必要的。要对所有的
+action 都了解，才能知道选择哪种 action。 只是深度学习是连续的，它的每一种参数，
+都包含了所有 Action 的信息（reward），每一种 Action 都参与了，所以它能直接连续的
+梯度下降的优化，不需要随机探索了。而对于离散的，每种 action 只能知道自己的
+reward，对其他 Action 一无所知的时候，梯度的优化是不行的。必须要探索各种
+Action，还是要知道了每一种 Action 的情况(reward)之后，才能优化。这是方法论
+。</font></strong></p>
+<p>更进一步，离散的地方，相对于 reward 一定是不可导的，所以深度学习不行。而强化学习
+，更准确的说是策略网络，相当于给离散的地方加了标签，这样它就在离散的地方有监督了
+，它就可以根据增加的标签优化。而标签的设计就是根据探索的结果，增大 reward 大的
+Action，reward 大的 Action 就是它的标签，而且这个标签是动态的，是对抗得出的。</p>
+<p>强化学习方法算出的梯度是策略梯度。</p>
+<p><strong><font color="green">强化学习： 不知道选哪边了； 试试呗；按试出来 reward 大的
+Action 优化它。</font></strong></p>
+<p><strong><font color="green">强化学习：它离散，对于 reward 不可导；不直接用 reward 优化它
+，给它加个标签，把试出来 reward 大的 Action，作为标签去优化</font></strong></p>
+<p>在不可导的地方加标签。</p>
+<p><strong><font color="green">由此，强化学习算法的本质是制作标签，无论是连续决策，标签不确
+定的情况，还是它能解决离散问题的情况，它都是用制作标签的方法解决的。</font></strong></p>
+<h3 id="策略网络policy-network和估值网络value-network"><span class="post-title-index">.2. </span><a class="markdownIt-Anchor" href="#策略网络policy-network和估值网络value-network"></a> 策略网络(Policy Network)和估值网络(Value Network)</h3>
+<p>AlphaGo 使用了快速走子，策略网络，估值网络和蒙特卡洛搜索树等技术。</p>
+<p>强化学习算法的一个关键是<font color="green">随机性和探索性</font>，我们需要让算法
+通过试验样本自己学习什么才是某个环境状态下比较好的 Action，而不是像有监督学习一
+样，告诉模型什么是好的 Action，因为我们也不知道什么是好的 Action.</p>
+<p>深度强化学习模型的本质是神经网络，神经网络是工具，根据问题转化以及建模的不同，主
+要分为策略网络和估值网络。</p>
+<p>强化学习中最重要的两类方法<strong>Policy-based,Value-based</strong>。第一种直接预测在某个环境
+下应该采取的行动（直接输出改采取 Action 的概率）。第二种预测在某个环境下所有行动
+的期望价值，然后通过选择 q 值最高的行动执行策略。</p>
+<p>他们都能完成决策，但由于建模的不同，估值网络包含有更多的信息，它不仅能提供决策，
+还预测了决策带来的收益。</p>
+<p><font color="deeppink">策略网络是隐式的学习了某一 Action 所带来的全部获益（当前获
+益+后续获益），而估值网络直接显示的学习 Action 所带来的全部获益。</font>强化学习
+算法做出最佳抉择只需要知道哪个 Action 全部获益最大，策略网络就是这样做的，估值网
+络不仅学习了哪个 Action 全部获益最大，还把每个 Action 的全部获益给计算出来了。</p>
+<p><font color="green">相对来说，策略网络的性能会比估值网络好一些。</font></p>
+<p><font color="green">Value Based 方法适合仅有少量 Action 的环境，而 Policy Based 方
+法更通用，适合 Action 种类非常多，或者具有连续取值的 Action 的环境。结合了深度学
+习之后，Policy Based 方法就变成了策略网络，Value Based 方法就变成了估值网络
+。</font></p>
+<h4 id="策略网络policy-network"><span class="post-title-index">.2.1. </span><a class="markdownIt-Anchor" href="#策略网络policy-network"></a> 策略网络(Policy Network)</h4>
+<p>直接看一个例子，学习的目标是，左右用力使得木棍不倒地
+<a target="_blank" rel="noopener" href="https://github.com/xyegithub/myBlog/blob/main/posts/1e331e4a/policy_network.py">Policy_Network.py</a></p>
+<p>关键代码</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">score = tf.matmul(layer1,W2)</span><br><span class="line">probability = tf.nn.sigmoid(score)<span class="comment">#网络输出采取Action 1的概率。</span></span><br><span class="line">input_y = tf.placeholder(tf.float32,[<span class="literal">None</span>,<span class="number">1</span>], \\</span><br><span class="line">name=<span class="string">"input_y"</span>)<span class="comment"># 输入采取过的行为，这个行为是随机生成的。</span></span><br><span class="line">advantages = tf.placeholder(tf.float32,name=<span class="string">"reward_signal"</span>)</span><br><span class="line"><span class="comment"># 输入获益</span></span><br><span class="line">loglik = tf.log(input_y*(input_y - probability) + \\</span><br><span class="line">(<span class="number">1</span> - input_y)*(input_y + probability))</span><br><span class="line"><span class="comment"># 损失函数，如果行为是1，则增大</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#概率，如果行为是 0，则减小概率（相当于也是增加0的概率），也就是说这个损</span></span><br><span class="line"><span class="comment">#失函数无论当前行为是什么都会增大当前行为的概率。</span></span><br><span class="line">loss = -tf.reduce_mean(loglik * advantages) <span class="comment"># 这行代码很关键，</span></span><br><span class="line"><span class="comment">#相当于给损失函数成了一个权重advantages，得到最终的损失函数。</span></span><br><span class="line"><span class="comment">#advantages是当前试验的全部获益。如果全部获益大，将以更大的权重，增加</span></span><br><span class="line"><span class="comment">#当前行为的概率。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#所以，策略网络其实也是一个对抗学习的过程，增加所有采取过行为的概率，只是</span></span><br><span class="line"><span class="comment">#获益多的行为以更大的权重增加。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#一个试验： 由初始状态开始，随机采取一连串的行为</span></span><br><span class="line"><span class="comment">#（Policy_Network.py 中是根据当前模型输出的概率,来生成随机的行为，但</span></span><br><span class="line"><span class="comment">#是我感觉直接用0.5的概率随机生成一连串的0和1的行为也是可以的，下面将实</span></span><br><span class="line"><span class="comment">#验一下），直到任务结束。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 由于每个试验，都可以一直行为到任务结束，所以每个action，我们都可以得</span></span><br><span class="line"><span class="comment">#到它在该试验中的全部获益（当前获益 + 之后所有行为的获益）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 随机生成了n个试验，其中又各种各样的决策（随机探索），全部获益大的</span></span><br><span class="line"><span class="comment">#action，它的advantages也大，那么它的概率就增大的多，它被强化的厉害。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##试验生成的过程，实际上就是数据集构建的过程。策略网络的数据集是由环境</span></span><br><span class="line"><span class="comment">#和一系列随机的行为构成的。它提供了环境在各种行为下的反应（获益）。模型</span></span><br><span class="line"><span class="comment">#学习为环境带来高获益的行为的规律。</span></span><br></pre></td></tr></tbody></table></figure>
+<p>由上面的代码可知，从策略网络的角度看强化学习的话，强化学习的关键其实是对数据集的
+构建—如何构建数据集。</p>
+<p>在构建数据集的时候，随机探索肯定是必要的。随机探索的结果会得到一系列好的行为，也
+会得到一系列不好的行为。如何强化好的行为就是算法设计的时候需要注意的。</p>
+<p>上面的代码在探索阶段借用了当前的模型，即根据当前模型输出的概率随机生成行为，从而
+形成数据集。如果完全的随机（一直使用 0.5 的概率随机的生成 Action）会什么样呢？</p>
+<h5 id="数据集是否可以和模型无关不随着模型变化"><span class="post-title-index">.2.1.1. </span><a class="markdownIt-Anchor" href="#数据集是否可以和模型无关不随着模型变化"></a> 数据集是否可以和模型无关（不随着模型变化）？</h5>
+<p>关键修改代码</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">###基于当前模型，根据当前的状态x，生成Action 1的概率</span></span><br><span class="line">tfprob = sess.run(probability,feed_dict={observations: x})</span><br><span class="line"><span class="comment">### 基于预测概率，随机生成行为，并试探环境。生成数据集。</span></span><br><span class="line">action = <span class="number">1</span> <span class="keyword">if</span> np.random.uniform() &lt; tfprob <span class="keyword">else</span> <span class="number">0</span></span><br></pre></td></tr></tbody></table></figure>
+<p>修改后</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 注释掉这句，并不需要根据当前模型生成概率</span></span><br><span class="line"><span class="comment">### tfprob = sess.run(probability,feed_dict={observations: x})</span></span><br><span class="line"><span class="comment">### 直接设置概率为0.5，随机完全随机探索生成数据集。</span></span><br><span class="line">tfprob = <span class="number">0.5</span></span><br><span class="line">action = <span class="number">1</span> <span class="keyword">if</span> np.random.uniform() &lt; tfprob <span class="keyword">else</span> <span class="number">0</span></span><br></pre></td></tr></tbody></table></figure>
+<p>结果：修改后，模型无法收敛。</p>
+<p>完全随机很小的概率能探索出很好的试验，这些好的行为也很难持续的得到强化。</p>
+<p>所以，强化学习也有一种效果叠加的感觉。在完全随机的情况下 ，探索出相对好的
+action，再在这个相对好的 action 的基础上，在探索探索出更好的 action。</p>
+<p>如果数据集不依赖模型，就是一直在完全随机的基础上探索。这样很难收敛。</p>
+<p>也可以这样看，完全随机的话，最多能学到前几步的策略（因为完全随机就走不了几步，探
+索的经验就只有那几步）。依赖于模型，探索的行为更有价值，因为是依赖于学到过的知识
+的，一方面确认了，按学到的知识走，确实获益多，一方面又在学到的知识的基础上，做了
+一些随机，探索更好的知识。</p>
+<h4 id="估值网络value-networkq-learning"><span class="post-title-index">.2.2. </span><a class="markdownIt-Anchor" href="#估值网络value-networkq-learning"></a> 估值网络(Value Network，Q-learning)</h4>
+<p>Q-Learing 用神经网络实现，得到的模型就是估值网络。</p>
+<p>也看一个例子
+，<a target="_blank" rel="noopener" href="https://github.com/xyegithub/myBlog/blob/main/posts/1e331e4a/q_learning.py">Value_Network.py</a></p>
+<p>学习每个 Action 所对应的 reward 的期望。</p>
+<p>我们先看看数据集的结构</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">###Save the experience to our episode buffer.</span></span><br><span class="line">episodeBuffer.add(np.reshape(np.array([s,a,r,s1,d]),[<span class="number">1</span>,<span class="number">5</span>]))</span><br><span class="line"><span class="comment">### 其中s是当前时刻的环境状态，a是当前随机采取的Action，r是这个Action的当前reward</span></span><br><span class="line"><span class="comment">### s1是采取Action之后的下一状态，d是布尔型表示是否任务结束。</span></span><br></pre></td></tr></tbody></table></figure>
+<ol>
+<li>
+<p>现在目标是学习 Q(s<sub>t</sub>, a<sub>t</sub>)，也就是当前环境状态，采取行为
+a 的全部 reward 的期望。</p>
+</li>
+<li>
+<p>现在假设我们有模型 Q<sub>desird</sub>，可以预测全部 reward 了，那么这个模型
+应该满足条件，Q<sub>desired</sub>(s<sub>t</sub>, a<sub>t</sub>) = r +
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>λ</mi></mrow><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">λ</span></span></span></span> Max<sub>a</sub> Q<sub>desired</sub>(s<sub>t+1</sub>, a)，这有点递
+归的感觉了。</p>
+</li>
+<li>
+<p>现在我们能不能根据这个公式 ， 来优化出 Q<sub>desired</sub>。肯定是能的。对于
+探索过的所有试验，公式都满足的话，此时的模型就可以看成我们想要的模型了。我感
+觉这就是估值网络方法的核心。</p>
+</li>
+</ol>
+<p>直接看关键代码</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">###Choose an action by greedily (with e chance of random action)</span></span><br><span class="line"><span class="comment">### from the Q-network</span></span><br><span class="line"><span class="keyword">if</span> np.random.rand(<span class="number">1</span>) &lt; e <span class="keyword">or</span> total_steps &lt; pre_train_steps:</span><br><span class="line">a = np.random.randint(<span class="number">0</span>,<span class="number">4</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">a = sess.run(mainQN.predict,feed_dict={mainQN.scalarInput:[s]})[<span class="number">0</span>]</span><br><span class="line"><span class="comment">### 这段代码其实是探索的代码，当最开始的时候是完全随机探索（total_steps &lt; pre_train_steps的时候）</span></span><br><span class="line"><span class="comment">### 当total_steps &gt;= pre_train_steps之后呢，就不是完全随机探索了。</span></span><br><span class="line"><span class="comment">### 有e的概率是随机探索的，（1-e）的概率是由训练好的模型决定之后的Action。</span></span><br><span class="line"><span class="comment">### 这里是估值网络和策略网络的不同，策略网络本身就具有随机性，所以不需要引入</span></span><br><span class="line"><span class="comment">### 额外的参数e和pre_train_steps来控制随机探索的强度。</span></span><br><span class="line"><span class="comment">### 策略网络在训练的过程中，本身就是由随机性大，到慢慢的收敛到好的Action</span></span><br><span class="line"><span class="comment">### 所以可以直接得到好的探索的训练样本。估值网络没有这样好的性质，它连</span></span><br><span class="line"><span class="comment">### 随机性都没有，就需要人为的制造，满足从完全随机探索，到在好的Action的</span></span><br><span class="line"><span class="comment">### 基础上具有一定的随机性进行探索。</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>这是策略网络和估值网络的共通之处，其实这也最上面那个注释"by greedily (with e
+chance of random action) from the Q-network"的意思。</strong></p>
+<p><strong><font color="green">“贪心”两个字完美的诠释了强化学习，无论是策略网络还是估值网络
+，在探索阶段，在生成数据集上的特点。</font></strong></p>
+<p>在策略网络那一节，我做的那个试验，和模型无关生成数据集。其实就是不贪心了，不贪心
+不行。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> total_steps &gt; pre_train_steps:</span><br><span class="line"><span class="keyword">if</span> e &gt; endE:</span><br><span class="line">e -= stepDrop</span><br><span class="line"><span class="comment">### 完全随机了之后，开始慢慢减小随机性。</span></span><br><span class="line"><span class="comment">### 模型约不可靠的时候，探索性和随机性越强。后来模型慢慢变得可靠就减弱随机性。</span></span><br><span class="line"><span class="comment">### 因为模型越来越可靠的时候，随机性大就会得到很多远远低于当前模型性能的试验</span></span><br><span class="line"><span class="comment">### 这些试验都是早就被pass了的，学不到什么东西，损坏模型的探索。</span></span><br><span class="line"><span class="comment">### endE=0.1 说明无论训练的多好，模型都保持了随机性，保持了探索性</span></span><br><span class="line"><span class="comment">###　人永远要有好奇心，永远要觉得自己的知识还可能不是最好的</span></span><br></pre></td></tr></tbody></table></figure>
+<p>下面的代码是将在数据集弄好的情况下，如何训练模型的。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> total_steps % (update_freq) == <span class="number">0</span>:</span><br><span class="line">trainBatch = myBuffer.sample(batch_size) <span class="comment">#Get a random batch of experiences.</span></span><br><span class="line"><span class="comment">#Below we perform the Double-DQN update to the target Q-values</span></span><br><span class="line"><span class="comment"># 主网络预测了下一刻需要采取的Action，trainBatch[:,3]是当前的下一刻的环境</span></span><br><span class="line"><span class="comment"># 回顾公式，Q(st, at) = r + $\lambda$ Max Q(s_t+1, a)</span></span><br><span class="line"><span class="comment"># 这里主函数预测的Action就是t+1时刻（下一时刻）获益值最大的Action</span></span><br><span class="line">Q1 = sess.run(mainQN.predict,feed_dict={mainQN.scalarInput:np.vstack(trainBatch[:,<span class="number">3</span>])})</span><br><span class="line"><span class="comment"># target网络预测了下一时刻的reward</span></span><br><span class="line">Q2 = sess.run(targetQN.Qout,feed_dict={targetQN.scalarInput:np.vstack(trainBatch[:,<span class="number">3</span>])})</span><br><span class="line">end_multiplier = -(trainBatch[:,<span class="number">4</span>] - <span class="number">1</span>)</span><br><span class="line"><span class="comment"># 用主网络预测出的Action以及target网络预测出的所有行为的reward</span></span><br><span class="line"><span class="comment"># 选择了最大的reward,也就是公式中的 Max Q(s_t+1, a)</span></span><br><span class="line">doubleQ = Q2[<span class="built_in">range</span>(batch_size),Q1]</span><br><span class="line"><span class="comment"># 这里得到的就是公式Q(st, at) = r + $\lambda$ Max Q(s_t+1, a)</span></span><br><span class="line"><span class="comment"># 的右边，当前reward加上乘以衰减系数之后的，下一步最大reward</span></span><br><span class="line">targetQ = trainBatch[:,<span class="number">2</span>] + (y*doubleQ * end_multiplier)</span><br><span class="line"><span class="comment">#Update the network with our target values.</span></span><br><span class="line"><span class="comment"># 公式右边得到了之后，在把真正的当前状态输入进去，得到左边</span></span><br><span class="line"><span class="comment"># 左边以右边作为标签进行学习。更新主网络的参数</span></span><br><span class="line">_ = sess.run(mainQN.updateModel, \</span><br><span class="line">feed_dict={mainQN.scalarInput:np.vstack(trainBatch[:,<span class="number">0</span>]),mainQN.targetQ:targetQ, mainQN.actions:trainBatch[:,<span class="number">1</span>]})</span><br><span class="line"><span class="comment"># 更新target网络的参数。</span></span><br><span class="line">updateTarget(targetOps,sess) <span class="comment">#Update the target network toward the primary network.</span></span><br></pre></td></tr></tbody></table></figure>
+<p>target 网络参数的更新方式代码</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">updateTargetGraph</span>(<span class="params">tfVars,tau</span>):</span></span><br><span class="line">total_vars = <span class="built_in">len</span>(tfVars)</span><br><span class="line">op_holder = []</span><br><span class="line"><span class="comment"># 主网络是和target网络一样的，前一半参数正好是主网络的参数</span></span><br><span class="line"><span class="keyword">for</span> idx,var <span class="keyword">in</span> <span class="built_in">enumerate</span>(tfVars[<span class="number">0</span>:total_vars//<span class="number">2</span>]):</span><br><span class="line"><span class="comment"># idx+total_vars对应的时候后一半的参数也就是target网络的参数</span></span><br><span class="line"><span class="comment"># 这里相当于是target参数 = 主网络参数 * tau + （1- tau）*target参数</span></span><br><span class="line"><span class="comment"># 也就是说target网络在以一定的速度向主网络靠近</span></span><br><span class="line"><span class="comment"># 结合前面的代码，主网络才是真正学习的网络，target网络的作用仅仅是得到等式</span></span><br><span class="line"><span class="comment"># 右边的值，即标签，即使是等式右边，也不是target网络完全决定的</span></span><br><span class="line"><span class="comment"># target网络得到了所有Action的reward，最大的Action是主网络选择的</span></span><br><span class="line"><span class="comment"># 为什么要这么做，target网络也是在模仿主网络，只用主网络也能得到等式的右边</span></span><br><span class="line"><span class="comment"># 理论上其实右边也应该是主网络决定，现在搞了个主网络的模仿者target网络</span></span><br><span class="line"><span class="comment"># 是出于优化的考虑。我们后面叙述。</span></span><br><span class="line">op_holder.append(tfVars[idx+total_vars//<span class="number">2</span>].assign\\</span><br><span class="line">((var.value()*tau) \\</span><br><span class="line">                      + ((<span class="number">1</span>-tau)*tfVars[idx+total_vars//<span class="number">2</span>].value())))</span><br><span class="line">                      <span class="keyword">return</span> op_holder</span><br><span class="line"></span><br><span class="line">                      <span class="function"><span class="keyword">def</span> <span class="title">updateTarget</span>(<span class="params">op_holder,sess</span>):</span></span><br><span class="line">                      <span class="keyword">for</span> op <span class="keyword">in</span> op_holder:</span><br><span class="line">                      sess.run(op)</span><br><span class="line"></span><br><span class="line">                      ```</span><br><span class="line"></span><br><span class="line">                      现在其实我们把关键的代码都看了，在这段代码实现中，引入了一些state of the art的trick，下面我们结合看过的代码在提一遍。</span><br><span class="line"></span><br><span class="line">                      <span class="number">1.</span>  引入卷积层，这段代码比较简单，我们没有看。环境状态是用图片的形式给的，用CNN提取特征是比较自然的。</span><br><span class="line">                      <span class="number">2.</span>  Experience replay。估值网络不像策略网络一样得到试验之后，用一次就扔掉再去制作新的试验（数据集）来训练。它把每次试验都放在一个试验池里面。试验池长度为N，如果超过了N，那就把最老的试验样本扔掉。每次 训练的时候从试验池里面随机选择batchsize个样本进行训练，保持了对样本的利用率，同时其实也增加了模型的稳定性，因为数据集是相对稳定的（相比于N=<span class="number">1</span>而言，每次训练了就扔掉，进来的都是新的，不那么稳定）。</span><br><span class="line">                      <span class="number">3.</span>  使用target网络来辅助训练。\*\*之所以要用target网络来制造训练目标，用主网络来实际训练，是为了让Q-Learing训练的目标保持平稳。\*\*强化学习不像普通的监督学习，它的目标是变化的，\*\*因为学习目标的一部分就是模型本身输出的。\*\*每次更新模型参数都会导致学习目标发生变化，如果更新频繁，幅度很大，我们的训练过程就会变得非常不稳定并且失控。\*\*DQN的训练会陷入目标Q与预测Q的反馈循环中，震荡发散。\*\*所以用target网络来制造目标，target网络和主网络又不是矛盾的，因为target网络会逼近主网络，它是主网络的模仿者，所以它提供的目标Q也是有权威的。</span><br><span class="line">                      <span class="number">4.</span>  Double DQN。这个trick源于target网络选的最大Action不准。模仿的不够好，现在就让主网络来帮它选。也就是上面代码中我们看过了主网络输出action，选择target网络输出的reward，得到公式的右边。</span><br><span class="line">                      <span class="number">5.</span>  Dueling DQN。上代码</span><br><span class="line"></span><br><span class="line">                      ```python</span><br><span class="line">                      self.AW = tf.Variable(xavier_init([h_size//<span class="number">2</span>,env.actions]))</span><br><span class="line">                      self.VW = tf.Variable(xavier_init([h_size//<span class="number">2</span>,<span class="number">1</span>]))</span><br><span class="line">                      self.Advantage = tf.matmul(self.streamA,self.AW)</span><br><span class="line">                      self.Value = tf.matmul(self.streamV,self.VW)</span><br><span class="line"></span><br><span class="line"><span class="comment">###Then combine them together to get our final Q-values.</span></span><br><span class="line"><span class="comment">### 看这里Qout是网络最终预测的所有Action的reward。它由两部分组成Value和Advantage</span></span><br><span class="line"><span class="comment">### 由最上面两行可以看出Value是一维的，是实数，advantage是#action维度的向量</span></span><br><span class="line"><span class="comment">### 所以，Dueling DQN就是将reward裁成了两部分，一部分是环境状态本身具有的价值Value</span></span><br><span class="line"><span class="comment">### 另一部分就是Action本身具有的价值，相加起来就是在这个环境下Action具有的价值。</span></span><br><span class="line"><span class="comment">### 其实我感觉这些解释都是人为的，具体是不是这样谁也不知道，可能只是这样优化的好。</span></span><br><span class="line"><span class="comment">###　因为即使不分为两部分，网络输出Ｑout的时候，输入也是环境状态，肯定都会把环境考虑</span></span><br><span class="line"><span class="comment">### 进去才有Action的价值。然而直接输出这个价值，发现优化的不好，分为两部分之后，发现</span></span><br><span class="line"><span class="comment">### 优化的好了。其实谁也不知道其中到底是什么原因起作用。</span></span><br><span class="line">self.Qout = self.Value + tf.subtract(self.Advantage,tf.reduce_mean(self.Advantage,axis=<span class="number">1</span>,keep_dims=<span class="literal">True</span>))</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="策略网络和估值网络的不同"><span class="post-title-index">.2.3. </span><a class="markdownIt-Anchor" href="#策略网络和估值网络的不同"></a> 策略网络和估值网络的不同</h4>
+<p>从策略网络和估值网络看，强化学习都有探索和对抗两个过程。通过探索，得到数据集，包
+含了各种可能性。通过对抗，让数据集中好的（reward 高的试验胜出）。他们的不同点在
+于对抗的方法。</p>
+<ol>
+<li>策略网络：对抗的焦点在于选择 Action 的概率。</li>
+<li>估值网络：对抗的焦点在于评估 Action 的 reward。</li>
+<li>两者都会影响数据集的制作，而且影响的方式是相同的：贪心和随机探索</li>
+<li>比起策略网络，估值网络更加没有对抗的感觉。因为策略网络在提高某一个 Action 的
+概率的时候，会抑制其他 Action 的概率（总的概率为 1）。而估值网络在提高某一个
+Action 的 reward 的时候，和其他 Action 是无关的。<strong>而且其实不能说是提高
+reward，它是预测出正确的 reward。</strong>（这是两者的很大的不同处，策略网络更像是
+一个分类问题，而估值网络像是一个回归问题）</li>
+</ol>
+<h3 id="回顾"><span class="post-title-index">.3. </span><a class="markdownIt-Anchor" href="#回顾"></a> 回顾</h3>
+<p>强化学习的本质是连续决策。强化学习算法的关键是标签制作，数据集制作。</p>
+<p>连续决策问题是没有确定的标签的，它通过探索试验得到数据集和标签，为没有提供标签的
+问题，做了标签，让问题可以解决。</p>
+<p>深度学习无法优化离散的不可导的参数，强化学习也可以通过在离散的地方做数据集做标签
+，把它转换为可导的，可用 sgd 优化的问题。</p>
+<p>做标签和数据集的关键是随机性以及贪心，贪心让它立足于以往的知识，随机让它不刚愎自
+用，保持谦卑，给新的可能保留空间。</p>
+<p>无论是策略网络还是估值网络，在数据集的制作上都是一样的，随机性和贪心。估值网络的
+数据集制作，可以看出强化学习探索的本质（由于估值网络本身没有随机性，它在制作数据
+集的时候，显示的暴露了，探索和贪心的本质。策略网络这方面还不太好看出来，因为它是
+隐式的利用探索和贪心）。</p>
+<p>策略网络，增大所有行为的概率，但是对于 reward 大 的行为增大的权重大。这个思路在
+我得感觉上更加符合强化两个字。强化好的行为嘛。</p>
+<p>估值网络的本质是公式 Q<sub>desired</sub>(s<sub>t</sub>, a<sub>t</sub>) = r +
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>λ</mi></mrow><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">λ</span></span></span></span> Max<sub>a</sub> Q<sub>desired</sub>(s<sub>t+1</sub>, a)，有点递归的感
+觉。</p>
+<p>策略网络和估值网络数据集也有一点不同，策略网络的数据集是纵向的，一串行为一起的。
+而估值网络的数据集是单个单个的。</p>
+<p>由下面代码可以看出，策略网络中，每一窜试验就会训练一次，只是网络参数更新会积累了
+好几次试验之后才更新。策略网络关心从开始到结束一系列行为。而估值网络只关心当前和
+下一状态。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> done:</span><br><span class="line">episode_number += <span class="number">1</span></span><br><span class="line">epx = np.vstack(xs)</span><br><span class="line">epy = np.vstack(ys)</span><br><span class="line">epr = np.vstack(drs)</span><br><span class="line">tfp = tfps</span><br><span class="line">xs,hs,dlogps,drs,ys,tfps = [],[],[],[],[],[]</span><br><span class="line"></span><br><span class="line">discounted_epr = discount_rewards(epr)</span><br><span class="line">discounted_epr -= np.mean(discounted_epr)</span><br><span class="line">discounted_epr //= np.std(discounted_epr)</span><br><span class="line"></span><br><span class="line">tGrad = sess.run(newGrads,feed_dict={observations: epx, input_y: epy, advantages: discounted_epr})</span><br><span class="line"><span class="keyword">for</span> ix,grad <span class="keyword">in</span> <span class="built_in">enumerate</span>(tGrad):</span><br><span class="line">gradBuffer[ix] += grad</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> episode_number % batch_size == <span class="number">0</span>:</span><br><span class="line">sess.run(updateGrads,feed_dict={W1Grad: gradBuffer[<span class="number">0</span>],W1_1Grad:gradBuffer[<span class="number">1</span>],W2Grad:gradBuffer[<span class="number">2</span>]})</span><br></pre></td></tr></tbody></table></figure>
+<p>估值网络人为的控制随机强度，也是一个值得考虑的问题。</p>
+</body></html>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/myBlog/tags/Reinforcement-Learning/" rel="tag"># Reinforcement Learning</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/myBlog/posts/d13cd4ec/" rel="next" title="An Introduction to Git">
+                  An Introduction to Git <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiang Ye</span>
+</div>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2021, 11, 20, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+<span id="sitetime"></span>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/myBlog/js/comments.js"></script><script src="/myBlog/js/utils.js"></script><script src="/myBlog/js/motion.js"></script><script src="/myBlog/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc=" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"xyecoding","repo":"myBlog","client_id":"caf47b5090fb9fdaadbe","client_secret":"97ba359034d6c5a49f04cd4cb6973006c594ab57","admin_user":"xyecoding","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"48659ba4b94b4e14fe07ae4ec1e89fac"}</script>
+<script src="/myBlog/js/third-party/comments/gitalk.js"></script>
+
+</body>
+
+</html>

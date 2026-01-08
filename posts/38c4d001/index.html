@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myBlog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/myBlog/images/ye_32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/myBlog/images/ye_16.ico">
+  <link rel="mask-icon" href="/myBlog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/myBlog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xyecoding.github.io","root":"/myBlog/","images":"/myBlog/images","scheme":"Gemini","darkmode":true,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myBlog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xyecoding.github.io","root":"/myBlog/","images":"/myBlog/images","scheme":"Gemini","darkmode":true,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myBlog/js/config.js"></script>
+<!-- 强制加载 Mermaid -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.2.3/dist/mermaid.min.js"></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ startOnLoad: true });
+    console.log('Mermaid forced initialization');
+  } else {
+    console.error('Mermaid failed to load');
+  }
+</script>
+
+<meta name="description" content="Arch Linux installation, Configuration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arch Linux">
+<meta property="og:url" content="https://xyecoding.github.io/myBlog/posts/38c4d001/index.html">
+<meta property="og:site_name" content="Ye, Xiang&#39;s Blog">
+<meta property="og:description" content="Arch Linux installation, Configuration">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://xyecoding.github.io/myBlog/posts/38c4d001/init.png">
+<meta property="article:published_time" content="2022-05-15T12:40:03.000Z">
+<meta property="article:modified_time" content="2026-01-08T04:00:06.396Z">
+<meta property="article:author" content="Xiang Ye">
+<meta property="article:tag" content="Arch Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xyecoding.github.io/myBlog/posts/38c4d001/init.png">
+
+
+<link rel="canonical" href="https://xyecoding.github.io/myBlog/posts/38c4d001/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://xyecoding.github.io/myBlog/posts/38c4d001/","path":"posts/38c4d001/","title":"Arch Linux"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Arch Linux | Ye, Xiang's Blog</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/myBlog/css/noscript.css">
+  </noscript>
+  <link rel="stylesheet" href="/myBlog/css/style.css">
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage"  class="use-motion" >
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/myBlog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ye, Xiang's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/myBlog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/myBlog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/myBlog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/myBlog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+      
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-verify-signature"><span class="nav-text">1.  What is Verify Signature</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-kernel-module"><span class="nav-text">2.  What is Kernel Module</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nouveau"><span class="nav-text">2.1.  Nouveau</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#initramfs"><span class="nav-text">3.  initramfs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-fstab"><span class="nav-text">4.  What is fstab</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-grub"><span class="nav-text">5.  What is grub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#firmware-types"><span class="nav-text">6.  Firmware Types</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-uefi"><span class="nav-text">7.  What is UEFI</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bios"><span class="nav-text">7.1.  BIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uefi"><span class="nav-text">7.2.  UEFI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-usage-of-uefi"><span class="nav-text">7.2.1.  The Usage of UEFI</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#system-initialization"><span class="nav-text">8.  System Initialization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#under-bios"><span class="nav-text">8.1.  Under BIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#under-uefi"><span class="nav-text">8.2.  Under UEFI</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dual-boot-with-windows"><span class="nav-text">9.  Dual Boot with Windows</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#windows-before-linux"><span class="nav-text">9.1.  Windows Before Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bios-systems"><span class="nav-text">9.1.1.  BIOS Systems</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#using-a-linux-boot-loader"><span class="nav-text">9.1.1.1.  Using a Linux Boot Loader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#using-windows-boot-loader"><span class="nav-text">9.1.1.2.  Using Windows Boot Loader</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#configuration"><span class="nav-text">10.  Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#keep-the-screen-alive-all-the-time"><span class="nav-text">10.1.  Keep the screen alive all the time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yay-s-tab-does-not-show-all-the-package"><span class="nav-text">10.2.  yay -S + tab does not show all the package</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wake-on-lan"><span class="nav-text">10.3.  Wake on Lan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fish-prompt"><span class="nav-text">10.4.  fish prompt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#baidunetdisk"><span class="nav-text">10.5.  Baidunetdisk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#change-the-resolution-of-screen"><span class="nav-text">10.6.  Change the resolution of screen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virtualbox-conflicts-with-kvm"><span class="nav-text">10.7.  Virtualbox conflicts with KVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#install-ms-windows-fonts-configure-matplotlib"><span class="nav-text">10.8.  Install MS Windows fonts, Configure matplotlib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wps"><span class="nav-text">10.9.  WPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bluetooth"><span class="nav-text">10.10.  Bluetooth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hardware-time"><span class="nav-text">10.11.  Hardware time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#use-nvidia-for-x-server"><span class="nav-text">10.12.  Use Nvidia for X Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#block-nouveau"><span class="nav-text">10.13.  Block nouveau</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#default-applications"><span class="nav-text">10.14.  Default applications</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#thunderbird"><span class="nav-text">10.15.  Thunderbird</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#remote-desktop"><span class="nav-text">10.16.  Remote Desktop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slstatus"><span class="nav-text">10.17.  Slstatus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#touch-pad"><span class="nav-text">10.18.  Touch Pad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#systemd-service"><span class="nav-text">10.19.  Systemd service</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#manage-user-specific-systemd-units"><span class="nav-text">10.19.1.  Manage user-specific systemd units</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#auto-login"><span class="nav-text">10.20.  Auto login</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xorg"><span class="nav-text">10.21.  Xorg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cursor"><span class="nav-text">10.22.  Cursor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#network"><span class="nav-text">10.23.  Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#startx"><span class="nav-text">10.24.  startx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#libxft-bgra-git"><span class="nav-text">10.25.  libxft-bgra-git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nvidia"><span class="nav-text">10.25.1.  NVIDIA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#auto-start"><span class="nav-text">10.25.2.  Auto Start</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#screen-translator"><span class="nav-text">10.26.  Screen Translator</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#youdao"><span class="nav-text">10.26.1.  youdao</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goldendict"><span class="nav-text">10.27.  Goldendict</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tmux"><span class="nav-text">10.28.  Tmux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clipboard-of-nvim"><span class="nav-text">10.29.  Clipboard of nvim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try-to-run-exe-files"><span class="nav-text">10.30.  Try to run exe files</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#wine"><span class="nav-text">10.30.1.  Wine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bottles"><span class="nav-text">10.30.2.  Bottles</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pygobject"><span class="nav-text">10.30.2.1.  PyGObject</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#a-way-to-install-pygobject"><span class="nav-text">10.30.2.1.1.  A way to install PyGObject</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#install-successfully"><span class="nav-text">10.30.2.1.2.  Install successfully</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#locale"><span class="nav-text">11.  Locale</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiang Ye"
+      src="/myBlog/images/avatar_100.jpg">
+  <p class="site-author-name" itemprop="name">Xiang Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/myBlog/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/myBlog/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/myBlog/tags/">
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xyecoding" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xyecoding" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/xyegitee" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;xyegitee" rel="noopener" target="_blank"><i class="fab fa-github-alt fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xyecaep@163.com" title="E-Mail → mailto:xyecaep@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xyecoding.github.io/myBlog/posts/38c4d001/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myBlog/images/avatar_100.jpg">
+      <meta itemprop="name" content="Xiang Ye">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ye, Xiang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Arch Linux
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-05-15 20:40:03" itemprop="dateCreated datePublished" datetime="2022-05-15T20:40:03+08:00">2022-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-01-08 12:00:06" itemprop="dateModified" datetime="2026-01-08T12:00:06+08:00">2026-01-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Programming/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Programming/Tools/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Arch Linux installation, Configuration</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <html><head></head><body><p><a target="_blank" rel="noopener" href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/">A good Tutorial for Installing it!</a></p>
+<p><a target="_blank" rel="noopener" href="https://arch.icekylin.online/">A good Tutorial for Installing it!</a></p>
+<h1 id="what-is-verify-signature"><span class="post-title-index">1. </span><a class="markdownIt-Anchor" href="#what-is-verify-signature"></a> What is Verify Signature</h1>
+<p>Signature is used for protecting data from undetected changes by including a
+proof of identify value called a digital signature.</p>
+<h1 id="what-is-kernel-module"><span class="post-title-index">2. </span><a class="markdownIt-Anchor" href="#what-is-kernel-module"></a> What is Kernel Module</h1>
+<p>Kernel module are pieces of code that can be loaded and unloaded into the kernel
+upon demand. They extend the functionality of the kernel without the need of
+reboot the system.</p>
+<p>Modules are stored in <code>/usr/lib/modules/kernel_release</code> or <code>/lib/modules</code>. You
+can use the command <code>uname -r</code> to get your current kernel release version.</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Kernel_modules#Blacklisting">How to block a kernel module</a>.</p>
+<h2 id="nouveau"><span class="post-title-index">2.1. </span><a class="markdownIt-Anchor" href="#nouveau"></a> Nouveau</h2>
+<p>Nouveau is an open-source Nouveau driver for NVIDIA graphics cards.</p>
+<h1 id="initramfs"><span class="post-title-index">3. </span><a class="markdownIt-Anchor" href="#initramfs"></a> initramfs</h1>
+<p>The root file system at <code>/</code> starts out as an empty rootfs, which is a special
+instance of ramfs or tmpfs. The purpose of the initramfs is to bootstrap the
+system to the point where it can access the root file system. It does not need
+to contain every module one would ever want to use; it should only have modules
+required for the root device like IDE, SCCI, SATA or USB/FW. The majority of
+modules will be loaded later on by <code>udev</code>, during the init process.</p>
+<h1 id="what-is-fstab"><span class="post-title-index">4. </span><a class="markdownIt-Anchor" href="#what-is-fstab"></a> What is fstab</h1>
+<p><code>fstab</code> is the Linux system’s file system table. It is a configuration table
+designed to ease the burden of mounting and unmounting file systems to a
+machine. It is a set of rules used to control how different file systems are
+treated each time they are introduced to a system.</p>
+<p>Make partitions mount at startup. Add the following snippets to <code>/etc/fstab</code>.</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/swapfile none swap defaults 0 0</span><br><span class="line">/dev/sdb7   /home/Eric/Downloads  ext4  defaults 0 0</span><br><span class="line">/dev/sdb5   /home/Eric/temp_try  ext4  defaults 0 0</span><br><span class="line">/dev/sdb6   /home/Eric/expand  ext4  defaults 0 0</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h1 id="what-is-grub"><span class="post-title-index">5. </span><a class="markdownIt-Anchor" href="#what-is-grub"></a> What is grub</h1>
+<p><code>grub</code> is a boot loader. It is the software that loads the Linux kernel (It has
+other uses as well). It is the first software that starts at a system boot.</p>
+<p>The BIOS checks the Master Boot Record (MBR) which is a 512 byte section located
+first on the Hard Drive. It looks for a bootloader (like GRUB).</p>
+<p>Then you will be prompted by the GRUB menu which can contain a list of the
+operating systems installed (in the case of dual boot), or perhaps different
+kernels installed in a Linux distro.</p>
+<p>When you choose which distro or kernel you want to use, GRUB loads the selected
+kernel. The kernel starts <code>init</code> or <code>systemd</code>, which is the first process to
+start in Linux. <code>init</code> then starts other processes like network services and
+other that you might have configured at boot time.</p>
+<h1 id="firmware-types"><span class="post-title-index">6. </span><a class="markdownIt-Anchor" href="#firmware-types"></a> Firmware Types</h1>
+<p>The firmware is the very first program that is executed once the system is
+switched on. The words BIOS or (U)EFI are often used instead of firmware.</p>
+<h1 id="what-is-uefi"><span class="post-title-index">7. </span><a class="markdownIt-Anchor" href="#what-is-uefi"></a> What is UEFI</h1>
+<h2 id="bios"><span class="post-title-index">7.1. </span><a class="markdownIt-Anchor" href="#bios"></a> BIOS</h2>
+<ol>
+<li>BIOS (basic input/output system) is a program.</li>
+<li>It is in the ROM (read only) disk. It is hard encoded on the computer
+motherboard.</li>
+<li>It is used by a computer’s microprocessor to start the computer system after
+it is powered on. It performs hardware initialization during the booting
+process (power-on startup).</li>
+<li>It also manages data flow between the computer’s operating system (OS) and
+attached devices, such as the hard disk, video adapter, keyboard, mouse and
+printer.</li>
+</ol>
+<h2 id="uefi"><span class="post-title-index">7.2. </span><a class="markdownIt-Anchor" href="#uefi"></a> UEFI</h2>
+<p>BIOS’s popularity has waned in favor of a newer technology: UEFI (Unified
+Extensible Firmware Interface). Intel announced a plan in 2017 to retire support
+for legacy BIOS systems by 2020, replacing them with UEFI.</p>
+<p>UEFI does not launch any boot code from the Master Boot Record (MBR) whether it
+exists or not, instead booting relies on boot entries in NVRAM.</p>
+<h3 id="the-usage-of-uefi"><span class="post-title-index">7.2.1. </span><a class="markdownIt-Anchor" href="#the-usage-of-uefi"></a> The Usage of UEFI</h3>
+<p>UEFI launches EFI (Extensible Firmware Interface) applications, e.g., boot
+loaders, boot managers, UEFI shell, etc. These applications are usually stored
+as files in the EFI system partition. Each vendor can stores its files in the
+EFI system partition under the <code>/EFI/vendor_name</code> directory. The applications
+can be launched by adding a boot entry to the NVRAM (non-volatile random access
+memory, an RAM can keep the data with power off) or from the UEFI shell.</p>
+<h1 id="system-initialization"><span class="post-title-index">8. </span><a class="markdownIt-Anchor" href="#system-initialization"></a> System Initialization</h1>
+<h2 id="under-bios"><span class="post-title-index">8.1. </span><a class="markdownIt-Anchor" href="#under-bios"></a> Under BIOS</h2>
+<p><img src="init.png" alt="The Initialization process"></p>
+<ol>
+<li>System switched on, the POST (power-on self-test) is executed.</li>
+<li>After POST, BIOS initializes the hardware required for booting (disk,
+keyboard controller etc.).</li>
+<li>BIOS launches the first 440 bytes (the Master Boot Record bootstrap code
+area) of the first disk in the BIOS disk order.</li>
+<li>The boot loader’s first stage in the MBR (Master Boot Record) boot code then
+launches its second stage code (if any) from either:
+<ul>
+<li>next disk sectors after the MBR, i.e., the so called post-MBR gap (only on
+a MBR partition table).</li>
+<li>A partition’s or a partitionless disk’s volume boot record (VBR)</li>
+<li>The BIOS boot partition (GRUB on BIOS/GPT only).</li>
+</ul>
+</li>
+<li>The actual boot loader is launched.</li>
+<li>The boot loader then loads an operating system by either chain-loading or
+directly loading the operating system kernel</li>
+</ol>
+<blockquote>
+<p>POST: A power-on self-test is a set of routines performed by firmware or
+software immediately after a computer is powered on, to determine if the
+hardware is working as expected. The process would proceed further only if the
+required hardware is working correctly, else the BIOS would issue an error
+message. POST sequence is executed irrespective of the Operating System and is
+handled by the system BIOS. Once the tests are passed the POST would generally
+notify the OS with beeps while the number of beeps can vary from system to
+system. When POST is successfully finalized bootstrapping is enable.
+Bootstrapping starts the initialization of the OS.</p>
+</blockquote>
+<h2 id="under-uefi"><span class="post-title-index">8.2. </span><a class="markdownIt-Anchor" href="#under-uefi"></a> Under UEFI</h2>
+<ol>
+<li>System switched on, the power-on self-test (POST) is executed.</li>
+<li>After POST, UEFI initializes the hardware required for booting (disk,
+keyboard controllers etc.).</li>
+<li>Firmware reads the boot entries in the NVRAM to determine which EFI
+application to launch and from where (e.g. from which disk and partition).
+<ul>
+<li>A boot entry could simply be a disk. In this case the firmware looks fro an
+EFI system partition on that disk and tries to find an EFI application in
+the fallback boot path <code>\EFI\BOOT\BOOTx64.EFI</code> (<code>bootia32.EFI</code> on systems
+with a IA32 (32-bit) UEFI). This is how UEFI bootable removable media work.</li>
+</ul>
+</li>
+<li>Firmware launches the EFI application.
+<ul>
+<li>This could be a boot loader or the Arch kernel itself using EFISTUB.</li>
+<li>It could be some other EFI application such as UEFI shell or a boot manages
+like systemd-boot or rEFInd.</li>
+</ul>
+</li>
+</ol>
+<p>If Secure Boot is enabled, the boot process will verify authenticity of the EFI
+binary by signature.</p>
+<h1 id="dual-boot-with-windows"><span class="post-title-index">9. </span><a class="markdownIt-Anchor" href="#dual-boot-with-windows"></a> Dual Boot with Windows</h1>
+<h2 id="windows-before-linux"><span class="post-title-index">9.1. </span><a class="markdownIt-Anchor" href="#windows-before-linux"></a> Windows Before Linux</h2>
+<p>The main difference between installing individual Linux and dual system is the
+boot loader, which load the operating system.</p>
+<h3 id="bios-systems"><span class="post-title-index">9.1.1. </span><a class="markdownIt-Anchor" href="#bios-systems"></a> BIOS Systems</h3>
+<h4 id="using-a-linux-boot-loader"><span class="post-title-index">9.1.1.1. </span><a class="markdownIt-Anchor" href="#using-a-linux-boot-loader"></a> Using a Linux Boot Loader</h4>
+<p>You may use any multi-boot supporting BIOS boot loader, such as ‘grub’.</p>
+<h4 id="using-windows-boot-loader"><span class="post-title-index">9.1.1.2. </span><a class="markdownIt-Anchor" href="#using-windows-boot-loader"></a> Using Windows Boot Loader</h4>
+<ol>
+<li>Install a Linux bootloader on a partition instead of the MBR, e.g., the
+<code>/boot</code> partition</li>
+<li>Copy this bootloader to a partition readable by the windows bootloader</li>
+<li>Use Windows bootloader to start said copy of the Linux bootloader</li>
+</ol>
+<h1 id="configuration"><span class="post-title-index">10. </span><a class="markdownIt-Anchor" href="#configuration"></a> Configuration</h1>
+<h2 id="keep-the-screen-alive-all-the-time"><span class="post-title-index">10.1. </span><a class="markdownIt-Anchor" href="#keep-the-screen-alive-all-the-time"></a> Keep the screen alive all the time</h2>
+<p>Disable <code>dpms</code> (Display Power Management Signaling，显示电源管理信号，是 Xorg 提供的一套标准化接口，用来告诉显卡驱动："显示器空闲多久后，该进入哪种省电模式) can keep the screen alive all the time.</p>
+<p>Use <code>xset -dpms</code> to disable it. <code>xset q</code> can check the status of <code>dpms</code>.</p>
+<h2 id="yay-s-tab-does-not-show-all-the-package"><span class="post-title-index">10.2. </span><a class="markdownIt-Anchor" href="#yay-s-tab-does-not-show-all-the-package"></a> <code>yay -S</code> + <code>tab</code> does not show all the package</h2>
+<p><code>rm -rf ~/.cache/yay</code> can solve this problem.</p>
+<h2 id="wake-on-lan"><span class="post-title-index">10.3. </span><a class="markdownIt-Anchor" href="#wake-on-lan"></a> <code>Wake on Lan</code></h2>
+<p>Sometimes use <code>wol mac_address</code> can not wake the server. Use
+<code>wol -i ip_address mac_address</code> can wake the server.</p>
+<h2 id="fish-prompt"><span class="post-title-index">10.4. </span><a class="markdownIt-Anchor" href="#fish-prompt"></a> fish prompt</h2>
+<p>Some times <code>fish</code>get slow when going to <code>git</code> directories.</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># ~/.local/share/omf/themes/ays/fish_prompt.fish</span><br><span class="line">set -g fish_git_prompt_show_informative_status 0   # 关掉状态字符（* + …）</span><br><span class="line">set -g fish_git_prompt_showdirtystate 0            # 不检查工作区</span><br><span class="line">set -g fish_git_prompt_showstashstate 0</span><br><span class="line">set -g fish_git_prompt_showupstream 0</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="baidunetdisk"><span class="post-title-index">10.5. </span><a class="markdownIt-Anchor" href="#baidunetdisk"></a> Baidunetdisk</h2>
+<p><code>yay -S baidunetdisk-bin</code></p>
+<p>If it is failed to start when run<code>baidunetdisk</code> and reports
+<code>gpu process isn't usable. goodbye</code>, run <code>baidunetdisk --no-sandbox</code>.</p>
+<h2 id="change-the-resolution-of-screen"><span class="post-title-index">10.6. </span><a class="markdownIt-Anchor" href="#change-the-resolution-of-screen"></a> Change the resolution of screen</h2>
+<p><code>xrandr</code> can display the available screen resolution and the current
+resolution(marked by star).</p>
+<p>Add <code>xrandr --output VGA-1 --mode 1920x1080</code> to <code>.xinitrc</code> can change the
+resolution of the screen permanently.</p>
+<p>After change the resolution, the font might be unsuitable.</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">char</span> *fonts[] = {<span class="string">"Hack NF:size=16"</span>,</span><br><span class="line">                              <span class="string">"JoyPixels:size=14:antialias=true:autohint=true"</span>};</span><br></pre></td></tr></tbody></table></figure>
+<p>in the<code>config.def.h</code> of the <code>dwm</code> package can change the font size of the top
+bar.</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> *font = <span class="string">"Hack Nerd Font:lixelsize=40:antialias=true:autohint=true"</span>;</span><br></pre></td></tr></tbody></table></figure>
+<p>in the <code>config.default.h</code> of the <code>st</code> package can change the font size of <code>st</code>.</p>
+<h2 id="virtualbox-conflicts-with-kvm"><span class="post-title-index">10.7. </span><a class="markdownIt-Anchor" href="#virtualbox-conflicts-with-kvm"></a> Virtualbox conflicts with KVM</h2>
+<p>Both KVM (Kernel-based Virtual Machine) and VirtualBox are hypervisors, and they
+both want to use VMX root mode. This leads to a conflict when they try to run
+simultaneously.</p>
+<ol>
+<li>Run <code>lsmod | grep kvm</code> to see if the <code>kvm_intel</code> (for Intel) or <code>kvm_amd</code>
+(for AMD) modules are loaded.</li>
+<li>If they are loaded, unload them using <code>sudo modprobe -r kvm_intel</code> or
+<code>sudo modprobe -r kvm_amd</code>. This is a temporary fix, as the KVM module will
+be reloaded on reboot.</li>
+<li>To disable KVM permanently, create a file named <code>kvm-blacklist.conf</code> in
+<code>/etc/modprobe.d/</code>.</li>
+<li>Add the appropriate line to the file: For Intel: <code>blacklist kvm_intel</code> For
+AMD: <code>blacklist kvm_amd</code>.</li>
+</ol>
+<h2 id="install-ms-windows-fonts-configure-matplotlib"><span class="post-title-index">10.8. </span><a class="markdownIt-Anchor" href="#install-ms-windows-fonts-configure-matplotlib"></a> Install MS Windows fonts, Configure <code>matplotlib</code></h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yay -S ttf-ms-win11-auto</span><br><span class="line">yay -S ttf-ms-win11-auto-zh_cn</span><br><span class="line">fc-list :lang=zh | grep "sim"</span><br><span class="line">rm ~/.cache/matplotlib/fontlist-v390.json</span><br></pre></td></tr></tbody></table></figure>
+<p>Then <code>import matplotlib</code> will create a new version of
+<code>~/.cache/matplotlib/fontlist-v390.json</code> which contains fonts like <code>simsun</code>.</p>
+<p>The following codes will enable <code>plt</code> to use font <code>SimSun</code>.</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams["axes.unicode_minus"] = False  # 解决负号显示问题</span><br><span class="line">plt.rcParams["font.sans-serif"] = ["SimSun"]</span><br><span class="line"># 或者直接指定字体文件路径作为全局字体</span><br><span class="line"># plt.rcParams["font.sans-serif"] = [</span><br><span class="line">#     FontProperties(fname="/usr/share/fonts/TTF/simsun.ttc").get_name()</span><br><span class="line"># ]</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="wps"><span class="post-title-index">10.9. </span><a class="markdownIt-Anchor" href="#wps"></a> WPS</h2>
+<p>WPP cannot display bold text properly.</p>
+<p>Download and install the old version of freetype.
+<a target="_blank" rel="noopener" href="https://archive.archlinux.org/packages/f/freetype2/freetype2-2.13.0-1-x86_64.pkg.tar.zst">freetype2-2.13.0-1-x86_64.pkg.tar.zst</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/657532417">Here</a></p>
+<h2 id="bluetooth"><span class="post-title-index">10.10. </span><a class="markdownIt-Anchor" href="#bluetooth"></a> Bluetooth</h2>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S bluez bluez-utils</span><br><span class="line">sudo systemctl start bluetooth</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> bluetooth</span><br><span class="line">bluetoothctl</span><br></pre></td></tr></tbody></table></figure>
+<p>The <code>br-connection-profile-unavailable</code> error will occur. As mentioned in
+<a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?id=288398">this wiki</a>, install
+<code>pipewire-pulse</code> then restart <code>pipewire</code> will solve the problem.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S pipewire-pulse</span><br><span class="line">systemctl --user restart pipewire</span><br></pre></td></tr></tbody></table></figure>
+<p>Then you can connect your devices by bluetooth.</p>
+<h2 id="hardware-time"><span class="post-title-index">10.11. </span><a class="markdownIt-Anchor" href="#hardware-time"></a> Hardware time</h2>
+<p>The hardware time sometimes is not correct.</p>
+<p>Use <code>sudo timedatectl set-ntp true</code> to solve it.</p>
+<h2 id="use-nvidia-for-x-server"><span class="post-title-index">10.12. </span><a class="markdownIt-Anchor" href="#use-nvidia-for-x-server"></a> Use Nvidia for X Server</h2>
+<p>By <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/NVIDIA_Optimus">this</a></p>
+<h2 id="block-nouveau"><span class="post-title-index">10.13. </span><a class="markdownIt-Anchor" href="#block-nouveau"></a> Block nouveau</h2>
+<p>Add
+<code>GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5 nowatchdog modprobe.blacklist=nouveau"</code>
+to the <code>/etc/default/grub</code>. Then <code>grub-mkconfig -o /boot/grub/grub.cfg</code>.</p>
+<h2 id="default-applications"><span class="post-title-index">10.14. </span><a class="markdownIt-Anchor" href="#default-applications"></a> Default applications</h2>
+<p>To set the default applications, one needs to modify the file
+<code>~/.config/mimeapps.list</code>. In the right side of <code>=</code> can be the file name in
+<code>/usr/share/applications/</code>.</p>
+<h2 id="thunderbird"><span class="post-title-index">10.15. </span><a class="markdownIt-Anchor" href="#thunderbird"></a> Thunderbird</h2>
+<p>Thunderbird is used as the email app. However, it can not be stored on the tray.
+<code>birdtray</code> can help. Install it with <code>yay -S birdtray</code> and run <code>birdtray</code> then
+Configure it with thunderbird.</p>
+<h2 id="remote-desktop"><span class="post-title-index">10.16. </span><a class="markdownIt-Anchor" href="#remote-desktop"></a> Remote Desktop</h2>
+<p>To use the local camera, this command is needed.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo xfreerdp /f /u:Account Name /p:Password /v:IP:Port /video /usb:id,dev:1bcf:28b</span><br><span class="line">0  /sound /microphone:sys:alsa</span><br></pre></td></tr></tbody></table></figure>
+<p>The usb id is obtained by command <code>lsusb</code>.</p>
+<p>Something also need to be set on the Windows side.</p>
+<ol>
+<li>Type <code>WinKey + R</code> and run <code>gpedit.msc</code> on the target VM (the target windows
+10 Virtual Machine) to start the <code>Group Policy Editor</code>.</li>
+<li>Locate the item
+<code>Computer Configuration \ Administrative Templates \ Windows Components \ Remote Desktop Services \ Remote Desktop Session Host \ Device and Resource Redirection\ Do not allow supported Plug and Play device redirection</code>
+and set this item to Disabled.</li>
+<li>Also you can set</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Remote Desktop Connection Client \ RemoteFX USB Device Redirection \ Allow RDP redirection of other supported RemoteFX USB devices from this computer (Enabled)</span><br><span class="line"></span><br><span class="line">Remote Desktop Session Host \ Remote Session Environment \ RemoteFX <span class="keyword">for</span> Windows Server 2008 R2 \ Configure RemoteFX (Enabled)</span><br><span class="line"></span><br><span class="line">Remote Desktop Session Host \ Connections \ Allow users to connect remotely by using Remote Desktop Services (Enabled)</span><br><span class="line"></span><br><span class="line">Remote Desktop Session Host \ Device and Resource Redirection\ Do not allow supported Plug and Play device redirection (Disabled)</span><br><span class="line"></span><br><span class="line">gpupdate /force <span class="keyword">in</span> elevated CMD Prompt and reboot</span><br></pre></td></tr></tbody></table></figure>
+<ol start="4">
+<li>Run <code>gpupdate /force</code> from an elevated command prompt.</li>
+<li>At least disconnect RDP session and connect again, if this does not work
+reboot target VM.</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/33719489/how-to-enable-usb-redirection-in-windows-10/46628854">For More Information</a></p>
+<h2 id="slstatus"><span class="post-title-index">10.17. </span><a class="markdownIt-Anchor" href="#slstatus"></a> Slstatus</h2>
+<p><code>slstatus</code> can show the information of battery. Add the following snippets in
+the <code>config.h</code> file. The name of the battery can be found by running
+<code>sudo tlp-stat -b</code>.</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">{battery_perc, <span class="string">"󰁿 %s%%"</span>, <span class="string">"BAT0"</span>},</span><br><span class="line">{battery_state, <span class="string">"%s | "</span>, <span class="string">"BAT0"</span>},</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="touch-pad"><span class="post-title-index">10.18. </span><a class="markdownIt-Anchor" href="#touch-pad"></a> Touch Pad</h2>
+<p>When <code>dwm</code> is started, tapping the touchpad does not work. To let it work create
+<code>/etc/X11/xorg.conf.d/30-touchpad.conf</code>, which contains</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Section "InputClass"</span><br><span class="line">Identifier "touchpad catchall"</span><br><span class="line">Driver "libinput"</span><br><span class="line">Option "Tapping" "on"</span><br><span class="line">EndSection</span><br></pre></td></tr></tbody></table></figure>
+<p>Notice that there is no indents in the file, otherwise it will not work.</p>
+<h2 id="systemd-service"><span class="post-title-index">10.19. </span><a class="markdownIt-Anchor" href="#systemd-service"></a> Systemd service</h2>
+<h3 id="manage-user-specific-systemd-units"><span class="post-title-index">10.19.1. </span><a class="markdownIt-Anchor" href="#manage-user-specific-systemd-units"></a> Manage user-specific systemd units</h3>
+<ol>
+<li>Create a service file in <code>~/.config/systemd/user/</code>.</li>
+</ol>
+<p>Notice that not to use <code>~</code> to denote the home directory.</p>
+<p>For <code>x0vncserver.service</code>:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Remote desktop service (VNC)</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=5s</span><br><span class="line">ExecStartPre=/bin/sh -c 'while ! pgrep -U "$USER" Xorg; do sleep 2; done'</span><br><span class="line">ExecStart=x0vncserver -rfbauth /home/Eric/.vnc/passwd  -SecurityTypes VncAuth</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=default.target</span><br></pre></td></tr></tbody></table></figure>
+<p>For <code>frpc.service</code>:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Frp Client Service</span><br><span class="line">Wants = network.target</span><br><span class="line">After = network.target syslog.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=5s</span><br><span class="line">ExecStart=/home/Eric/frp/frpc -c /home/Eric/frp/frpc.toml</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=default.target</span><br></pre></td></tr></tbody></table></figure>
+<ol start="2">
+<li>Reload systemd manager configuration using <code>systemctl --user daemon-reload</code>.</li>
+<li>Enable and start the service using
+<code>systemctl --user enable ExampleService.service</code> and
+<code>systemctl --user start ExampleService.service</code>.</li>
+</ol>
+<h2 id="auto-login"><span class="post-title-index">10.20. </span><a class="markdownIt-Anchor" href="#auto-login"></a> Auto login</h2>
+<p>The only thing needed to do is create the ‘autologin.conf’ file.
+<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/getty#Virtual_console">Here</a>.</p>
+<p>Then, change <code>username</code> to the username you want to auto login.</p>
+<h2 id="xorg"><span class="post-title-index">10.21. </span><a class="markdownIt-Anchor" href="#xorg"></a> Xorg</h2>
+<p>The scale of the screen can be changed by
+<code>xrandr --output eDP-1 --scale 0.6x0.6</code>.</p>
+<h2 id="cursor"><span class="post-title-index">10.22. </span><a class="markdownIt-Anchor" href="#cursor"></a> Cursor</h2>
+<p>The cursor can be hind by <code>yay -S unclutter</code>.</p>
+<h2 id="network"><span class="post-title-index">10.23. </span><a class="markdownIt-Anchor" href="#network"></a> Network</h2>
+<p>Connect a network with <code>NetworkManager</code>. For example,
+<code>nmcli connection add type wifi con-name BUPT-mobile ifname wlan0 ssid BUPT-mobile -- wifi-sec.key-mgmt wpa-eap 802-1x.eap ttls 802-1x.phase2-auth mschapv2 802-1x.identity USERNAME</code>
+Then <code>BUPT-mobile</code> can be connected with <code>nmcli --ask connection up BUPT-mobile</code>
+or <code>nmtui</code>. The <code>nmtui</code> does not support add network of <code>WPA2 802.1X</code> otherwise
+one can add and connect the network by only <code>nmtui</code>.</p>
+<p>Use <code>space</code> to enable or disable <code>automatically connect</code> in <code>nmtui</code>. <code>X</code> denotes
+enable.</p>
+<h2 id="startx"><span class="post-title-index">10.24. </span><a class="markdownIt-Anchor" href="#startx"></a> startx</h2>
+<h2 id="libxft-bgra-git"><span class="post-title-index">10.25. </span><a class="markdownIt-Anchor" href="#libxft-bgra-git"></a> libxft-bgra-git</h2>
+<p><code>libxft-bgra-git</code> is discarded by <code>yay</code> and use <code>ttf-symbola</code> instead.</p>
+<h3 id="nvidia"><span class="post-title-index">10.25.1. </span><a class="markdownIt-Anchor" href="#nvidia"></a> NVIDIA</h3>
+<p><code>startx</code> provides a command line startup of Linux. However, it will cause a
+black screen problem with NVIDIA. To avoid it, add</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xrandr --setprovideroutputsource modesetting NVIDIA-0</span><br><span class="line">xrandr --auto</span><br></pre></td></tr></tbody></table></figure>
+<p>to the <code>.xinitrc</code>.</p>
+<h3 id="auto-start"><span class="post-title-index">10.25.2. </span><a class="markdownIt-Anchor" href="#auto-start"></a> Auto Start</h3>
+<p>Add the following snippets to <code>~/.bash_profile</code>.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -z <span class="string">"<span class="variable">${DISPLAY}</span>"</span> ] &amp;&amp; [ <span class="string">"<span class="variable">${XDG_VTNR}</span>"</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">exec</span> startx</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="screen-translator"><span class="post-title-index">10.26. </span><a class="markdownIt-Anchor" href="#screen-translator"></a> Screen Translator</h2>
+<h3 id="youdao"><span class="post-title-index">10.26.1. </span><a class="markdownIt-Anchor" href="#youdao"></a> youdao</h3>
+<p><code>youdao</code> can be installed by <code>yay -S youdao-dict</code>. However, it is very slow to
+show the result when words are picked. This is because of the vpn. I use
+<code>51game</code>. However, when I set the <code>system client</code> into <code>mainland white list</code>, it
+translate fast for picking words.</p>
+<h2 id="goldendict"><span class="post-title-index">10.27. </span><a class="markdownIt-Anchor" href="#goldendict"></a> Goldendict</h2>
+<p><code>Goldendict-webengine-git</code> is better than <code>Goldendict-git</code>.</p>
+<p>Goldendict is a more power translator. Install <code>translate-shell</code>. <code>edit</code> &gt;
+<code>dictionaries</code> &gt; <code>programs</code> &gt; <code>add</code>, <code>type</code>: <code>Plain text</code>; <code>Command Line</code>:
+<code>trans -e google -s en -t zh -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages n -show-original-dictionary n -show-dictionary n -show-alternatives n "%GDWORD%"</code></p>
+<p>Set <code>popup</code> only press <code>alt</code>. Use <code>ctrl</code> will cause a problem that translate
+when copy. Especially when copy a web link.</p>
+<p>To enable run <code>goldendict</code> in background, pick <code>Enable system try icon</code> and
+<code>Start to system try</code>. Otherwise, the gui of <code>goldendict</code> will open even if it
+is executed by <code>goldendict &amp;</code>.</p>
+<h2 id="tmux"><span class="post-title-index">10.28. </span><a class="markdownIt-Anchor" href="#tmux"></a> Tmux</h2>
+<p>When install <code>tmux</code>, some error maybe occur.
+<code>/usr/share/fish/functions/fish_prompt.fish (line 6): hostname|cut -d . -f 1</code>
+can be solved by <code>pacman -S inetutils</code>.</p>
+<p><code>shell command tmux throws can't use /dev/tty</code> error can be solved
+by<code>exec &lt;/dev/tty; exec &lt;&amp;1; TMUX= tmux</code>.</p>
+<h2 id="clipboard-of-nvim"><span class="post-title-index">10.29. </span><a class="markdownIt-Anchor" href="#clipboard-of-nvim"></a> Clipboard of nvim</h2>
+<p>To enable the clipboard of nvim share by the system, run <code>sudo pacman -S xsel</code></p>
+<h2 id="try-to-run-exe-files"><span class="post-title-index">10.30. </span><a class="markdownIt-Anchor" href="#try-to-run-exe-files"></a> Try to run <code>exe</code> files</h2>
+<h3 id="wine"><span class="post-title-index">10.30.1. </span><a class="markdownIt-Anchor" href="#wine"></a> Wine</h3>
+<p>I successfully installed wechat with wine. However, it can not use the camera.</p>
+<h3 id="bottles"><span class="post-title-index">10.30.2. </span><a class="markdownIt-Anchor" href="#bottles"></a> Bottles</h3>
+<h4 id="pygobject"><span class="post-title-index">10.30.2.1. </span><a class="markdownIt-Anchor" href="#pygobject"></a> PyGObject</h4>
+<p>Bottles depends on <code>PyGObject</code>, it is a python package. However, it is difficult
+to install it by <code>pip</code>. It can be easily installed by conda.</p>
+<h5 id="a-way-to-install-pygobject"><span class="post-title-index">10.30.2.1.1. </span><a class="markdownIt-Anchor" href="#a-way-to-install-pygobject"></a> A way to install PyGObject</h5>
+<p><code>pip install PyGObject</code> default to install its dependences like <code>pycairo</code>.
+However, the latest version of <code>pycairo</code> can not be successfully ran on my
+system. Thus I can install <code>pycairo</code> manually by <code>pip</code> or <code>conda</code> and run
+<code>pip install --no-build-isolation pygobject</code> to install <code>pygobject</code> and in this
+way <code>pygobject</code> will not install its dependences automatically and will find the
+dependences locally.</p>
+<h5 id="install-successfully"><span class="post-title-index">10.30.2.1.2. </span><a class="markdownIt-Anchor" href="#install-successfully"></a> Install successfully</h5>
+<p><code>bottles</code> is installed successfully by using <code>flatpak</code>, by
+<code>sudo pacman -S flatpak</code>. However, it also can not use the camera.</p>
+<h1 id="locale"><span class="post-title-index">11. </span><a class="markdownIt-Anchor" href="#locale"></a> Locale</h1>
+<p>For detail to see the Arch Linux wiki. Notice that the KDE can set the language
+too. Only set to en_US.</p>
+</body></html>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/myBlog/tags/Arch-Linux/" rel="tag"># Arch Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/myBlog/posts/5f500d1b/" rel="prev" title="The First Step to GAN">
+                  <i class="fa fa-chevron-left"></i> The First Step to GAN
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/myBlog/posts/85027f36/" rel="next" title="C Project">
+                  C Project <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiang Ye</span>
+</div>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2021, 11, 20, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+<span id="sitetime"></span>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/myBlog/js/comments.js"></script><script src="/myBlog/js/utils.js"></script><script src="/myBlog/js/motion.js"></script><script src="/myBlog/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc=" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"xyecoding","repo":"myBlog","client_id":"caf47b5090fb9fdaadbe","client_secret":"97ba359034d6c5a49f04cd4cb6973006c594ab57","admin_user":"xyecoding","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"145a98a5e7fd76e8cf1cd7dce25a3aec"}</script>
+<script src="/myBlog/js/third-party/comments/gitalk.js"></script>
+
+</body>
+
+</html>

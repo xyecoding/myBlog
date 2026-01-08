@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myBlog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/myBlog/images/ye_32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/myBlog/images/ye_16.ico">
+  <link rel="mask-icon" href="/myBlog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/myBlog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xyecoding.github.io","root":"/myBlog/","images":"/myBlog/images","scheme":"Gemini","darkmode":true,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myBlog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xyecoding.github.io","root":"/myBlog/","images":"/myBlog/images","scheme":"Gemini","darkmode":true,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/myBlog/js/config.js"></script>
+<!-- 强制加载 Mermaid -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.2.3/dist/mermaid.min.js"></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ startOnLoad: true });
+    console.log('Mermaid forced initialization');
+  } else {
+    console.error('Mermaid failed to load');
+  }
+</script>
+
+<meta name="description" content="Vim Configuration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Config Vim">
+<meta property="og:url" content="https://xyecoding.github.io/myBlog/posts/730c940e/index.html">
+<meta property="og:site_name" content="Ye, Xiang&#39;s Blog">
+<meta property="og:description" content="Vim Configuration">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-20T02:24:34.000Z">
+<meta property="article:modified_time" content="2026-01-08T04:00:06.396Z">
+<meta property="article:author" content="Xiang Ye">
+<meta property="article:tag" content="Vim">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://xyecoding.github.io/myBlog/posts/730c940e/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://xyecoding.github.io/myBlog/posts/730c940e/","path":"posts/730c940e/","title":"Config Vim"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Config Vim | Ye, Xiang's Blog</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/myBlog/css/noscript.css">
+  </noscript>
+  <link rel="stylesheet" href="/myBlog/css/style.css">
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage"  class="use-motion" >
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/myBlog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ye, Xiang's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/myBlog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/myBlog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/myBlog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/myBlog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+      
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-anaconda"><span class="nav-text">1.  安装 anaconda</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%A2%8E%E7%9A%84-linux-%E7%9F%A5%E8%AF%86"><span class="nav-text">2.  一些碎的 Linux 知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%8C%85%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%8D%E7%BD%AE"><span class="nav-text">2.1.  查找包的安装位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%E5%AE%9A%E4%BD%8D"><span class="nav-text">2.2.  编译错误定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8F%AF%E8%83%BD%E6%98%AF%E4%B8%A4%E4%B8%AA"><span class="nav-text">2.3.  linux 的环境变量可能是两个</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%E6%98%8E%E6%98%8E%E5%86%8D%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84%E4%B8%8B%E6%9C%89%E5%8A%A8%E6%80%81%E5%BA%93%E5%8D%B4%E6%8A%A5%E9%94%99%E6%89%80%E6%97%A0%E6%B3%95%E6%89%BE%E5%88%B0"><span class="nav-text">2.4.  遇到一个问题明明再搜索路径下有动态库，却报错所无法找到</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E8%AF%91-vim"><span class="nav-text">3.  编译 vim</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%88%E4%B9%85%E6%B2%A1%E6%9C%89%E6%88%90%E5%8A%9F%E6%9C%80%E5%90%8E-apt-%E5%AE%89%E8%A3%85%E8%A7%A3%E5%86%B3%E4%BA%86"><span class="nav-text">3.1.  很久没有成功，最后 apt 安装解决了</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tmux"><span class="nav-text">4.  tmux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#a-practice-of-vim"><span class="nav-text">5.  A practice of vim</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#search-and-replace"><span class="nav-text">5.1.  Search and Replace</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#why-lua-instead-of-vimlvim-script"><span class="nav-text">6.  Why lua instead of vimL(vim script)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-text">6.1.  Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#how-to-use-lua-in-command-line-or-viml-file"><span class="nav-text">6.2.  How to use lua in command line or vimL file</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#debug-vim"><span class="nav-text">7.  Debug vim</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#a-practice-for-neovim-from-scratch"><span class="nav-text">8.  A Practice for Neovim-from-scratch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#install"><span class="nav-text">8.1.  Install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-text">8.2.  Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#analyze-lunarvim"><span class="nav-text">9.  Analyze LunarVim</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#the-install-script-installsh"><span class="nav-text">9.1.  The Install Script install.sh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#function-main"><span class="nav-text">9.1.1.  Function main</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#function-clone_lvim"><span class="nav-text">9.1.2.  Function clone_lvim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#function-setup_lvim"><span class="nav-text">9.1.3.  Function setup_lvim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#function-setup_shim"><span class="nav-text">9.1.4.  Function setup_shim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#function-msg"><span class="nav-text">9.1.5.  Function msg</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#about-the-init-process"><span class="nav-text">9.2.  ABout the init process</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-initlua"><span class="nav-text">9.2.1.  The init.lua</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-bootstrapinit"><span class="nav-text">9.2.2.  The Bootstrap:init</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-config-function-in-builtin-folder"><span class="nav-text">9.2.3.  The config function in builtin folder</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-nerd-fonts"><span class="nav-text">9.3.  The nerd-fonts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug-system"><span class="nav-text">9.4.  Debug system</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lvimlog"><span class="nav-text">9.4.1.  lvim.log</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plugins"><span class="nav-text">9.5.  Plugins</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#yank"><span class="nav-text">9.5.1.  yank</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#projectnvim"><span class="nav-text">9.5.2.  project.nvim</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#with-lsp"><span class="nav-text">9.5.2.1.  With lsp</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#telescope"><span class="nav-text">9.5.3.  Telescope</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#telescope-in-which-key"><span class="nav-text">9.5.3.1.  Telescope in which key</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#comment"><span class="nav-text">9.5.4.  Comment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#treesitter"><span class="nav-text">9.5.5.  Treesitter</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#parsers-install"><span class="nav-text">9.5.5.1.  Parsers install</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#an-error-may-occur-when-using-aerial"><span class="nav-text">9.5.5.2.  An Error May Occur When using aerial</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#about-packer"><span class="nav-text">9.5.6.  About packer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lsp"><span class="nav-text">9.5.7.  LSP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#the-setup-process"><span class="nav-text">9.5.7.1.  The setup process</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#the-relationship-between-lspconfig-and-null-ls"><span class="nav-text">9.5.7.2.  the relationship between lspconfig and null-ls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#the-relationship-between-lspconfig-and-lsp-installer"><span class="nav-text">9.5.7.3.  the relationship between lspconfig and lsp-installer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#code-action"><span class="nav-text">9.5.7.4.  Code Action</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-lualine"><span class="nav-text">9.5.8.  The lualine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-whichkey"><span class="nav-text">9.5.9.  The whichkey</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#modify-which-key-map"><span class="nav-text">9.5.9.1.  Modify which key map</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-alpha"><span class="nav-text">9.5.10.  The alpha</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nvim-notify"><span class="nav-text">9.5.11.  nvim-notify</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiang Ye"
+      src="/myBlog/images/avatar_100.jpg">
+  <p class="site-author-name" itemprop="name">Xiang Ye</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/myBlog/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/myBlog/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/myBlog/tags/">
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xyecoding" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xyecoding" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/xyegitee" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;xyegitee" rel="noopener" target="_blank"><i class="fab fa-github-alt fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xyecaep@163.com" title="E-Mail → mailto:xyecaep@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://xyecoding.github.io/myBlog/posts/730c940e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myBlog/images/avatar_100.jpg">
+      <meta itemprop="name" content="Xiang Ye">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ye, Xiang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Config Vim
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-01-20 10:24:34" itemprop="dateCreated datePublished" datetime="2022-01-20T10:24:34+08:00">2022-01-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-01-08 12:00:06" itemprop="dateModified" datetime="2026-01-08T12:00:06+08:00">2026-01-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Programming/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/myBlog/categories/Programming/Tools/Vim/" itemprop="url" rel="index"><span itemprop="name">Vim</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Vim Configuration</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <html><head></head><body><h1 id="安装-anaconda"><span class="post-title-index">1. </span><a class="markdownIt-Anchor" href="#安装-anaconda"></a> 安装 anaconda</h1>
+<p>本来安装 anaconda 应该问题不大，但是却发现了一个问题。
+<code>./Anaconda3-2021.11-Linux-x86_64.sh: 489: [[: Exec format error</code> 这个错，是因为
+直用./Anaconda.sh 启动安装默认用的是 sh 改成了 bash <a target="_blank" rel="noopener" href="http://Anaconda.sh">Anaconda.sh</a> 就不会报错了.</p>
+<h1 id="一些碎的-linux-知识"><span class="post-title-index">2. </span><a class="markdownIt-Anchor" href="#一些碎的-linux-知识"></a> 一些碎的 Linux 知识</h1>
+<h2 id="查找包的安装位置"><span class="post-title-index">2.1. </span><a class="markdownIt-Anchor" href="#查找包的安装位置"></a> 查找包的安装位置</h2>
+<p>一些软件用 apt install 了，但是不知道安装位置在哪里 <code>dpkg -L xxx</code>显示包的安装位
+置．</p>
+<h2 id="编译错误定位"><span class="post-title-index">2.2. </span><a class="markdownIt-Anchor" href="#编译错误定位"></a> 编译错误定位</h2>
+<p>编译的时候,打印一些 log 但是并不详细一般会有更加详细的编译 log 文件，在里面可以
+更精确的定位错误发生的原因．</p>
+<h2 id="linux-的环境变量可能是两个"><span class="post-title-index">2.3. </span><a class="markdownIt-Anchor" href="#linux-的环境变量可能是两个"></a> linux 的环境变量可能是两个</h2>
+<p><code>LIBRARY_PATH</code>编译的时候用到的库的搜索路径 <code>LD_LIBRARY_PATH</code>程序加载时库的搜索路
+径</p>
+<h2 id="遇到一个问题明明再搜索路径下有动态库却报错所无法找到"><span class="post-title-index">2.4. </span><a class="markdownIt-Anchor" href="#遇到一个问题明明再搜索路径下有动态库却报错所无法找到"></a> 遇到一个问题明明再搜索路径下有动态库，却报错所无法找到</h2>
+<p>okular: error while loading shared libraries: libQt5Core.so.5: cannot open
+shared object file: No such file or directory 用 strip 处理完之后解决 sudo strip
+–remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5</p>
+<h1 id="编译-vim"><span class="post-title-index">3. </span><a class="markdownIt-Anchor" href="#编译-vim"></a> 编译 vim</h1>
+<p>apt 安装的 vim 不能随意的控制 vim 的特性，比如在 latex 反向搜索的时候需要的
++clietservice。 apt-cache search libc-dev ln -s libXtst.so.6 <a target="_blank" rel="noopener" href="http://libXtst.so">libXtst.so</a> 综合两篇
+博客。 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/aa5ea81bbc72">https://www.jianshu.com/p/aa5ea81bbc72</a>
+<a target="_blank" rel="noopener" href="https://toutiao.io/posts/runvgs/preview">https://toutiao.io/posts/runvgs/preview</a> 尽量多的保留特性，最终得到的 config 命令
+是</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">./configure --<span class="keyword">with</span>-features=huge \</span><br><span class="line">    --enable-multibyte \</span><br><span class="line">    --enable-rubyinterp=yes \</span><br><span class="line">    --enable-python3interp=yes \</span><br><span class="line">    --enable-perlinterp=yes \</span><br><span class="line">    --enable-cscope \</span><br><span class="line">    --enable-fontset \</span><br><span class="line">    --enable-largefile \</span><br><span class="line">    --enable-fail-<span class="keyword">if</span>-missing \</span><br><span class="line">    --prefix=/path-to-install</span><br></pre></td></tr></tbody></table></figure>
+<p><code>--enable-fail-if-missing</code> 用于显示错误信息。</p>
+<h2 id="很久没有成功最后-apt-安装解决了"><span class="post-title-index">3.1. </span><a class="markdownIt-Anchor" href="#很久没有成功最后-apt-安装解决了"></a> 很久没有成功，最后 apt 安装解决了</h2>
+<p>编译的时候 feature 用了 hug，但是还是没有增加+clientserver。我估计是缺少库。查
+src/auto/cofig.log 也没有发现很相关的信息。最后<code>sudo apt-get install vim-gtk</code>成
+功安装了+clientserver 的 vim。</p>
+<h1 id="tmux"><span class="post-title-index">4. </span><a class="markdownIt-Anchor" href="#tmux"></a> tmux</h1>
+<p>To enable vi key mode in tmux. I mapped <code>hjkl</code> for select the pane.</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bind -r 'h' select-pane -L  # move left</span><br><span class="line">bind -r 'j' select-pane -D  # move down</span><br><span class="line">bind -r 'k' select-pane -U  # move up</span><br><span class="line">bind -r 'l' select-pane -R  # move right</span><br></pre></td></tr></tbody></table></figure>
+<p><code>r</code> means I can change the pane continually by click <code>&lt;prefix&gt;</code> and twice <code>k</code>.</p>
+<h1 id="a-practice-of-vim"><span class="post-title-index">5. </span><a class="markdownIt-Anchor" href="#a-practice-of-vim"></a> A practice of vim</h1>
+<h2 id="search-and-replace"><span class="post-title-index">5.1. </span><a class="markdownIt-Anchor" href="#search-and-replace"></a> Search and Replace</h2>
+<p><code>:.,$s/old/new/gc</code>, where <code>g</code> means match all for each line and <code>c</code> means ask me
+before replace at each position. Without <code>g</code> only the first match of each line
+will be considered.</p>
+<h1 id="why-lua-instead-of-vimlvim-script"><span class="post-title-index">6. </span><a class="markdownIt-Anchor" href="#why-lua-instead-of-vimlvim-script"></a> Why lua instead of vimL(vim script)</h1>
+<h2 id="introduction"><span class="post-title-index">6.1. </span><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<p>Neovim has an embedded lua 5.1 runtime which is used to create faster and more
+powerful extentions of you favorite efitor.</p>
+<ol>
+<li>VimL is a slow interpreted language with almost no optimizations. Much of the
+time spent in vim startup and in actions from plugins that can block the main
+loop in the editor is in parsing and executing vim script.</li>
+</ol>
+<h2 id="how-to-use-lua-in-command-line-or-viml-file"><span class="post-title-index">6.2. </span><a class="markdownIt-Anchor" href="#how-to-use-lua-in-command-line-or-viml-file"></a> How to use lua in command line or vimL file</h2>
+<p>see <code>:h lua</code>.</p>
+<ul>
+<li>From the vim command line, you can run <code>lua &lt;you code&gt;</code>. This is useful for
+keybindings, commands, and other one-off execution cases.</li>
+<li>Inside of a vimL file, you can demarcate lua code with the follow code
+fencing:</li>
+</ul>
+<figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lua</span> &lt;&lt; EOF</span><br><span class="line">-- your <span class="keyword">lua</span> code</span><br><span class="line">EOF</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>Inside of a vimL file you can use the <code>lua</code> keyword to execute commands
+similar to the first example,i.e., <code>lua &lt;your code&gt;</code>.</li>
+</ul>
+<p>One important note here is that Neovim will look for lua code in the
+<code>runtimepath</code> you’ve set in your settings. Additionally, it will append your
+runtimepath with <code>/lua/?.lua</code> and <code>lua/?/init.lua</code> so it is common practice to
+see a <code>/lua</code> sub-directory inside <code>nvim</code>. For more detailed information about
+where Neovim looks for lua code, check out <code>:h lua-require</code>.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nanotee/nvim-lua-guide">More Information</a></p>
+<h1 id="debug-vim"><span class="post-title-index">7. </span><a class="markdownIt-Anchor" href="#debug-vim"></a> Debug vim</h1>
+<ol>
+<li><code>:message/:mes</code> will display the messages that your configuration files
+print.</li>
+<li><code>:nmap</code> or <code>:imap</code> can check all the shortcuts of normal or insert mode.
+<code>:map</code> lists the shortcuts of all modes. However, I find that some shortcuts
+defined can not be find by <code>:map</code>.</li>
+</ol>
+<h1 id="a-practice-for-neovim-from-scratch"><span class="post-title-index">8. </span><a class="markdownIt-Anchor" href="#a-practice-for-neovim-from-scratch"></a> A Practice for <code>Neovim-from-scratch</code></h1>
+<h2 id="install"><span class="post-title-index">8.1. </span><a class="markdownIt-Anchor" href="#install"></a> Install</h2>
+<ol>
+<li>Plugins are defined in <code>~/.config/nvim/lua/user/plugins.lua</code>. The plugins
+will fail to be installed due to the internet of China Mainland. Thus, git is
+asked to be configured with ssh. Then the path of plugins can be changed by
+add <code>git@github.com:</code> before the original path.</li>
+<li><code>treesitter</code> is a plugin for syntax-hight. It will install a series of
+language parsers. They are defined in
+<code>~/.config/nvim/lua/user/treesitter.lua</code>. By setting
+<code>ensure_installed = {'astro', 'xxx'}</code>, we can define the parsers to be
+download. Also, download errors may be occurred due to the internet. The path
+of these language parsers are defined in
+<code>~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/lua/nvim-treesitter/parsers.lua</code>,
+which may be changed by download with ssh.</li>
+</ol>
+<h2 id="analysis"><span class="post-title-index">8.2. </span><a class="markdownIt-Anchor" href="#analysis"></a> Analysis</h2>
+<ol>
+<li>
+<p>There are 21 files required in <code>init.lua</code>. They are exactly the 21 files in
+<code>lua/user</code> folder. About 34 plugins are defined in <code>plugins.lua</code>. The lua
+files are all the configuration file of the plugins defined in <code>plugins.lua</code>,
+except for <code>keymaps.lua</code>, <code>option.lua</code>, <code>autocommand.lua</code>. <code>plugins.lua</code>
+itself is the configuration file of <code>packer.nvim</code>, a plugin manager.</p>
+</li>
+<li>
+<p>Here gives a brief look at the plugins.</p>
+<ol>
+<li><code>packer.nvim</code> is a plugin manager.</li>
+<li><code>Alpha-vim</code> is a plugin used by Neovim-from-scratch. It allow one to
+custom the greeter for neovim</li>
+<li><code>popup.nvim</code>, An implementation of the Popup API from vim in neovim.</li>
+<li><code>plenary.nvim</code>, implement some useful window management items for neovim.</li>
+<li><code>nvim-autopais</code> A super powerful auto pair plugin for neovim that supports
+multiple characters.</li>
+<li><code>Comment.nvim</code> Smart and Powerful commenting plugin for neovim.</li>
+<li><code>nvim-web-devicons</code> A lua fork of <code>vim-devicons</code>. This plugin provides the
+same icons as well as colors for each icon</li>
+<li><code>nvim-tree-lua</code> A file explorer for neovim written in lua.</li>
+<li><code>bufferline.nvim</code> A snazzy buffer line (with tabpage integration) for
+neovim built using lua.</li>
+<li><code>vim-bbye</code> Bbye allows you to do delete buffers (close files) without
+colosing you windows or messing up your layout.</li>
+<li><code>lualine.nvim</code> A blazing fast and easy to configure neovim status line
+written in lua.</li>
+<li><code>toggleterm.nvim</code> A neovim plugin to persist and toggle multiple
+terminals during an editing session.</li>
+<li><code>project.nvim</code> an all in one neovim plugin written in lua that provides
+superior project management.</li>
+<li><code>impatient.nvim</code> speed up loading lua modules in neovim to improve start
+up time.</li>
+<li><code>indent-blankline.nvim</code> adds indentation guides to all lines (including
+empty lines.)</li>
+<li><code>FixCursorHold.nvim</code> This is needed to fix lsp doc highlight.</li>
+<li><code>which-key.nvim</code> a lua plugin that displays a popup with possible key
+bindings of the command you started typing.</li>
+<li><code>darkplus.nvim</code> color themes</li>
+<li><code>nvim-cmp</code> The completion plugin</li>
+<li><code>cmp-buffer</code> buffer completions</li>
+<li><code>cmp-path</code> path completions</li>
+<li><code>cmp-cmdline</code> cmdline completions</li>
+<li><code>cmp_luasnip</code> snippet completions.</li>
+<li><code>cmp-nvim-lsp</code> nvim-cmp source for neovim’s built-in language server
+client.</li>
+<li><code>LuaSnip</code> snippet engin</li>
+<li><code>friendly-snippets</code> a bunch of snippets to use</li>
+<li><code>nvim-lspconfig</code> A collection of common configurations for neovim’s
+built-in language server clinet. Features: go-to-definition,
+find-references, hover, completion, rename, format, refactor.</li>
+<li><code>nvim-lsp-installer</code> allows you to seamlessly install LSP server
+locally(inside <code>:echo stdpaht("data")</code>)</li>
+<li><code>nlsp-settings.nvim</code> A plugin to configure LSP using json/yaml files like
+<code>coc-setting.json</code></li>
+<li><code>null-ls.nvim</code> for formatters and linters, use neovim as a language
+server to inject LSP diagnostic, code actions, and more via lua</li>
+<li><code>telescope.nvim</code> a highly extendable fuzzy finder over lists.</li>
+<li><code>nvim-treesitter</code> both provide a simple and easy way to use the interface
+for <code>tree-sitter</code> in neovim and to provide some basic functionality such
+as highlighting based on it.</li>
+<li><code>nvim-ts-context-commentstring"</code> setting <code>comment string</code> option based on
+the cursor location in the file. The location is checked via treesitter
+queries.</li>
+<li><code>gitsigns.nvim</code> Git</li>
+</ol>
+</li>
+<li>
+<p>The plugins are installed in <code>~/.local/share/nvim/site/pack/packer/start</code>,
+which is defined in the <code>install_path</code> in <code>plugins.lua</code>.</p>
+</li>
+</ol>
+<h1 id="analyze-lunarvim"><span class="post-title-index">9. </span><a class="markdownIt-Anchor" href="#analyze-lunarvim"></a> Analyze <code>LunarVim</code></h1>
+<h2 id="the-install-script-installsh"><span class="post-title-index">9.1. </span><a class="markdownIt-Anchor" href="#the-install-script-installsh"></a> The Install Script <code>install.sh</code></h2>
+<p>25 functions are defined in <code>install.sh</code>.</p>
+<figure class="highlight tex"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">_</span><span class="built_in">_</span>attempt<span class="built_in">_</span>to<span class="built_in">_</span>install<span class="built_in">_</span>with<span class="built_in">_</span>cargo</span><br><span class="line"><span class="built_in">_</span><span class="built_in">_</span>install<span class="built_in">_</span>nodejs<span class="built_in">_</span>deps<span class="built_in">_</span>npm</span><br><span class="line"><span class="built_in">_</span><span class="built_in">_</span>install<span class="built_in">_</span>nodejs<span class="built_in">_</span>deps<span class="built_in">_</span>pnpm</span><br><span class="line"><span class="built_in">_</span><span class="built_in">_</span>install<span class="built_in">_</span>nodejs<span class="built_in">_</span>deps<span class="built_in">_</span>yarn</span><br><span class="line"><span class="built_in">_</span><span class="built_in">_</span>validate<span class="built_in">_</span>node<span class="built_in">_</span>installation</span><br><span class="line">backup<span class="built_in">_</span>old<span class="built_in">_</span>config</span><br><span class="line">check<span class="built_in">_</span>neovim<span class="built_in">_</span>min<span class="built_in">_</span>version</span><br><span class="line">check<span class="built_in">_</span>system<span class="built_in">_</span>deps</span><br><span class="line">clone<span class="built_in">_</span>lvim</span><br><span class="line">detect<span class="built_in">_</span>platform</span><br><span class="line">install<span class="built_in">_</span>nodejs<span class="built_in">_</span>deps</span><br><span class="line">install<span class="built_in">_</span>python<span class="built_in">_</span>deps</span><br><span class="line">install<span class="built_in">_</span>rust<span class="built_in">_</span>deps</span><br><span class="line">link<span class="built_in">_</span>local<span class="built_in">_</span>lvim</span><br><span class="line">main</span><br><span class="line">msg</span><br><span class="line">parse<span class="built_in">_</span>arguments</span><br><span class="line">print<span class="built_in">_</span>logo</span><br><span class="line">print<span class="built_in">_</span>missing<span class="built_in">_</span>dep<span class="built_in">_</span>msg</span><br><span class="line">remove<span class="built_in">_</span>old<span class="built_in">_</span>cache<span class="built_in">_</span>files</span><br><span class="line">setup<span class="built_in">_</span>lvim</span><br><span class="line">setup<span class="built_in">_</span>shim</span><br><span class="line">usage</span><br><span class="line">validate<span class="built_in">_</span>lunarvim<span class="built_in">_</span>files</span><br><span class="line">verify<span class="built_in">_</span>lvim<span class="built_in">_</span>dirs</span><br></pre></td></tr></tbody></table></figure>
+<p>The last line <code>main "$@"</code> shows that it well execute the <code>main</code> function first.
+<code>$@</code> means that all the args will be passed to the function.</p>
+<h3 id="function-main"><span class="post-title-index">9.1.1. </span><a class="markdownIt-Anchor" href="#function-main"></a> Function <code>main</code></h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">main</span></span>() {</span><br><span class="line"><span class="comment"># function parse_arguments is defined to parse the arguments passed by</span></span><br><span class="line"><span class="comment"># "$@$"</span></span><br><span class="line">  parse_arguments <span class="string">"<span class="variable">$@</span>"</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># print the logo of lunarvim</span></span><br><span class="line">  print_logo</span><br><span class="line"></span><br><span class="line">  msg <span class="string">"Detecting platform for managing any additional neovim dependencies"</span></span><br><span class="line">  detect_platform</span><br><span class="line">  <span class="comment"># check if the git and neovim is installed</span></span><br><span class="line">  check_system_deps</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> [ <span class="string">"<span class="variable">$ARGS_INSTALL_DEPENDENCIES</span>"</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="string">"<span class="variable">$INTERACTIVE_MODE</span>"</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">      msg <span class="string">"Would you like to install LunarVim's NodeJS dependencies?"</span></span><br><span class="line">      <span class="built_in">read</span> -p <span class="string">"[y]es or [n]o (default: no) : "</span> -r answer</span><br><span class="line">      [ <span class="string">"<span class="variable">$answer</span>"</span> != <span class="string">"<span class="variable">${answer#[Yy]}</span>"</span> ] &amp;&amp; install_nodejs_deps</span><br><span class="line"></span><br><span class="line">      msg <span class="string">"Would you like to install LunarVim's Python dependencies?"</span></span><br><span class="line">      <span class="built_in">read</span> -p <span class="string">"[y]es or [n]o (default: no) : "</span> -r answer</span><br><span class="line">      [ <span class="string">"<span class="variable">$answer</span>"</span> != <span class="string">"<span class="variable">${answer#[Yy]}</span>"</span> ] &amp;&amp; install_python_deps</span><br><span class="line"></span><br><span class="line">      msg <span class="string">"Would you like to install LunarVim's Rust dependencies?"</span></span><br><span class="line">      <span class="built_in">read</span> -p <span class="string">"[y]es or [n]o (default: no) : "</span> -r answer</span><br><span class="line">      [ <span class="string">"<span class="variable">$answer</span>"</span> != <span class="string">"<span class="variable">${answer#[Yy]}</span>"</span> ] &amp;&amp; install_rust_deps</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      install_nodejs_deps</span><br><span class="line">      install_python_deps</span><br><span class="line">      install_rust_deps</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># backup old config of lunarvim if it is installed before</span></span><br><span class="line">  backup_old_config</span><br><span class="line">  <span class="comment"># if the paths are not already, mkdir them</span></span><br><span class="line">  verify_lvim_dirs</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> [ <span class="string">"<span class="variable">$ARGS_LOCAL</span>"</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">    link_local_lvim</span><br><span class="line">  <span class="keyword">elif</span> [ -d <span class="string">"<span class="variable">$LUNARVIM_BASE_DIR</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line">    validate_lunarvim_files</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    clone_lvim</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">  setup_lvim</span><br><span class="line"></span><br><span class="line">  msg <span class="string">"Thank you for installing LunarVim!!"</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"You can start it by running: <span class="variable">$INSTALL_PREFIX</span>/bin/lvim"</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"Do not forget to use a font with glyphs (icons) support [https://github.com/ryanoasis/nerd-fonts]"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="function-clone_lvim"><span class="post-title-index">9.1.2. </span><a class="markdownIt-Anchor" href="#function-clone_lvim"></a> Function <code>clone_lvim</code></h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">clone_lvim</span></span>() {</span><br><span class="line">  msg <span class="string">"Cloning LunarVim configuration"</span></span><br><span class="line">  <span class="keyword">if</span> ! git <span class="built_in">clone</span> --branch <span class="string">"<span class="variable">$LV_BRANCH</span>"</span> \</span><br><span class="line">    <span class="comment"># to download by ssh, change this line to</span></span><br><span class="line">    <span class="comment"># `--depth 1 "git@github.com:LunarVim/LunarVim.git" "$LUNARVIM_BASE_DIR"; then`</span></span><br><span class="line">    --depth 1 <span class="string">"https://github.com/<span class="variable">${LV_REMOTE}</span>"</span> <span class="string">"<span class="variable">$LUNARVIM_BASE_DIR</span>"</span>; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Failed to clone repository. Installation failed."</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="function-setup_lvim"><span class="post-title-index">9.1.3. </span><a class="markdownIt-Anchor" href="#function-setup_lvim"></a> Function <code>setup_lvim</code></h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">setup_lvim</span></span>() {</span><br><span class="line"></span><br><span class="line">  remove_old_cache_files</span><br><span class="line"></span><br><span class="line">  msg <span class="string">"Installing LunarVim shim"</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># output the executable file of `lvim` which lies in `~/.local/bin/lvim`</span></span><br><span class="line">  setup_shim</span><br><span class="line"></span><br><span class="line">  cp <span class="string">"<span class="variable">$LUNARVIM_BASE_DIR</span>/utils/installer/config.example.lua"</span> <span class="string">"<span class="variable">$LUNARVIM_CONFIG_DIR</span>/config.lua"</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"Preparing Packer setup"</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Prepare Packer, this is done by `nvim -u init.lua --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'`</span></span><br><span class="line">  <span class="comment"># `--headless` means Don't start a user interface.</span></span><br><span class="line">  <span class="comment"># `-c &lt;cmd&gt;` means Execute &lt;cmd&gt; after config and first file</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># packer is often failed to be setup due to the network of the China Mainland</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Packer's operation are asynchronous. Previously, to install plugins in a non</span></span><br><span class="line">  <span class="comment"># -interactive way, `nvim + PackerSync + 30sleep + quitall`.</span></span><br><span class="line">  <span class="comment"># It is not ideal since we do not really know that after 30 seconds, the plugin</span></span><br><span class="line">  <span class="comment"># install process should finish.</span></span><br><span class="line">  <span class="comment"># A more ideal way is to use autocmd PackerComplete</span></span><br><span class="line">  <span class="comment"># https://github.com/wbthomason/packer.nvim/blob/master/doc/packer.txt#L479</span></span><br><span class="line">  <span class="comment"># provided by Packer</span></span><br><span class="line">  <span class="comment"># `nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'`</span></span><br><span class="line">  <span class="comment"># PackerComplete xxx: Fires xxx after install, update, clean, and sync</span></span><br><span class="line">  <span class="comment"># asynchronous operations finish</span></span><br><span class="line">  <span class="comment"># PackerSync: Perform 'PackerUpdate' and then 'PackerCompile'</span></span><br><span class="line">  <span class="comment"># PackerUpdate: Clean, then update and install plugins</span></span><br><span class="line">  <span class="comment"># PackerCompile: You must run this or 'PackerSync' whenever you make</span></span><br><span class="line">  <span class="comment"># changes to your plugin configuration. Regenerate compiled loader file.</span></span><br><span class="line"></span><br><span class="line">  <span class="string">"<span class="variable">$INSTALL_PREFIX</span>/bin/lvim"</span> --headless \</span><br><span class="line">    -c <span class="string">'autocmd User PackerComplete quitall'</span> \</span><br><span class="line">    -c <span class="string">'PackerSync'</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"Packer setup complete"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="function-setup_shim"><span class="post-title-index">9.1.4. </span><a class="markdownIt-Anchor" href="#function-setup_shim"></a> Function <code>setup_shim</code></h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">setup_shim</span></span>() {</span><br><span class="line"> <span class="comment">#  make -C ~/.local/share/lunarvim/lvim install-bin</span></span><br><span class="line"> <span class="comment"># `-C` specifies the directory of `Makefile`</span></span><br><span class="line"> <span class="comment"># `install-bin` is a target defined in `Makefile`</span></span><br><span class="line"> <span class="comment"># install-bin:</span></span><br><span class="line"> <span class="comment">#	@echo starting LunarVim bin-installer</span></span><br><span class="line"> <span class="comment">#	bash ./utils/installer/install_bin.sh</span></span><br><span class="line"> <span class="comment"># This command outputs `~/.local/bin/lvim`, the executable file of `lvim`,</span></span><br><span class="line"></span><br><span class="line">  make -C <span class="string">"<span class="variable">$LUNARVIM_BASE_DIR</span>"</span> install-bin</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>The <code>~/.local/bin/lvim</code> is</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> LUNARVIM_RUNTIME_DIR=<span class="string">"<span class="variable">${LUNARVIM_RUNTIME_DIR:-"~/.local/share/lunarvim"}</span>"</span></span><br><span class="line"><span class="built_in">export</span> LUNARVIM_CONFIG_DIR=<span class="string">"<span class="variable">${LUNARVIM_CONFIG_DIR:-"~/.config/lvim"}</span>"</span></span><br><span class="line"><span class="built_in">export</span> LUNARVIM_CACHE_DIR=<span class="string">"<span class="variable">${LUNARVIM_CACHE_DIR:-"~/.cache/nvim"}</span>"</span></span><br><span class="line"></span><br><span class="line"> <span class="comment"># `exec` is a builtin command of the Bash shell. It allows you to execute a</span></span><br><span class="line"> <span class="comment"># command that completely replaces the current process. The current shell process</span></span><br><span class="line"> <span class="comment"># is destroyed, and entirely replaced by the command you specify.</span></span><br><span class="line"> <span class="comment"># `-u` means use this config file, which is `~/.config/share/lunarvim/lvim/init.lua`</span></span><br><span class="line"><span class="built_in">exec</span> nvim -u <span class="string">"<span class="variable">$LUNARVIM_RUNTIME_DIR</span>/lvim/init.lua"</span> <span class="string">"<span class="variable">$@</span>"</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="function-msg"><span class="post-title-index">9.1.5. </span><a class="markdownIt-Anchor" href="#function-msg"></a> Function <code>msg</code></h3>
+<p>Message or log is an effective tool to debug and make the users know the detail
+of the programming. Instead of simply using <code>print/echo</code> function, most
+programmers define their message functions to enable effective message giving.
+Have a look at this message function.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">msg</span></span>() {</span><br><span class="line"><span class="comment"># local variable receives the message needed to be print.</span></span><br><span class="line">  <span class="built_in">local</span> text=<span class="string">"<span class="variable">$1</span>"</span></span><br><span class="line">  <span class="built_in">local</span> div_width=<span class="string">"80"</span></span><br><span class="line">  <span class="comment"># before print the message a line comprised of `-` will be printed.</span></span><br><span class="line">  <span class="comment"># it will makes the message easily been noticed.</span></span><br><span class="line">  <span class="comment"># div_width gives the width of the line.</span></span><br><span class="line">  <span class="built_in">printf</span> <span class="string">"%<span class="variable">${div_width}</span>s\n"</span> <span class="string">' '</span> | tr <span class="string">' '</span> -</span><br><span class="line">  <span class="built_in">printf</span> <span class="string">"%s\n"</span> <span class="string">"<span class="variable">$text</span>"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="about-the-init-process"><span class="post-title-index">9.2. </span><a class="markdownIt-Anchor" href="#about-the-init-process"></a> ABout the init process</h2>
+<h3 id="the-initlua"><span class="post-title-index">9.2.1. </span><a class="markdownIt-Anchor" href="#the-initlua"></a> The <code>init.lua</code></h3>
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- init_path = '~/.local/share/lunarvim/lvim/init.lua'</span></span><br><span class="line"><span class="comment">-- base_dir = '~/.local/share/lunarvim/lvim/'</span></span><br><span class="line"><span class="keyword">local</span> init_path = <span class="built_in">debug</span>.<span class="built_in">getinfo</span>(<span class="number">1</span>, <span class="string">"S"</span>).source:<span class="built_in">sub</span>(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">local</span> base_dir = init_path:<span class="built_in">match</span>(<span class="string">"(.*[/\\])"</span>):<span class="built_in">sub</span>(<span class="number">1</span>, <span class="number">-2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- vim.opt return a option object</span></span><br><span class="line"><span class="comment">-- rtp mean runtimepath</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> vim.tbl_contains(vim.opt.rtp:get(), base_dir) <span class="keyword">then</span></span><br><span class="line">  vim.opt.rtp:append(base_dir)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">-- bootstrap file is in lua/lvim/, which is the guide file of lvim</span></span><br><span class="line"><span class="comment">-- NOTICE THAT, the end of the bootstrap file, return a local module M,</span></span><br><span class="line"><span class="comment">-- which is defined at the beginning of the file.</span></span><br><span class="line"><span class="comment">-- Thus, the term :init(base_dir) runs the init function of module M.</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">"lvim.bootstrap"</span>):init(base_dir)</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">"lvim.config"</span>):<span class="built_in">load</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">-- the plugins are defined in lua/lvim/plugins.lua</span></span><br><span class="line"><span class="keyword">local</span> plugins = <span class="built_in">require</span> <span class="string">"lvim.plugins"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- the same as init funtion in bootstrap, `load` is a function of the module in</span></span><br><span class="line"><span class="comment">-- plugins-loader</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">"lvim.plugin-loader"</span>).<span class="built_in">load</span> { plugins, lvim.plugins }</span><br><span class="line"></span><br><span class="line"><span class="keyword">local</span> Log = <span class="built_in">require</span> <span class="string">"lvim.core.log"</span></span><br><span class="line">Log:<span class="built_in">debug</span> <span class="string">"Starting LunarVim"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">local</span> commands = <span class="built_in">require</span> <span class="string">"lvim.core.commands"</span></span><br><span class="line">commands.<span class="built_in">load</span>(commands.defaults)</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">"lvim.lsp"</span>).setup()</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="the-bootstrapinit"><span class="post-title-index">9.2.2. </span><a class="markdownIt-Anchor" href="#the-bootstrapinit"></a> The <code>Bootstrap:init</code></h3>
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">---Initialize the `&amp;runtimepath` variables and prepare for startup</span></span><br><span class="line"><span class="comment">---@return table</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M:init</span><span class="params">(base_dir)</span></span></span><br><span class="line">  <span class="built_in">self</span>.runtime_dir = get_runtime_dir()</span><br><span class="line">  <span class="built_in">self</span>.config_dir = get_config_dir()</span><br><span class="line">  <span class="built_in">self</span>.cache_dir = get_cache_dir()</span><br><span class="line">  <span class="built_in">self</span>.pack_dir = join_paths(<span class="built_in">self</span>.runtime_dir, <span class="string">"site"</span>, <span class="string">"pack"</span>)</span><br><span class="line">  <span class="built_in">self</span>.packer_install_dir = join_paths(<span class="built_in">self</span>.runtime_dir, <span class="string">"site"</span>, <span class="string">"pack"</span>, <span class="string">"packer"</span>, <span class="string">"start"</span>, <span class="string">"packer.nvim"</span>)</span><br><span class="line">  <span class="built_in">self</span>.packer_cache_path = join_paths(<span class="built_in">self</span>.config_dir, <span class="string">"plugin"</span>, <span class="string">"packer_compiled.lua"</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">---Get the full path to LunarVim's base directory</span></span><br><span class="line">  <span class="comment">---@return string</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">_G.get_lvim_base_dir</span><span class="params">()</span></span></span><br><span class="line">    <span class="keyword">return</span> base_dir</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> <span class="built_in">os</span>.<span class="built_in">getenv</span> <span class="string">"LUNARVIM_RUNTIME_DIR"</span> <span class="keyword">then</span></span><br><span class="line">    <span class="comment">-- vim.opt.rtp:append(os.getenv "LUNARVIM_RUNTIME_DIR" .. path_sep .. "lvim")</span></span><br><span class="line">    vim.opt.rtp:<span class="built_in">remove</span>(join_paths(vim.fn.stdpath <span class="string">"data"</span>, <span class="string">"site"</span>))</span><br><span class="line">    vim.opt.rtp:<span class="built_in">remove</span>(join_paths(vim.fn.stdpath <span class="string">"data"</span>, <span class="string">"site"</span>, <span class="string">"after"</span>))</span><br><span class="line">    vim.opt.rtp:prepend(join_paths(<span class="built_in">self</span>.runtime_dir, <span class="string">"site"</span>))</span><br><span class="line">    vim.opt.rtp:append(join_paths(<span class="built_in">self</span>.runtime_dir, <span class="string">"site"</span>, <span class="string">"after"</span>))</span><br><span class="line"></span><br><span class="line">    vim.opt.rtp:<span class="built_in">remove</span>(vim.fn.stdpath <span class="string">"config"</span>)</span><br><span class="line">    vim.opt.rtp:<span class="built_in">remove</span>(join_paths(vim.fn.stdpath <span class="string">"config"</span>, <span class="string">"after"</span>))</span><br><span class="line">    vim.opt.rtp:prepend(<span class="built_in">self</span>.config_dir)</span><br><span class="line">    vim.opt.rtp:append(join_paths(<span class="built_in">self</span>.config_dir, <span class="string">"after"</span>))</span><br><span class="line">    <span class="comment">-- <span class="doctag">TODO:</span> we need something like this: vim.opt.packpath = vim.opt.rtp</span></span><br><span class="line"></span><br><span class="line">    vim.cmd <span class="string">[[let &amp;packpath = &amp;runtimepath]]</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">-- <span class="doctag">FIXME:</span> currently unreliable in unit-tests</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> in_headless <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">_G</span>.PLENARY_DEBUG = <span class="literal">false</span></span><br><span class="line">    <span class="built_in">require</span>(<span class="string">"lvim.impatient"</span>).setup {</span><br><span class="line">      <span class="built_in">path</span> = join_paths(<span class="built_in">self</span>.cache_dir, <span class="string">"lvim_cache"</span>),</span><br><span class="line">      enable_profiling = <span class="literal">true</span>,</span><br><span class="line">    }</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">require</span>(<span class="string">"lvim.config"</span>):init()</span><br><span class="line"></span><br><span class="line">  <span class="built_in">require</span>(<span class="string">"lvim.plugin-loader"</span>).init {</span><br><span class="line">    package_root = <span class="built_in">self</span>.pack_dir,</span><br><span class="line">    install_path = <span class="built_in">self</span>.packer_install_dir,</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">self</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="the-config-function-in-builtin-folder"><span class="post-title-index">9.2.3. </span><a class="markdownIt-Anchor" href="#the-config-function-in-builtin-folder"></a> The <code>config</code> function in <code>builtin</code> folder</h3>
+<p>For some plugins, such as <code>whichkey</code> and <code>telescope</code>, there are <code>M.config</code>
+functions in their configuration files. However, the <code>setup</code> function only uses
+some variable defined in them and do not execute them first. The are executed by
+the <code>init.lua</code> in the <code>builtin</code> folder.</p>
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M.config</span><span class="params">(config)</span></span></span><br><span class="line">  <span class="keyword">for</span> _, builtin_path <span class="keyword">in</span> <span class="built_in">ipairs</span>(builtins) <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">local</span> builtin = <span class="built_in">require</span>(builtin_path)</span><br><span class="line">    builtin.<span class="built_in">config</span>(<span class="built_in">config</span>)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<p>During the lunch process, the <code>config</code> functions will be called in front of the
+functions defined in the configuration file <code>config.lua</code>.</p>
+<h2 id="the-nerd-fonts"><span class="post-title-index">9.3. </span><a class="markdownIt-Anchor" href="#the-nerd-fonts"></a> The nerd-fonts</h2>
+<p>The font is only related to your local devices. It is not related to the remote
+device.</p>
+<p>To install the nerd fonts, you need to download the nerd version of your fonts,
+for example I use <code>hack</code>, though
+<a target="_blank" rel="noopener" href="https://www.nerdfonts.com/font-downloads">this</a> or
+<a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts">this</a>. Then put it in your font
+directory. For windows, it is <code>C:\Windows\Fonts</code>. Finally, restart your terminal
+and set your terminal such as mobaxterm to use that font.</p>
+<h2 id="debug-system"><span class="post-title-index">9.4. </span><a class="markdownIt-Anchor" href="#debug-system"></a> Debug system</h2>
+<h3 id="lvimlog"><span class="post-title-index">9.4.1. </span><a class="markdownIt-Anchor" href="#lvimlog"></a> lvim.log</h3>
+<ol>
+<li>The file is in <code>~/.cache/</code> which is defined by
+<code>~/.local/share/lunarvim/lvim/lua/lvim/core/log.lua</code>. Using <code>Log:warn/debug</code>
+will write logs in the file.</li>
+<li><code>lvim.log.level</code> controls the level that will be print into the <code>lvim.log</code>
+(see <code>local log_level = Log.levels[(lvim.log.level):upper() or "WARN"]</code> in
+the <code>log.lua</code>. <code>function Log:get_path()</code> sets the path and name of the log
+file.</li>
+<li><code>log.lua</code> used <code>structlog</code> which is a plugin of nvim defined in the
+<code>plugins.lua</code>. In the readme of <code>structlog</code>:
+<blockquote>
+<p><code>structlog</code> makes logging in lua less painful and more powerful by adding
+structure to your log entries.</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="plugins"><span class="post-title-index">9.5. </span><a class="markdownIt-Anchor" href="#plugins"></a> Plugins</h2>
+<h3 id="yank"><span class="post-title-index">9.5.1. </span><a class="markdownIt-Anchor" href="#yank"></a> yank</h3>
+<p>In the visual mode of <code>lunarvim</code>, <code>y</code> will yank the select chars into the system
+clipboard automatically. Do not use <code>"+Y</code>, which will yank the whole line.
+<code>"[~+]y</code> is also available.</p>
+<h3 id="projectnvim"><span class="post-title-index">9.5.2. </span><a class="markdownIt-Anchor" href="#projectnvim"></a> <code>project.nvim</code></h3>
+<p>If open vim in a subdirectory of a git package, and then open a new tmux pane or
+window, its initial path will be the main directory of that git package. The
+<code>manual mode</code> in <code>~/.local/share/lunarvim/lvim/lua/lvim/core/project.lua</code>
+determines vim change the directory or not.</p>
+<h4 id="with-lsp"><span class="post-title-index">9.5.2.1. </span><a class="markdownIt-Anchor" href="#with-lsp"></a> With lsp</h4>
+<p>In the readme of <code>project</code>.</p>
+<blockquote>
+<p>Automagically cd to project directory using nvim lsp. If not then uses pattern
+matching to cd to root directory</p>
+</blockquote>
+<p>This means that lsp has the function to find the project directories.</p>
+<h3 id="telescope"><span class="post-title-index">9.5.3. </span><a class="markdownIt-Anchor" href="#telescope"></a> Telescope</h3>
+<p>The <code>telescope</code> is depended on <code>fd</code>. To install <code>fd</code> do not use
+<code>apt install fdclone</code> which causes a collapse of nvim when run <code>telescope</code>.</p>
+<h4 id="telescope-in-which-key"><span class="post-title-index">9.5.3.1. </span><a class="markdownIt-Anchor" href="#telescope-in-which-key"></a> Telescope in which key</h4>
+<p><code>~/.local/share/lunarvim/lvim/lua/lvim/core/which-key.lua</code> defines many which
+key mapping related to telescope. <leader>f can find the files in git repos
+which is the feature provided by <code>telescope.builtin</code> (see the document of
+telescope). <code>&lt;leader&gt;sf</code> can find the files in current directory.</leader></p>
+<h3 id="comment"><span class="post-title-index">9.5.4. </span><a class="markdownIt-Anchor" href="#comment"></a> <code>Comment</code></h3>
+<p>An error occur with <code>Comment</code> when open <code>lvim</code>, which is solved by adding
+<code>tag = 'v0.6',</code> to the <code>plugins.lua</code> file the Comment part.</p>
+<h3 id="treesitter"><span class="post-title-index">9.5.5. </span><a class="markdownIt-Anchor" href="#treesitter"></a> Treesitter</h3>
+<h4 id="parsers-install"><span class="post-title-index">9.5.5.1. </span><a class="markdownIt-Anchor" href="#parsers-install"></a> Parsers install</h4>
+<p>11 parsers are defined to be installed in <code>~/.config/lvim/config.lua</code></p>
+<p>Parsers often failed to be downloaded. See
+<code>https://github.com/nvim-treesitter/nvim-treesitter#adding-parsers</code>. One can
+download it manually. And change the url of the parsers.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nvim-treesitter/nvim-treesitter#language-parsers">parsers</a></p>
+<blockquote>
+<p>parser for every language need to be generated via <code>tree-sitter-cli</code> from
+<code>grammer.js</code> file, then complied to a <code>.so</code> library that needd to be placed in
+neovim’s <code>runtimepath</code> (typically under <code>parser/{language}.so</code>). To simplify
+this, <code>nvim-treesitter</code> provides commands to automate this process. If the
+language is already supported by <code>nvim-treesitter</code> you can install it with
+<code>TSInstall &lt;language&gt;</code></p>
+</blockquote>
+<p>The <code>{language}.so</code> files are in
+<code>~/.local/share/lunarvim/site/pack/packer/start/nvim-treesitter.git/parser</code>.</p>
+<h4 id="an-error-may-occur-when-using-aerial"><span class="post-title-index">9.5.5.2. </span><a class="markdownIt-Anchor" href="#an-error-may-occur-when-using-aerial"></a> An Error May Occur When using <code>aerial</code></h4>
+<p>When using aerial, and open a markdown file a error may be occur
+<code>Error executing vim.schedule lua callback: ...c/.local/share/nvim/runtime/lua/vim/treesitter/query.lua:172 : query: invalid field at position 122</code>.</p>
+<p>This is solved by remove the parser of markdown in the parser folder.</p>
+<!-- #### Notice -->
+<!-- treestter may not always perform a good highlight, e.g., for markdown or tex -->
+<!-- files. -->
+<h3 id="about-packer"><span class="post-title-index">9.5.6. </span><a class="markdownIt-Anchor" href="#about-packer"></a> About <code>packer</code></h3>
+<ol>
+<li>
+<p>the some plugins are installed in <code>opt</code> directory. Some are installed in
+<code>start</code> directory. This is controlled by the settings in <code>plugins.lua</code>. 7
+plugins are installed in <code>opt</code> directory, 6 of which are setted <code>event</code> and
+only the 6 plugins are setted it. <code>lua-dev</code> is setted <code>module</code>.</p>
+<blockquote>
+<p>module = string or list – Specifies lua module name for require. When
+requiring a string which starts with one of these module names, the plugin
+will be loaded.</p>
+</blockquote>
+<blockquote>
+<p>event = string or list, – Specifies auto command events which load this
+plugin</p>
+</blockquote>
+<p>In the Readme of <code>Packer</code></p>
+<blockquote>
+<p><code>use</code> takes either a string or a table. If a string is provided, it is
+treated as a plugin location (link) for a non-optional plugin with no
+additional configuration.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/wbthomason/packer.nvim/issues/237#issuecomment-787457600">Opt</a></p>
+<blockquote>
+<p><code>start</code> packages are always available and loaded every time you start nvim,
+while <code>opt</code> packages are loaded on-demand with the <code>packadd</code> command. This
+is what <code>packer</code> uses to conditionally load plugins. <code>packer</code> itself
+doesn’t run any code until you call <code>require('packer')</code>, so it should be
+fine to keep it as a start package.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/wbthomason/packer.nvim/discussions/823#discussioncomment-2184455">Opt</a></p>
+</li>
+</ol>
+<h3 id="lsp"><span class="post-title-index">9.5.7. </span><a class="markdownIt-Anchor" href="#lsp"></a> LSP</h3>
+<h4 id="the-setup-process"><span class="post-title-index">9.5.7.1. </span><a class="markdownIt-Anchor" href="#the-setup-process"></a> The setup process</h4>
+<ol>
+<li>the setup function of a lsp server is defined by the files in
+<code>~/.local/share/lunarvim/site/after/ftplugin</code>. <code>ftplugin</code> directory means
+file type plugin. Vim will auto load this directory when it is in the runtime
+path. However, only the <code>filetype.lua/vim</code> will be loaded when open a file of
+particular filetype. <code>~/.local/share/lunarvim/site/after/ftplugin</code> is
+created by <code>~/.local/share/lunarvim/lvim/lua/lvim/lsp/templates.lua</code> (see
+line 67). The server list is given in line 58. The content in the files in
+ftplugins is given in line 40. The <code>ft.lua</code> will call <code>lvim.lsp.manager</code>
+which is a function defined in
+<code>~/.local/share/lunarvim/lvim/lua/lvim/lsp/manager.lua</code>. It setup the lsp
+servers since when <code>ft.lua</code> is removed, the lsp server will not start.</li>
+<li>The configuration files of <code>nvim-lspconfig</code> are listed in
+<code>~/.local/share/lunarvim/site/pack/packer/start/nvim-lspconfig.git/lua/lspconfig/server_configurations</code>.
+Which can be modified.</li>
+<li>The servers installed by <code>lsp-installer</code> are installed in
+<code>~/.local/share/nvim/lsp_servers</code></li>
+<li>see <code>setup</code> function in <code>manager.lua</code></li>
+</ol>
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M.setup</span><span class="params">(server_name, user_config)</span></span></span><br><span class="line">  vim.validate { name = { server_name, <span class="string">"string"</span> } }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> lvim_lsp_utils.is_client_active(server_name) <span class="keyword">or</span> client_is_configured(server_name) <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">local</span> <span class="built_in">config</span> = resolve_config(server_name, user_config)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">local</span> servers = <span class="built_in">require</span> <span class="string">"nvim-lsp-installer.servers"</span></span><br><span class="line">  <span class="keyword">local</span> server_available, requested_server = servers.get_server(server_name)</span><br><span class="line"></span><br><span class="line">  <span class="comment">-- if not server available in nvim-lsp-installer, call lspconfig[server_name].setup(config)</span></span><br><span class="line">  <span class="comment">-- if the server is  available it will be set up by nvim-lsp-installer.</span></span><br><span class="line">  <span class="comment">-- that is to say all the servers will preferentially be set upped by nvim-lsp-installer.</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">-- NOTE THAT</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">-- Most servers will be set uppped by nvim-lsp-installer by this way.</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> server_available <span class="keyword">then</span></span><br><span class="line">    <span class="comment">-- The pcall function calls its first argument in protected mode, so that it</span></span><br><span class="line">    <span class="comment">-- catches any errors while the function is running. If there are no errors, pcall</span></span><br><span class="line">    <span class="comment">-- returns true, plus any values returned by the call. Otherwise, it returns false,</span></span><br><span class="line">    <span class="comment">-- plus the error message.</span></span><br><span class="line">    <span class="built_in">pcall</span>(<span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">      <span class="built_in">require</span>(<span class="string">"lspconfig"</span>)[server_name].setup(<span class="built_in">config</span>)</span><br><span class="line">      buf_try_add(server_name)</span><br><span class="line">    <span class="keyword">end</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">local</span> install_notification = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> requested_server:is_installed() <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">if</span> lvim.lsp.automatic_servers_installation <span class="keyword">then</span></span><br><span class="line">      Log:<span class="built_in">debug</span> <span class="string">"Automatic server installation detected"</span></span><br><span class="line">      requested_server:install()</span><br><span class="line">      install_notification = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      Log:<span class="built_in">debug</span>(requested_server.name .. <span class="string">" is not managed by the automatic installer"</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  requested_server:on_ready(<span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">    <span class="keyword">if</span> install_notification <span class="keyword">then</span></span><br><span class="line">      <span class="comment">-- `vim.notify` is defined in `log.lua` in lvim folder.</span></span><br><span class="line">      <span class="comment">-- &gt; `vim.notify` A fancy, configurable, notification manager for NeoVim.</span></span><br><span class="line">      <span class="comment">-- `vim.log.levels.INFO` is defined in the `lua-dev` plunin defined in `plugins.lua`.</span></span><br><span class="line">      <span class="comment">-- &gt; `lua-dev` setup for init.lua and plugin development with full signature help,</span></span><br><span class="line">      <span class="comment">-- &gt; docs and completion for the nvim lua API.</span></span><br><span class="line">      <span class="comment">-- i do not find where the vim.log.levels is required by `manager.lua`.</span></span><br><span class="line">      <span class="comment">-- I think vim.log.levels must be in the search path of nvim thus it can find it</span></span><br><span class="line">      <span class="comment">-- though the search path.</span></span><br><span class="line">      vim.notify(<span class="built_in">string</span>.<span class="built_in">format</span>(<span class="string">"Installation complete for [%s] server"</span>, requested_server.name), vim.<span class="built_in">log</span>.levels.INFO)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    install_notification = <span class="literal">false</span></span><br><span class="line">    requested_server:setup(<span class="built_in">config</span>)</span><br><span class="line">    <span class="comment">-- Log:warn(config)</span></span><br><span class="line">  <span class="keyword">end</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<p>From the code we know that most of the servers will be setup by
+<code>nvim-lsp-installer</code> (see <code>requested_server:setup(config)</code>). However, thought
+this the configuration for manually setup server is not works. From the document
+of <code>nvim-lsp-installer</code>,
+<a target="_blank" rel="noopener" href="https://github.com/williamboman/nvim-lsp-installer/blob/40442b67a151fc2a58a790fd7e74a7487f1f9157/doc/nvim-lsp-installer.txt#L349">server.setup</a>
+is deprecated. Thus I change the <code>setup</code> function in <code>manager.lua</code>.</p>
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M.setup</span><span class="params">(server_name, user_config)</span></span></span><br><span class="line">  vim.validate { name = { server_name, <span class="string">"string"</span> } }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> lvim_lsp_utils.is_client_active(server_name) <span class="keyword">or</span> client_is_configured(server_name) <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">local</span> <span class="built_in">config</span> = resolve_config(server_name, user_config)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">local</span> servers = <span class="built_in">require</span> <span class="string">"nvim-lsp-installer.servers"</span></span><br><span class="line">  <span class="keyword">local</span> server_available, requested_server = servers.get_server(server_name)</span><br><span class="line"></span><br><span class="line">  <span class="comment">-- if the server is installed then setup by lspconfig</span></span><br><span class="line">  <span class="keyword">if</span> requested_server:is_installed() <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">pcall</span>(<span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">      <span class="built_in">require</span>(<span class="string">"lspconfig"</span>)[server_name].setup(<span class="built_in">config</span>)</span><br><span class="line">      buf_try_add(server_name)</span><br><span class="line">    <span class="keyword">end</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">local</span> install_notification = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">-- if the server is not installed, install it</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> requested_server:is_installed() <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">if</span> lvim.lsp.automatic_servers_installation <span class="keyword">then</span></span><br><span class="line">      Log:<span class="built_in">debug</span> <span class="string">"Automatic server installation detected"</span></span><br><span class="line">      requested_server:install()</span><br><span class="line">      install_notification = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      Log:<span class="built_in">debug</span>(requested_server.name .. <span class="string">" is not managed by the automatic installer"</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  requested_server:on_ready(<span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">    <span class="keyword">if</span> install_notification <span class="keyword">then</span></span><br><span class="line">      vim.notify(<span class="built_in">string</span>.<span class="built_in">format</span>(<span class="string">"Installation complete for [%s] server"</span>, requested_server.name), vim.<span class="built_in">log</span>.levels.INFO)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    install_notification = <span class="literal">false</span></span><br><span class="line">    <span class="comment">-- requested_server:setup(config)</span></span><br><span class="line">  <span class="keyword">end</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="the-relationship-between-lspconfig-and-null-ls"><span class="post-title-index">9.5.7.2. </span><a class="markdownIt-Anchor" href="#the-relationship-between-lspconfig-and-null-ls"></a> the relationship between <code>lspconfig</code> and <code>null-ls</code></h4>
+<ol>
+<li>Both of them can use <code>latexindent</code> to format the tex file</li>
+<li><code>lspconfig</code> can not use <code>prettier</code>.</li>
+</ol>
+<p>Thus <code>null-ls</code> provide an extension tools for <code>lspconfig</code>. When <code>lspconfig</code> can
+match our requirement, we do not need to use <code>null-ls</code>, e.g., tools for tex
+file.</p>
+<h4 id="the-relationship-between-lspconfig-and-lsp-installer"><span class="post-title-index">9.5.7.3. </span><a class="markdownIt-Anchor" href="#the-relationship-between-lspconfig-and-lsp-installer"></a> the relationship between <code>lspconfig</code> and <code>lsp-installer</code></h4>
+<ol>
+<li><code>lsp-installer</code> depends on <code>lspconfig</code> as in the readme of <code>lsp-installer</code>.</li>
+<li>lvim strives to have support for all major languages. This is made possible
+by plugins such as <code>nvim-lspconfig</code>, for LSP support, and <code>null-ls</code> to
+provide support for handing external formatters, such as <code>prettier</code> and
+<code>eslint</code>.</li>
+</ol>
+<p><code>lua print(vim.inspect(vim.lsp.buf_get_clients()[2].resolved_capabilities))</code> see
+the detail of server clients.</p>
+<h4 id="code-action"><span class="post-title-index">9.5.7.4. </span><a class="markdownIt-Anchor" href="#code-action"></a> Code Action</h4>
+<p>Code action = quick fixes and refactoring</p>
+<h3 id="the-lualine"><span class="post-title-index">9.5.8. </span><a class="markdownIt-Anchor" href="#the-lualine"></a> The lualine</h3>
+<p>The status line is defined in
+<code>~/.local/share/lunarvim/lvim/lua/lvim/core/lualine/init.lua</code> line 5 which can
+be chose as <code>default</code>, <code>lvim</code>, or <code>none</code>. The are defined in the
+<code>~/.local/share/lunarvim/lvim/lua/lvim/core/lualine/styles.lua</code> file. The
+component are defined in
+<code>~/.local/share/lunarvim/lvim/lua/lvim/core/lualine/components.lua</code>.</p>
+<h3 id="the-whichkey"><span class="post-title-index">9.5.9. </span><a class="markdownIt-Anchor" href="#the-whichkey"></a> The whichkey</h3>
+<p>Which key can define key mappings for vim. They are defined in
+<code>~/.local/share/lunarvim/lvim/lua/lvim/core/which-key.lua</code>. The use of
+<code>telescope</code> can be learned by reading <code>which-key.lua</code>, since the key mapping of
+<code>telescope</code> is defined in it.</p>
+<p>The lsp also used which key, which is defined in
+<code>~/.local/share/lunarvim/lvim/lua/lvim/lsp/config.lua</code> and used/registered in
+<code>~/.local/share/lunarvim/lvim/lua/lvim/lsp/init.lua</code>. Which key makes the key
+mappings more organized.</p>
+<h4 id="modify-which-key-map"><span class="post-title-index">9.5.9.1. </span><a class="markdownIt-Anchor" href="#modify-which-key-map"></a> Modify which key map</h4>
+<p>To modify which key maps, for example, <code>&lt;leader&gt;sp</code> is defined in
+<code>whichkey.lua</code>. I want to change it in <code>config.lua</code>.
+<code>lvim.builtin.which_key.mappings["sp"] = { "&lt;CMD&gt;Telescope projects&lt;CR&gt;", "Project" }</code>
+does not work.</p>
+<p><code>lvim.builtin.which_key.mappings.s["p"] = { "&lt;CMD&gt;Telescope projects&lt;CR&gt;", "Project" }</code>
+works. <code>lvim.builtin.which_key.mappings.s</code> is a table, and the <code>config</code> function
+in <code>which-key.lua</code> is executed in front of the <code>config.lua</code>. So that the value
+of key <code>p</code> can be modified.</p>
+<h3 id="the-alpha"><span class="post-title-index">9.5.10. </span><a class="markdownIt-Anchor" href="#the-alpha"></a> The alpha</h3>
+<p>The start cover is defined in
+<code>~/.local/share/lunarvim/lvim/lua/lvim/core/alpha/startify.lua</code>.</p>
+<h3 id="nvim-notify"><span class="post-title-index">9.5.11. </span><a class="markdownIt-Anchor" href="#nvim-notify"></a> nvim-notify</h3>
+<p>The notation manager and message manager for nvim.</p>
+</body></html>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/myBlog/tags/Vim/" rel="tag"># Vim</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/myBlog/posts/6e9b1d38/" rel="prev" title="Optimization">
+                  <i class="fa fa-chevron-left"></i> Optimization
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/myBlog/posts/83c5d7ce/" rel="next" title="Regex">
+                  Regex <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiang Ye</span>
+</div>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2021, 11, 20, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+<span id="sitetime"></span>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/myBlog/js/comments.js"></script><script src="/myBlog/js/utils.js"></script><script src="/myBlog/js/motion.js"></script><script src="/myBlog/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc=" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"xyecoding","repo":"myBlog","client_id":"caf47b5090fb9fdaadbe","client_secret":"97ba359034d6c5a49f04cd4cb6973006c594ab57","admin_user":"xyecoding","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"748febd339c1dcfd3ba9eb34c1bbad38"}</script>
+<script src="/myBlog/js/third-party/comments/gitalk.js"></script>
+
+</body>
+
+</html>
