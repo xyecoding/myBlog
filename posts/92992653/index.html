@@ -42,7 +42,7 @@
 <meta property="og:description" content="Optics">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-12-10T06:20:15.000Z">
-<meta property="article:modified_time" content="2026-01-08T08:17:48.442Z">
+<meta property="article:modified_time" content="2026-01-11T13:11:52.335Z">
 <meta property="article:author" content="Xiang Ye">
 <meta property="article:tag" content="Optics">
 <meta name="twitter:card" content="summary">
@@ -243,7 +243,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-01-08 16:17:48" itemprop="dateModified" datetime="2026-01-08T16:17:48+08:00">2026-01-08</time>
+      <time title="Modified: 2026-01-11 21:11:52" itemprop="dateModified" datetime="2026-01-11T21:11:52+08:00">2026-01-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -336,6 +336,11 @@ style DM fill:#ffe1e1
 低频信号需要更长的采样范围，才能更精确地测定其频率。</p>
 <p>采样越密（采样频率大）越能测量到高频，采样越长（采样范围大）越能测量到低频</p>
 <p>需要确定哈特曼子孔径的间距<strong>Δu</strong>，采集时点阵直径上的子孔径个数。</p>
+<p>因为真实光路中透镜也是傅里叶变换（连续），也会受到L对频率分辨率的限制：
+当两个频率分量的间隔 ∣f2 −f1∣&lt;1/L 时，它们的艾里斑重叠，无法分辨。
+对于一个平面波，其聚焦之后艾里斑的大小也受到
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Δ</mi><msub><mi>x</mi><mi>f</mi></msub><mo>=</mo><mfrac><mrow><mi>λ</mi><mi>f</mi></mrow><mi>D</mi></mfrac><mo>=</mo><mi>λ</mi><mi>f</mi><mo>⋅</mo><mi mathvariant="normal">Δ</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">\Delta x_f = \frac{\lambda f}{D} =\lambda f \cdot  \Delta f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord">Δ</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.277216em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9322159999999999em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.446108em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">λ</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">λ</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">Δ</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>
+的限制，不可能无穷小。</p>
 </div>
 <table>
 <thead>
@@ -691,12 +696,10 @@ s76,-59,76,-59s76,-60,76,-60z M1001 80H40000v40H1012z"></path></svg></span></spa
 <p><strong>无需二次相位相消</strong>，因为平面波本征函数在自由空间的相位传播 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>e</mi><mrow><mi>i</mi><msub><mi>k</mi><mi>z</mi></msub><mi>f</mi></mrow></msup></mrow><annotation encoding="application/x-tex">e^{ik_z f}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8491079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:-0.03148em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight" style="margin-right:0.04398em;">z</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span></span></span></span></span></span></span></span></span></span></span></span> 被自动包含在模式分离过程中，不显式出现。</p>
 <h2 id="成像过程总结"><span class="post-title-index">4.7. </span><a class="markdownIt-Anchor" href="#成像过程总结"></a> <strong>成像过程总结</strong></h2>
 <ol>
-<li><strong>分解</strong>：瞳平面场 = 不同角度平面波的叠加</li>
-<li><strong>调制</strong>：相位误差 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>φ</mi><mo stretchy="false">(</mo><mi>u</mi><mo separator="true">,</mo><mi>v</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\varphi(u,v)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">φ</span><span class="mopen">(</span><span class="mord mathdefault">u</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span> 改变各平面波的相对相位</li>
+<li><strong>分解</strong>：瞳平面场 = 不同角度平面波的叠加（不同角度的平面波对应着不同的空间频率）</li>
 <li><strong>聚焦</strong>：透镜将每个平面波定向到焦平面唯一位置</li>
 <li><strong>合成</strong>：所有平面波干涉形成焦斑，其分布 = 角谱的功率</li>
 </ol>
-<p><strong>透镜不是"计算"傅里叶变换，而是物理上"实现"了频谱分离</strong>——这正是线性系统对角化的过程。</p>
 <h1 id="菲涅尔衍射"><span class="post-title-index">5. </span><a class="markdownIt-Anchor" href="#菲涅尔衍射"></a> 菲涅尔衍射</h1>
 <p><strong>菲涅尔衍射</strong>（Fresnel Diffraction）
 <strong>近场衍射</strong>，指光源和观察屏（或二者之一）与衍射孔径/障碍物距离<strong>有限远</strong>时的衍射现象。</p>
