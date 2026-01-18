@@ -33,6 +33,14 @@ $$\boxed{y_f = f \cdot \tan\theta_v \approx f \cdot \frac{k_v}{k}}$$
 $$\boxed{x_f = f \cdot \tan\theta_u \approx f \cdot \frac{k_u}{k}}$$
 $$\boxed{y_f = f \cdot \tan\theta_v \approx f \cdot \frac{k_v}{k}}$$
 中，$k_u, k_v$与$x_f,y_f$的坐标轴的关系。
+
+<center>
+  <img src="code_fz.png" width="50%" alt="替代文本">
+
+生成仅含倾斜的点扩散
+
+</center>
+
 下图为分别当$z_1=0.3, z_2=0.3$时仿真点扩散函数的图象。
 
 <center>
