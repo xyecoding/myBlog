@@ -198,6 +198,55 @@ Disable `dpms` (Display Power Management Signaling，显示电源管理信号，
 
 Use `xset -dpms` to disable it. `xset q` can check the status of `dpms`.
 
+`xset s off` 和 `xset dpms 0 0 0` 是两个不同层次的屏幕/电源控制命令，主要区别如下：
+
+| 命令                  | 控制对象                     | 作用效果                                     |
+| --------------------- | ---------------------------- | -------------------------------------------- |
+| **`xset s off`**      | X11 屏幕保护程序 (BlankTime) | **仅黑屏，不关显示器电源** (LCD背光通常仍亮) |
+| **`xset dpms 0 0 0`** | DPMS 显示器电源管理信号      | **实际切断显示器电源** (类似关机后的状态)    |
+
+#### **1. `xset s off` - 关闭屏幕保护程序**
+
+- **作用**：禁用 X11 内置的屏幕保护功能
+- **行为**：防止屏幕因空闲而变黑，但**不干预显示器的物理电源状态**
+- **机制**：控制 X server 的 Screen Saver/BlankTime 选项
+- **使用场景**：仅想禁用"黑屏"保护，但允许显示器正常休眠
+
+#### **2. `xset dpms 0 0 0` - 禁用电源管理**
+
+- **作用**：将 DPMS 的三个超时时间设为 0，**禁用显示器节能模式**
+- **三个参数含义**：分别对应 Standby（待机）、Suspend（挂起）、Off（关闭）的秒数
+- **行为**：阻止显示器自动进入低功耗或断电状态
+- **机制**：通过 DPMS (Display Power Management Signaling) 信号实际控制显示器的物理电源
+- **与 `-dpms` 的区别**：`xset -dpms` 是完全禁用 DPMS 模块，而 `dpms 0 0 0` 保留模块功能但禁用自动超时
+
+---
+
+### **为什么通常要同时使用？**
+
+X11 的屏幕保护由**两个独立系统**控制：
+
+- **BlankTime/ScreenSaver**：软件层面的黑屏
+- **DPMS**：硬件层面的电源管理
+
+**必须同时关闭两者才能完全禁用屏幕保护**：
+
+```bash
+xset s off      # 关闭屏幕保护程序
+xset dpms 0 0 0 # 禁用显示器自动断电
+```
+
+如果只执行其中一个，另一个机制仍可能触发黑屏或关显示器。
+
+---
+
+### **简单类比**
+
+- `xset s off` ≈ 关闭电脑里的"屏保程序设置"
+- `xset dpms 0 0 0` ≈ 拔掉显示器的电源管理功能
+
+两者配合使用才能彻底禁止 X11 环境下的自动黑屏和关机行为。
+
 ## `yay -S` + `tab` does not show all the package
 
 `rm -rf ~/.cache/yay` can solve this problem.
