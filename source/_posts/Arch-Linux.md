@@ -260,6 +260,71 @@ Key Considerations
 
 Now your Arch Linux machine should be able to communicate with the directly connected computer via the static IP configuration.
 
+### 执行情况
+
+这个配置**会一直存在并生效**，但在连接路由器时**会导致无法上网**。原因如下：
+
+```bash
+# 此命令会创建永久连接配置文件
+nmcli connection add type ethernet ...
+```
+
+- ✅ **会永久保存**：配置写入 `/etc/NetworkManager/system-connections/有线连接1.nmconnection`
+- ✅ **每次插上网线自动激活**：只要网口名匹配，NetworkManager 会自动应用此配置
+- ❌ **连接路由器时失效**：静态 IP 与路由器分配的网段可能不匹配，导致无法通信
+
+### 场景 1：直连另一台电脑（有效）
+
+```
+静态 IP: 192.168.1.100/24
+对方 IP: 192.168.1.50
+结果: ✅ 可以通信
+```
+
+### 场景 2：连接路由器（无效）
+
+```
+路由器网段: 192.168.0.x 或 10.0.0.x
+你的静态 IP: 192.168.1.100
+结果: ❌ IP 不在路由器网段，无法上网
+```
+
+### 方案 1：创建两个配置文件（推荐）
+
+```bash
+# 配置 1：用于直连（静态 IP）
+nmcli connection add type ethernet con-name "有线连接-直连" ifname 网口名 \
+  ipv4.addresses 192.168.1.100/24 ipv4.method manual
+
+# 配置 2：用于路由器（DHCP）
+nmcli connection add type ethernet con-name "有线连接-路由器" ifname 网口名 \
+  ipv4.method auto
+```
+
+**切换方法**：
+
+```bash
+# 连接路由器前
+nmcli connection down "有线连接-直连"
+nmcli connection up "有线连接-路由器"
+
+# 直连电脑时
+nmcli connection down "有线连接-路由器"
+nmcli connection up "有线连接-直连"
+```
+
+### 方案 2：快速临时切换（无需删除）
+
+```bash
+# 临时改为 DHCP（不需要删除配置）
+nmcli connection modify "有线连接1" ipv4.method auto
+nmcli connection up "有线连接1"
+
+# 改回静态 IP
+nmcli connection modify "有线连接1" ipv4.method manual ipv4.addresses 192.168.1.100/24
+nmcli connection up "有线连接1"
+```
+
 ## Keep the screen alive all the time
 
 Disable `dpms` (Display Power Management Signaling，显示电源管理信号，是 Xorg 提供的一套标准化接口，用来告诉显卡驱动："显示器空闲多久后，该进入哪种省电模式) can keep the screen alive all the time.
