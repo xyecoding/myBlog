@@ -192,6 +192,12 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## X11 Forwarding in SSH
+
+When using `ssh -X` (untrusted X11 forwarding), simple X applications like `xclock` may work, but `matplotlib` often fails with errors such as `BadWindow`. This is because the X11 SECURITY extension blocks certain window operations required by modern GUI toolkits (Qt/GTK).
+
+**Solution**: Use `ssh -Y` (trusted X11 forwarding) instead, which bypasses these security restrictions and permits all X11 operations.
+
 ## Connect other computers with a direct LAN connection
 
 When connecting two computers directly with an Ethernet cable (without a router or switch), you cannot obtain IP addresses automatically via DHCP because **there is no DHCP server** in your peer-to-peer network. Your Arch machine will send DHCP requests but receive no response, causing NetworkManager to stuck at "connecting" state and eventually fail with "IP configuration unavailable."
