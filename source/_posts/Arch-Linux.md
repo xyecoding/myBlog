@@ -192,6 +192,76 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## Connect other computers with a direct LAN connection
+
+## Connect other computers with a direct LAN connection
+
+When connecting two computers directly with an Ethernet cable (without a router or switch), you cannot obtain IP addresses automatically via DHCP because **there is no DHCP server** in your peer-to-peer network. Your Arch machine will send DHCP requests but receive no response, causing NetworkManager to stuck at "connecting" state and eventually fail with "IP configuration unavailable."
+
+The solution is to **manually configure static IP addresses** on both computers so they can communicate within the same subnet.
+
+### Step-by-Step Static IP Configuration
+
+First, delete any existing DHCP-based connection profile to avoid conflicts:
+
+```bash
+# 删除旧的 DHCP 配置
+nmcli connection delete "有线连接1"
+```
+
+Next, create a new static IP configuration. Replace `网口名` with your actual interface name (e.g., `eno2`, `eth0`). Choose an IP address in the same subnet as the other computer:
+
+```bash
+# 创建静态 IP 配置（假设另一台电脑是 192.168.1.50）
+nmcli connection add type ethernet con-name "有线连接1" ifname 网口名 \
+  ipv4.addresses 192.168.1.100/24 \
+  ipv4.gateway 192.168.1.50 \
+  ipv4.dns 8.8.8.8 \
+  ipv4.method manual
+```
+
+**Important parameters explained:**
+
+- `ipv4.addresses 192.168.1.100/24`: Assigns a static IP with subnet mask /24 (255.255.255.0). **Make sure this IP is in the same subnet as the other computer** but not identical.
+- `ipv4.gateway 192.168.1.50`: Sets the other computer as the gateway if it provides internet sharing. **If no internet sharing is needed, you can omit this parameter.**
+- `ipv4.dns 8.8.8.8`: Uses Google's public DNS. Omit if you don't need DNS resolution.
+- `ipv4.method manual`: Disables DHCP and enables manual IP configuration.
+
+Finally, activate the connection:
+
+```bash
+# 激活连接
+nmcli connection up "有线连接1"
+```
+
+### Verification
+
+Check the connection status and test connectivity:
+
+```bash
+# Verify interface status (should show "connected")
+nmcli device status 网口名
+
+# Check assigned IP address
+ip addr show 网口名
+
+# Test connection to the other computer (assuming its IP is 192.168.1.50)
+ping -c 3 192.168.1.50
+```
+
+### Key Considerations
+
+1. **IP Address Selection**: Ensure both computers are on the same subnet (e.g., `192.168.1.x`) but have different host addresses. For example:
+
+   - Computer A: `192.168.1.100`
+   - Computer B: `192.168.1.50`
+
+2. **Gateway Parameter**: Only set a gateway if one computer shares its internet connection. For a simple file-sharing LAN, you can omit the gateway.
+
+3. **What if you still want DHCP?** If you prefer automatic IP assignment, you can install a lightweight DHCP server (like `dnsmasq`) on one computer. However, for a simple two-computer setup, static IP configuration is the most straightforward solution.
+
+Now your Arch Linux machine should be able to communicate with the directly connected computer via the static IP configuration.
+
 ## Keep the screen alive all the time
 
 Disable `dpms` (Display Power Management Signaling，显示电源管理信号，是 Xorg 提供的一套标准化接口，用来告诉显卡驱动："显示器空闲多久后，该进入哪种省电模式) can keep the screen alive all the time.
