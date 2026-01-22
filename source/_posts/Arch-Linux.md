@@ -194,13 +194,11 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 ## Connect other computers with a direct LAN connection
 
-## Connect other computers with a direct LAN connection
-
 When connecting two computers directly with an Ethernet cable (without a router or switch), you cannot obtain IP addresses automatically via DHCP because **there is no DHCP server** in your peer-to-peer network. Your Arch machine will send DHCP requests but receive no response, causing NetworkManager to stuck at "connecting" state and eventually fail with "IP configuration unavailable."
 
 The solution is to **manually configure static IP addresses** on both computers so they can communicate within the same subnet.
 
-### Step-by-Step Static IP Configuration
+Step-by-Step Static IP Configuration
 
 First, delete any existing DHCP-based connection profile to avoid conflicts:
 
@@ -234,7 +232,7 @@ Finally, activate the connection:
 nmcli connection up "有线连接1"
 ```
 
-### Verification
+Verification
 
 Check the connection status and test connectivity:
 
@@ -249,7 +247,7 @@ ip addr show 网口名
 ping -c 3 192.168.1.50
 ```
 
-### Key Considerations
+Key Considerations
 
 1. **IP Address Selection**: Ensure both computers are on the same subnet (e.g., `192.168.1.x`) but have different host addresses. For example:
 
@@ -275,14 +273,14 @@ Use `xset -dpms` to disable it. `xset q` can check the status of `dpms`.
 | **`xset s off`**      | X11 屏幕保护程序 (BlankTime) | **仅黑屏，不关显示器电源** (LCD背光通常仍亮) |
 | **`xset dpms 0 0 0`** | DPMS 显示器电源管理信号      | **实际切断显示器电源** (类似关机后的状态)    |
 
-#### **1. `xset s off` - 关闭屏幕保护程序**
+1. `xset s off` - 关闭屏幕保护程序
 
 - **作用**：禁用 X11 内置的屏幕保护功能
 - **行为**：防止屏幕因空闲而变黑，但**不干预显示器的物理电源状态**
 - **机制**：控制 X server 的 Screen Saver/BlankTime 选项
 - **使用场景**：仅想禁用"黑屏"保护，但允许显示器正常休眠
 
-#### **2. `xset dpms 0 0 0` - 禁用电源管理**
+2. `xset dpms 0 0 0` - 禁用电源管理
 
 - **作用**：将 DPMS 的三个超时时间设为 0，**禁用显示器节能模式**
 - **三个参数含义**：分别对应 Standby（待机）、Suspend（挂起）、Off（关闭）的秒数
@@ -290,9 +288,7 @@ Use `xset -dpms` to disable it. `xset q` can check the status of `dpms`.
 - **机制**：通过 DPMS (Display Power Management Signaling) 信号实际控制显示器的物理电源
 - **与 `-dpms` 的区别**：`xset -dpms` 是完全禁用 DPMS 模块，而 `dpms 0 0 0` 保留模块功能但禁用自动超时
 
----
-
-### **为什么通常要同时使用？**
+**为什么通常要同时使用？**
 
 X11 的屏幕保护由**两个独立系统**控制：
 
@@ -308,9 +304,7 @@ xset dpms 0 0 0 # 禁用显示器自动断电
 
 如果只执行其中一个，另一个机制仍可能触发黑屏或关显示器。
 
----
-
-### **简单类比**
+**简单类比**
 
 - `xset s off` ≈ 关闭电脑里的"屏保程序设置"
 - `xset dpms 0 0 0` ≈ 拔掉显示器的电源管理功能
