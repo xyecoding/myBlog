@@ -198,6 +198,43 @@ When using `ssh -X` (untrusted X11 forwarding), simple X applications like `xclo
 
 **Solution**: Use `ssh -Y` (trusted X11 forwarding) instead, which bypasses these security restrictions and permits all X11 operations.
 
+## 解决 Linux 多网卡默认路由冲突问题
+
+### 问题描述
+
+当主机同时接入两个网络时（如一个内网 `eno1` 和一个可上外网的 USB 网卡 `enp0s20f0u2`），尽管两个接口都已正确获取 IP 地址，但无法访问公网，ping 外网 IP 时提示 `Destination Host Unreachable`。
+
+### 原因分析
+
+通过 `ip route show` 发现系统存在两条默认路由：
+
+```
+default via 192.168.1.50 dev eno1 proto static metric 20100
+default via 192.168.100.1 dev enp0s20f0u2 proto dhcp src 192.168.100.100 metric 20101
+```
+
+Linux 根据 **metric（跃点数）** 选择路由，数值越小优先级越高。此处 `eno1` 的 metric（20100）低于 `enp0s20f0u2`（20101），导致所有外网流量被错误地导向无法连接公网的内网接口。
+
+### 解决方案
+
+**临时修复（立即生效）：**
+
+```bash
+sudo ip route del default via 192.168.1.50 dev eno1
+```
+
+删除错误的默认路由后，系统将自动使用剩余的有效默认路由访问外网。
+
+**永久配置（NetworkManager）：**
+
+```bash
+# 禁止 eno1 作为默认路由
+sudo nmcli connection modify "Wired connection 1" ipv4.never-default yes
+sudo nmcli connection reload
+```
+
+这样可确保内网接口仅用于局域网通信，外网流量始终走正确的出口。
+
 ## Connect other computers with a direct LAN connection
 
 When connecting two computers directly with an Ethernet cable (without a router or switch), you cannot obtain IP addresses automatically via DHCP because **there is no DHCP server** in your peer-to-peer network. Your Arch machine will send DHCP requests but receive no response, causing NetworkManager to stuck at "connecting" state and eventually fail with "IP configuration unavailable."
