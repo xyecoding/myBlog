@@ -264,9 +264,11 @@ nmcli connection add type ethernet con-name "有线连接1" ifname 网口名 \
 **Important parameters explained:**
 
 - `ipv4.addresses 192.168.1.100/24`: Assigns a static IP with subnet mask /24 (255.255.255.0). **Make sure this IP is in the same subnet as the other computer** but not identical.
-- `ipv4.gateway 192.168.1.50`: Sets the other computer as the gateway if it provides internet sharing. **If no internet sharing is needed, you can omit this parameter.**
+- `ipv4.gateway 192.168.1.50`: Sets the other computer as the gateway if it provides internet sharing. **If no internet sharing is needed, you can omit this parameter.** 一个局域网 = 一个网关，同一个局域网内，所有设备共享同一个网关（通常是路由器的 LAN 口 IP）。每个局域网通常只有一个网关，但一台电脑可以接入多个局域网（多个网关）。关键是：只把能上网的那个设为 default gateway。设置错误的网关会导致无法上网， eno1 配置 gateway 是画蛇添足，删掉就通了。
 - `ipv4.dns 8.8.8.8`: Uses Google's public DNS. Omit if you don't need DNS resolution.
 - `ipv4.method manual`: Disables DHCP and enables manual IP configuration.
+
+通过网线直连共享上网时，A电脑可将网关设为B电脑（有另一条网线连接，可上公网）的网口IP实现上网，但这要求B电脑开启IP转发（`net.ipv4.ip_forward=1`）并配置NAT（`iptables -t nat -A POSTROUTING -o 外网网卡 -j MASQUERADE`），将A的私网地址转换为自身外网地址，B在此过程中充当软路由角色；若仅设置网关而不开启转发和NAT，数据包到达B后无法继续转发，A仍无法访问外网。
 
 Finally, activate the connection:
 
