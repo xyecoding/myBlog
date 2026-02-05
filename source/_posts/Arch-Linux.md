@@ -192,6 +192,17 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## 卸载 Busy 的挂载点
+
+当 `umount` 报错 _target is busy_ 时，按以下步骤处理：
+
+```bash
+sudo lsof /path/to/mnt    # 查看打开的文件
+sudo fuser -mv /path/to/mnt  # 查看占用 PID
+cd ~                      # 离开挂载目录
+sudo kill -15 <PID>       # 正常终止进程
+```
+
 ## X11 Forwarding in SSH
 
 When using `ssh -X` (untrusted X11 forwarding), simple X applications like `xclock` may work, but `matplotlib` often fails with errors such as `BadWindow`. This is because the X11 SECURITY extension blocks certain window operations required by modern GUI toolkits (Qt/GTK).
@@ -209,8 +220,10 @@ When using `ssh -X` (untrusted X11 forwarding), simple X applications like `xclo
 通过 `ip route show` 发现系统存在两条默认路由：
 
 ```
+
 default via 192.168.1.50 dev eno1 proto static metric 20100
 default via 192.168.100.1 dev enp0s20f0u2 proto dhcp src 192.168.100.100 metric 20101
+
 ```
 
 Linux 根据 **metric（跃点数）** 选择路由，数值越小优先级越高。此处 `eno1` 的 metric（20100）低于 `enp0s20f0u2`（20101），导致所有外网流量被错误地导向无法连接公网的内网接口。
