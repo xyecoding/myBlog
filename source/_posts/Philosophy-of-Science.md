@@ -7,7 +7,7 @@ abbrlink: 159973c7
 date: 2026-02-27 11:37:45
 password:
 summary:
-description:
+description: 科学哲学
 categories:
 tags:
 ---
