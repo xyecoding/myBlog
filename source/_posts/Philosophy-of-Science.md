@@ -1,10 +1,10 @@
 ---
-title: Philosophy_of_Science
+title: Philosophy of Science
 top: false
 cover: false
 toc: true
-abbrlink: d3356ce
-date: 2026-02-25 12:05:20
+abbrlink: 159973c7
+date: 2026-02-27 11:37:45
 password:
 summary:
 description:
