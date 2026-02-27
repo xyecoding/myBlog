@@ -9,7 +9,9 @@ password:
 summary:
 description: 阅读笔记
 categories:
+  - Humanities thought
 tags:
+  - Humanities thought
 ---
 
 # 维特根斯坦和哲学

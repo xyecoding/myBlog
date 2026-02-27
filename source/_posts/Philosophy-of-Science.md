@@ -9,7 +9,9 @@ password:
 summary:
 description: 科学哲学
 categories:
+  - Humanities thought
 tags:
+  - Humanities thought
 ---
 
 # 主体性间焦虑和数学

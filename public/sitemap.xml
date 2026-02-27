@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/posts/159973c7/</loc>
+    <loc>https://xyecoding.github.io/myBlog/posts/c1db8b87/</loc>
     
     <lastmod>2026-02-27</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://xyecoding.github.io/myBlog/posts/c1db8b87/</loc>
+    <loc>https://xyecoding.github.io/myBlog/posts/159973c7/</loc>
     
     <lastmod>2026-02-27</lastmod>
     
@@ -421,6 +421,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/tags/Humanities-thought/</loc>
+    <lastmod>2026-02-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -593,6 +600,13 @@
   
   <url>
     <loc>https://xyecoding.github.io/myBlog/categories/Machine-Learning/Methods/Generative-Adversarial-Network/</loc>
+    <lastmod>2026-02-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/categories/Humanities-thought/</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
