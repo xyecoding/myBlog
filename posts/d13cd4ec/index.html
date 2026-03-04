@@ -43,7 +43,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://xyecoding.github.io/myBlog/posts/d13cd4ec/git.jpg">
 <meta property="article:published_time" content="2021-12-10T13:55:33.000Z">
-<meta property="article:modified_time" content="2026-01-08T04:00:06.393Z">
+<meta property="article:modified_time" content="2026-03-04T07:01:37.506Z">
 <meta property="article:author" content="Xiang Ye">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
@@ -138,7 +138,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#modify-the-gitignore-file"><span class="nav-text">1.  Modify the .gitignore file</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#the-structure-of-git"><span class="nav-text">2.  The Structure of Git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#get-back-to-an-old-version"><span class="nav-text">3.  Get back to an old version</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#clone-too-slow"><span class="nav-text">4.  Clone too slow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-folder-is-too-big"><span class="nav-text">5.  .git folder is too big</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#github-fork-%E5%8D%8F%E4%BD%9C%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97%E4%BB%8E-fork-%E5%88%B0-pr-%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-text">1.  GitHub Fork 协作完整指南：从 Fork 到 PR 的最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5%E4%B8%8A%E6%B8%B8%E4%BB%93%E5%BA%93"><span class="nav-text">1.1.  初始配置：连接上游仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="nav-text">1.2.  日常开发流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-1%E5%90%8C%E6%AD%A5%E4%B8%8A%E6%B8%B8%E6%9C%80%E6%96%B0%E4%BB%A3%E7%A0%81"><span class="nav-text">1.2.1.  步骤 1：同步上游最新代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-2%E5%88%9B%E5%BB%BA%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF"><span class="nav-text">1.2.2.  步骤 2：创建功能分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-3%E5%BC%80%E5%8F%91%E4%B8%8E%E6%8F%90%E4%BA%A4"><span class="nav-text">1.2.3.  步骤 3：开发与提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-4%E5%88%9B%E5%BB%BA-pull-request"><span class="nav-text">1.2.4.  步骤 4：创建 Pull Request</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86"><span class="nav-text">1.3.  分支生命周期管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E5%90%8E%E6%B8%85%E7%90%86%E9%87%8D%E8%A6%81"><span class="nav-text">1.3.1.  合并后清理（重要！）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="nav-text">1.3.2.  完整流程图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8"><span class="nav-text">1.4.  实用命令速查表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%8E%9F%E5%88%99%E6%80%BB%E7%BB%93"><span class="nav-text">1.5.  关键原则总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-text">1.6.  常见问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#modify-the-gitignore-file"><span class="nav-text">2.  Modify the .gitignore file</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#the-structure-of-git"><span class="nav-text">3.  The Structure of Git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#get-back-to-an-old-version"><span class="nav-text">4.  Get back to an old version</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#clone-too-slow"><span class="nav-text">5.  Clone too slow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-folder-is-too-big"><span class="nav-text">6.  .git folder is too big</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -245,7 +245,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-01-08 12:00:06" itemprop="dateModified" datetime="2026-01-08T12:00:06+08:00">2026-01-08</time>
+      <time title="Modified: 2026-03-04 15:01:37" itemprop="dateModified" datetime="2026-03-04T15:01:37+08:00">2026-03-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -276,13 +276,120 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <html><head></head><body><h1 id="modify-the-gitignore-file"><span class="post-title-index">1. </span><a class="markdownIt-Anchor" href="#modify-the-gitignore-file"></a> Modify the <code>.gitignore</code> file</h1>
+        <html><head></head><body><h1 id="github-fork-协作完整指南从-fork-到-pr-的最佳实践"><span class="post-title-index">1. </span><a class="markdownIt-Anchor" href="#github-fork-协作完整指南从-fork-到-pr-的最佳实践"></a> GitHub Fork 协作完整指南：从 Fork 到 PR 的最佳实践</h1>
+<blockquote>
+<p>本文详细记录如何正确参与开源项目维护，包括环境配置、分支管理、代码提交及清理流程。</p>
+</blockquote>
+<h2 id="初始配置连接上游仓库"><span class="post-title-index">1.1. </span><a class="markdownIt-Anchor" href="#初始配置连接上游仓库"></a> 初始配置：连接上游仓库</h2>
+<p>当你 Fork 了别人的仓库后，clone fork后的仓库到本地，第一步是建立与原始仓库的连接：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前远程仓库</span></span><br><span class="line">git remote -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加原始仓库作为 upstream</span></span><br><span class="line">git remote add upstream https://github.com/原作者/原仓库.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证配置</span></span><br><span class="line">git remote -v</span><br><span class="line"><span class="comment"># 预期输出：</span></span><br><span class="line"><span class="comment"># origin    https://github.com/你的用户名/仓库.git (fetch)</span></span><br><span class="line"><span class="comment"># origin    https://github.com/你的用户名/仓库.git (push)</span></span><br><span class="line"><span class="comment"># upstream  https://github.com/原作者/原仓库.git (fetch)</span></span><br><span class="line"><span class="comment"># upstream  https://github.com/原作者/原仓库.git (push)</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="日常开发流程"><span class="post-title-index">1.2. </span><a class="markdownIt-Anchor" href="#日常开发流程"></a> 日常开发流程</h2>
+<h3 id="步骤-1同步上游最新代码"><span class="post-title-index">1.2.1. </span><a class="markdownIt-Anchor" href="#步骤-1同步上游最新代码"></a> 步骤 1：同步上游最新代码</h3>
+<p><strong>每次开发新功能前，务必先同步</strong>，避免代码冲突：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout main</span><br><span class="line">git fetch upstream</span><br><span class="line">git merge upstream/main</span><br><span class="line">git push origin main</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="步骤-2创建功能分支"><span class="post-title-index">1.2.2. </span><a class="markdownIt-Anchor" href="#步骤-2创建功能分支"></a> 步骤 2：创建功能分支</h3>
+<p><strong>关键原则：一个功能一个分支，基于最新 main 创建</strong></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 确保在 main 分支且已同步</span></span><br><span class="line">git checkout main</span><br><span class="line">git pull upstream main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建并切换到新分支（命名要有意义）</span></span><br><span class="line">git checkout -b feature/add-login-api</span><br></pre></td></tr></tbody></table></figure>
+<p>⚠️ <strong>常见错误</strong>：不要基于旧功能分支创建新分支，否则 PR 会包含无关代码。</p>
+<h3 id="步骤-3开发与提交"><span class="post-title-index">1.2.3. </span><a class="markdownIt-Anchor" href="#步骤-3开发与提交"></a> 步骤 3：开发与提交</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进行代码修改...</span></span><br><span class="line"><span class="comment"># 编辑文件、测试功能</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交改动（遵循约定式提交规范）</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"feat: 添加用户登录接口</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- 实现 JWT 认证</span></span><br><span class="line"><span class="string">- 添加登录表单验证</span></span><br><span class="line"><span class="string">- 编写单元测试"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送到你的 Fork</span></span><br><span class="line">git push origin feature/add-login-api</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="步骤-4创建-pull-request"><span class="post-title-index">1.2.4. </span><a class="markdownIt-Anchor" href="#步骤-4创建-pull-request"></a> 步骤 4：创建 Pull Request</h3>
+<ol>
+<li>
+<p>打开 GitHub 页面，点击 <strong>"Compare &amp; pull request"</strong></p>
+</li>
+<li>
+<p>检查合并方向：</p>
+<ul>
+<li><strong>base</strong>: 原作者/main ← <strong>compare</strong>: 你的fork/feature分支</li>
+</ul>
+</li>
+<li>
+<p>填写 PR 描述模板：</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 描述</span></span><br><span class="line"></span><br><span class="line">简要说明改动内容</span><br><span class="line"></span><br><span class="line"><span class="section">## 改动类型</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> [x] 新功能</span><br><span class="line"><span class="bullet">-</span> [ ] Bug 修复</span><br><span class="line"><span class="bullet">-</span> [ ] 文档更新</span><br><span class="line"></span><br><span class="line"><span class="section">## 测试</span></span><br><span class="line"></span><br><span class="line">描述如何测试这些改动</span><br><span class="line"></span><br><span class="line"><span class="section">## 关联 Issue</span></span><br><span class="line"></span><br><span class="line">Fixes #123</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>提交 PR 并等待审查</p>
+</li>
+</ol>
+<h2 id="分支生命周期管理"><span class="post-title-index">1.3. </span><a class="markdownIt-Anchor" href="#分支生命周期管理"></a> 分支生命周期管理</h2>
+<h3 id="合并后清理重要"><span class="post-title-index">1.3.1. </span><a class="markdownIt-Anchor" href="#合并后清理重要"></a> 合并后清理（重要！）</h3>
+<p>PR 被合并后，立即清理分支，保持仓库整洁：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切换到 main 并同步最新代码</span></span><br><span class="line">git checkout main</span><br><span class="line">git pull upstream main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除本地分支</span></span><br><span class="line">git branch -d feature/add-login-api</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除远程分支</span></span><br><span class="line">git push origin --delete feature/add-login-api</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="完整流程图"><span class="post-title-index">1.3.2. </span><a class="markdownIt-Anchor" href="#完整流程图"></a> 完整流程图</h3>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────┐     ┌─────────────┐     ┌─────────────┐</span><br><span class="line">│  1. 同步上游  │ --&gt; │ 2. 创建分支  │ --&gt; │  3. 开发功能  │</span><br><span class="line">│  pull upstream│     │ checkout -b │     │  commit/push │</span><br><span class="line">└─────────────┘     └─────────────┘     └──────┬──────┘</span><br><span class="line">                                                │</span><br><span class="line">                       ┌────────────────────────┘</span><br><span class="line">                       ▼</span><br><span class="line">┌─────────────┐     ┌─────────────┐     ┌─────────────┐</span><br><span class="line">│ 6. 清理分支   │ &lt;-- │ 5. PR 被合并 │ &lt;-- │  4. 创建 PR   │</span><br><span class="line">│ branch -d   │     │  merge      │     │  GitHub PR  │</span><br><span class="line">└─────────────┘     └─────────────┘     └─────────────┘</span><br><span class="line">        │</span><br><span class="line">        └──────────────────────────────────────┐</span><br><span class="line">                                               ▼</span><br><span class="line">                                        ┌─────────────┐</span><br><span class="line">                                        │  回到步骤 1  │</span><br><span class="line">                                        │  开始新功能   │</span><br><span class="line">                                        └─────────────┘</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="实用命令速查表"><span class="post-title-index">1.4. </span><a class="markdownIt-Anchor" href="#实用命令速查表"></a> 实用命令速查表</h2>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查看远程仓库</td>
+<td><code>git remote -v</code></td>
+</tr>
+<tr>
+<td>添加 upstream</td>
+<td><code>git remote add upstream &lt;url&gt;</code></td>
+</tr>
+<tr>
+<td>同步上游代码</td>
+<td><code>git fetch upstream &amp;&amp; git merge upstream/main</code></td>
+</tr>
+<tr>
+<td>创建并切换分支</td>
+<td><code>git checkout -b feature/xxx</code></td>
+</tr>
+<tr>
+<td>推送分支</td>
+<td><code>git push origin feature/xxx</code></td>
+</tr>
+<tr>
+<td>删除本地分支</td>
+<td><code>git branch -d feature/xxx</code></td>
+</tr>
+<tr>
+<td>删除远程分支</td>
+<td><code>git push origin --delete feature/xxx</code></td>
+</tr>
+<tr>
+<td>查看所有分支</td>
+<td><code>git branch -a</code></td>
+</tr>
+<tr>
+<td>清理已合并分支</td>
+<td><code>git branch --merged \| grep -v "main\|*" \| xargs git branch -d</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="关键原则总结"><span class="post-title-index">1.5. </span><a class="markdownIt-Anchor" href="#关键原则总结"></a> 关键原则总结</h2>
+<ol>
+<li><strong>永远基于 <code>main</code> 创建新分支</strong>，不要在旧功能分支上继续开发</li>
+<li><strong>一个分支只做一件事</strong>，保持 PR 小而专注</li>
+<li><strong>合并后立即删除分支</strong>，分支是临时的、廉价的</li>
+<li><strong>定期同步上游代码</strong>，减少冲突可能性</li>
+<li><strong>写清晰的 commit 信息</strong>，便于追溯历史</li>
+</ol>
+<h2 id="常见问题"><span class="post-title-index">1.6. </span><a class="markdownIt-Anchor" href="#常见问题"></a> 常见问题</h2>
+<p><strong>Q: 分支会越建越多吗？</strong><br>
+A: 不会。遵循"用后即删"原则，合并后立即删除，保持仓库整洁。</p>
+<p><strong>Q: 可以在同一个分支上提交多个功能吗？</strong><br>
+A: 强烈不建议。这会导致 PR 难以审查，且一个功能有问题会阻塞其他功能合并。</p>
+<p><strong>Q: 如果 PR 被拒绝或需要修改怎么办？</strong><br>
+A: 在原有分支上继续提交修改，<code>git push</code> 后会自动更新到 PR 中，无需新建 PR。</p>
+<blockquote>
+<p>💡 <strong>提示</strong>：将常用命令配置为 Git alias 可大幅提升效率，例如 <code>git sync</code> 一键同步上游代码。</p>
+</blockquote>
+<h1 id="modify-the-gitignore-file"><span class="post-title-index">2. </span><a class="markdownIt-Anchor" href="#modify-the-gitignore-file"></a> Modify the <code>.gitignore</code> file</h1>
 <p>Changes to <code>.gitignore</code> only apply to <strong>untracked</strong>
 files — it won’t ignore files that Git
 is already tracking. To enforce the new
 rules on all files, run the following commands:</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="the-structure-of-git"><span class="post-title-index">2. </span><a class="markdownIt-Anchor" href="#the-structure-of-git"></a> The Structure of Git</h1>
+<h1 id="the-structure-of-git"><span class="post-title-index">3. </span><a class="markdownIt-Anchor" href="#the-structure-of-git"></a> The Structure of Git</h1>
 <p><img src="git.jpg" alt="The Structure of Git"></p>
 <p>git checkout 用于切换分支或恢复工作数文件，它是一个危险的命令，因为这条命令会重
 写工作区。</p>
@@ -291,7 +398,7 @@ rules on all files, run the following commands:</p>
 <p>–midified (-m)查看修改过的文件</p>
 <p>–delete (-d)查看删除过的文件</p>
 <p>–other (-o)查看没有被 git 跟踪的文件</p>
-<h1 id="get-back-to-an-old-version"><span class="post-title-index">3. </span><a class="markdownIt-Anchor" href="#get-back-to-an-old-version"></a> Get back to an old version</h1>
+<h1 id="get-back-to-an-old-version"><span class="post-title-index">4. </span><a class="markdownIt-Anchor" href="#get-back-to-an-old-version"></a> Get back to an old version</h1>
 <p><code>git log</code> can show the history of your commit.</p>
 <p><code>git reset xxx</code> will git back to an old version. However, the workspace will not
 change, i.e., the workspace is also the current workspace.
@@ -301,7 +408,7 @@ be also the old version.</p>
 information. It records when the tips of branches and other references were
 updated in the local repository. The code of the newest version will be
 observed.</p>
-<h1 id="clone-too-slow"><span class="post-title-index">4. </span><a class="markdownIt-Anchor" href="#clone-too-slow"></a> Clone too slow</h1>
+<h1 id="clone-too-slow"><span class="post-title-index">5. </span><a class="markdownIt-Anchor" href="#clone-too-slow"></a> Clone too slow</h1>
 <p>The network speed of <code>git clone</code> is often very slow in China mainland. To
 improve the speed, I often <code>clone</code> by ssh, i.e., use the ssh link instead of
 https link. However, it need to change the link. Use
@@ -317,7 +424,7 @@ Thus the mirror is used.</p>
 Use ssh will work fine for it only replace <code>https://github.com</code> and ssh uses
 <code>git@github</code>. The <code>url</code> in <code>.gitconfig</code> file have no effect on ssh push/clone or
 pull.</p>
-<h1 id="git-folder-is-too-big"><span class="post-title-index">5. </span><a class="markdownIt-Anchor" href="#git-folder-is-too-big"></a> <code>.git</code> folder is too big</h1>
+<h1 id="git-folder-is-too-big"><span class="post-title-index">6. </span><a class="markdownIt-Anchor" href="#git-folder-is-too-big"></a> <code>.git</code> folder is too big</h1>
 <p>Usually <code>.git/objects/pack</code> folder is contain three files.</p>
 <ol>
 <li><code>.pack</code> file which contain all the commit information.</li>
