@@ -192,6 +192,41 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## x0vncserver 分辨率变更后画面截断问题分析与解决
+
+在使用 TigerVNC 的 `x0vncserver` 共享本地 X 会话时，通过 `xrandr` 调整屏幕分辨率后，VNC 远程连接出现画面截断现象。
+
+- **本地显示器**：正常显示完整桌面，分辨率正确（如 1920x1200）
+- **VNC 远程连接**：只能看到部分画面，仿佛被"裁剪"过
+- **现象截图**（示意）：
+  ```
+  本地显示: [████████████████████] 1920x1200 完整
+  VNC 显示: [██████████░░░░░░░░░░] 仅显示部分内容，右侧/下方被截断
+  ```
+
+### 根本原因
+
+`x0vncserver` 在启动时会捕获当前 X 会话的帧缓冲区（framebuffer）尺寸。当使用 `xrandr` 动态调整分辨率后，X 服务器的显示输出发生变化，但 **x0vncserver 不会自动重新检测屏幕尺寸**，导致其仍然使用旧的分辨率进行画面传输。
+
+| 组件           | 版本/说明            |
+| -------------- | -------------------- |
+| VNC Server     | TigerVNC x0vncserver |
+| 操作系统       | Linux with X11       |
+| 分辨率调整工具 | xrandr               |
+| 服务管理       | systemd              |
+
+### 解决方案
+
+最直接有效的方法：在分辨率变更后重启服务，强制重新初始化帧缓冲区。
+
+```bash
+# 调整分辨率
+xrandr --output HDMI-1 --mode 1920x1200
+
+# 重启 VNC 服务
+sudo systemctl restart x0vncserver
+```
+
 ## 卸载 Busy 的挂载点
 
 当 `umount` 报错 _target is busy_ 时，按以下步骤处理：
