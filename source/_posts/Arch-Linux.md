@@ -192,6 +192,135 @@ You may use any multi-boot supporting BIOS boot loader, such as 'grub'.
 
 # Configuration
 
+## 修复 yay AUR 更新错误：从 Anubis 拦截到解决
+
+执行系统更新时，yay 在查询 AUR 更新阶段报错：
+
+```bash
+~ yay -Syu
+:: Synchronizing package databases...
+ core is up to date
+ extra                                7.9 MiB  19.2 MiB/s 00:00 [###################################] 100%
+ multilib is up to date
+:: Searching AUR for updates...
+:: Searching databases for updates...
+ -> 1 error occurred:
+        * response decoding failed: invalid character '<' looking for beginning of value
+```
+
+**关键特征**：
+
+- 官方仓库同步正常（core/extra/multilib）
+- 错误仅出现在 **AUR 查询阶段**
+- 清理缓存（`yay -Sc`）无效
+
+### 诊断过程
+
+#### 第一步：验证 AUR 连通性
+
+```bash
+~ curl -s "https://aur.archlinux.org/rpc/v5/info?arg[]=yay" | head -5
+<!doctype html><html lang="en"><head><title>Oh noes!</title><link rel="stylesheet" href="/.within.website/x/xess/xess.min.css?cachebuster=1.24.0"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,nofollow"><style>
+```
+
+**异常**：期望返回 JSON，实际返回 HTML 错误页面。
+
+#### 第二步：检查 HTTP 响应头
+
+```bash
+~ curl -sI "https://aur.archlinux.org/"
+HTTP/2 200
+server: nginx
+date: Wed, 11 Mar 2026 06:01:49 GMT
+content-type: text/html; charset=utf-8
+set-cookie: techaro.lol-anubis-auth=; Path=/; Expires=Wed, 11 Mar 2026 06:00:49 GMT; Max-Age=0; Secure; SameSite=None
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+```
+
+**关键线索**：`techaro.lol-anubis-auth` cookie 表明请求被 **Anubis 反爬虫系统**拦截。
+
+### 原理介绍：Anubis 拦截机制
+
+#### 什么是 Anubis？
+
+[Anubis](https://anubis.techaro.lol/) 是 AUR 网站近期部署的反爬虫保护系统，由 Techaro 开发。其工作原理：
+
+1. **JavaScript 挑战**：对可疑 IP 返回 HTML 页面，包含 JavaScript 验证代码
+2. **Cookie 认证**：验证通过后设置 `techaro.lol-anubis-auth` cookie
+3. **请求拦截**：无法执行 JS 的客户端（curl、yay 等）会被挡在挑战页面
+
+#### 为什么 yay 会触发拦截？
+
+| 触发因素    | 说明                          |
+| ----------- | ----------------------------- |
+| 数据中心 IP | 云服务器/VPS 出口 IP 易被标记 |
+| 请求频率    | 高频 API 调用触发速率限制     |
+| 地理区域    | 某些地区的 IP 段信誉度较低    |
+| 代理共享    | 公共代理的 IP 已被多人使用    |
+
+### 诊断对比：正常 vs 异常
+
+#### ❌ 异常情况（被 Anubis 拦截）
+
+```bash
+# RPC API 测试 - 返回 HTML 错误页
+~ curl -s "https://aur.archlinux.org/rpc/v5/info?arg[]=yay" | head -5
+<!doctype html><html lang="en"><head><title>Oh noes!</title>...
+
+# 主页响应头 - 包含 Anubis cookie，值为空或过期
+~ curl -sI "https://aur.archlinux.org/"
+HTTP/2 200
+set-cookie: techaro.lol-anubis-auth=; Path=/; Expires=...; Max-Age=0
+```
+
+**特征**：
+
+- RPC 接口返回 HTML（`<!doctype html>` 开头）
+- `techaro.lol-anubis-auth` cookie 为空或已过期
+- yay 报错 `invalid character '<'...`
+
+#### ✅ 正常情况（通过验证）
+
+```bash
+# 换节点后 RPC 测试 - 正常返回 JSON
+~ curl -s "https://aur.archlinux.org/rpc/v5/info?arg[]=yay" | head -5
+{"version":5,"type":"multiinfo","resultcount":1,"results":[{"ID":12345,...
+
+# 主页响应头 - 405 是正常的（HEAD 方法不被允许）
+~ curl -sI "https://aur.archlinux.org/"
+HTTP/2 405
+server: nginx
+content-type: text/html; charset=utf-8
+# 注意：没有 Anubis cookie，或 cookie 值有效
+```
+
+**特征**：
+
+- RPC 接口返回 JSON（`{"version":5,...` 开头）
+- HTTP 405 对 HEAD 请求是正常的
+- `yay -Syu` 执行成功
+
+> **注意**：`curl -I`（HEAD 请求）返回 405 是 AUR 网站的正常行为，不代表有问题。关键看 RPC 接口是否返回 JSON。
+
+### 解决方案
+
+#### 更换代理节点（推荐）
+
+Anubis 基于 IP 信誉度判断，更换干净的住宅 IP 通常可解决：
+
+```bash
+# 切换到新代理节点后验证
+curl -s "https://aur.archlinux.org/rpc/v5/info?arg[]=yay" | head -5
+# 应返回 JSON 而非 HTML
+```
+
+### 经验总结
+
+1. **错误本质**：`invalid character '<'` 表明收到 HTML 而非 JSON，通常是中间件拦截（WAF/反爬虫）
+2. **快速诊断**：`curl -s "https://aur.archlinux.org/rpc/v5/info?arg[]=yay"` 应返回 JSON
+3. **Anubis 信号**：响应头中的 `techaro.lol-anubis-auth` cookie 是拦截系统的标识
+4. **根本解决**：使用干净的网络出口（住宅 IP、私人代理），避免公共代理/被标记的 IP
+
 ## x0vncserver 分辨率变更后画面截断问题分析与解决
 
 在使用 TigerVNC 的 `x0vncserver` 共享本地 X 会话时，通过 `xrandr` 调整屏幕分辨率后，VNC 远程连接出现画面截断现象。
