@@ -12,6 +12,112 @@ date: 2021-12-10 21:55:33
 summary:
 ---
 
+# `git config pull.rebase` 完整配置指南
+
+控制执行 `git pull` 时，如何处理本地与远程分叉（divergent branches）的整合策略。
+
+## 三种配置模式
+
+### 1. `false`（默认行为）- Merge 模式
+
+```bash
+git config pull.rebase false
+```
+
+**效果：**  
+本地提交和远程提交**合并**（merge），产生一个额外的 "Merge branch..." 提交节点，历史呈 "Y" 型分叉结构。
+
+**适用场景：**
+
+- 团队协作项目（保留完整上下文，谁做了什么一目了然）
+- 需要保留并行开发历史的记录
+- 公共分支（master/main）的标准操作
+
+**结果图示：**
+
+```
+A---B---C---M (merge commit)
+ \         /
+  D-------/
+```
+
+### 2. `true` - Rebase（变基）模式
+
+```bash
+git config pull.rebase true
+```
+
+**效果：**  
+把你的本地提交**摘下来**，在远程最新提交之后**重新应用**，生成新的 commit ID（内容不变，但 hash 变了），历史保持直线。
+
+**适用场景：**
+
+- **个人项目**（如 dotfiles）：历史看起来像 "先 pull 后修改"，整洁无分叉
+- 补救 "忘记先 pull 就修改" 的场景，避免产生 merge commit
+- 功能分支开发完毕合并前，整理提交历史
+
+**结果图示：**
+
+```
+A---B---C---D' (重新应用后的提交)
+```
+
+**⚠️ 重要警告：**  
+已推送到远程的提交**不要** rebase，会改变 commit ID，导致与他人冲突。仅用于本地未推送的提交整理。
+
+### 3. `only` - Fast-forward only（仅快进）
+
+```bash
+git config pull.ff only
+```
+
+**效果：**  
+遇到分叉直接**拒绝** pull，强制你先手动处理（stash、reset 或显式指定策略）。最安全，不会自动产生意外合并。
+
+**适用场景：**
+
+- 对 Git 不熟悉，担心自动合并带来混乱
+- 仓库有严格提交规范，禁止自动合并
+- 需要强制养成 "先 pull 再工作" 的习惯
+
+**结果：**  
+如果本地有提交未推送，远程也有更新，pull 直接报错，强制你显式选择 merge 或 rebase。
+
+## 配置对比表
+
+| 配置             | 历史形状    | 产生新提交          | 风险           | 适用      |
+| ---------------- | ----------- | ------------------- | -------------- | --------- |
+| `false` (merge)  | 分叉（Y型） | 多一个 merge commit | 历史复杂       | 团队协作  |
+| `true` (rebase)  | 直线        | 改写已有 commit ID  | **仅改写本地** | 个人开发  |
+| `only` (ff-only) | 无操作      | 无                  | 需手动解决     | 保守/新手 |
+
+## 快速设置命令
+
+```bash
+# 查看当前配置
+git config --get pull.rebase
+
+# 当前仓库生效
+git config pull.rebase true
+
+# 全局默认（影响所有仓库）
+git config --global pull.rebase true
+
+# 临时单次覆盖（不想改配置时）
+git pull --rebase        # 临时用 rebase
+git pull --no-rebase     # 临时用 merge
+git pull --ff-only       # 临时仅快进
+```
+
+**个人仓库：**  
+推荐设置 `git config pull.rebase true`，这样多台电脑间的同步历史是条干净的直线，就像你 sequentially 工作一样。今天 "忘记 pull" 的情况用 rebase 解决，完全等价于 "先 pull 再修改" 的理想流程。
+
+**团队协作仓库：**  
+保持默认 `false` 或显式设置 `false`，保留 merge commit 作为"协作证据"，方便追溯哪些提交是并行开发的。
+
+**新手过渡期：**  
+可先设 `only`，强制自己养成习惯，遇到分叉时显式思考该 merge 还是 rebase，熟悉后再改配置。
+
 # GitHub Fork 协作完整指南：从 Fork 到 PR 的最佳实践
 
 > 本文详细记录如何正确参与开源项目维护，包括环境配置、分支管理、代码提交及清理流程。
