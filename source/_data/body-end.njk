@@ -1,0 +1,32 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const figures = document.querySelectorAll('figure.highlight');
+  const maxLines = 15;
+  figures.forEach(function(fig) {
+    const gutter = fig.querySelector('.gutter pre');
+    const lines = gutter ? gutter.querySelectorAll('span.line').length : 0;
+    if (lines > maxLines) {
+      fig.classList.add('code-block-folded');
+      const overlay = document.createElement('div');
+      overlay.className = 'code-block-fold-overlay';
+      const btn = document.createElement('button');
+      btn.className = 'code-block-fold-btn';
+      btn.type = 'button';
+      btn.textContent = '展开代码';
+      overlay.appendChild(btn);
+      fig.appendChild(overlay);
+
+      overlay.addEventListener('click', function() {
+        if (fig.classList.contains('code-block-folded')) {
+          fig.classList.remove('code-block-folded');
+          btn.textContent = '收起代码';
+        } else {
+          fig.classList.add('code-block-folded');
+          btn.textContent = '展开代码';
+          fig.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+    }
+  });
+});
+</script>
