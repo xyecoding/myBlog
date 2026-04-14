@@ -782,6 +782,38 @@ of key <code>p</code> can be modified.</p>
 
 <script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"xyecoding","repo":"myBlog","client_id":"caf47b5090fb9fdaadbe","client_secret":"97ba359034d6c5a49f04cd4cb6973006c594ab57","admin_user":"xyecoding","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"748febd339c1dcfd3ba9eb34c1bbad38"}</script>
 <script src="/myBlog/js/third-party/comments/gitalk.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const figures = document.querySelectorAll('figure.highlight');
+  const maxLines = 15;
+  figures.forEach(function(fig) {
+    const gutter = fig.querySelector('.gutter pre');
+    const lines = gutter ? gutter.querySelectorAll('span.line').length : 0;
+    if (lines > maxLines) {
+      fig.classList.add('code-block-folded');
+      const overlay = document.createElement('div');
+      overlay.className = 'code-block-fold-overlay';
+      const btn = document.createElement('button');
+      btn.className = 'code-block-fold-btn';
+      btn.type = 'button';
+      btn.textContent = '展开代码';
+      overlay.appendChild(btn);
+      fig.appendChild(overlay);
+
+      overlay.addEventListener('click', function() {
+        if (fig.classList.contains('code-block-folded')) {
+          fig.classList.remove('code-block-folded');
+          btn.textContent = '收起代码';
+        } else {
+          fig.classList.add('code-block-folded');
+          btn.textContent = '展开代码';
+          fig.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+    }
+  });
+});
+</script>
 
 </body>
 
