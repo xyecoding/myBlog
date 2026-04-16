@@ -442,13 +442,6 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/tags/%E5%85%89%E5%AD%A6/</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
@@ -642,13 +635,6 @@
   
   <url>
     <loc>https://xyecoding.github.io/myBlog/categories/%E6%95%B0%E5%AD%A6/%E5%93%B2%E5%AD%A6/%E9%80%BB%E8%BE%91%E5%AD%A6/</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xyecoding.github.io/myBlog/categories/%E5%85%89%E5%AD%A6/</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
