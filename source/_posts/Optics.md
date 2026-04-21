@@ -241,6 +241,9 @@ $$
 f_k = \frac{x_f}{\lambda f} \quad \Longrightarrow \quad x_f = \lambda f \cdot f_k
 $$
 
+几何光学的推导见
+[单平面波分量的聚焦。](#%E5%8D%95%E5%B9%B3%E9%9D%A2%E6%B3%A2%E5%88%86%E9%87%8F%E7%9A%84%E8%81%9A%E7%84%A6)
+
 ### **离散到连续的映射**
 
 FFT的第k个采样点对应物理频率 `f_k = k·Δf`，因此对应的焦平面位置为
@@ -379,7 +382,7 @@ $$A(k_u,k_v) = \frac{1}{(2\pi)^2} \iint P(u,v) \cdot e^{-i(k_u u + k_v v)} \, du
 
 <div style="color: red;">
 
-这里 $k_u,K_v$ 的单位是rad/m，$u,v$的单位是m，相位的单位是rad/m。
+这里 $k_u,k_v$ 的单位是rad/m或$m^{-1}$，$u,v$的单位是m，相位的单位是rad。空间频率为$(k_u/2 \pi, k_v/2 \pi)$
 
 </div>
 
@@ -391,7 +394,7 @@ $$\boxed{y_f = f \cdot \tan\theta_v \approx f \cdot \frac{k_v}{k}}$$
 $$k_u = \frac{k}{f} x_f = \frac{2\pi}{\lambda f} x_f$$
 $$k_v = \frac{k}{f} y_f = \frac{2\pi}{\lambda f} y_f$$
 
-**关键结论**：每个空间频率 $(k_u,k_v)$ **唯一对应**焦平面一个位置 $(x_f,y_f)$，映射是线性的。
+**关键结论**：每个空间频率 $(k_u/2\pi,k_v/2\pi)$ **唯一对应**焦平面一个位置 $(x_f,y_f)$，映射是线性的。
 
 ## **焦平面场的合成**
 
