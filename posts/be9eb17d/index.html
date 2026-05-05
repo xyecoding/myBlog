@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://xyecoding.github.io/myBlog/posts/be9eb17d/pad_256.png">
 <meta property="og:image" content="https://xyecoding.github.io/myBlog/posts/be9eb17d/pad_None.png">
 <meta property="article:published_time" content="2026-04-14T07:46:03.000Z">
-<meta property="article:modified_time" content="2026-04-27T03:27:48.512Z">
+<meta property="article:modified_time" content="2026-05-03T12:46:57.420Z">
 <meta property="article:author" content="Xiang Ye">
 <meta property="article:tag" content="Optics">
 <meta name="twitter:card" content="summary">
@@ -139,7 +139,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%89%E7%9E%B3%E4%BB%BF%E7%9C%9F%E4%B8%AD%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%BB%8E%E5%91%A8%E6%9C%9F%E5%BB%B6%E6%8B%93%E7%9A%84%E6%95%B0%E5%AD%A6%E5%AE%BF%E5%91%BD%E5%88%B0%E6%B3%A2%E5%8A%A8%E5%85%89%E5%AD%A6%E7%9A%84%E8%A1%8D%E5%B0%84%E6%9E%81%E9%99%90"><span class="nav-text">1.  光瞳仿真中的傅里叶变换：从周期延拓的数学宿命到波动光学的衍射极限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E5%A4%AB%E7%90%85%E7%A6%BE%E8%B4%B9%E8%A1%8D%E5%B0%84%E5%88%B0-fft%E7%89%A9%E7%90%86%E5%AE%9A%E5%BE%8B%E7%9A%84%E6%95%B0%E5%80%BC%E7%BF%BB%E8%AF%91"><span class="nav-text">1.1.  从夫琅禾费衍射到 FFT：物理定律的数值翻译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%9C%80%E8%A6%81-dft"><span class="nav-text">1.1.1.  为什么计算机需要 DFT？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dft-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%AE%BF%E5%91%BD%E5%91%A8%E6%9C%9F%E5%BB%B6%E6%8B%93%E4%B8%8D%E6%98%AF%E7%89%A9%E7%90%86%E5%81%87%E8%AE%BE%E8%80%8C%E6%98%AF%E7%AE%97%E6%B3%95%E6%A0%B9%E5%9F%BA"><span class="nav-text">1.2.  DFT 的数学宿命：周期延拓不是物理假设，而是算法根基</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A7%E6%94%AF%E9%9B%86%E7%9A%84%E7%89%A9%E7%90%86%E7%8E%B0%E5%AE%9E"><span class="nav-text">1.2.1.  紧支集的物理现实</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dft-%E5%A4%A9%E7%94%9F%E7%9A%84%E5%91%A8%E6%9C%9F%E6%80%A7"><span class="nav-text">1.2.2.  DFT 天生的周期性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E5%81%87%E8%AE%BE%E5%85%89%E7%9E%B3%E5%A4%96%E4%B8%BA-0"><span class="nav-text">1.2.3.  为什么不能直接&quot;假设光瞳外为 0&quot;？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%B6%E5%A1%AB%E5%85%85%E5%9C%A8%E5%91%A8%E6%9C%9F%E6%A1%86%E6%9E%B6%E5%86%85%E9%87%8D%E5%BB%BA%E7%B4%A7%E6%94%AF%E9%9B%86%E7%89%A9%E7%90%86"><span class="nav-text">1.3.  零填充：在周期框架内重建紧支集物理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%B6%E5%A1%AB%E5%85%85%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9C%AC%E8%B4%A8"><span class="nav-text">1.3.1.  零填充的数学本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9B%B6%E5%A1%AB%E5%85%85%E8%83%BD%E6%B6%88%E9%99%A4%E5%91%A8%E6%9C%9F%E5%BB%B6%E6%8B%93%E7%9A%84%E4%BC%AA%E5%BD%B1"><span class="nav-text">1.3.2.  为什么零填充能消除周期延拓的伪影？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%B6%E5%A1%AB%E5%85%85%E4%B8%8D%E4%BC%9A%E5%A2%9E%E5%8A%A0%E7%89%A9%E7%90%86%E4%BF%A1%E6%81%AF%E4%BD%86%E6%8F%90%E9%AB%98%E6%95%B0%E5%80%BC%E7%B2%BE%E5%BA%A6"><span class="nav-text">1.3.3.  零填充不会增加物理信息，但提高数值精度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E9%AA%8C%E8%AF%81%E9%9B%B6%E5%A1%AB%E5%85%85%E5%AF%B9-psf-%E9%87%8D%E5%BB%BA%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-text">1.3.4.  实验验证：零填充对 PSF 重建的影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A1%AB%E5%85%85%E5%A4%9A%E5%B0%91%E5%90%88%E9%80%82"><span class="nav-text">1.3.5.  填充多少合适？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-text">1.3.6.  归一化的选择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E9%99%90%E5%B9%B3%E9%9D%A2%E6%B3%A2-vs-%E6%9C%89%E9%99%90%E5%AD%94%E5%BE%84%E5%87%A0%E4%BD%95%E5%85%89%E5%AD%A6%E4%B8%8E%E6%B3%A2%E5%8A%A8%E5%85%89%E5%AD%A6%E7%9A%84%E5%88%86%E6%B0%B4%E5%B2%AD"><span class="nav-text">1.4.  无限平面波 vs 有限孔径：几何光学与波动光学的分水岭</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E5%85%89%E5%AD%A6%E7%9A%84%E7%9B%B4%E8%A7%89"><span class="nav-text">1.4.1.  几何光学的直觉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A2%E5%8A%A8%E5%85%89%E5%AD%A6%E7%9A%84%E5%9B%9E%E5%BA%94%E6%88%AA%E6%96%AD%E6%94%B9%E5%8F%98%E4%BA%86%E4%B8%80%E5%88%87"><span class="nav-text">1.4.2.  波动光学的回应：截断改变了一切</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%AA%E6%96%AD%E4%BC%9A%E6%94%B9%E5%8F%98%E8%81%9A%E7%84%A6%E8%A1%8C%E4%B8%BA"><span class="nav-text">1.4.3.  为什么截断会改变&quot;聚焦行为&quot;？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E6%83%B3%E7%82%B9%E9%9C%80%E8%A6%81%E4%BB%80%E4%B9%88%E6%9D%A1%E4%BB%B6"><span class="nav-text">1.4.4.  理想点需要什么条件？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-text">1.5.  结语</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8E%E8%BF%9E%E7%BB%AD%E5%88%B0%E7%A6%BB%E6%95%A3%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%B6%E6%97%8F%E5%85%A8%E8%A7%A3%E6%9E%90"><span class="nav-text">2.  从连续到离散：傅里叶变换家族全解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E4%B8%96%E7%95%8C%E6%97%A0%E9%99%90%E4%B8%8E%E6%9C%89%E9%99%90%E7%9A%84%E6%A0%B9%E6%9C%AC%E5%88%86%E6%AD%A7"><span class="nav-text">2.1.  连续世界：无限与有限的根本分歧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E9%99%90%E5%8C%BA%E9%97%B4%E7%BB%8F%E5%85%B8%E7%9A%84%E8%BF%9E%E7%BB%AD%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2cft"><span class="nav-text">2.1.1.  无限区间：经典的连续傅里叶变换（CFT）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E5%8C%BA%E9%97%B4%E4%B8%A4%E6%9D%A1%E6%88%AA%E7%84%B6%E4%B8%8D%E5%90%8C%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-text">2.1.2.  有限区间：两条截然不同的路径</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E5%87%BD%E6%95%B0%E7%9A%84%E5%86%85%E7%A6%80%E5%B1%9E%E6%80%A7"><span class="nav-text">2.1.2.1.  基函数的内禀属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%B7%B1%E5%B1%82%E7%9A%84%E5%B7%AE%E5%BC%82%E5%87%BD%E6%95%B0%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%93%AA%E9%87%8C"><span class="nav-text">2.1.2.2.  更深层的差异：函数生活在哪里？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%91%E8%B0%B1%E5%90%8E%E6%9E%9C%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-text">2.1.2.3.  频谱后果的对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E5%8E%9F%E7%90%86"><span class="nav-text">2.1.2.4.  傅里叶不确定性原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%A6%82%E5%85%89%E5%AD%A6%E9%80%8F%E9%95%9C"><span class="nav-text">2.1.2.4.1.  连续傅里叶变换（如光学透镜）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2dftfft"><span class="nav-text">2.1.2.4.2.  离散傅里叶变换（DFT&#x2F;FFT）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%A2%91%E7%8E%87%E9%97%B4%E9%9A%94%E4%B8%BA1t"><span class="nav-text">2.1.2.4.3.  为什么频率间隔为1&#x2F;T1&#x2F;T1&#x2F;T</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%AE%9A%E4%B9%89%E5%86%85%E7%A7%AF"><span class="nav-text">2.1.2.4.3.1.  第一步：定义内积</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E6%AD%A3%E4%BA%A4%E6%9D%A1%E4%BB%B6"><span class="nav-text">2.1.2.4.3.2.  第二步：正交条件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%E6%9C%80%E5%B0%8F%E6%AD%A3%E4%BA%A4%E9%97%B4%E9%9A%94"><span class="nav-text">2.1.2.4.3.3.  第三步：最小正交间隔</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%E6%AD%A3%E4%BA%A4%E6%80%A7%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%B3%E5%AE%9A%E5%88%86%E8%BE%A8%E7%8E%87"><span class="nav-text">2.1.2.4.3.4.  第四步：正交性为什么决定分辨率？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%E4%B8%8E-dft-%E7%9A%84%E5%AF%B9%E5%BA%94"><span class="nav-text">2.1.2.4.3.5.  第五步：与 DFT 的对应</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">2.1.2.4.4.  小结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E8%BF%9E%E7%BB%AD%E5%88%B0%E7%A6%BB%E6%95%A3%E9%87%87%E6%A0%B7%E4%B8%8E%E5%91%A8%E6%9C%9F%E5%8C%96%E7%9A%84%E5%AF%B9%E5%81%B6"><span class="nav-text">2.1.3.  从连续到离散：采样与周期化的对偶</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E5%9F%9F%E9%87%87%E6%A0%B7%E5%AF%BC%E8%87%B4%E9%A2%91%E5%9F%9F%E5%91%A8%E6%9C%9F%E5%8C%96dtft"><span class="nav-text">2.1.3.1.  时域采样导致频域周期化（DTFT）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%A2%91%E5%9F%9F%E9%87%87%E6%A0%B7%E5%AF%BC%E8%87%B4%E6%97%B6%E5%9F%9F%E5%91%A8%E6%9C%9F%E5%8C%96dft-%E7%9A%84%E6%A0%B8%E5%BF%83"><span class="nav-text">2.1.3.2.  2. 频域采样导致时域周期化（DFT 的核心）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%AE%B6%E6%97%8F%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93"><span class="nav-text">2.1.4.  全家族对比总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E8%A7%A3%E8%80%A6%E5%BA%A6%E9%87%8F"><span class="nav-text">3.  目标解耦度量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#m4%E5%BA%A6%E9%87%8F"><span class="nav-text">3.1.  M4度量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-text">3.1.1.  定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%87%E5%8C%80%E8%83%8C%E6%99%AF%E4%B8%8D%E6%95%8F%E6%84%9F"><span class="nav-text">3.1.2.  均匀背景不敏感</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0%E5%89%96%E6%9E%90"><span class="nav-text">3.1.2.1.  原因剖析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#m4-metric-%E6%9C%AC%E8%BA%AB%E5%AF%B9%E5%9D%87%E5%8C%80%E8%83%8C%E6%99%AF%E4%B8%8D%E6%95%8F%E6%84%9F"><span class="nav-text">3.1.2.1.1.  M4 Metric 本身对均匀背景不敏感</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA%E4%B8%8E%E7%BB%9D%E5%AF%B9%E7%81%B0%E5%BA%A6%E5%80%BC%E5%BC%BA%E8%80%A6%E5%90%88"><span class="nav-text">3.1.2.1.2.  数据增强与“绝对灰度值”强耦合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%8F%E5%8E%BB%E7%9A%84-130-%E6%9C%AC%E8%BA%AB%E4%B9%9F%E4%B8%8D%E5%87%86%E7%A1%AE"><span class="nav-text">3.1.2.1.3.  减去的 130 本身也不准确</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E9%87%8C%E8%AF%B4%E7%9A%84-subtract-%E4%B8%8D%E6%98%AF%E7%A9%BA%E5%9F%9F%E5%87%8F%E8%83%8C%E6%99%AF"><span class="nav-text">3.1.2.1.4.  论文里说的 “subtract” 不是空域减背景</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E9%AA%8C%E8%AF%81"><span class="nav-text">3.1.2.2.  实验验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-text">3.1.2.3.  结论</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%B9%B3%E7%A7%BB%E4%B8%8D%E5%8F%98%E7%89%B9%E6%80%A7"><span class="nav-text">3.1.3.  循环平移不变特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dft-%E7%9A%84%E5%91%A8%E6%9C%9F%E5%BB%B6%E6%8B%93%E6%9C%AC%E8%B4%A8"><span class="nav-text">3.1.3.1.  DFT 的周期延拓本质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%B9%B3%E7%A7%BB-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E8%87%AA%E7%84%B6%E5%B9%B3%E7%A7%BB"><span class="nav-text">3.1.3.2.  循环平移 &#x3D; 周期信号的自然平移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E7%8E%87%E8%B0%B1%E4%B8%8D%E5%8F%98%E6%80%A7"><span class="nav-text">3.1.3.3.  功率谱不变性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E9%9B%B6%E5%A1%AB%E5%85%85%E7%A0%B4%E5%9D%8F%E4%BA%86%E5%91%A8%E6%9C%9F%E5%81%87%E8%AE%BE"><span class="nav-text">3.1.3.4.  对比：零填充破坏了周期假设</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%B6%E5%9F%9F%E4%B8%8E%E7%9F%A9%E5%BD%A2%E7%AA%97%E7%9A%84%E4%B9%98%E7%A7%AF"><span class="nav-text">3.1.3.4.1.  时域：与矩形窗的乘积</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%91%E5%9F%9F%E4%B8%8E-sinc-%E5%87%BD%E6%95%B0%E7%9A%84%E5%8D%B7%E7%A7%AF"><span class="nav-text">3.1.3.4.2.  频域：与 Sinc 函数的卷积</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%BF%E7%9C%9F%E6%95%B0%E6%8D%AE%E4%BC%98%E5%8C%96"><span class="nav-text">4.  仿真数据优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A9%E6%B3%A2%E9%95%BF%E5%8F%AF%E5%AD%A6%E4%B9%A0"><span class="nav-text">4.1.  让波长&quot;可学习&quot;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E6%8A%8A%E6%B3%A2%E9%95%BF%E5%8F%98%E6%88%90%E6%9A%97%E5%8F%B7%E5%AD%98%E8%B5%B7%E6%9D%A5"><span class="nav-text">4.1.1.  编码：把波长变成&quot;暗号&quot;存起来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E7%A0%81%E6%8A%8A%E6%9A%97%E5%8F%B7%E8%BF%98%E5%8E%9F%E6%88%90%E5%90%88%E6%B3%95%E7%9A%84%E6%B3%A2%E9%95%BF"><span class="nav-text">4.1.2.  解码：把暗号还原成合法的波长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%BB%95%E8%BF%99%E4%B8%AA%E5%BC%AF"><span class="nav-text">4.1.3.  为什么要绕这个弯？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%9C%E8%A6%81%E5%90%88%E6%B3%95"><span class="nav-text">4.1.3.1.  物理结果要合法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E8%A6%81%E8%87%AA%E7%94%B1"><span class="nav-text">4.1.3.2.  训练过程要自由</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E7%A7%BB%E4%B8%8D%E5%8F%98%E7%9A%84%E7%82%B9%E6%89%A9%E6%95%A3%E5%87%BD%E6%95%B0psf%E7%9B%91%E7%9D%A3%E6%8D%9F%E5%A4%B1%E4%BB%8E-fft-%E5%B9%85%E5%BA%A6%E8%B0%B1%E5%87%BA%E5%8F%91"><span class="nav-text">4.2.  平移不变的点扩散函数（PSF）监督损失：从 FFT 幅度谱出发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E5%B9%B3%E7%A7%BB%E4%B8%8D%E5%8F%98%E6%80%A7"><span class="nav-text">4.2.1.  核心原理：傅里叶变换的平移不变性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E7%A7%BB%E5%AE%9A%E7%90%86%E7%9A%84%E6%8E%A8%E5%AF%BC"><span class="nav-text">4.2.1.1.  平移定理的推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%B9%85%E5%BA%A6%E4%B8%8D%E5%8F%98-%E7%9B%B8%E4%BD%8D%E6%94%B9%E5%8F%98"><span class="nav-text">4.2.1.2.  为什么幅度不变、相位改变？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B9%85%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-text">4.2.1.2.1.  幅度分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B8%E4%BD%8D%E5%88%86%E6%9E%90"><span class="nav-text">4.2.1.2.2.  相位分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E8%AE%BE%E8%AE%A1fft-log-magnitude-loss"><span class="nav-text">4.2.2.  损失函数设计：FFT Log-Magnitude Loss</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#step-1%E8%83%8C%E6%99%AF%E6%89%A3%E9%99%A4background-subtraction"><span class="nav-text">4.2.2.1.  Step 1：背景扣除（Background Subtraction）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-2%E5%B3%B0%E5%80%BC%E5%BD%92%E4%B8%80%E5%8C%96peak-normalization"><span class="nav-text">4.2.2.2.  Step 2：峰值归一化（Peak Normalization）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-3fft-%E4%B8%8E-log-%E5%8E%8B%E7%BC%A9"><span class="nav-text">4.2.2.3.  Step 3：FFT 与 Log 压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-4smooth-l1-%E5%9B%9E%E5%BD%92"><span class="nav-text">4.2.2.4.  Step 4：Smooth L1 回归</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E4%B8%8E%E8%BF%9B%E9%98%B6%E6%96%B9%E5%90%91"><span class="nav-text">4.2.3.  注意事项与进阶方向</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BD%93%E5%89%8D%E6%96%B9%E6%A1%88%E7%9A%84%E5%B1%80%E9%99%90"><span class="nav-text">4.2.3.1.  当前方案的局限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E6%94%B9%E8%BF%9B"><span class="nav-text">4.2.3.2.  进阶改进</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%89%E7%9E%B3%E4%BB%BF%E7%9C%9F%E4%B8%AD%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%BB%8E%E5%91%A8%E6%9C%9F%E5%BB%B6%E6%8B%93%E7%9A%84%E6%95%B0%E5%AD%A6%E5%AE%BF%E5%91%BD%E5%88%B0%E6%B3%A2%E5%8A%A8%E5%85%89%E5%AD%A6%E7%9A%84%E8%A1%8D%E5%B0%84%E6%9E%81%E9%99%90"><span class="nav-text">1.  光瞳仿真中的傅里叶变换：从周期延拓的数学宿命到波动光学的衍射极限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E5%A4%AB%E7%90%85%E7%A6%BE%E8%B4%B9%E8%A1%8D%E5%B0%84%E5%88%B0-fft%E7%89%A9%E7%90%86%E5%AE%9A%E5%BE%8B%E7%9A%84%E6%95%B0%E5%80%BC%E7%BF%BB%E8%AF%91"><span class="nav-text">1.1.  从夫琅禾费衍射到 FFT：物理定律的数值翻译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%9C%80%E8%A6%81-dft"><span class="nav-text">1.1.1.  为什么计算机需要 DFT？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dft-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%AE%BF%E5%91%BD%E5%91%A8%E6%9C%9F%E5%BB%B6%E6%8B%93%E4%B8%8D%E6%98%AF%E7%89%A9%E7%90%86%E5%81%87%E8%AE%BE%E8%80%8C%E6%98%AF%E7%AE%97%E6%B3%95%E6%A0%B9%E5%9F%BA"><span class="nav-text">1.2.  DFT 的数学宿命：周期延拓不是物理假设，而是算法根基</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A7%E6%94%AF%E9%9B%86%E7%9A%84%E7%89%A9%E7%90%86%E7%8E%B0%E5%AE%9E"><span class="nav-text">1.2.1.  紧支集的物理现实</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dft-%E5%A4%A9%E7%94%9F%E7%9A%84%E5%91%A8%E6%9C%9F%E6%80%A7"><span class="nav-text">1.2.2.  DFT 天生的周期性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E5%81%87%E8%AE%BE%E5%85%89%E7%9E%B3%E5%A4%96%E4%B8%BA-0"><span class="nav-text">1.2.3.  为什么不能直接&quot;假设光瞳外为 0&quot;？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%B6%E5%A1%AB%E5%85%85%E5%9C%A8%E5%91%A8%E6%9C%9F%E6%A1%86%E6%9E%B6%E5%86%85%E9%87%8D%E5%BB%BA%E7%B4%A7%E6%94%AF%E9%9B%86%E7%89%A9%E7%90%86"><span class="nav-text">1.3.  零填充：在周期框架内重建紧支集物理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%B6%E5%A1%AB%E5%85%85%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9C%AC%E8%B4%A8"><span class="nav-text">1.3.1.  零填充的数学本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9B%B6%E5%A1%AB%E5%85%85%E8%83%BD%E6%B6%88%E9%99%A4%E5%91%A8%E6%9C%9F%E5%BB%B6%E6%8B%93%E7%9A%84%E4%BC%AA%E5%BD%B1"><span class="nav-text">1.3.2.  为什么零填充能消除周期延拓的伪影？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%B6%E5%A1%AB%E5%85%85%E4%B8%8D%E4%BC%9A%E5%A2%9E%E5%8A%A0%E7%89%A9%E7%90%86%E4%BF%A1%E6%81%AF%E4%BD%86%E6%8F%90%E9%AB%98%E6%95%B0%E5%80%BC%E7%B2%BE%E5%BA%A6"><span class="nav-text">1.3.3.  零填充不会增加物理信息，但提高数值精度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E9%AA%8C%E8%AF%81%E9%9B%B6%E5%A1%AB%E5%85%85%E5%AF%B9-psf-%E9%87%8D%E5%BB%BA%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-text">1.3.4.  实验验证：零填充对 PSF 重建的影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A1%AB%E5%85%85%E5%A4%9A%E5%B0%91%E5%90%88%E9%80%82"><span class="nav-text">1.3.5.  填充多少合适？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-text">1.3.6.  归一化的选择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E9%99%90%E5%B9%B3%E9%9D%A2%E6%B3%A2-vs-%E6%9C%89%E9%99%90%E5%AD%94%E5%BE%84%E5%87%A0%E4%BD%95%E5%85%89%E5%AD%A6%E4%B8%8E%E6%B3%A2%E5%8A%A8%E5%85%89%E5%AD%A6%E7%9A%84%E5%88%86%E6%B0%B4%E5%B2%AD"><span class="nav-text">1.4.  无限平面波 vs 有限孔径：几何光学与波动光学的分水岭</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E5%85%89%E5%AD%A6%E7%9A%84%E7%9B%B4%E8%A7%89"><span class="nav-text">1.4.1.  几何光学的直觉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A2%E5%8A%A8%E5%85%89%E5%AD%A6%E7%9A%84%E5%9B%9E%E5%BA%94%E6%88%AA%E6%96%AD%E6%94%B9%E5%8F%98%E4%BA%86%E4%B8%80%E5%88%87"><span class="nav-text">1.4.2.  波动光学的回应：截断改变了一切</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%AA%E6%96%AD%E4%BC%9A%E6%94%B9%E5%8F%98%E8%81%9A%E7%84%A6%E8%A1%8C%E4%B8%BA"><span class="nav-text">1.4.3.  为什么截断会改变&quot;聚焦行为&quot;？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E6%83%B3%E7%82%B9%E9%9C%80%E8%A6%81%E4%BB%80%E4%B9%88%E6%9D%A1%E4%BB%B6"><span class="nav-text">1.4.4.  理想点需要什么条件？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-text">1.5.  结语</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8E%E8%BF%9E%E7%BB%AD%E5%88%B0%E7%A6%BB%E6%95%A3%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%AE%B6%E6%97%8F%E5%85%A8%E8%A7%A3%E6%9E%90"><span class="nav-text">2.  从连续到离散：傅里叶变换家族全解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E4%B8%96%E7%95%8C%E6%97%A0%E9%99%90%E4%B8%8E%E6%9C%89%E9%99%90%E7%9A%84%E6%A0%B9%E6%9C%AC%E5%88%86%E6%AD%A7"><span class="nav-text">2.1.  连续世界：无限与有限的根本分歧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E9%99%90%E5%8C%BA%E9%97%B4%E7%BB%8F%E5%85%B8%E7%9A%84%E8%BF%9E%E7%BB%AD%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2cft"><span class="nav-text">2.1.1.  无限区间：经典的连续傅里叶变换（CFT）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E5%8C%BA%E9%97%B4%E4%B8%A4%E6%9D%A1%E6%88%AA%E7%84%B6%E4%B8%8D%E5%90%8C%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-text">2.1.2.  有限区间：两条截然不同的路径</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E5%87%BD%E6%95%B0%E7%9A%84%E5%86%85%E7%A6%80%E5%B1%9E%E6%80%A7"><span class="nav-text">2.1.2.1.  基函数的内禀属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%B7%B1%E5%B1%82%E7%9A%84%E5%B7%AE%E5%BC%82%E5%87%BD%E6%95%B0%E7%94%9F%E6%B4%BB%E5%9C%A8%E5%93%AA%E9%87%8C"><span class="nav-text">2.1.2.2.  更深层的差异：函数生活在哪里？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%91%E8%B0%B1%E5%90%8E%E6%9E%9C%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-text">2.1.2.3.  频谱后果的对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E5%8E%9F%E7%90%86"><span class="nav-text">2.1.2.4.  傅里叶不确定性原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%A6%82%E5%85%89%E5%AD%A6%E9%80%8F%E9%95%9C"><span class="nav-text">2.1.2.4.1.  连续傅里叶变换（如光学透镜）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2dftfft"><span class="nav-text">2.1.2.4.2.  离散傅里叶变换（DFT&#x2F;FFT）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%A2%91%E7%8E%87%E9%97%B4%E9%9A%94%E4%B8%BA1t"><span class="nav-text">2.1.2.4.3.  为什么频率间隔为1&#x2F;T1&#x2F;T1&#x2F;T</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%AE%9A%E4%B9%89%E5%86%85%E7%A7%AF"><span class="nav-text">2.1.2.4.3.1.  第一步：定义内积</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E6%AD%A3%E4%BA%A4%E6%9D%A1%E4%BB%B6"><span class="nav-text">2.1.2.4.3.2.  第二步：正交条件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%E6%9C%80%E5%B0%8F%E6%AD%A3%E4%BA%A4%E9%97%B4%E9%9A%94"><span class="nav-text">2.1.2.4.3.3.  第三步：最小正交间隔</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%E6%AD%A3%E4%BA%A4%E6%80%A7%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%B3%E5%AE%9A%E5%88%86%E8%BE%A8%E7%8E%87"><span class="nav-text">2.1.2.4.3.4.  第四步：正交性为什么决定分辨率？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%E4%B8%8E-dft-%E7%9A%84%E5%AF%B9%E5%BA%94"><span class="nav-text">2.1.2.4.3.5.  第五步：与 DFT 的对应</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">2.1.2.4.4.  小结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E8%BF%9E%E7%BB%AD%E5%88%B0%E7%A6%BB%E6%95%A3%E9%87%87%E6%A0%B7%E4%B8%8E%E5%91%A8%E6%9C%9F%E5%8C%96%E7%9A%84%E5%AF%B9%E5%81%B6"><span class="nav-text">2.1.3.  从连续到离散：采样与周期化的对偶</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E5%9F%9F%E9%87%87%E6%A0%B7%E5%AF%BC%E8%87%B4%E9%A2%91%E5%9F%9F%E5%91%A8%E6%9C%9F%E5%8C%96dtft"><span class="nav-text">2.1.3.1.  时域采样导致频域周期化（DTFT）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%A2%91%E5%9F%9F%E9%87%87%E6%A0%B7%E5%AF%BC%E8%87%B4%E6%97%B6%E5%9F%9F%E5%91%A8%E6%9C%9F%E5%8C%96dft-%E7%9A%84%E6%A0%B8%E5%BF%83"><span class="nav-text">2.1.3.2.  2. 频域采样导致时域周期化（DFT 的核心）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%AE%B6%E6%97%8F%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93"><span class="nav-text">2.1.4.  全家族对比总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E8%A7%A3%E8%80%A6%E5%BA%A6%E9%87%8F"><span class="nav-text">3.  目标解耦度量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#m4%E5%BA%A6%E9%87%8F"><span class="nav-text">3.1.  M4度量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-text">3.1.1.  定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%87%E5%8C%80%E8%83%8C%E6%99%AF%E4%B8%8D%E6%95%8F%E6%84%9F"><span class="nav-text">3.1.2.  均匀背景不敏感</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0%E5%89%96%E6%9E%90"><span class="nav-text">3.1.2.1.  原因剖析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#m4-metric-%E6%9C%AC%E8%BA%AB%E5%AF%B9%E5%9D%87%E5%8C%80%E8%83%8C%E6%99%AF%E4%B8%8D%E6%95%8F%E6%84%9F"><span class="nav-text">3.1.2.1.1.  M4 Metric 本身对均匀背景不敏感</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA%E4%B8%8E%E7%BB%9D%E5%AF%B9%E7%81%B0%E5%BA%A6%E5%80%BC%E5%BC%BA%E8%80%A6%E5%90%88"><span class="nav-text">3.1.2.1.2.  数据增强与“绝对灰度值”强耦合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%8F%E5%8E%BB%E7%9A%84-130-%E6%9C%AC%E8%BA%AB%E4%B9%9F%E4%B8%8D%E5%87%86%E7%A1%AE"><span class="nav-text">3.1.2.1.3.  减去的 130 本身也不准确</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E9%87%8C%E8%AF%B4%E7%9A%84-subtract-%E4%B8%8D%E6%98%AF%E7%A9%BA%E5%9F%9F%E5%87%8F%E8%83%8C%E6%99%AF"><span class="nav-text">3.1.2.1.4.  论文里说的 “subtract” 不是空域减背景</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E9%AA%8C%E8%AF%81"><span class="nav-text">3.1.2.2.  实验验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-text">3.1.2.3.  结论</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%B9%B3%E7%A7%BB%E4%B8%8D%E5%8F%98%E7%89%B9%E6%80%A7"><span class="nav-text">3.1.3.  循环平移不变特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dft-%E7%9A%84%E5%91%A8%E6%9C%9F%E5%BB%B6%E6%8B%93%E6%9C%AC%E8%B4%A8"><span class="nav-text">3.1.3.1.  DFT 的周期延拓本质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%B9%B3%E7%A7%BB-%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E8%87%AA%E7%84%B6%E5%B9%B3%E7%A7%BB"><span class="nav-text">3.1.3.2.  循环平移 &#x3D; 周期信号的自然平移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E7%8E%87%E8%B0%B1%E4%B8%8D%E5%8F%98%E6%80%A7"><span class="nav-text">3.1.3.3.  功率谱不变性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E9%9B%B6%E5%A1%AB%E5%85%85%E7%A0%B4%E5%9D%8F%E4%BA%86%E5%91%A8%E6%9C%9F%E5%81%87%E8%AE%BE"><span class="nav-text">3.1.3.4.  对比：零填充破坏了周期假设</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%B6%E5%9F%9F%E4%B8%8E%E7%9F%A9%E5%BD%A2%E7%AA%97%E7%9A%84%E4%B9%98%E7%A7%AF"><span class="nav-text">3.1.3.4.1.  时域：与矩形窗的乘积</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%91%E5%9F%9F%E4%B8%8E-sinc-%E5%87%BD%E6%95%B0%E7%9A%84%E5%8D%B7%E7%A7%AF"><span class="nav-text">3.1.3.4.2.  频域：与 Sinc 函数的卷积</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%BF%E7%9C%9F%E6%95%B0%E6%8D%AE%E4%BC%98%E5%8C%96"><span class="nav-text">4.  仿真数据优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A9%E6%B3%A2%E9%95%BF%E5%8F%AF%E5%AD%A6%E4%B9%A0"><span class="nav-text">4.1.  让波长&quot;可学习&quot;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E6%8A%8A%E6%B3%A2%E9%95%BF%E5%8F%98%E6%88%90%E6%9A%97%E5%8F%B7%E5%AD%98%E8%B5%B7%E6%9D%A5"><span class="nav-text">4.1.1.  编码：把波长变成&quot;暗号&quot;存起来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E7%A0%81%E6%8A%8A%E6%9A%97%E5%8F%B7%E8%BF%98%E5%8E%9F%E6%88%90%E5%90%88%E6%B3%95%E7%9A%84%E6%B3%A2%E9%95%BF"><span class="nav-text">4.1.2.  解码：把暗号还原成合法的波长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%BB%95%E8%BF%99%E4%B8%AA%E5%BC%AF"><span class="nav-text">4.1.3.  为什么要绕这个弯？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%9C%E8%A6%81%E5%90%88%E6%B3%95"><span class="nav-text">4.1.3.1.  物理结果要合法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E8%A6%81%E8%87%AA%E7%94%B1"><span class="nav-text">4.1.3.2.  训练过程要自由</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E7%A7%BB%E4%B8%8D%E5%8F%98%E7%9A%84%E7%82%B9%E6%89%A9%E6%95%A3%E5%87%BD%E6%95%B0psf%E7%9B%91%E7%9D%A3%E6%8D%9F%E5%A4%B1%E4%BB%8E-fft-%E5%B9%85%E5%BA%A6%E8%B0%B1%E5%87%BA%E5%8F%91"><span class="nav-text">4.2.  平移不变的点扩散函数（PSF）监督损失：从 FFT 幅度谱出发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E5%B9%B3%E7%A7%BB%E4%B8%8D%E5%8F%98%E6%80%A7"><span class="nav-text">4.2.1.  核心原理：傅里叶变换的平移不变性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E7%A7%BB%E5%AE%9A%E7%90%86%E7%9A%84%E6%8E%A8%E5%AF%BC"><span class="nav-text">4.2.1.1.  平移定理的推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%B9%85%E5%BA%A6%E4%B8%8D%E5%8F%98-%E7%9B%B8%E4%BD%8D%E6%94%B9%E5%8F%98"><span class="nav-text">4.2.1.2.  为什么幅度不变、相位改变？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B9%85%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-text">4.2.1.2.1.  幅度分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B8%E4%BD%8D%E5%88%86%E6%9E%90"><span class="nav-text">4.2.1.2.2.  相位分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E8%AE%BE%E8%AE%A1fft-log-magnitude-loss"><span class="nav-text">4.2.2.  损失函数设计：FFT Log-Magnitude Loss</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#step-1%E8%83%8C%E6%99%AF%E6%89%A3%E9%99%A4background-subtraction"><span class="nav-text">4.2.2.1.  Step 1：背景扣除（Background Subtraction）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-2%E5%B3%B0%E5%80%BC%E5%BD%92%E4%B8%80%E5%8C%96peak-normalization"><span class="nav-text">4.2.2.2.  Step 2：峰值归一化（Peak Normalization）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-3fft-%E4%B8%8E-log-%E5%8E%8B%E7%BC%A9"><span class="nav-text">4.2.2.3.  Step 3：FFT 与 Log 压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step-4smooth-l1-%E5%9B%9E%E5%BD%92"><span class="nav-text">4.2.2.4.  Step 4：Smooth L1 回归</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E4%B8%8E%E8%BF%9B%E9%98%B6%E6%96%B9%E5%90%91"><span class="nav-text">4.2.3.  注意事项与进阶方向</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BD%93%E5%89%8D%E6%96%B9%E6%A1%88%E7%9A%84%E5%B1%80%E9%99%90"><span class="nav-text">4.2.3.1.  当前方案的局限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E6%94%B9%E8%BF%9B"><span class="nav-text">4.2.3.2.  进阶改进</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E5%99%AA%E5%A3%B0%E5%AF%BC%E8%87%B4%E7%9A%84%E9%A2%91%E5%9F%9Floss-%E4%B8%8B%E9%99%8D%E4%BD%86%E8%A7%86%E8%A7%89%E5%8F%98%E5%B7%AE%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-text">4.3.  背景噪声导致的&quot;频域Loss 下降但视觉变差&quot;问题分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E7%8E%B0%E8%B1%A1"><span class="nav-text">4.3.1.  问题现象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E8%AF%8A%E6%96%AD%E8%83%8C%E6%99%AF%E5%99%AA%E5%A3%B0%E5%BA%95%E6%9D%BF%E7%BC%BA%E5%A4%B1"><span class="nav-text">4.3.2.  核心诊断：背景噪声底板缺失</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9C%9F%E5%AE%9E%E9%87%87%E9%9B%86%E6%95%B0%E6%8D%AE%E7%9A%84%E8%83%8C%E6%99%AF%E7%89%B9%E5%BE%81"><span class="nav-text">4.3.2.1.  真实采集数据的背景特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%BF%E7%9C%9F%E6%95%B0%E6%8D%AE%E7%9A%84%E8%83%8C%E6%99%AF%E7%89%B9%E5%BE%81"><span class="nav-text">4.3.2.2.  仿真数据的背景特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E5%8C%BA%E8%A7%92%E8%90%BD%E7%B2%BE%E7%BB%86%E5%AF%B9%E6%AF%94"><span class="nav-text">4.3.2.3.  背景区（角落）精细对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AF%E5%B7%AE%E6%8C%89%E5%8C%BA%E5%9F%9F%E5%88%86%E8%A7%A3"><span class="nav-text">4.3.2.4.  误差按区域分解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B9%E6%9C%AC%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90"><span class="nav-text">4.3.3.  根本原因分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-fft_psf_loss-%E4%BC%9A%E8%A2%AB%E9%AA%97"><span class="nav-text">4.3.3.1.  为什么 fft_psf_loss 会&quot;被骗&quot;？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E9%AA%8C%E8%AF%81%E5%99%AA%E5%A3%B0%E5%AF%B9-fft-loss-%E7%9A%84%E7%9C%9F%E5%AE%9E%E5%BD%B1%E5%93%8D"><span class="nav-text">4.3.3.1.1.  实验验证：噪声对 FFT loss 的真实影响</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%97%AE%E9%A2%98%E6%9C%BA%E5%88%B6%E5%99%AA%E5%A3%B0%E4%B8%8D%E8%A7%84%E5%88%99%E9%A2%91%E8%B0%B1%E4%BF%A1%E5%8F%B7%E6%89%AD%E6%9B%B2"><span class="nav-text">4.3.3.1.2.  真正的问题机制：噪声→不规则频谱→信号扭曲</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-no_%E6%88%AA%E6%96%AD-%E8%A7%86%E8%A7%89%E4%B8%8A%E6%9B%B4%E5%B7%AE"><span class="nav-text">4.3.3.2.  为什么 no_截断 视觉上更差？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#min-max-%E5%BD%92%E4%B8%80%E5%8C%96%E5%A6%82%E4%BD%95%E6%94%BE%E5%A4%A7%E4%BA%86%E9%97%AE%E9%A2%98"><span class="nav-text">4.3.3.3.  min-max 归一化如何放大了问题？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">4.3.4.  解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86datasetpy"><span class="nav-text">4.3.4.1.  方案一：修改数据预处理（dataset.py）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C%E7%BB%99-detector-%E5%8A%A0%E8%83%8C%E6%99%AF%E5%99%AA%E5%A3%B0%E6%A8%A1%E6%8B%9F"><span class="nav-text">4.3.4.2.  方案二：给 Detector 加背景噪声模拟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%89%E7%BB%84%E5%90%88%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E7%A9%BA%E9%97%B4%E5%9F%9F-%E9%A2%91%E5%9F%9F"><span class="nav-text">4.3.4.3.  方案三：组合损失函数（空间域 + 频域）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E5%AE%9E%E9%AA%8C"><span class="nav-text">4.3.5.  验证实验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%881%E9%AA%8C%E8%AF%81%E8%AF%95%E9%AA%8C%E4%B8%AD%E4%BD%8D%E6%95%B0%E8%83%8C%E6%99%AF%E6%89%A3%E9%99%A4%E6%95%88%E6%9E%9C%E6%B2%A1%E6%9C%89%E9%87%8D%E6%96%B0%E8%AE%AD%E7%BB%83%E4%BB%85%E6%B5%8B%E8%AF%95"><span class="nav-text">4.3.5.1.  方案1验证试验，中位数背景扣除效果（没有重新训练，仅测试）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE"><span class="nav-text">4.3.5.1.1.  实验设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9C%9F%E5%AE%9E%E6%95%B0%E6%8D%AE%E8%83%8C%E6%99%AF%E5%88%86%E5%B8%83%E5%8F%98%E5%8C%96"><span class="nav-text">4.3.5.1.2.  真实数据背景分布变化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%89%E5%8C%BA%E5%9F%9F%E5%88%86%E8%A7%A3%E7%9A%84%E6%94%B9%E5%96%84%E6%9D%A5%E6%BA%90"><span class="nav-text">4.3.5.1.3.  按区域分解的改善来源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%8F%91%E7%8E%B0"><span class="nav-text">4.3.5.1.4.  关键发现</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%881%E9%AA%8C%E8%AF%81%E8%AF%95%E9%AA%8C%E4%B8%AD%E4%BD%8D%E6%95%B0%E8%83%8C%E6%99%AF%E6%89%A3%E9%99%A4%E6%95%88%E6%9E%9C%E9%87%8D%E6%96%B0%E8%AE%AD%E7%BB%831-epoch"><span class="nav-text">4.3.5.2.  方案1验证试验，中位数背景扣除效果（重新训练1 epoch）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E6%97%A5%E5%BF%97%E5%AF%B9%E6%AF%94"><span class="nav-text">4.3.5.2.1.  训练日志对比</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%8F%82%E6%95%B0%E6%94%B6%E6%95%9B%E5%AF%B9%E6%AF%94"><span class="nav-text">4.3.5.2.2.  物理参数收敛对比</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A%E4%B8%8E%E6%B3%A2%E9%95%BF%E7%9A%84%E8%80%A6%E5%90%88%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90"><span class="nav-text">4.3.5.2.3.  高斯模糊与波长的耦合理论分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#psf-%E7%A9%BA%E9%97%B4%E5%9F%9F%E5%8C%B9%E9%85%8D%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-text">4.3.5.2.4.  PSF 空间域匹配度分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fwhm-%E5%AF%B9%E6%AF%94"><span class="nav-text">4.3.5.2.5.  FWHM 对比</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%83%BD%E9%87%8F%E9%9B%86%E4%B8%AD%E5%BA%A6"><span class="nav-text">4.3.5.2.6.  能量集中度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#m4-%E7%B2%BE%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-text">4.3.5.2.7.  M4 精度分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E7%BB%93%E8%AE%BA"><span class="nav-text">4.3.5.2.8.  综合结论</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#interpolate-%E6%A8%A1%E5%BC%8F%E9%80%89%E6%8B%A9%E5%88%86%E6%9E%90"><span class="nav-text">4.4.  Interpolate 模式选择分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-area-%E6%9B%B4%E7%89%A9%E7%90%86"><span class="nav-text">4.4.1.  为什么 area 更物理？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%AF%B9%E6%AF%94"><span class="nav-text">4.4.2.  实验对比</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%9D%A1%E4%BB%B6"><span class="nav-text">4.4.2.1.  测试条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%AF%B9%E6%AF%94"><span class="nav-text">4.4.2.2.  结果对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%97%81%E7%93%A3%E4%BB%8D%E7%84%B6%E4%B8%8D%E6%98%8E%E6%98%BE"><span class="nav-text">4.4.2.3.  遇到的问题：旁瓣仍然不明显</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -246,7 +246,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-04-27 11:27:48" itemprop="dateModified" datetime="2026-04-27T11:27:48+08:00">2026-04-27</time>
+      <time title="Modified: 2026-05-03 20:46:57" itemprop="dateModified" datetime="2026-05-03T20:46:57+08:00">2026-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1176,6 +1176,1208 @@ s76,-59,76,-59s76,-60,76,-60z M1001 80H40000v40H1012z"></path></svg></span></spa
 <p><strong>加窗处理</strong>：
 FFT 假设信号周期性。如果 PSF 图像边缘截断明显（例如能量没有衰减到接近零），可以加 Hann 窗或 Hamming 窗后再做 FFT，减少频谱泄漏。</p>
 </li>
+</ol>
+<h2 id="背景噪声导致的频域loss-下降但视觉变差问题分析"><span class="post-title-index">4.3. </span><a class="markdownIt-Anchor" href="#背景噪声导致的频域loss-下降但视觉变差问题分析"></a> 背景噪声导致的"频域Loss 下降但视觉变差"问题分析</h2>
+<blockquote>
+<p><strong>核心结论</strong>：真实采集图像存在非零背景噪声底板（min-max 后均值约 0.019），而仿真 PSF 背景严格为 0。当前 <code>fft_psf_loss</code> 对频域轮廓敏感，但对背景噪声底板几乎无感知，导致模型可以通过高斯模糊"骗过"频域 loss，却在空间域视觉上严重失真。</p>
+</blockquote>
+<h3 id="问题现象"><span class="post-title-index">4.3.1. </span><a class="markdownIt-Anchor" href="#问题现象"></a> 问题现象</h3>
+<p>观察到以下矛盾现象：</p>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th style="text-align:center">训练 epoch</th>
+<th style="text-align:center">Test Loss</th>
+<th style="text-align:center">视觉质量（人眼观察）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>no_截断</strong>（仅高斯模糊）</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center"><strong>0.136</strong> ⬇️</td>
+<td style="text-align:center"><strong>更差</strong> ❌</td>
+</tr>
+<tr>
+<td><strong>no_高斯</strong>（仅截断）</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.161</td>
+<td style="text-align:center"><strong>更好</strong> ✅</td>
+</tr>
+<tr>
+<td><strong>完整 detector</strong>（高斯+截断）</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.218</td>
+<td style="text-align:center">一般</td>
+</tr>
+</tbody>
+</table>
+<p><strong>矛盾点</strong>：no_截断 的 loss 最低，但视觉上 PSF 与真实数据差异反而更大。</p>
+<h3 id="核心诊断背景噪声底板缺失"><span class="post-title-index">4.3.2. </span><a class="markdownIt-Anchor" href="#核心诊断背景噪声底板缺失"></a> 核心诊断：背景噪声底板缺失</h3>
+<h4 id="真实采集数据的背景特征"><span class="post-title-index">4.3.2.1. </span><a class="markdownIt-Anchor" href="#真实采集数据的背景特征"></a> 真实采集数据的背景特征</h4>
+<p>原始数据文件（<code>.npz</code>）中的 <code>image</code> 在送入网络前，经过 <code>dataset.py</code> 的预处理：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">image = image - image.amin(dim=(-<span class="number">2</span>, -<span class="number">1</span>), keepdim=<span class="literal">True</span>)   <span class="comment"># 逐样本扣最小值</span></span><br><span class="line">image = image / (image.amax(dim=(-<span class="number">2</span>, -<span class="number">1</span>), keepdim=<span class="literal">True</span>)) <span class="comment"># 逐样本除最大值</span></span><br></pre></td></tr></tbody></table></figure>
+<p>预处理后，真实采集图像（<code>focus_real</code> / <code>defocus_real</code>）的像素分布如下：</p>
+<table>
+<thead>
+<tr>
+<th>统计指标</th>
+<th style="text-align:center">focus_real</th>
+<th style="text-align:center">defocus_real</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>严格为 0 的像素数</strong></td>
+<td style="text-align:center">0~2 个（占比 ~0%）</td>
+<td style="text-align:center">0~2 个（占比 ~0%）</td>
+</tr>
+<tr>
+<td><strong>噪声带 (0.001~0.05)</strong></td>
+<td style="text-align:center"><strong>97.1%</strong></td>
+<td style="text-align:center"><strong>97.1%</strong></td>
+</tr>
+<tr>
+<td><strong>中间亮度 (0.05~0.5)</strong></td>
+<td style="text-align:center">2.8%</td>
+<td style="text-align:center">2.8%</td>
+</tr>
+<tr>
+<td><strong>高亮区 (≥0.5)</strong></td>
+<td style="text-align:center">0.1%</td>
+<td style="text-align:center">0.1%</td>
+</tr>
+<tr>
+<td><strong>P1 分位数</strong></td>
+<td style="text-align:center">0.0093</td>
+<td style="text-align:center">0.0106</td>
+</tr>
+<tr>
+<td><strong>P10 分位数</strong></td>
+<td style="text-align:center">0.0149</td>
+<td style="text-align:center">0.0152</td>
+</tr>
+<tr>
+<td><strong>底部 20% 均值</strong></td>
+<td style="text-align:center">0.0150</td>
+<td style="text-align:center">0.0152</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键发现</strong>：</p>
+<ul>
+<li>真实图像预处理后，<strong>几乎所有像素（97%）都分布在一个非零的噪声带内</strong>，形成一层均匀的"灰色噪声底板"</li>
+<li>即使是最暗的 1% 像素，亮度也在 0.009~0.011 之间</li>
+<li>图像中不存在大片严格为 0 的纯黑区域</li>
+</ul>
+<h4 id="仿真数据的背景特征"><span class="post-title-index">4.3.2.2. </span><a class="markdownIt-Anchor" href="#仿真数据的背景特征"></a> 仿真数据的背景特征</h4>
+<p>三个实验的仿真 PSF（<code>focus_train</code> / <code>defocus_train</code>）经过相同的 min-max 归一化后：</p>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th style="text-align:center">focus_train 严格为 0</th>
+<th style="text-align:center">defocus_train 严格为 0</th>
+<th style="text-align:center">噪声带 (0.001~0.05)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>完整 detector</strong></td>
+<td style="text-align:center"><strong>91.7%</strong></td>
+<td style="text-align:center"><strong>92.1%</strong></td>
+<td style="text-align:center">5.4%</td>
+</tr>
+<tr>
+<td><strong>no_截断</strong></td>
+<td style="text-align:center"><strong>94.2%</strong></td>
+<td style="text-align:center"><strong>94.2%</strong></td>
+<td style="text-align:center">3.8%</td>
+</tr>
+<tr>
+<td><strong>no_高斯</strong></td>
+<td style="text-align:center"><strong>91.7%</strong></td>
+<td style="text-align:center"><strong>91.3%</strong></td>
+<td style="text-align:center">6.8%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键发现</strong>：</p>
+<ul>
+<li>仿真图像 <strong>90%+ 像素严格为 0</strong>，背景是纯黑的</li>
+<li>只有约 4~7% 的像素分布在噪声带，这些通常是高斯模糊或截断产生的过渡像素</li>
+</ul>
+<h4 id="背景区角落精细对比"><span class="post-title-index">4.3.2.3. </span><a class="markdownIt-Anchor" href="#背景区角落精细对比"></a> 背景区（角落）精细对比</h4>
+<p>选取图像四个角落各 50×50 区域（远离光斑峰值，视为纯背景）：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align:center">真实 focus_real 角落</th>
+<th style="text-align:center">完整 detector 仿真角落</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>均值</strong></td>
+<td style="text-align:center"><strong>0.0193</strong></td>
+<td style="text-align:center"><strong>0.0000</strong></td>
+</tr>
+<tr>
+<td><strong>标准差</strong></td>
+<td style="text-align:center"><strong>0.0039</strong></td>
+<td style="text-align:center"><strong>0.0000</strong></td>
+</tr>
+<tr>
+<td><strong>最小值</strong></td>
+<td style="text-align:center">0.0000</td>
+<td style="text-align:center">0.0000</td>
+</tr>
+<tr>
+<td><strong>最大值</strong></td>
+<td style="text-align:center">0.0392</td>
+<td style="text-align:center">0.0000</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键发现</strong>：</p>
+<ul>
+<li>真实背景区有<strong>明显的随机波动</strong>（std=0.004），这是读出噪声和热噪声的特征</li>
+<li>仿真背景区<strong>完全平坦</strong>（std=0），没有任何噪声</li>
+</ul>
+<h4 id="误差按区域分解"><span class="post-title-index">4.3.2.4. </span><a class="markdownIt-Anchor" href="#误差按区域分解"></a> 误差按区域分解</h4>
+<p>以 <code>focus</code> 为例，分析 <code>train - real</code> 的差异在不同区域的分布：</p>
+<table>
+<thead>
+<tr>
+<th>区域定义</th>
+<th style="text-align:center">完整 detector MAE</th>
+<th style="text-align:center">no_截断 MAE</th>
+<th style="text-align:center">no_高斯 MAE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>背景区</strong> (real &lt; 0.05)</td>
+<td style="text-align:center">0.0206</td>
+<td style="text-align:center">0.0205</td>
+<td style="text-align:center"><strong>0.0201</strong></td>
+</tr>
+<tr>
+<td><strong>中间区</strong> (0.05 ≤ real &lt; 0.5)</td>
+<td style="text-align:center">0.1150</td>
+<td style="text-align:center">0.1131</td>
+<td style="text-align:center">0.1170</td>
+</tr>
+<tr>
+<td><strong>峰值区</strong> (real ≥ 0.5)</td>
+<td style="text-align:center">0.5475</td>
+<td style="text-align:center">0.5493</td>
+<td style="text-align:center">0.5602</td>
+</tr>
+<tr>
+<td><strong>整体 MAE</strong></td>
+<td style="text-align:center">0.0237</td>
+<td style="text-align:center">0.0235</td>
+<td style="text-align:center"><strong>0.0233</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键发现</strong>：</p>
+<ul>
+<li>三个实验在<strong>背景区的误差方向一致且显著为负</strong>（仿真比真实暗约 0.017~0.018），说明所有实验都存在"背景缺失"问题</li>
+<li>no_高斯 在背景区的 MAE 最小（0.0201），_std 也最小（0.0148），说明其背景最"干净"但也最偏离真实噪声</li>
+<li>空间域误差主要由<strong>峰值区结构差异</strong>主导（MAE <sub>0.55），但背景区的系统性偏差（</sub>0.02）在视觉上非常突出</li>
+</ul>
+<h3 id="根本原因分析"><span class="post-title-index">4.3.3. </span><a class="markdownIt-Anchor" href="#根本原因分析"></a> 根本原因分析</h3>
+<h4 id="为什么-fft_psf_loss-会被骗"><span class="post-title-index">4.3.3.1. </span><a class="markdownIt-Anchor" href="#为什么-fft_psf_loss-会被骗"></a> 为什么 <code>fft_psf_loss</code> 会"被骗"？</h4>
+<p>当前损失函数定义：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fft_psf_loss</span>(<span class="params">sim_psf, real_psf, eps=<span class="number">1e-8</span></span>):</span></span><br><span class="line">    real_fft = fft.fft2(real_psf, dim=(-<span class="number">2</span>, -<span class="number">1</span>))</span><br><span class="line">    sim_fft = fft.fft2(sim_psf, dim=(-<span class="number">2</span>, -<span class="number">1</span>))</span><br><span class="line">    real_mag = torch.log1p(torch.<span class="built_in">abs</span>(real_fft))</span><br><span class="line">    sim_mag = torch.log1p(torch.<span class="built_in">abs</span>(sim_fft))</span><br><span class="line">    <span class="keyword">return</span> F.smooth_l1_loss(sim_mag, sim_mag)</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="实验验证噪声对-fft-loss-的真实影响"><span class="post-title-index">4.3.3.1.1. </span><a class="markdownIt-Anchor" href="#实验验证噪声对-fft-loss-的真实影响"></a> 实验验证：噪声对 FFT loss 的真实影响</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">真实数据类型</th>
+<th style="text-align:center">vs Sim_Clean (清晰)</th>
+<th style="text-align:center">vs Sim_Blur (模糊)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Clean 艾里斑</td>
+<td style="text-align:center"><strong>0.000</strong></td>
+<td style="text-align:center">0.006</td>
+</tr>
+<tr>
+<td style="text-align:center">Clean + <strong>均匀常数背景</strong> (0.015)</td>
+<td style="text-align:center"><strong>0.000</strong></td>
+<td style="text-align:center">0.006</td>
+</tr>
+<tr>
+<td style="text-align:center">Clean + <strong>随机背景噪声</strong> (mean=0.015, std=0.004)</td>
+<td style="text-align:center"><strong>0.377</strong></td>
+<td style="text-align:center">0.383</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键发现</strong>：</p>
+<ol>
+<li><strong>均匀常数背景</strong>经过 min-max 归一化后，对 FFT loss <strong>零影响</strong></li>
+<li><strong>随机波动的背景噪声</strong>（std=0.004）让同一个艾里斑的 FFT loss <strong>暴涨到 0.377</strong></li>
+<li><strong>噪声并没有让"模糊"变得更有优势</strong>——无论目标是否带噪声，清晰 PSF 始终比模糊 PSF 的 loss 低约 0.006</li>
+</ol>
+<h5 id="真正的问题机制噪声不规则频谱信号扭曲"><span class="post-title-index">4.3.3.1.2. </span><a class="markdownIt-Anchor" href="#真正的问题机制噪声不规则频谱信号扭曲"></a> 真正的问题机制：噪声→不规则频谱→信号扭曲</h5>
+<p><strong>第一步：真实频谱被噪声"污染"</strong></p>
+<p>真实数据的频谱 = 信号频谱（艾里斑） + 噪声频谱（宽谱随机波纹）</p>
+<p>随机噪声虽然空间域 std 只有 0.004，但它分布在 400×400 = 16 万个像素上。FFT 后，这些扰动不会消失，而是给<strong>每一个频率分量</strong>都叠加了一个随机偏移。</p>
+<p><strong>第二步：log1p 没有"消除"噪声，而是把它变成了一层"不规则的频谱波纹"</strong></p>
+<blockquote>
+<p>噪声在每个频率上的能量不高（被 16 万像素分摊），log1p 把它压缩成一个<strong>小的随机偏移量</strong>。但这个偏移量分布在<strong>成千上万个频率分量</strong>上，累积起来形成了一个<strong>不规则的频谱基线</strong>。</p>
+</blockquote>
+<p><strong>第三步：<code>SmoothL1Loss</code> 强迫模型扭曲信号去匹配噪声形状</strong></p>
+<p>当真实频谱的某个频率因为噪声而随机偏高时，模型为了降低总 loss（数千个频率分量的累积），只能通过<strong>扭曲信号本身</strong>来在该频率上"制造"类似的能量：</p>
+<ul>
+<li>调整波长（如 no_截断 从 530 nm 推到 <strong>306 nm</strong>，偏离 42%）</li>
+<li>调整 defocus（从 -0.265 推到 <strong>-0.142</strong>）</li>
+<li>加高斯模糊（改变频谱衰减斜率）</li>
+</ul>
+<p><strong>第四步：空间域灾难</strong></p>
+<p>频域上"凑出相似衰减曲线"的代价是：空间域的 PSF 变成了一个<strong>物理上不合理、结构上严重失真</strong>的光斑。艾里环被抹平，光斑尺寸被强行改变，悬浮在纯黑背景上——这就是"loss 降、视觉崩"的根源。</p>
+<blockquote>
+<p><strong>随机背景噪声给真实频谱添加了"无规律的波纹"。FFT loss 强迫模型扭曲信号（波长、离焦、模糊）去贴合这些波纹，从而降低了 loss 数值，但空间域的 PSF 结构被严重破坏。</strong></p>
+</blockquote>
+<h4 id="为什么-no_截断-视觉上更差"><span class="post-title-index">4.3.3.2. </span><a class="markdownIt-Anchor" href="#为什么-no_截断-视觉上更差"></a> 为什么 no_截断 视觉上更差？</h4>
+<p><strong>频域匹配 ≠ 空间域匹配</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th style="text-align:center">no_截断（7 epoch）</th>
+<th style="text-align:center">no_高斯（1 epoch）</th>
+<th style="text-align:center">真实数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FWHM（半高宽）</strong></td>
+<td style="text-align:center"><strong>9 px</strong>（过窄）</td>
+<td style="text-align:center"><strong>24 px</strong>（接近）</td>
+<td style="text-align:center"><strong>19 px</strong></td>
+</tr>
+<tr>
+<td><strong>第一暗环深度</strong></td>
+<td style="text-align:center">0.0496</td>
+<td style="text-align:center">0.0492</td>
+<td style="text-align:center">0.0196</td>
+</tr>
+<tr>
+<td><strong>第一暗环位置</strong></td>
+<td style="text-align:center">25 px</td>
+<td style="text-align:center">14 px</td>
+<td style="text-align:center">32 px</td>
+</tr>
+<tr>
+<td><strong>背景</strong></td>
+<td style="text-align:center">纯黑（0）</td>
+<td style="text-align:center">纯黑（0）</td>
+<td style="text-align:center">灰色底板（~0.02）</td>
+</tr>
+<tr>
+<td><strong>艾里环清晰度</strong></td>
+<td style="text-align:center">被高斯模糊严重抹平</td>
+<td style="text-align:center">较清晰</td>
+<td style="text-align:center">清晰但叠加噪声</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键机制</strong>：</p>
+<ul>
+<li>no_截断 训练 7 epoch 后 loss 从 0.223 降到 <strong>0.136</strong>，主要不是靠高斯模糊（实验证明模糊反而增加 loss），而是靠<strong>物理参数被严重扭曲</strong>：
+<ul>
+<li>波长：530 nm → <strong>306 nm</strong>（偏离 42%，非物理）</li>
+<li>defocus：-0.265 μm → <strong>-0.142 μm</strong></li>
+</ul>
+</li>
+<li>模型通过扭曲物理参数来"拟合"被噪声污染的不规则频谱，在空间域产生了一个<strong>过窄、过平滑、无艾里环结构</strong>的光斑</li>
+<li>真实数据虽然有噪声，但艾里环结构仍然可辨；no_截断 的仿真却把结构完全抹掉了</li>
+<li>no_高斯 虽然只有 1 epoch，但<strong>没有高斯模糊</strong>，且物理参数偏离小（波长仅到 518 nm），保留了艾里环结构，虽然背景仍是 0，但至少"轮廓是对的"</li>
+</ul>
+<h4 id="min-max-归一化如何放大了问题"><span class="post-title-index">4.3.3.3. </span><a class="markdownIt-Anchor" href="#min-max-归一化如何放大了问题"></a> min-max 归一化如何放大了问题？</h4>
+<p>当前数据预处理流程：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">原始图像（有背景噪声）</span><br><span class="line">    ↓ 逐样本减去最小值</span><br><span class="line">最小值被拉到 0，但其他背景像素仍 &gt; 0</span><br><span class="line">    ↓ 逐样本除以最大值</span><br><span class="line">噪声底板被归一化到约 0.01~0.02 的范围</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>问题</strong>：</p>
+<ul>
+<li>真实相机的背景是<strong>系统性的</strong>（暗电流、读出噪声、固定环境光），应该<strong>全局扣除</strong></li>
+<li>逐样本 <code>amin</code> 导致每个样本的背景基准不同，模型难以学到统一的背景</li>
+<li>仿真 PSF 背景严格为 0，min-max 后仍然是 0，与真实数据的非零底板形成强烈视觉反差</li>
+</ul>
+<h3 id="解决方案"><span class="post-title-index">4.3.4. </span><a class="markdownIt-Anchor" href="#解决方案"></a> 解决方案</h3>
+<h4 id="方案一修改数据预处理datasetpy"><span class="post-title-index">4.3.4.1. </span><a class="markdownIt-Anchor" href="#方案一修改数据预处理datasetpy"></a> 方案一：修改数据预处理（<a target="_blank" rel="noopener" href="http://dataset.py">dataset.py</a>）</h4>
+<p><strong>核心思想</strong>：用全局/鲁棒背景估计替代逐样本 <code>amin</code>，让真实数据的背景更接近 0。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> Dataset</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomDataset</span>(<span class="params">Dataset</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, sample_txt, transform=<span class="literal">None</span>, global_bg=<span class="literal">None</span></span>):</span></span><br><span class="line">        self.samples = np.loadtxt(sample_txt, dtype=np.str_)</span><br><span class="line">        self.transform = transform</span><br><span class="line">        self.global_bg = global_bg  <span class="comment"># 若提供全局背景值（原始尺度）</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.samples)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span>(<span class="params">self, idx</span>):</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                data = np.load(self.samples[idx])</span><br><span class="line">                image = data[<span class="string">"image"</span>]  <span class="comment"># shape 假设为 [H, W, C] 或 [C, H, W]</span></span><br><span class="line">                zernike = data[<span class="string">"zernike"</span>]</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> self.transform:</span><br><span class="line">                    image = self.transform(image)</span><br><span class="line"></span><br><span class="line">                <span class="comment"># ========== 背景扣除策略（三选一）==========</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># 策略 A：全局背景扣除（推荐）</span></span><br><span class="line">                <span class="comment"># 预先计算所有样本角落区域的中位数作为全局背景</span></span><br><span class="line">                <span class="keyword">if</span> self.global_bg <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                    image = image - self.global_bg</span><br><span class="line">                    image = F.relu(image)  <span class="comment"># 防止负值</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># 策略 B：逐样本角落中位数扣除（无需预计算）</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    h, w = image.shape[-<span class="number">2</span>], image.shape[-<span class="number">1</span>]</span><br><span class="line">                    corner_size = <span class="built_in">min</span>(h, w) // <span class="number">8</span>  <span class="comment"># 取 1/8 边长作为角落</span></span><br><span class="line">                    corners = torch.cat([</span><br><span class="line">                        image[..., :corner_size, :corner_size].flatten(),</span><br><span class="line">                        image[..., :corner_size, -corner_size:].flatten(),</span><br><span class="line">                        image[..., -corner_size:, :corner_size].flatten(),</span><br><span class="line">                        image[..., -corner_size:, -corner_size:].flatten()</span><br><span class="line">                    ])</span><br><span class="line">                    bg = corners.median()  <span class="comment"># 中位数比最小值更鲁棒</span></span><br><span class="line">                    image = image - bg</span><br><span class="line">                    image = F.relu(image)</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 归一化：只除以最大值（背景已扣除，min 接近 0）</span></span><br><span class="line">                image = image / (image.amax(dim=(-<span class="number">2</span>, -<span class="number">1</span>), keepdim=<span class="literal">True</span>) + <span class="number">1e-8</span>)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> image, zernike</span><br><span class="line">            <span class="keyword">except</span> BaseException <span class="keyword">as</span> e:</span><br><span class="line">                <span class="built_in">print</span>(e)</span><br><span class="line">                <span class="keyword">import</span> time</span><br><span class="line">                time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>为什么用角落中位数？</strong></p>
+<ul>
+<li>光斑通常位于图像中心，四个角落远离光斑，可视为纯背景</li>
+<li>中位数比最小值更鲁棒，不受单个坏点/热像素影响</li>
+<li>全局背景扣除保证了样本间背景基准一致</li>
+</ul>
+<h4 id="方案二给-detector-加背景噪声模拟"><span class="post-title-index">4.3.4.2. </span><a class="markdownIt-Anchor" href="#方案二给-detector-加背景噪声模拟"></a> 方案二：给 Detector 加背景噪声模拟</h4>
+<p>在 <code>generative_M4_model.py</code> 中修改 <code>DetectorResponseLayer</code>，添加可学习的背景偏移和噪声。</p>
+<h4 id="方案三组合损失函数空间域-频域"><span class="post-title-index">4.3.4.3. </span><a class="markdownIt-Anchor" href="#方案三组合损失函数空间域-频域"></a> 方案三：组合损失函数（空间域 + 频域）</h4>
+<p>当前仅用 <code>fft_psf_loss</code>，对背景不敏感。建议增加空间域损失项：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> fft</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">combined_psf_loss</span>(<span class="params">sim_psf, real_psf, alpha=<span class="number">0.5</span>, eps=<span class="number">1e-8</span></span>):</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    组合损失：频域 loss（平移不变）+ 空间域 loss（背景敏感）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        sim_psf:  [B, 2, H, W] 仿真 PSF</span></span><br><span class="line"><span class="string">        real_psf: [B, 2, H, W] 真实 PSF</span></span><br><span class="line"><span class="string">        alpha:    频域 loss 权重（0~1），建议从 0.7 开始调试</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># ===== 频域 loss（保留平移不变性）=====</span></span><br><span class="line">    real_fft = fft.fft2(real_psf, dim=(-<span class="number">2</span>, -<span class="number">1</span>))</span><br><span class="line">    sim_fft = fft.fft2(sim_psf, dim=(-<span class="number">2</span>, -<span class="number">1</span>))</span><br><span class="line">    real_mag = torch.log1p(torch.<span class="built_in">abs</span>(real_fft))</span><br><span class="line">    sim_mag = torch.log1p(torch.<span class="built_in">abs</span>(sim_fft))</span><br><span class="line">    fft_loss = F.smooth_l1_loss(sim_mag, sim_mag)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ===== 空间域 loss（对背景噪声敏感）=====</span></span><br><span class="line">    <span class="comment"># Smooth L1 比 MSE 更鲁棒，对异常值（如过曝像素）不敏感</span></span><br><span class="line">    spatial_loss = F.smooth_l1_loss(sim_psf, real_psf)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ===== 可选：背景区域加权 loss =====</span></span><br><span class="line">    <span class="comment"># 让模型更关注背景区的匹配（防止背景被忽略）</span></span><br><span class="line">    <span class="comment"># 定义背景掩码：真实图像中亮度 &lt; 0.05 的区域</span></span><br><span class="line">    bg_mask = (real_psf &lt; <span class="number">0.05</span>).<span class="built_in">float</span>()</span><br><span class="line">    bg_loss = F.smooth_l1_loss(sim_psf * bg_mask, real_psf * bg_mask)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 组合</span></span><br><span class="line">    total_loss = alpha * fft_loss + (<span class="number">1</span> - alpha) * spatial_loss + <span class="number">0.1</span> * bg_loss</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> total_loss, {</span><br><span class="line">        <span class="string">'fft_loss'</span>: fft_loss.item(),</span><br><span class="line">        <span class="string">'spatial_loss'</span>: spatial_loss.item(),</span><br><span class="line">        <span class="string">'bg_loss'</span>: bg_loss.item()</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>参数调试建议</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th style="text-align:center">alpha</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>初期</td>
+<td style="text-align:center">0.7</td>
+<td>以频域为主，保证整体轮廓正确</td>
+</tr>
+<tr>
+<td>中期</td>
+<td style="text-align:center">0.5</td>
+<td>空间域与频域同等重要</td>
+</tr>
+<tr>
+<td>后期</td>
+<td style="text-align:center">0.3</td>
+<td>以空间域为主，精细化背景匹配</td>
+</tr>
+</tbody>
+</table>
+<h3 id="验证实验"><span class="post-title-index">4.3.5. </span><a class="markdownIt-Anchor" href="#验证实验"></a> 验证实验</h3>
+<h4 id="方案1验证试验中位数背景扣除效果没有重新训练仅测试"><span class="post-title-index">4.3.5.1. </span><a class="markdownIt-Anchor" href="#方案1验证试验中位数背景扣除效果没有重新训练仅测试"></a> 方案1验证试验，中位数背景扣除效果（没有重新训练，仅测试）</h4>
+<blockquote>
+<p>以下为实际测试数据：将修改后的 <code>dataset.py</code>（角落中位数背景扣除）分别应用到三个实验配置中，<strong>不重新训练模型</strong>，直接运行 <code>test_optical_param.py</code> 对比新旧 dataset 的 raw data。</p>
+</blockquote>
+<h5 id="实验设置"><span class="post-title-index">4.3.5.1.1. </span><a class="markdownIt-Anchor" href="#实验设置"></a> 实验设置</h5>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th>训练模型</th>
+<th>Dataset 预处理</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>旧-完整 detector</td>
+<td>旧 checkpoint（1 epoch）</td>
+<td>逐样本 <code>amin</code></td>
+<td>基线</td>
+</tr>
+<tr>
+<td>旧-无截断</td>
+<td>旧 checkpoint（7 epoch）</td>
+<td>逐样本 <code>amin</code></td>
+<td>基线</td>
+</tr>
+<tr>
+<td>旧-无高斯</td>
+<td>旧 checkpoint（1 epoch）</td>
+<td>逐样本 <code>amin</code></td>
+<td>基线</td>
+</tr>
+<tr>
+<td><strong>新-完整 detector</strong></td>
+<td>旧 checkpoint（1 epoch）</td>
+<td><strong>角落中位数扣除</strong></td>
+<td>验证</td>
+</tr>
+<tr>
+<td><strong>新-无截断</strong></td>
+<td>旧 checkpoint（7 epoch）</td>
+<td><strong>角落中位数扣除</strong></td>
+<td>验证</td>
+</tr>
+<tr>
+<td><strong>新-无高斯</strong></td>
+<td>旧 checkpoint（1 epoch）</td>
+<td><strong>角落中位数扣除</strong></td>
+<td>验证</td>
+</tr>
+</tbody>
+</table>
+<h5 id="真实数据背景分布变化"><span class="post-title-index">4.3.5.1.2. </span><a class="markdownIt-Anchor" href="#真实数据背景分布变化"></a> 真实数据背景分布变化</h5>
+<p>旧 dataset（逐样本 <code>amin</code>）：</p>
+<ul>
+<li>底部 10% 像素 = <strong>0.0149</strong></li>
+<li>底部 20% 均值 = <strong>0.0150</strong></li>
+<li>严格为 0 的像素 = <strong>~0%</strong></li>
+<li>角落背景均值 = <strong>0.0093</strong></li>
+</ul>
+<p>新 dataset（角落中位数）：</p>
+<ul>
+<li>P1/P5/P10 = <strong>0.000000</strong></li>
+<li>严格为 0 的像素 = <strong>49.3%</strong></li>
+<li>微弱残余带 (0.001~0.01) = <strong>44.5%</strong></li>
+<li>角落背景均值 = <strong>0.000884</strong>（旧值的 1/10）</li>
+</ul>
+<h5 id="按区域分解的改善来源"><span class="post-title-index">4.3.5.1.3. </span><a class="markdownIt-Anchor" href="#按区域分解的改善来源"></a> 按区域分解的改善来源</h5>
+<table>
+<thead>
+<tr>
+<th>区域</th>
+<th style="text-align:center">旧 MAE</th>
+<th style="text-align:center">新 MAE</th>
+<th style="text-align:center">变化</th>
+<th>解读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>背景区</strong> (real &lt; 0.05)</td>
+<td style="text-align:center">~0.010</td>
+<td style="text-align:center">~0.002</td>
+<td style="text-align:center"><strong>↓ 80%</strong> ✅</td>
+<td>中位数扣除直接消除了背景系统偏差</td>
+</tr>
+<tr>
+<td><strong>中间区</strong> (0.05~0.5)</td>
+<td style="text-align:center">~0.120</td>
+<td style="text-align:center">~0.125</td>
+<td style="text-align:center">基本持平</td>
+<td>中位数扣除不影响信号结构</td>
+</tr>
+<tr>
+<td><strong>峰值区</strong> (real ≥ 0.5)</td>
+<td style="text-align:center">~0.500</td>
+<td style="text-align:center">~0.500</td>
+<td style="text-align:center">基本持平</td>
+<td>峰值结构不受预处理影响</td>
+</tr>
+</tbody>
+</table>
+<h5 id="关键发现"><span class="post-title-index">4.3.5.1.4. </span><a class="markdownIt-Anchor" href="#关键发现"></a> 关键发现</h5>
+<ol>
+<li>
+<p><strong>改善 100% 来自背景区，峰值区不变</strong></p>
+<ul>
+<li>中位数扣除只影响背景，不影响艾里斑结构</li>
+<li>峰值区 MAE 不变是因为模型未重训（旧 checkpoint 的物理参数没变）</li>
+</ul>
+</li>
+<li>
+<p><strong>无高斯在新 dataset 下仍然是最佳配置</strong></p>
+<ul>
+<li>新-无高斯 Focus MAE = 0.00328（三实验中最低）</li>
+<li>再次验证：高斯模糊是不必要的</li>
+</ul>
+</li>
+<li>
+<p><strong>仿真数据背景仍为 0，真实数据仍有微弱残余</strong></p>
+<ul>
+<li>新 dataset 下仿真背景 = 0.000000</li>
+<li>真实背景 = 0.000884，仍有约 44.5% 像素在 0.001~0.01</li>
+<li>这是因为角落中位数可能略低于某些暗区像素，扣除后仍有少量残余</li>
+</ul>
+</li>
+<li>
+<p><strong>如果重新训练模型，峰值区可能也会改善</strong></p>
+<ul>
+<li>旧模型是在"高背景"数据上训练的，参数是为了匹配旧数据优化的</li>
+<li>新数据背景更干净，如果重训，模型可能学到更准确的物理参数</li>
+</ul>
+</li>
+</ol>
+<h4 id="方案1验证试验中位数背景扣除效果重新训练1-epoch"><span class="post-title-index">4.3.5.2. </span><a class="markdownIt-Anchor" href="#方案1验证试验中位数背景扣除效果重新训练1-epoch"></a> 方案1验证试验，中位数背景扣除效果（重新训练1 epoch）</h4>
+<blockquote>
+<p>实验设置：三个配置（完整 detector / 无截断 / 无高斯）均使用新的 <code>dataset.py</code>（角落中位数背景扣除）重新训练 <strong>1 个 epoch</strong>，然后运行测试。</p>
+</blockquote>
+<h5 id="训练日志对比"><span class="post-title-index">4.3.5.2.1. </span><a class="markdownIt-Anchor" href="#训练日志对比"></a> 训练日志对比</h5>
+<p>Epoch 0 Loss</p>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th style="text-align:center">旧 Dataset Train</th>
+<th style="text-align:center">旧 Dataset Test</th>
+<th style="text-align:center">新 Dataset Train</th>
+<th style="text-align:center">新 Dataset Test</th>
+<th style="text-align:center">Train 降幅</th>
+<th style="text-align:center">Test 降幅</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>完整 detector</strong></td>
+<td style="text-align:center">0.2458</td>
+<td style="text-align:center">0.2182</td>
+<td style="text-align:center"><strong>0.2032</strong></td>
+<td style="text-align:center"><strong>0.1785</strong></td>
+<td style="text-align:center"><strong>-17.3%</strong></td>
+<td style="text-align:center"><strong>-18.2%</strong></td>
+</tr>
+<tr>
+<td><strong>无截断</strong></td>
+<td style="text-align:center">0.2512</td>
+<td style="text-align:center">0.2234</td>
+<td style="text-align:center"><strong>0.2083</strong></td>
+<td style="text-align:center"><strong>0.1834</strong></td>
+<td style="text-align:center"><strong>-17.1%</strong></td>
+<td style="text-align:center"><strong>-17.9%</strong></td>
+</tr>
+<tr>
+<td><strong>无高斯</strong></td>
+<td style="text-align:center">0.1712</td>
+<td style="text-align:center">0.1611</td>
+<td style="text-align:center"><strong>0.1415</strong></td>
+<td style="text-align:center"><strong>0.1340</strong></td>
+<td style="text-align:center"><strong>-17.3%</strong></td>
+<td style="text-align:center"><strong>-16.8%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键发现</strong>：</p>
+<ul>
+<li>新 dataset 下，<strong>所有配置的初始 loss 都降低了约 17%</strong>，说明中位数背景扣除显著降低了数据与模型的初始失配</li>
+<li><strong>无高斯仍然是 loss 最低的</strong>（Test=0.1340），且与其他两个配置的差距保持（完整/无截断约 0.18）</li>
+</ul>
+<h5 id="物理参数收敛对比"><span class="post-title-index">4.3.5.2.2. </span><a class="markdownIt-Anchor" href="#物理参数收敛对比"></a> 物理参数收敛对比</h5>
+<p>训练后模型参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">旧-完整</th>
+<th style="text-align:center">新-完整</th>
+<th style="text-align:center">旧-无截断</th>
+<th style="text-align:center">新-无截断</th>
+<th style="text-align:center">旧-无高斯</th>
+<th style="text-align:center">新-无高斯</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>波长 λ</strong></td>
+<td style="text-align:center">464 nm</td>
+<td style="text-align:center"><strong>464 nm</strong></td>
+<td style="text-align:center"><strong>403 nm</strong> ❌</td>
+<td style="text-align:center"><strong>466 nm</strong> ✅</td>
+<td style="text-align:center">518 nm</td>
+<td style="text-align:center"><strong>535 nm</strong> ✅</td>
+</tr>
+<tr>
+<td><strong>defocus</strong></td>
+<td style="text-align:center">-0.184 μm</td>
+<td style="text-align:center">-0.185 μm</td>
+<td style="text-align:center">-0.154 μm</td>
+<td style="text-align:center"><strong>-0.187 μm</strong></td>
+<td style="text-align:center">-0.290 μm</td>
+<td style="text-align:center">-0.301 μm</td>
+</tr>
+<tr>
+<td><strong>focus_defocus</strong></td>
+<td style="text-align:center">-0.009 μm</td>
+<td style="text-align:center">-0.011 μm</td>
+<td style="text-align:center">-0.038 μm</td>
+<td style="text-align:center"><strong>-0.016 μm</strong></td>
+<td style="text-align:center">-0.062 μm</td>
+<td style="text-align:center">-0.066 μm</td>
+</tr>
+<tr>
+<td><strong>detector σ</strong></td>
+<td style="text-align:center">1.13</td>
+<td style="text-align:center">1.13</td>
+<td style="text-align:center">0.60</td>
+<td style="text-align:center"><strong>1.13</strong></td>
+<td style="text-align:center">1.21</td>
+<td style="text-align:center">1.21</td>
+</tr>
+<tr>
+<td><strong>detector saturation</strong></td>
+<td style="text-align:center">0.92</td>
+<td style="text-align:center">0.92</td>
+<td style="text-align:center">1.00</td>
+<td style="text-align:center">1.00</td>
+<td style="text-align:center">1.04</td>
+<td style="text-align:center">1.03</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键发现</strong>：</p>
+<ol>
+<li>
+<p><strong>无高斯的波长最接近真实值</strong>：534.8 nm，仅偏离初始值 530 nm 约 0.9%。</p>
+</li>
+<li>
+<p><strong>无截断的 σ 回归正常</strong>：旧 dataset 下 σ 被迫降到 0.60 来减弱高斯模糊，新 dataset 下回归至 1.13（接近初始 1.2）。</p>
+</li>
+<li>
+<p><strong>defocus 系数趋于一致</strong>：完整/无截断在新 dataset 下 defocus 都收敛到约 -0.186 μm（接近初始 -0.265 μm 的合理范围），而旧无截断是 -0.154 μm。</p>
+</li>
+</ol>
+<h5 id="高斯模糊与波长的耦合理论分析"><span class="post-title-index">4.3.5.2.3. </span><a class="markdownIt-Anchor" href="#高斯模糊与波长的耦合理论分析"></a> 高斯模糊与波长的耦合理论分析</h5>
+<p><strong>耦合机制:</strong></p>
+<p><strong>高斯模糊（卷积）和波长变化在频域上是耦合的，两者可以相互补偿</strong>。</p>
+<p><strong>频域效应对比</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>空间域</th>
+<th>频域效应</th>
+<th style="text-align:center">对高频的影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>波长 λ↓</strong></td>
+<td>艾里斑变小</td>
+<td>频谱展宽</td>
+<td style="text-align:center"><strong>增加</strong></td>
+</tr>
+<tr>
+<td><strong>高斯模糊 σ↑</strong></td>
+<td>光斑展宽</td>
+<td>频谱收缩</td>
+<td style="text-align:center"><strong>减少</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键洞察</strong>：</p>
+<ul>
+<li>波长减小 → 频谱高频能量<strong>增加</strong></li>
+<li>高斯模糊增强 → 频谱高频能量<strong>减少</strong></li>
+<li>两者产生<strong>相反的频域效应</strong></li>
+</ul>
+<p><strong>实验验证：不同 (λ, σ) 组合是否能产生相似频谱?</strong></p>
+<p>以参考 <code>(λ=530nm, σ=0)</code> 为基准，计算各组合的 <code>fft_psf_loss</code>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">(λ, σ)</th>
+<th style="text-align:center">vs 参考的 fft_loss</th>
+<th style="text-align:center">解读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">(530, 0)</td>
+<td style="text-align:center"><strong>0.0000</strong></td>
+<td style="text-align:center">参考</td>
+</tr>
+<tr>
+<td style="text-align:center">(464, 0)</td>
+<td style="text-align:center">0.0108</td>
+<td style="text-align:center">仅改变波长</td>
+</tr>
+<tr>
+<td style="text-align:center">(464, 0.6)</td>
+<td style="text-align:center"><strong>0.0057</strong> ⭐</td>
+<td style="text-align:center"><strong>λ↓ + σ↑ 组合，loss 比单纯 λ↓ 更低</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">(464, 1.2)</td>
+<td style="text-align:center">0.0441</td>
+<td style="text-align:center">λ↓ + σ↑↑，过度补偿</td>
+</tr>
+<tr>
+<td style="text-align:center">(530, 1.2)</td>
+<td style="text-align:center">0.0436</td>
+<td style="text-align:center">仅加高斯模糊</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键发现</strong>：</p>
+<ul>
+<li><code>λ=464nm + σ=0.6</code> 的 loss（0.0057）比 <code>λ=464nm + σ=0</code>（0.0108）<strong>更低</strong></li>
+<li>这说明：<strong>高斯模糊确实可以补偿波长变化带来的频谱差异</strong></li>
+<li>模型可以通过 <code>(λ↓, σ↑)</code> 的组合来逼近目标频谱，而无需学到真正的物理参数</li>
+</ul>
+<p><strong>对 detector 设计的启示</strong></p>
+<blockquote>
+<p><strong>如果高斯模糊和波长是耦合的，同时保留两者会导致参数解空间退化，模型学不到真正的物理参数。</strong></p>
+</blockquote>
+<p><strong>建议</strong>：</p>
+<ol>
+<li><strong>去掉高斯模糊</strong>（已验证无高斯配置在所有指标上最优）</li>
+<li><strong>固定波长</strong>（如果激光波长已知为 530nm，直接锁死 <code>raw_wavelength_m</code> 的梯度）</li>
+<li><strong>如果必须保留高斯模糊</strong>，应同时<strong>限制 λ 的学习范围</strong>（如 500~560nm），防止模型用 λ 来补偿 σ</li>
+</ol>
+<h5 id="psf-空间域匹配度分析"><span class="post-title-index">4.3.5.2.4. </span><a class="markdownIt-Anchor" href="#psf-空间域匹配度分析"></a> PSF 空间域匹配度分析</h5>
+<blockquote>
+<p>⚠️ <strong>重要说明</strong>：以下分析基于逐像素 MAE。由于采集的 PSF 和仿真的 PSF 之间<strong>存在未配准的平移</strong>（峰值偏移平均约 1.3~6.5 像素，最大达 13~33 像素），<strong>峰值区的逐像素 MAE 会被平移误差污染</strong>。</p>
+<p>但以下分析仍然有效：</p>
+<ul>
+<li><strong>整体 MAE</strong>：97% 像素为背景区，背景均匀，平移对整体 MAE 影响极小</li>
+<li><strong>背景区 MAE</strong>：平移几乎不影响均匀背景的统计</li>
+<li><strong>峰值区 MAE</strong>：受平移污染，仅供趋势参考；已补充平移不变度量（NCC）验证</li>
+</ul>
+</blockquote>
+<p><strong>整体 MAE</strong></p>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th style="text-align:center">旧 Focus MAE</th>
+<th style="text-align:center">新 Focus MAE（未重训）</th>
+<th style="text-align:center">新 Focus MAE（重训 1 epoch）</th>
+<th style="text-align:center">vs 旧改善</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>完整 detector</strong></td>
+<td style="text-align:center">0.01169</td>
+<td style="text-align:center">0.00377</td>
+<td style="text-align:center"><strong>0.00377</strong></td>
+<td style="text-align:center"><strong>-67.7%</strong></td>
+</tr>
+<tr>
+<td><strong>无截断</strong></td>
+<td style="text-align:center">0.01171</td>
+<td style="text-align:center">0.00316</td>
+<td style="text-align:center"><strong>0.00378</strong></td>
+<td style="text-align:center"><strong>-67.7%</strong></td>
+</tr>
+<tr>
+<td><strong>无高斯</strong></td>
+<td style="text-align:center">0.01131</td>
+<td style="text-align:center">0.00325</td>
+<td style="text-align:center"><strong>0.00324</strong></td>
+<td style="text-align:center"><strong>-71.3%</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th style="text-align:center">旧 Defocus MAE</th>
+<th style="text-align:center">新 Defocus MAE（重训）</th>
+<th style="text-align:center">vs 旧改善</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>完整 detector</strong></td>
+<td style="text-align:center">0.01434</td>
+<td style="text-align:center"><strong>0.00453</strong></td>
+<td style="text-align:center"><strong>-68.4%</strong></td>
+</tr>
+<tr>
+<td><strong>无截断</strong></td>
+<td style="text-align:center">0.01434</td>
+<td style="text-align:center"><strong>0.00455</strong></td>
+<td style="text-align:center"><strong>-68.3%</strong></td>
+</tr>
+<tr>
+<td><strong>无高斯</strong></td>
+<td style="text-align:center">0.01405</td>
+<td style="text-align:center"><strong>0.00431</strong></td>
+<td style="text-align:center"><strong>-69.3%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键发现</strong>：</p>
+<ul>
+<li><strong>整体 MAE 改善约 70%，几乎全部来自 dataset 预处理</strong>，重训 1 epoch 对空间域 MAE 几乎没有额外贡献</li>
+<li>这是因为 1 epoch 训练主要优化频域 loss，而空间域结构由模型初始化决定</li>
+</ul>
+<p><strong>按区域分解（Focus）</strong></p>
+<table>
+<thead>
+<tr>
+<th>区域</th>
+<th style="text-align:center">旧-完整</th>
+<th style="text-align:center">新-完整（重训）</th>
+<th style="text-align:center">旧-无截断</th>
+<th style="text-align:center">新-无截断（重训）</th>
+<th style="text-align:center">旧-无高斯</th>
+<th style="text-align:center">新-无高斯（重训）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>背景</strong> (&lt;0.05)</td>
+<td style="text-align:center">0.01020</td>
+<td style="text-align:center"><strong>0.00238</strong></td>
+<td style="text-align:center">0.01020</td>
+<td style="text-align:center"><strong>0.00238</strong></td>
+<td style="text-align:center">0.00987</td>
+<td style="text-align:center"><strong>0.00190</strong></td>
+</tr>
+<tr>
+<td><strong>中间</strong> (0.05~0.5)</td>
+<td style="text-align:center">0.1209</td>
+<td style="text-align:center"><strong>0.1267</strong></td>
+<td style="text-align:center">0.1149</td>
+<td style="text-align:center"><strong>0.1256</strong></td>
+<td style="text-align:center">0.1142</td>
+<td style="text-align:center"><strong>0.1202</strong></td>
+</tr>
+<tr>
+<td><strong>峰值</strong> (≥0.5)</td>
+<td style="text-align:center">0.4357</td>
+<td style="text-align:center"><strong>0.4347</strong></td>
+<td style="text-align:center">0.5488</td>
+<td style="text-align:center"><strong>0.4909</strong></td>
+<td style="text-align:center">0.4434</td>
+<td style="text-align:center"><strong>0.4367</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>峰值区 MAE 受平移污染</strong>，以下补充平移不变度量验证。</p>
+</blockquote>
+<p><strong>平移不变验证（NCC 归一化互相关）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th style="text-align:center">NCC (init)</th>
+<th style="text-align:center">NCC (train)</th>
+<th style="text-align:center">训练后改善</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>完整 detector</strong></td>
+<td style="text-align:center">0.4973</td>
+<td style="text-align:center">0.4985</td>
+<td style="text-align:center">+0.0012</td>
+</tr>
+<tr>
+<td><strong>无截断</strong></td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">—</td>
+</tr>
+<tr>
+<td><strong>无高斯</strong></td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>平移不变验证（对齐后 MAE）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th style="text-align:center">对齐前 MAE</th>
+<th style="text-align:center">对齐后 MAE</th>
+<th style="text-align:center">平移导致误差占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>完整 detector</strong></td>
+<td style="text-align:center">0.003830</td>
+<td style="text-align:center"><strong>0.003502</strong></td>
+<td style="text-align:center">~8.6%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键发现</strong>：</p>
+<ol>
+<li>
+<p><strong>背景区 MAE 降低 80%</strong>：这是 dataset 改动的直接效果，与是否重训无关，且不受平移影响</p>
+</li>
+<li>
+<p><strong>峰值区存在平移，但训练后仍有改善趋势</strong>（无截断 Peak MAE 0.549→0.491）</p>
+<ul>
+<li>无截断改善最大：旧 checkpoint 训练 7 epoch 参数扭曲，新 dataset 下重训 1 epoch 后参数回归</li>
+<li>平移不变 NCC 验证：训练后仅改善 0.0012，说明 1 epoch 对结构改善确实有限</li>
+</ul>
+</li>
+<li>
+<p><strong>中间区 MAE 反而略有上升</strong>（旧→新：0.121→0.127）</p>
+<ul>
+<li>真实数据背景被扣得更干净后，中间亮度区域边界更清晰，仿真模型尚未充分调整</li>
+</ul>
+</li>
+</ol>
+<h5 id="fwhm-对比"><span class="post-title-index">4.3.5.2.5. </span><a class="markdownIt-Anchor" href="#fwhm-对比"></a> FWHM 对比</h5>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th style="text-align:center">真实 FWHM</th>
+<th style="text-align:center">仿真 FWHM</th>
+<th style="text-align:center">偏差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>完整 detector</strong></td>
+<td style="text-align:center">19 px</td>
+<td style="text-align:center"><strong>37 px</strong></td>
+<td style="text-align:center"><strong>+95%</strong> ❌</td>
+</tr>
+<tr>
+<td><strong>无截断</strong></td>
+<td style="text-align:center">19 px</td>
+<td style="text-align:center"><strong>39 px</strong></td>
+<td style="text-align:center"><strong>+105%</strong> ❌</td>
+</tr>
+<tr>
+<td><strong>无高斯</strong></td>
+<td style="text-align:center">19 px</td>
+<td style="text-align:center"><strong>22 px</strong></td>
+<td style="text-align:center"><strong>+16%</strong> ✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键发现</strong>：</p>
+<ul>
+<li>无高斯的 FWHM 最接近真实（22 vs 19 px），完整/无截断因高斯模糊严重过宽</li>
+<li>FWHM 基于峰值位置计算，不受平移影响</li>
+</ul>
+<h5 id="能量集中度"><span class="post-title-index">4.3.5.2.6. </span><a class="markdownIt-Anchor" href="#能量集中度"></a> 能量集中度</h5>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th style="text-align:center">真实中心 41×41 能量占比</th>
+<th style="text-align:center">仿真中心 41×41 能量占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>完整 detector</strong></td>
+<td style="text-align:center">48.1%</td>
+<td style="text-align:center"><strong>64.8%</strong></td>
+</tr>
+<tr>
+<td><strong>无截断</strong></td>
+<td style="text-align:center">48.1%</td>
+<td style="text-align:center"><strong>64.7%</strong></td>
+</tr>
+<tr>
+<td><strong>无高斯</strong></td>
+<td style="text-align:center">48.1%</td>
+<td style="text-align:center"><strong>64.4%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键发现</strong>：</p>
+<ul>
+<li>所有仿真 PSF 的能量都过于集中在中心（比真实高约 16 个百分点）</li>
+<li>仿真背景为 0，真实数据扣除后仍有微弱残余背景（corner mean=0.0009），会分散能量</li>
+<li>无高斯的集中度最接近真实（64.4% vs 64.8%）</li>
+</ul>
+<h5 id="m4-精度分析"><span class="post-title-index">4.3.5.2.7. </span><a class="markdownIt-Anchor" href="#m4-精度分析"></a> M4 精度分析</h5>
+<table>
+<thead>
+<tr>
+<th>实验</th>
+<th style="text-align:center">旧 M4 init</th>
+<th style="text-align:center">旧 M4 train</th>
+<th style="text-align:center">新 M4 init</th>
+<th style="text-align:center">新 M4 train</th>
+<th style="text-align:center">Train 改善</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>完整 detector</strong></td>
+<td style="text-align:center">0.7048</td>
+<td style="text-align:center">0.7138</td>
+<td style="text-align:center">0.6797</td>
+<td style="text-align:center"><strong>0.6905</strong></td>
+<td style="text-align:center"><strong>-3.3%</strong></td>
+</tr>
+<tr>
+<td><strong>无截断</strong></td>
+<td style="text-align:center">0.6155</td>
+<td style="text-align:center">0.6518</td>
+<td style="text-align:center">0.6154</td>
+<td style="text-align:center"><strong>0.6290</strong></td>
+<td style="text-align:center"><strong>-3.5%</strong></td>
+</tr>
+<tr>
+<td><strong>无高斯</strong></td>
+<td style="text-align:center">0.7277</td>
+<td style="text-align:center">0.7097</td>
+<td style="text-align:center">0.7043</td>
+<td style="text-align:center"><strong>0.6849</strong></td>
+<td style="text-align:center"><strong>-3.5%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键发现</strong>：</p>
+<ul>
+<li>新 dataset 下 M4 MAE 普遍比旧 dataset 低 <strong>3~4%</strong></li>
+<li><strong>无高斯训练后 M4 MAE = 0.6849，是三实验中最低的</strong></li>
+<li>无高斯是唯一一个训练后 M4 比 init 改善的配置（0.7043 → 0.6849）</li>
+</ul>
+<h5 id="综合结论"><span class="post-title-index">4.3.5.2.8. </span><a class="markdownIt-Anchor" href="#综合结论"></a> 综合结论</h5>
+<p><strong>中位数背景扣除的效果（重训验证）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>训练收敛速度</strong></td>
+<td>Epoch 0 loss 降低 17%，初始匹配更好</td>
+</tr>
+<tr>
+<td><strong>物理参数合理性</strong></td>
+<td>波长不再被扭曲到非物理值（无截断 403→466nm，无高斯 518→535nm）</td>
+</tr>
+<tr>
+<td><strong>PSF 空间匹配</strong></td>
+<td>整体 MAE 降低 70%，背景区降低 80%</td>
+</tr>
+<tr>
+<td><strong>峰值结构</strong></td>
+<td>无截断 Peak MAE 降低 12%（参数回归），无高斯降低 1.6%</td>
+</tr>
+<tr>
+<td><strong>M4 精度</strong></td>
+<td>提升 3~4%，无高斯最优</td>
+</tr>
+</tbody>
+</table>
+<p><strong>三个配置的最终排名（新 dataset + 1 epoch）</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th>配置</th>
+<th>优势</th>
+<th>劣势</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">⭐ 1</td>
+<td><strong>无高斯</strong></td>
+<td>Test loss 最低（0.134），MAE 最低（0.00324），波长最接近 530nm，FWHM 最接近真实，M4 最优</td>
+<td>背景仍为 0，与真实有微弱差距</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>完整 detector</td>
+<td>参数稳定</td>
+<td>FWHM 过宽（37px），loss 比无高斯高 33%</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>无截断</td>
+<td>Peak 区改善最大（重训后）</td>
+<td>FWHM 最宽（39px），高斯模糊 unnecessary</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键认知更新</strong></p>
+<ol>
+<li>
+<p><strong>高斯模糊完全不必要</strong>：无高斯在所有指标上都是最优或接近最优，且没有高斯模糊的副作用（FWHM 失真）。</p>
+</li>
+<li>
+<p><strong>1 epoch 重训对空间域改善有限</strong>：整体 MAE 的 70% 改善来自 dataset 预处理本身，重训 1 epoch 主要改善了频域 loss 和峰值区结构（尤其是无截断）。</p>
+</li>
+<li>
+<p><strong>下一步应继续训练</strong>：当前仅 1 epoch，峰值区和中间区仍有优化空间。建议用新 dataset + 无高斯配置训练 10~20 epoch。</p>
+</li>
+</ol>
+<blockquote>
+<p>你的目标是"仿真 PSF 与真实 PSF 在<strong>空间域</strong>上尽可能一致"，而不仅仅是"频域 loss 最小"。当前 <code>fft_psf_loss</code> 是一个好的<strong>正则化项</strong>（保证平移不变性），但不应是唯一的监督信号。空间域的 <code>SmoothL1Loss</code> 直接惩罚像素级差异，包括背景噪声底板，是达到"视觉一致"的必经之路。</p>
+</blockquote>
+<h2 id="interpolate-模式选择分析"><span class="post-title-index">4.4. </span><a class="markdownIt-Anchor" href="#interpolate-模式选择分析"></a> Interpolate 模式选择分析</h2>
+<p>在 <code>Zernike2PSF_layer</code> 中，仿真生成的 PSF（像素间距约 2.2μm）需要通过 <code>F.interpolate</code> 下采样到真实 CCD 的像素尺度（4.5μm）。下采样方式直接影响仿真 PSF 的空间形态，进而影响物理参数（波长 λ、离焦量 defocus）的学习精度。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">模式</th>
+<th style="text-align:left">数学本质</th>
+<th style="text-align:left">物理意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>bilinear</code></td>
+<td style="text-align:left">双线性插值取点</td>
+<td style="text-align:left">从高密度网格中<strong>插值采样</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>area</code></td>
+<td style="text-align:left">区域像素平均</td>
+<td style="text-align:left"><strong>像素积分</strong>（真实相机行为）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="为什么-area-更物理"><span class="post-title-index">4.4.1. </span><a class="markdownIt-Anchor" href="#为什么-area-更物理"></a> 为什么 <code>area</code> 更物理？</h3>
+<p>真实相机的每个像素是一个 4.5μm × 4.5μm 的物理面积，接收的是该区域内<strong>总光强</strong>：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">像素值 = ∫∫ PSF(x,y) dx dy  （在像素物理面积内）</span><br></pre></td></tr></tbody></table></figure>
+<p>这等价于对理想 PSF 做一个 <strong>box filter（低通滤波）</strong>。<code>mode='area'</code> 在缩小图像时，输出像素 = 输入区域内像素的平均值，正好模拟这一物理过程。</p>
+<p>而 <code>bilinear</code> 只是从高密度采样点中<strong>插值取点</strong>，没有积分效应，旁瓣能量被压缩到亚像素级别，不可见。</p>
+<h3 id="实验对比"><span class="post-title-index">4.4.2. </span><a class="markdownIt-Anchor" href="#实验对比"></a> 实验对比</h3>
+<h4 id="测试条件"><span class="post-title-index">4.4.2.1. </span><a class="markdownIt-Anchor" href="#测试条件"></a> 测试条件</h4>
+<ul>
+<li>数据集：相同的训练/测试划分</li>
+<li>训练目标：<code>fft_psf_loss</code> + <code>0.1 × m4_loss</code></li>
+<li>训练时长：2 epoch</li>
+<li>唯一变量：<code>interpolate</code> 模式（bilinear vs area）</li>
+</ul>
+<h4 id="结果对比"><span class="post-title-index">4.4.2.2. </span><a class="markdownIt-Anchor" href="#结果对比"></a> 结果对比</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">指标</th>
+<th style="text-align:center"><code>bilinear</code> (temp_test_noise)</th>
+<th style="text-align:center"><code>area</code> (temp_test_arae)</th>
+<th style="text-align:center">变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>λ</strong></td>
+<td style="text-align:center">535 nm</td>
+<td style="text-align:center"><strong>522 nm</strong></td>
+<td style="text-align:center"><strong>更接近真实 530nm</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>defocus</strong></td>
+<td style="text-align:center">-0.301 μm</td>
+<td style="text-align:center"><strong>-0.291 μm</strong></td>
+<td style="text-align:center"><strong>更接近真实 -0.265μm</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>训练 loss</strong></td>
+<td style="text-align:center">0.143</td>
+<td style="text-align:center"><strong>0.134</strong></td>
+<td style="text-align:center">相当</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>M4 MAE</strong></td>
+<td style="text-align:center">0.676</td>
+<td style="text-align:center"><strong>0.646</strong></td>
+<td style="text-align:center"><strong>降低 4.4%</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Init Avg Loss</strong></td>
+<td style="text-align:center">0.140</td>
+<td style="text-align:center"><strong>0.117</strong></td>
+<td style="text-align:center"><strong>降低 16%</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="遇到的问题旁瓣仍然不明显"><span class="post-title-index">4.4.2.3. </span><a class="markdownIt-Anchor" href="#遇到的问题旁瓣仍然不明显"></a> 遇到的问题：旁瓣仍然不明显</h4>
+<p>尽管 <code>area</code> 模式改善了能量分布，但视觉上仿真 PSF 的"余光"/旁瓣仍然远不如真实数据明显。</p>
+<p><strong>原因分析：</strong></p>
+<ol>
+<li><strong>下采样比例太大</strong>：scale = 0.49（约 1/2），旁瓣结构被压缩到 1-2 个像素宽</li>
+<li><strong>理想衍射旁瓣本身就极弱</strong>：艾里斑第一亮环强度 ≈ 中心峰值的 <strong>1.75%</strong></li>
+<li><strong>真实相机的"余光"来源复杂</strong>：像素积分 + 光学像差 + 散射光 + 读出噪声底板</li>
 </ol>
 </body></html>
     </div>
