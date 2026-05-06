@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xyecoding.github.io/myBlog/posts/cc8f7915/</loc>
+    
+    <lastmod>2026-05-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xyecoding.github.io/myBlog/posts/be9eb17d/</loc>
     
     <lastmod>2026-05-06</lastmod>
@@ -442,6 +451,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/tags/Matchine-Learning/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -635,6 +651,13 @@
   
   <url>
     <loc>https://xyecoding.github.io/myBlog/categories/%E6%95%B0%E5%AD%A6/%E5%93%B2%E5%AD%A6/%E9%80%BB%E8%BE%91%E5%AD%A6/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xyecoding.github.io/myBlog/categories/Matchine-Learning/</loc>
     <lastmod>2026-05-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
