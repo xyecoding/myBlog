@@ -377,12 +377,39 @@ $$A(k_u,k_v) = \frac{1}{(2\pi)^2} \iint P(u,v) \cdot e^{-i(k_u u + k_v v)} \, du
 
 考虑一个平面波分量 $e^{i(k_u u + k_v v)}$：
 
-- **传播方向**：方向余弦 $\cos\theta_u = \frac{k_u}{k}, \cos\theta_v = \frac{k_v}{k}$，其中 $k=2\pi/\lambda$
+- **传播方向**：波的传播方向由**相位梯度** $\nabla\phi$ 决定。该平面波的完整三维相位为：
+
+  $$\phi(u,v,z) = k_u u + k_v v + k_z z$$
+
+  其中 $k = 2\pi/\lambda$ 为波矢大小，纵向波矢分量满足 $k_u^2 + k_v^2 + k_z^2 = k^2$，即
+
+  $$k_z = \sqrt{k^2 - k_u^2 - k_v^2}$$
+
+  相位梯度为：
+
+  $$\nabla\phi = \left( \frac{\partial\phi}{\partial u}, \frac{\partial\phi}{\partial v}, \frac{\partial\phi}{\partial z} \right) = (k_u, k_v, k_z)$$
+
+  因此光沿波矢 $\mathbf{k}=(k_u, k_v, k_z)$ 方向传播，归一化后的完整传播方向（方向余弦）为：
+
+  $$\hat{\mathbf{s}} = \frac{\mathbf{k}}{k} = \left( \frac{k_u}{k},\ \frac{k_v}{k},\ \frac{k_z}{k} \right) = \left( \frac{k_u}{k},\ \frac{k_v}{k},\ \sqrt{1 - \frac{k_u^2}{k^2} - \frac{k_v^2}{k^2}} \right)$$
+
+  **傍轴近似**下 $k_u, k_v \ll k$，于是 $k_z \approx k$，传播方向近似为 $(k_u/k,\ k_v/k,\ 1)$，即只取前两项近似为 $(k_u/k, k_v/k)$。
+
 - **入射透镜**：该平面波是**平行光束**，与光轴夹角 $\theta \approx \sqrt{\theta_u^2 + \theta_v^2}$（傍轴近似）
 
 <div style="color: red;">
 
-这里 $k_u,k_v$ 的单位是rad/m或$m^{-1}$，$u,v$的单位是m，相位的单位是rad。空间频率为$(k_u/2 \pi, k_v/2 \pi)$
+这里 $k_u,k_v$ 的单位是 rad/m（角空间频率），$u,v$ 的单位是 m，相位的单位是 rad。
+
+空间频率 $(\nu_u, \nu_v) = (k_u/2\pi, k_v/2\pi)$ 的单位是 **cycles/m**（周期每米，即 m⁻¹），二者数值关系为 $\nu_u = k_u / 2\pi$。
+
+**类比时间域**：角波数 $k_u$ 对应角频率 $\omega$（rad/s），空间频率 $\nu_u$ 对应时间频率 $f$（Hz = cycles/s）：
+
+| 时间域 | 空间域 |
+|--------|--------|
+| 周期 $T$ (s) | 波长 $\lambda$ (m) |
+| 时间频率 $f = 1/T$ (cycles/s) | 空间频率 $\nu = 1/\lambda$ (cycles/m) |
+| 角频率 $\omega = 2\pi f$ (rad/s) | **角波数** $k = 2\pi \nu$ (rad/m) |
 
 </div>
 
@@ -394,7 +421,24 @@ $$\boxed{y_f = f \cdot \tan\theta_v \approx f \cdot \frac{k_v}{k}}$$
 $$k_u = \frac{k}{f} x_f = \frac{2\pi}{\lambda f} x_f$$
 $$k_v = \frac{k}{f} y_f = \frac{2\pi}{\lambda f} y_f$$
 
-**关键结论**：每个空间频率 $(k_u/2\pi,k_v/2\pi)$ **唯一对应**焦平面一个位置 $(x_f,y_f)$，映射是线性的。
+**关键结论**：每个平面波分量（由角波数 $(k_u, k_v)$ 或等价的空间频率 $(\nu_u, \nu_v) = (k_u/2\pi, k_v/2\pi)$ 表征）**唯一对应**焦平面一个位置 $(x_f,y_f)$，映射是线性的。
+
+> **注意**：$k_u$ 和 $k_u/2\pi$ 只差一个常数因子，二者与 $(x_f, y_f)$ 都是一一对应的线性映射。但在傅里叶光学和成像分析中，习惯把 $(\nu_u, \nu_v) = (k_u/2\pi, k_v/2\pi)$ 称为**空间频率**（单位 cycles/m），这样能与傅里叶变换、FFT 频率轴的工程习惯保持一致。
+
+由 $k = 2\pi/\lambda$，空间频率与焦平面坐标的对应关系可显式写为：
+
+$$\boxed{x_f = f \cdot \frac{k_u}{k} = \lambda f \cdot \nu_u}$$
+$$\boxed{y_f = f \cdot \frac{k_v}{k} = \lambda f \cdot \nu_v}$$
+
+或反解出空间频率：
+
+$$\nu_u = \frac{x_f}{\lambda f}, \quad \nu_v = \frac{y_f}{\lambda f}$$
+
+<div style="color: red;">
+
+**结论：空间频率 $(\nu_u, \nu_v)$ 一定的平面波，经透镜后的聚焦位置 $(x_f, y_f)$ 仅由波长 $\lambda$ 和焦距 $f$ 决定，与入射光束的口径、振幅分布均无关。**
+
+</div>
 
 ## **焦平面场的合成**
 
