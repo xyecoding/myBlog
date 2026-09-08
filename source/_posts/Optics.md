@@ -14,6 +14,10 @@ password:
 summary:
 ---
 
+# 合成孔径雷达（SAR）介绍
+
+![合成孔径雷达介绍](sar_intro.png)
+
 # 相扫天线和转塔
 
 <iframe src="phase_gradient_physics_demo.html" width="100%" height="800" frameborder="0" style="border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);"></iframe>
